@@ -1,10 +1,10 @@
-# template-repos-ts
+# Dev Protocol Apps
 
-Template repository for using TypeScript
 
-# Usage
 
-Create a repository using this template; just runs following command.
+# Getting started
+
+First, run the following command to install dependencies.
 
 ```bash
 npm i

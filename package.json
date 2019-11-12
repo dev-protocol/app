@@ -1,7 +1,7 @@
 {
-  "name": "template-repos-ts",
-  "version": "1.0.0",
-  "description": "Template repository for using TypeScript",
+  "name": "app",
+  "version": "0.0.1",
+  "description": "Dev Protocol Apps",
   "main": "index.js",
   "scripts": {
     "test": "",
@@ -29,5 +29,13 @@
     "hooks": {
       "pre-commit": "npm run lint"
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-protocol/app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dev-protocol/app/issues"
+  },
+  "homepage": "https://github.com/dev-protocol/app#readme"
 }
