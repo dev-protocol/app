@@ -5,10 +5,11 @@
   "description": "Dev Protocol Apps",
   "main": "index.js",
   "scripts": {
+		"start": "parcel serve public/index.html",
     "test": "",
     "lint": "npm run lint:eslint && npm run lint:format",
     "lint:eslint": "eslint . --ext .ts,.js --fix --ignore-pattern node_modules/",
-    "lint:format": "prettier --write '**/*.{js,json,md,yml}'"
+    "lint:format": "prettier --write '**/*.{html,js,json,md,yml}'"
   },
   "license": "MPL-2.0",
   "dependencies": {
