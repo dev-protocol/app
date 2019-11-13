@@ -22,7 +22,7 @@ test('Content is empty by default', t => {
 	t.is(removeComments(el.innerHTML), '')
 })
 
-test('Handling routing when a click evet', t => {
+test('Will call next route when a click event', t => {
 	render(a({ href: '/test' }), document.body)
 	const el = document.body.querySelector('a') as HTMLAnchorElement
 	t.plan(1)
