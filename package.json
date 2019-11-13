@@ -6,9 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel serve public/index.html",
-    "test": "",
+    "test": "tsc && ava",
     "lint": "npm run lint:eslint && npm run lint:format",
-    "lint:eslint": "eslint . --ext .ts,.js --fix --ignore-pattern node_modules/",
+    "lint:eslint": "eslint . --ext .ts,.js --fix --ignore-pattern node_modules/ --ignore-pattern dist/",
     "lint:format": "prettier --write '**/*.{html,js,json,md,yml}'"
   },
   "license": "MPL-2.0",
@@ -25,16 +25,29 @@
     "@types/dotenv": "^8.2.0",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
+    "ava": "^2.4.0",
+    "browser-env": "^3.3.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-config-xo": "^0.27.2",
     "eslint-config-xo-typescript": "^0.21.0",
     "eslint-plugin-prettier": "^3.1.1",
+    "esm": "^3.2.25",
     "husky": "^3.0.9",
     "parcel": "^2.0.0-alpha.2.1",
     "prettier": "^1.19.1",
+    "puppeteer": "^2.0.0",
     "typescript": "^3.7.2"
+  },
+  "ava": {
+    "files": [
+      "**/*.test.js"
+    ],
+    "require": [
+			"esm",
+      "./dist/test/setup-browser-env.js"
+    ]
   },
   "husky": {
     "hooks": {
