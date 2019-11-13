@@ -1,9 +1,10 @@
 {
 	"compilerOptions": {
 		"target": "es2019",
-		"lib": ["es2019"],
+		"lib": ["dom", "es2019"],
 		"moduleResolution": "node",
 		"module": "commonjs",
 		"strict": true
-	}
+	},
+	"include": ["src/**/*"]
 }
