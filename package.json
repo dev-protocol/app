@@ -5,7 +5,7 @@
   "description": "Dev Protocol Apps",
   "main": "index.js",
   "scripts": {
-		"start": "parcel serve public/index.html",
+    "start": "parcel serve public/index.html",
     "test": "",
     "lint": "npm run lint:eslint && npm run lint:format",
     "lint:eslint": "eslint . --ext .ts,.js --fix --ignore-pattern node_modules/",
@@ -13,6 +13,7 @@
   },
   "license": "MPL-2.0",
   "dependencies": {
+    "@devprotocol/dev-kit-js": "github:dev-protocol/dev-kit-js",
     "lit-html": "^1.1.2",
     "lit-style": "^1.1.2",
     "postcss-preset-env": "^6.7.0",
