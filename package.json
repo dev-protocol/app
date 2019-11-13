@@ -13,8 +13,11 @@
   "license": "MPL-2.0",
   "dependencies": {
     "lit-html": "^1.1.2",
+    "lit-style": "^1.1.2",
+    "postcss-preset-env": "^6.7.0",
     "rxjs": "^6.5.3",
-    "ullr": "^0.12.6"
+    "ullr": "^0.12.6",
+    "web3": "^1.2.2"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
