@@ -1,65 +1,65 @@
 {
-  "name": "app",
-  "private": true,
-  "version": "0.0.1",
-  "description": "Dev Protocol Apps",
-  "main": "index.js",
-  "scripts": {
-    "start": "parcel serve public/index.html",
-    "test": "tsc && ava",
-    "lint": "npm run lint:eslint && npm run lint:format",
-    "lint:eslint": "eslint . --ext .ts,.js --fix --ignore-pattern node_modules/ --ignore-pattern dist/",
-    "lint:format": "prettier --write '**/*.{html,js,json,md,yml}'"
-  },
-  "license": "MPL-2.0",
-  "dependencies": {
-    "@devprotocol/dev-kit-js": "github:dev-protocol/dev-kit-js",
-    "lit-html": "^1.1.2",
-    "lit-style": "^1.1.2",
-    "postcss-preset-env": "^6.7.0",
-    "rxjs": "^6.5.3",
-    "ullr": "^0.12.6",
-    "web3": "^1.2.2"
-  },
-  "devDependencies": {
-    "@types/dotenv": "^8.2.0",
-    "@typescript-eslint/eslint-plugin": "^2.7.0",
-    "@typescript-eslint/parser": "^2.7.0",
-    "ava": "^2.4.0",
-    "browser-env": "^3.3.0",
-    "dotenv": "^8.2.0",
-    "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-config-xo": "^0.27.2",
-    "eslint-config-xo-typescript": "^0.21.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "esm": "^3.2.25",
-    "husky": "^3.0.9",
-    "parcel": "^2.0.0-alpha.2.1",
-    "prettier": "^1.19.1",
-    "puppeteer": "^2.0.0",
-    "typescript": "^3.7.2"
-  },
-  "ava": {
-    "files": [
-      "**/*.test.js"
-    ],
-    "require": [
+	"name": "app",
+	"private": true,
+	"version": "0.0.1",
+	"description": "Dev Protocol Apps",
+	"main": "index.js",
+	"scripts": {
+		"start": "parcel serve public/index.html",
+		"test": "tsc && ava",
+		"lint": "npm run lint:eslint && npm run lint:format",
+		"lint:eslint": "eslint . --ext .ts,.js --fix --ignore-pattern node_modules/ --ignore-pattern dist/",
+		"lint:format": "prettier --write '**/*.{html,js,json,md,yml}'"
+	},
+	"license": "MPL-2.0",
+	"dependencies": {
+		"@devprotocol/dev-kit-js": "github:dev-protocol/dev-kit-js",
+		"lit-html": "^1.1.2",
+		"lit-style": "^1.1.2",
+		"postcss-preset-env": "^6.7.0",
+		"rxjs": "^6.5.3",
+		"ullr": "^0.12.6",
+		"web3": "^1.2.2"
+	},
+	"devDependencies": {
+		"@types/dotenv": "^8.2.0",
+		"@typescript-eslint/eslint-plugin": "^2.7.0",
+		"@typescript-eslint/parser": "^2.7.0",
+		"ava": "^2.4.0",
+		"browser-env": "^3.3.0",
+		"dotenv": "^8.2.0",
+		"eslint": "^6.6.0",
+		"eslint-config-prettier": "^6.5.0",
+		"eslint-config-xo": "^0.27.2",
+		"eslint-config-xo-typescript": "^0.21.0",
+		"eslint-plugin-prettier": "^3.1.1",
+		"esm": "^3.2.25",
+		"husky": "^3.0.9",
+		"parcel": "^2.0.0-alpha.2.1",
+		"prettier": "^1.19.1",
+		"puppeteer": "^2.0.0",
+		"typescript": "^3.7.2"
+	},
+	"ava": {
+		"files": [
+			"**/*.test.js"
+		],
+		"require": [
 			"esm",
-      "./dist/lib/test/setup-browser-env.js"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dev-protocol/app.git"
-  },
-  "bugs": {
-    "url": "https://github.com/dev-protocol/app/issues"
-  },
-  "homepage": "https://github.com/dev-protocol/app#readme"
+			"./dist/lib/test/setup-browser-env.js"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dev-protocol/app.git"
+	},
+	"bugs": {
+		"url": "https://github.com/dev-protocol/app/issues"
+	},
+	"homepage": "https://github.com/dev-protocol/app#readme"
 }
