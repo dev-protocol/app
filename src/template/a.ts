@@ -3,7 +3,7 @@ import { route } from '../store/route'
 
 interface Props {
 	readonly href: string
-	readonly content: TemplateResult | string
+	readonly content?: TemplateResult | string
 }
 
 const handler = (url: string) => (e: Event) => {
@@ -11,7 +11,7 @@ const handler = (url: string) => (e: Event) => {
 	route.next(url)
 }
 
-export const a = ({ href, content }: Props): TemplateResult =>
+export const a = ({ href, content = '' }: Props): TemplateResult =>
 	href.startsWith('//')
 		? html`
 				<a href=${href}>${content}</a>
