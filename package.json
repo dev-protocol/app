@@ -1,5 +1,6 @@
 {
   "name": "app",
+  "private": true,
   "version": "0.0.1",
   "description": "Dev Protocol Apps",
   "main": "index.js",
@@ -9,7 +10,6 @@
     "lint:eslint": "eslint . --ext .ts,.js --fix --ignore-pattern node_modules/",
     "lint:format": "prettier --write '**/*.{js,json,md,yml}'"
   },
-  "author": "",
   "license": "MPL-2.0",
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
