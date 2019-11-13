@@ -46,7 +46,7 @@
     ],
     "require": [
 			"esm",
-      "./dist/test/setup-browser-env.js"
+      "./dist/lib/test/setup-browser-env.js"
     ]
   },
   "husky": {
