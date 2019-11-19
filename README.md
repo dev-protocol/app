@@ -1,5 +1,7 @@
 # Dev Protocol Apps
 
+![CI Status](https://github.com/dev-protocol/app/workflows/Node/badge.svg)
+
 # Getting started
 
 First, run the following command to install dependencies.
