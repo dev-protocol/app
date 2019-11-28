@@ -1,33 +1,35 @@
 import { route } from './store/route'
-import { hasWeb3 } from './store/has-web3'
 import { hasEthereum } from './store/has-ethereum'
-import { filter } from 'rxjs/operators'
+import { filter, first } from 'rxjs/operators'
 import { web3 } from './store/web3'
 import Web3 from 'web3'
-const { history } = window
+import { provider } from 'web3-core'
 
-export const init = (): void => {
-	route.subscribe(x => history.pushState(undefined, '', x))
+type Constructable<T, TP> = new (prop: TP) => T
+interface Props {
+	pushState: History['pushState']
+	web3: Constructable<Web3, provider>
+}
 
-	window.addEventListener('load', () => {
-		if (window.ethereum) {
-			hasEthereum.next(true)
-		} else if (window.web3) {
-			hasWeb3.next(true)
-		}
-	})
+export const init = ({ pushState, web3: Web3js }: Props): void => {
+	route.subscribe(x => pushState(undefined, '', x))
 
-	hasEthereum.pipe(filter(x => x)).subscribe(() => {
-		const ins = new Web3(window.ethereum)
-		window.ethereum
-			.enable()
-			.catch()
-			.then(() => {
-				web3.next(ins)
-			})
-	})
+	if (window.ethereum) {
+		hasEthereum.next(true)
+	}
 
-	hasWeb3
-		.pipe(filter(x => x))
-		.subscribe(() => web3.next(new Web3(window.web3.currentProvider)))
+	hasEthereum
+		.pipe(
+			filter(x => x),
+			first()
+		)
+		.subscribe(() => {
+			const ins = new Web3js(window.ethereum)
+			window.ethereum
+				.enable()
+				.catch()
+				.then(() => {
+					web3.next(ins)
+				})
+		})
 }
