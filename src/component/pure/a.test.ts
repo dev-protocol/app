@@ -2,6 +2,7 @@ import test from 'ava'
 import { a } from './a'
 import { render, html } from 'lit-html'
 import { removeComments } from '../../lib/test/remove-comments'
+const { document } = window
 
 test.beforeEach(() => {
 	document.body.innerHTML = ''

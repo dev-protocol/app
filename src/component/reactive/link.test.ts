@@ -3,6 +3,7 @@ import { render } from 'lit-html'
 import { route } from '../../store/route'
 import { filter } from 'rxjs/operators'
 import { link } from './link'
+const { document } = window
 
 test.beforeEach(() => {
 	document.body.innerHTML = ''
