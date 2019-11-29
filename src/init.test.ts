@@ -23,7 +23,7 @@ test.afterEach(() => {
 test('Subscribe the `route` and rewrite history', t => {
 	t.plan(1)
 	const stub = {
-		history: pushState((_: any, __: string, url: string): void => {
+		pushState: pushState((_: any, __: string, url: string): void => {
 			if (url === '/test') {
 				t.is(url, '/test')
 			}
