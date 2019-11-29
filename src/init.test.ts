@@ -37,8 +37,8 @@ test.serial(
 	async t => {
 		await new Promise(resolve => {
 			window.ethereum = {
-				enable: async () => true
-			}
+				enable: async () => {}
+			} as any
 			hasEthereum.pipe(filter(x => x)).subscribe(() => {
 				resolve()
 			})

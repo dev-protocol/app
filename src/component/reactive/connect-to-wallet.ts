@@ -1,20 +1,23 @@
 import { TemplateResult } from 'lit-html'
 import { button } from '../pure/button'
 import Web3 from 'web3'
-import { provider } from 'web3-core'
+import { HttpProvider } from 'web3-core'
 import { web3 } from '../../store/web3'
 
 type Constructable<T, TP> = new (prop: TP) => T
 interface Props {
 	content?: string
-	web3: Constructable<Web3, provider>
+	web3: Constructable<Web3, HttpProvider>
 	ethereum: any
 }
 
-const handler = (Web3js: Props['web3'], ethereum: any) => async () => {
-	const ins = new Web3js(ethereum)
+const handler = (
+	Web3js: Props['web3'],
+	ethereum: Window['ethereum']
+) => async () => {
+	const web3Instance = new Web3js(ethereum)
 	await ethereum.enable().catch()
-	web3.next(ins)
+	web3.next(web3Instance)
 }
 
 export const connectToWallet = ({

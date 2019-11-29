@@ -20,6 +20,18 @@ test('Content is empty by default', t => {
 	t.is(removeComments(el.innerHTML), '')
 })
 
+test('Disabled is false by default', t => {
+	render(button({}), document.body)
+	const el = document.body.querySelector('button') as HTMLButtonElement
+	t.is(el.hasAttribute('disabled'), false)
+})
+
+test('Disabled attribute is added when passed disabled option', t => {
+	render(button({ disabled: true }), document.body)
+	const el = document.body.querySelector('button') as HTMLButtonElement
+	t.is(el.hasAttribute('disabled'), true)
+})
+
 test('Handling a click event', t => {
 	render(button({ onClick: () => t.pass() }), document.body)
 	const el = document.body.querySelector('button') as HTMLButtonElement

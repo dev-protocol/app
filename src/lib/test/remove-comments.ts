@@ -1,2 +1,2 @@
 export const removeComments = (c: string): string =>
-	c.replace(/<!--((?!-->)[\w\W])*-->/g, '')
+	c.replace(/<!--((?!-->)[\w\W])*-->/g, '').trim()
