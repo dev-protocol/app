@@ -1,4 +1,4 @@
-import { component } from 'ullr/directive'
+import { component } from '@aggre/ullr/directive'
 import { TemplateResult, html } from 'lit-html'
 import { ViewTemplate } from '../../d/app'
 import { style } from '../../lib/style'

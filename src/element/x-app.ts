@@ -1,4 +1,4 @@
-import { customElements } from 'ullr'
+import { customElements } from '@aggre/ullr'
 import { html } from 'lit-html'
 import { style } from '../lib/style'
 import { connectButton } from '../component/context/connect-button'

@@ -13,13 +13,13 @@
 	},
 	"license": "MPL-2.0",
 	"dependencies": {
+		"@aggre/ullr": "^0.12.8",
 		"@devprotocol/dev-kit-js": "github:dev-protocol/dev-kit-js",
 		"cssnano": "^4.1.10",
 		"lit-html": "^1.1.2",
 		"lit-style": "^1.1.2",
 		"postcss-preset-env": "^6.7.0",
 		"rxjs": "^6.5.3",
-		"ullr": "^0.12.6",
 		"web3": "^1.2.4"
 	},
 	"devDependencies": {
