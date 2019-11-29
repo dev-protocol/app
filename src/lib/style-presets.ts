@@ -9,6 +9,7 @@ export const button = `
 export const buttonWithNoBorder = `
 	button {
 		border: 0;
+		outline: 0;
 	}
 `
 export const buttonWithPadding = (
