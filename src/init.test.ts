@@ -3,8 +3,6 @@ import { init } from './init'
 import { route } from './store/route'
 import { hasEthereum } from './store/has-ethereum'
 import { filter } from 'rxjs/operators'
-import Web3 from 'web3'
-import { web3 } from './store/web3'
 
 const pushState = (cb?: (_: any, __: string, url: string) => void) => (
 	_: any,
@@ -30,7 +28,7 @@ test('Subscribe the `route` and rewrite history', t => {
 		})
 	}
 
-	init({ history: stub as any, web3: Web3 })
+	init({ history: stub as any })
 	route.next('/test')
 })
 
@@ -47,60 +45,7 @@ test.serial(
 			init({
 				history: {
 					pushState: pushState()
-				} as any,
-				web3: Web3
-			})
-		})
-		t.pass()
-	}
-)
-
-test.serial('Subscribe the `hasEthereum` and enabling ethereum', async t => {
-	await new Promise(resolve => {
-		window.ethereum = {
-			enable: async () => {
-				resolve()
-			}
-		}
-		init({
-			history: {
-				pushState: pushState()
-			} as any,
-			web3: Web3
-		})
-	})
-	t.pass()
-})
-
-test.serial(
-	'Enabled ethereum, then emit web3 instance with `web3`',
-	async t => {
-		await new Promise(resolve => {
-			window.ethereum = {
-				enable: async () => true,
-				dummy: () => {
-					resolve()
-				}
-			}
-			type Dummy = {
-				dummy: () => void
-			}
-			class Stub {
-				public dummy: () => void
-				constructor(provider: Dummy) {
-					t.log(provider)
-					this.dummy = provider.dummy
-				}
-			}
-
-			web3.pipe(filter(x => 'dummy' in x)).subscribe(ins => {
-				;(ins as any).dummy()
-			})
-			init({
-				history: {
-					pushState: pushState()
-				} as any,
-				web3: Stub as any
+				} as any
 			})
 		})
 		t.pass()

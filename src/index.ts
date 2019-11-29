@@ -1,8 +1,7 @@
 import { xApp } from './element/x-app'
 import { init } from './init'
-import web3 from 'web3'
 const { history } = window
 
-init({ history, web3 })
+init({ history })
 
 window.customElements.define('x-app', xApp)
