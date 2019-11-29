@@ -1,6 +1,6 @@
 import test from 'ava'
 import { render, html } from 'lit-html'
-import { removeComments } from '../../lib/test/remove-comments'
+import { removeExtraString } from '../../lib/test/remove-extra-string'
 import { button } from './button'
 const { document } = window
 
@@ -11,13 +11,13 @@ test.beforeEach(() => {
 test('Returns template for <button> element', t => {
 	render(button({ content: 'Test' }), document.body)
 	const el = document.body.querySelector('button') as HTMLButtonElement
-	t.is(removeComments(el.innerHTML), 'Test')
+	t.is(removeExtraString(el.innerHTML), 'Test')
 })
 
 test('Content is empty by default', t => {
 	render(button({}), document.body)
 	const el = document.body.querySelector('button') as HTMLButtonElement
-	t.is(removeComments(el.innerHTML), '')
+	t.is(removeExtraString(el.innerHTML), '')
 })
 
 test('Disabled is false by default', t => {

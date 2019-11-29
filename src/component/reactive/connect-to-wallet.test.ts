@@ -4,7 +4,7 @@ import { filter } from 'rxjs/operators'
 import { web3 } from '../../store/web3'
 import { connectToWallet } from './connect-to-wallet'
 import Web3 from 'web3'
-import { removeComments } from '../../lib/test/remove-comments'
+import { removeExtraString } from '../../lib/test/remove-extra-string'
 const { document } = window
 
 test.beforeEach(() => {
@@ -50,7 +50,7 @@ test('Content is "connect to wallet" by default', t => {
 		document.body
 	)
 	const el = document.body.querySelector('button') as HTMLButtonElement
-	t.is(removeComments(el.innerHTML), 'connect to wallet')
+	t.is(removeExtraString(el.innerHTML), 'connect to wallet')
 })
 
 test('Set content when content is passed', t => {
@@ -63,5 +63,5 @@ test('Set content when content is passed', t => {
 		document.body
 	)
 	const el = document.body.querySelector('button') as HTMLButtonElement
-	t.is(removeComments(el.innerHTML), 'Test')
+	t.is(removeExtraString(el.innerHTML), 'Test')
 })
