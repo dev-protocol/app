@@ -22,13 +22,15 @@ test.afterEach(() => {
 
 test('Subscribe the `route` and rewrite history', t => {
 	t.plan(1)
-	const stub = pushState((_: any, __: string, url: string): void => {
-		if (url === '/test') {
-			t.is(url, '/test')
-		}
-	})
+	const stub = {
+		history: pushState((_: any, __: string, url: string): void => {
+			if (url === '/test') {
+				t.is(url, '/test')
+			}
+		})
+	}
 
-	init({ pushState: stub, web3: Web3 })
+	init({ history: stub as any, web3: Web3 })
 	route.next('/test')
 })
 
@@ -42,7 +44,12 @@ test.serial(
 			hasEthereum.pipe(filter(x => x)).subscribe(() => {
 				resolve()
 			})
-			init({ pushState: pushState() as any, web3: Web3 })
+			init({
+				history: {
+					pushState: pushState()
+				} as any,
+				web3: Web3
+			})
 		})
 		t.pass()
 	}
@@ -55,7 +62,12 @@ test.serial('Subscribe the `hasEthereum` and enabling ethereum', async t => {
 				resolve()
 			}
 		}
-		init({ pushState: pushState() as any, web3: Web3 })
+		init({
+			history: {
+				pushState: pushState()
+			} as any,
+			web3: Web3
+		})
 	})
 	t.pass()
 })
@@ -84,7 +96,12 @@ test.serial(
 			web3.pipe(filter(x => 'dummy' in x)).subscribe(ins => {
 				;(ins as any).dummy()
 			})
-			init({ pushState: pushState() as any, web3: Stub as any })
+			init({
+				history: {
+					pushState: pushState()
+				} as any,
+				web3: Stub as any
+			})
 		})
 		t.pass()
 	}
