@@ -26,3 +26,9 @@ test('No handling a click event when the href starts with //', t => {
 	render(link({ href: '/test' }), document.body)
 	el.click()
 })
+
+test('Passing the classname option', t => {
+	render(link({ href: '/test', class: 'test' }), document.body)
+	const el = document.body.querySelector('a') as HTMLAnchorElement
+	t.is(el.className, 'test')
+})

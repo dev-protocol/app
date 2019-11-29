@@ -7,7 +7,7 @@ const handler = (url: string) => (e: Event) => {
 	route.next(url)
 }
 
-export const link = ({ href, content }: Props): TemplateResult =>
+export const link = ({ href, content, class: cls }: Props): TemplateResult =>
 	href.startsWith('//')
-		? a({ href, content })
-		: a({ href, content, onClick: handler(href) })
+		? a({ href, content, class: cls })
+		: a({ href, content, class: cls, onClick: handler(href) })

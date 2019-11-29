@@ -9,9 +9,10 @@ test.beforeEach(() => {
 })
 
 test('Returns template for <a> element', t => {
-	render(a({ href: '/test', content: 'Test' }), document.body)
+	render(a({ href: '/test', content: 'Test', class: 'test' }), document.body)
 	const el = document.body.querySelector('a') as HTMLAnchorElement
 	t.is(el.getAttribute('href'), '/test')
+	t.is(el.className, 'test')
 	t.is(removeExtraString(el.innerHTML), 'Test')
 })
 
@@ -19,6 +20,12 @@ test('Content is empty by default', t => {
 	render(a({ href: '/test' }), document.body)
 	const el = document.body.querySelector('a') as HTMLAnchorElement
 	t.is(removeExtraString(el.innerHTML), '')
+})
+
+test('Classname is empty by default', t => {
+	render(a({ href: '/test' }), document.body)
+	const el = document.body.querySelector('a') as HTMLAnchorElement
+	t.is(el.className, '')
 })
 
 test('Handling a click event', t => {
