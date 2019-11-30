@@ -1,5 +1,6 @@
 import { BehaviorSubject } from 'rxjs'
 import { HttpProvider } from 'web3-core'
+import Web3 from 'web3'
 
 interface Ethereum extends HttpProvider {
 	enable: () => Promise<void>
@@ -10,6 +11,7 @@ interface Ethereum extends HttpProvider {
 declare global {
 	interface Window {
 		ethereum: Ethereum
+		Web3: new (prop?: Ethereum) => Web3
 	}
 }
 

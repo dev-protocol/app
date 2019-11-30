@@ -1,13 +1,10 @@
 import { TemplateResult } from 'lit-html'
 import { button } from '../pure/button'
-import Web3 from 'web3'
-import { HttpProvider } from 'web3-core'
 import { web3 } from '../../store/web3'
 
-type Constructable<T, TP> = new (prop: TP) => T
 interface Props {
 	content?: string
-	web3: Constructable<Web3, HttpProvider>
+	web3: Window['Web3']
 	ethereum: any
 }
 

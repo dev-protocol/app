@@ -4,9 +4,9 @@ import { subscribe } from '@aggre/ullr/directive'
 import { hasEthereum } from '../../store/has-ethereum'
 import { button } from '../pure/button'
 import { connectToWallet } from '../reactive/connect-to-wallet'
-import Web3 from 'web3'
 import { merge } from 'rxjs'
 import { web3 } from '../../store/web3'
+const { Web3 } = window
 
 interface Props {
 	ethereum: Window['ethereum']
