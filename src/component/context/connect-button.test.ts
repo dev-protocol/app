@@ -3,6 +3,7 @@ import { render } from 'lit-html'
 import { template } from './connect-button'
 import { hasEthereum } from '../../store/has-ethereum'
 import { removeExtraString } from '../../lib/test/remove-extra-string'
+import { Eth } from 'web3x/eth'
 const { document } = window
 
 test.beforeEach(() => {
@@ -13,6 +14,7 @@ test('Show disabled button when not found ethereum', t => {
 	hasEthereum.next(false)
 	render(
 		template({
+			lib: Eth,
 			ethereum: {
 				isConnected: () => false
 			} as any
@@ -27,6 +29,7 @@ test('Subscribe `hasEthereum` and `web3`, then show the already connected button
 	hasEthereum.next(true)
 	render(
 		template({
+			lib: Eth,
 			ethereum: {
 				isConnected: () => true
 			} as any
@@ -41,6 +44,7 @@ test('Subscribe `hasEthereum` and `web3`, then show to the connect button when h
 	hasEthereum.next(true)
 	render(
 		template({
+			lib: Eth,
 			ethereum: {
 				isConnected: () => false
 			} as any

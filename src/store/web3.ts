@@ -1,7 +1,7 @@
 import { BehaviorSubject } from 'rxjs'
-import Web3 from 'web3'
-const { Web3: Web3js } = window
+import { Eth } from 'web3x/eth'
+import { EthereumProvider } from 'web3x/providers/ethereum-provider'
 
-const instance: Web3 = new Web3js()
+export type EthereumClass = new (prov: EthereumProvider) => Eth
 
-export const web3 = new BehaviorSubject(instance)
+export const web3 = new BehaviorSubject<EthereumClass | undefined>(undefined)

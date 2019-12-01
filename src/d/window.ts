@@ -1,7 +1,6 @@
-import { HttpProvider } from 'web3-core'
-import Web3 from 'web3'
+import { EthereumProvider } from 'web3x/providers/ethereum-provider'
 
-export interface Ethereum extends HttpProvider {
+export interface Ethereum extends EthereumProvider {
 	enable: () => Promise<void>
 	selectedAddress: string | null
 	isConnected: () => boolean
@@ -10,6 +9,5 @@ export interface Ethereum extends HttpProvider {
 declare global {
 	interface Window {
 		ethereum: Ethereum
-		Web3: new (prop?: Ethereum) => Web3
 	}
 }

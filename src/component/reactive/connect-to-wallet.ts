@@ -1,25 +1,26 @@
 import { TemplateResult } from 'lit-html'
 import { button } from '../pure/button'
-import { web3 } from '../../store/web3'
+import { EthereumClass } from '../../store/web3'
+import { web3Instantiated } from '../../store/web3-instantiated'
 
 interface Props {
 	content?: string
-	web3: Window['Web3']
+	lib: EthereumClass
 	ethereum: any
 }
 
 const handler = (
-	Web3js: Props['web3'],
+	Lib: Props['lib'],
 	ethereum: Window['ethereum']
 ) => async () => {
-	const web3Instance = new Web3js(ethereum)
+	const web3 = new Lib(ethereum)
 	await ethereum.enable().catch()
-	web3.next(web3Instance)
+	web3Instantiated.next(web3)
 }
 
 export const connectToWallet = ({
-	web3: Web3js,
+	lib,
 	ethereum,
 	content = 'connect to wallet'
 }: Props): TemplateResult =>
-	button({ content, onClick: handler(Web3js, ethereum) })
+	button({ content, onClick: handler(lib, ethereum) })
