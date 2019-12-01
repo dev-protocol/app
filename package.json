@@ -19,7 +19,7 @@
 		"lit-html": "^1.1.2",
 		"lit-style": "^1.1.2",
 		"rxjs": "^6.5.3",
-		"web3": "^1.2.4"
+		"web3x": "^4.0.6"
 	},
 	"devDependencies": {
 		"@types/dotenv": "^8.2.0",
