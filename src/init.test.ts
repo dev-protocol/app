@@ -33,8 +33,8 @@ test('Subscribe the `route` and rewrite history', t => {
 	route.next('/test')
 })
 
-test('When includes ethereum in the window, then emit true with `hasEthereum`', async t => {
-	await new Promise(resolve => {
+test('When includes ethereum in the window, then emit true with `hasEthereum`', async t =>
+	new Promise(resolve => {
 		window.ethereum = {
 			enable: async () => {}
 		} as any
@@ -46,18 +46,14 @@ test('When includes ethereum in the window, then emit true with `hasEthereum`', 
 				pushState: pushState()
 			} as any
 		})
-	})
-	t.pass()
-})
+	}).then(() => t.pass()))
 
-test('Dynamic import Eth from `web3x/eth`, then emit Eth with `web3`', async t => {
-	await new Promise(resolve => {
+test('Dynamic import Eth from `web3x/eth`, then emit Eth with `web3`', async t =>
+	new Promise(resolve => {
 		web3.pipe(filter(x => typeof x !== 'undefined')).subscribe(() => resolve())
 		init({
 			history: {
 				pushState: pushState()
 			} as any
 		})
-	})
-	t.pass()
-})
+	}).then(() => t.pass()))

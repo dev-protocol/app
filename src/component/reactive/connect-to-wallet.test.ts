@@ -11,8 +11,8 @@ test.beforeEach(() => {
 	document.body.innerHTML = ''
 })
 
-test('Click to enabling the wallet', async t => {
-	await new Promise(resolve => {
+test('Click to enabling the wallet', async t =>
+	new Promise(resolve => {
 		const ethereum = {
 			enable: async () => true,
 			dummy: () => {
@@ -36,9 +36,7 @@ test('Click to enabling the wallet', async t => {
 		render(connectToWallet({ lib: Stub as any, ethereum }), document.body)
 		const el = document.body.querySelector('button') as HTMLButtonElement
 		el.click()
-	})
-	t.pass()
-})
+	}).then(() => t.pass()))
 
 test('Content is "connect to wallet" by default', t => {
 	render(connectToWallet({ lib: Eth, ethereum: undefined }), document.body)
