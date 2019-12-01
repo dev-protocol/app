@@ -40,6 +40,9 @@
 		"puppeteer": "^2.0.0",
 		"typescript": "^3.7.2"
 	},
+	"browserslist": [
+		"last 2 chrome versions"
+	],
 	"ava": {
 		"files": [
 			"**/*.test.js"
