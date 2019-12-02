@@ -2,7 +2,7 @@ import { route } from './store/route'
 import { hasEthereum } from './store/has-ethereum'
 import { web3 } from './store/web3'
 import { render } from 'lit-html'
-import { head } from './component/reactive/head'
+import { head } from './component/context/head'
 import { contextByRoutes } from './lib/context-by-routes'
 const { document } = window
 

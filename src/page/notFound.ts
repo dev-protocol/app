@@ -2,7 +2,7 @@ import { TemplateResult, html } from 'lit-html'
 import { globalHeader } from '../component/context/global-header'
 import { component } from '@aggre/ullr/directive'
 import { style } from '../lib/style'
-import { link } from '../component/reactive/link'
+import { link } from '../component/context/link'
 import { a } from '../lib/style-presets'
 import { animatedArrow } from '../component/presentational/animated-arrow'
 const { ethereum } = window
