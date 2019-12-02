@@ -6,6 +6,11 @@ const rootStyle = style`
 	:root {
 		${asDeclaration()}
 	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			${asDeclaration('dark')}
+		}
+	}
 	body {
 		background: ${asVar('backgroundColor')}
 		font-size: ${asVar('fontSize')}
