@@ -6,7 +6,16 @@ export type CSSCustomProperties = {
 }
 
 export const properties: CSSCustomProperties = {
-	backgroundColor: ['#fff', '#000'],
+	baseColor: ['#fff', '#000'],
+	primaryColor: ['#e91e63'],
+	primaryVariantColor: ['#ec407a'],
+	secondaryColor: ['#ff9800'],
+	secondaryVariantColor: ['#ffc107'],
+	onPrimaryColor: ['#fff'],
+	onPrimaryVariantColor: ['#fff'],
+	onSecondaryColor: ['#fff'],
+	onSecondaryVariantColor: ['#fff'],
+	fontColor: ['#000', '#fff'],
 	fontSize: ['1rem']
 }
 

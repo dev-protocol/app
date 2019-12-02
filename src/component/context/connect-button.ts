@@ -30,4 +30,4 @@ export const template = ({ ethereum, lib }: Props): TemplateResult => html`
 `
 
 export const connectButton = (props: Props): TemplateResult =>
-	buttonRounded(() => template(props))
+	buttonRounded(() => template(props))('primary')

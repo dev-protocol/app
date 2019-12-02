@@ -12,7 +12,7 @@ const rootStyle = style`
 		}
 	}
 	body {
-		background: ${asVar('backgroundColor')}
+		background: ${asVar('baseColor')}
 		font-size: ${asVar('fontSize')}
 	}
 	`
