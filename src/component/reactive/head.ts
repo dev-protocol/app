@@ -12,8 +12,11 @@ const rootStyle = style`
 		}
 	}
 	body {
+		margin: 0;
 		background: ${asVar('baseColor')}
 		font-size: ${asVar('fontSize')}
+		font-family: ${asVar('fontFamily')}
+		color: ${asVar('fontColor')}
 	}
 	`
 
@@ -22,5 +25,9 @@ export const head = (): TemplateResult => html`
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<title>Document</title>
+	<link
+		href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap"
+		rel="stylesheet"
+	/>
 	${rootStyle}
 `

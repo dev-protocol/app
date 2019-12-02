@@ -28,3 +28,11 @@ export const buttonWithPadding = (
 		}
 	}
 `
+
+export const container = (selector: string): string => `
+	${selector} {
+		max-width: 798px;
+		margin: auto;
+		padding: 1.8rem;
+	}
+`

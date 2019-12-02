@@ -16,7 +16,9 @@ export const properties: CSSCustomProperties = {
 	onSecondaryColor: ['#fff'],
 	onSecondaryVariantColor: ['#fff'],
 	fontColor: ['#000', '#fff'],
-	fontSize: ['1rem']
+	fontSize: ['1rem'],
+	fontFamily: ["'Noto Sans', sans-serif"],
+	containerWidth: ['798px']
 }
 
 export type CSSCustomPropertiesKey<T = typeof properties> = keyof T
