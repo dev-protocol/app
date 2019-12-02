@@ -1,11 +1,4 @@
-type Light = string
-type Dark = string
-
-export type CSSCustomProperties = {
-	[key: string]: [Light, Dark?]
-}
-
-export const properties: CSSCustomProperties = {
+export const properties = {
 	baseColor: ['#fff', '#000'],
 	primaryColor: ['#e91e63'],
 	primaryVariantColor: ['#ec407a'],
@@ -36,7 +29,7 @@ const declaration = (
 	name: CSSCustomPropertiesKey,
 	sceme: PrefersColorScheme = 'light'
 ): string =>
-	`${asString(name)}: ${properties[name][sceme === 'light' ? 0 : 1] as string};`
+	`${asString(name)}: ${properties[name][sceme === 'light' ? 0 : 1]};`
 
 export const asDeclaration = (sceme: PrefersColorScheme = 'light'): string => {
 	const keys = Object.keys(properties)
@@ -51,7 +44,7 @@ export const asDeclaration = (sceme: PrefersColorScheme = 'light'): string => {
 						: useDark
 						? ''
 						: declaration(name as CSSCustomPropertiesKey, 'light')
-				))(properties[name].length > 1),
+				))(properties[name as CSSCustomPropertiesKey].length > 1),
 		keys[0]
 	)
 }

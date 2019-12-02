@@ -1,3 +1,5 @@
+import { asVar } from './style-properties'
+
 interface ButtonWithPaddingProps {
 	size: 'small' | 'medium' | 'large'
 }
@@ -26,6 +28,13 @@ export const buttonWithPadding = (
 				? '0.3rem 0.8rem'
 				: '0.6rem 1.4rem'
 		}
+	}
+`
+
+export const a = `
+	a {
+		color: ${asVar('secondaryColor')}
+		text-decoration: none;
 	}
 `
 

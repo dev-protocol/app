@@ -4,6 +4,9 @@ import { route } from './store/route'
 import { hasEthereum } from './store/has-ethereum'
 import { filter } from 'rxjs/operators'
 import { web3 } from './store/web3'
+import { removeExtraString } from './lib/test/remove-extra-string'
+import { contextByRoutes } from './lib/context-by-routes'
+const { document } = window
 
 const pushState = (cb?: (_: any, __: string, url: string) => void) => (
 	_: any,
@@ -31,6 +34,19 @@ test('Subscribe the `route` and rewrite history', t => {
 
 	init({ history: stub as any })
 	route.next('/test')
+})
+
+test('Subscribe `route` and re-writes <head>', t => {
+	route.next('/')
+	init({
+		history: {
+			pushState: pushState()
+		} as any
+	})
+	const el = document.head.querySelector('title') as HTMLTitleElement
+	t.is(removeExtraString(el.innerHTML), contextByRoutes('/').documentTitle)
+	route.next('/xxx')
+	t.is(removeExtraString(el.innerHTML), contextByRoutes('/xxx').documentTitle)
 })
 
 test('When includes ethereum in the window, then emit true with `hasEthereum`', async t =>

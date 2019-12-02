@@ -1,9 +1,7 @@
 import { TemplateResult, html } from 'lit-html'
 import { style } from '../../lib/style'
 import { asDeclaration, asVar } from '../../lib/style-properties'
-import { subscribe } from '@aggre/ullr/directive'
-import { route } from '../../store/route'
-import { Context, contextByRoutes } from '../../lib/context-by-routes'
+import { Context } from '../../lib/context-by-routes'
 
 const rootStyle = style`
 	:root {
@@ -21,9 +19,12 @@ const rootStyle = style`
 		font-family: ${asVar('fontFamily')}
 		color: ${asVar('fontColor')}
 	}
+	a {
+		color: ${asVar('secondaryColor')}
+	}
 	`
 
-const template = (context: Context): TemplateResult => html`
+export const head = (context: Context): TemplateResult => html`
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -33,8 +34,4 @@ const template = (context: Context): TemplateResult => html`
 		rel="stylesheet"
 	/>
 	${rootStyle}
-`
-
-export const head = (): TemplateResult => html`
-	${subscribe(route, x => template(contextByRoutes(x)))}
 `

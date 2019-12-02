@@ -3,6 +3,7 @@ import { hasEthereum } from './store/has-ethereum'
 import { web3 } from './store/web3'
 import { render } from 'lit-html'
 import { head } from './component/reactive/head'
+import { contextByRoutes } from './lib/context-by-routes'
 const { document } = window
 
 interface Props {
@@ -10,8 +11,11 @@ interface Props {
 }
 
 export const init = async ({ history }: Props): Promise<void> => {
-	render(head(), document.head)
 	route.subscribe(x => history.pushState(undefined, '', x))
+
+	route.subscribe(x => {
+		render(head(contextByRoutes(x)), document.head)
+	})
 
 	if (window.ethereum) {
 		hasEthereum.next(true)

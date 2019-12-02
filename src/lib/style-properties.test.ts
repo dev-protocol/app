@@ -1,5 +1,11 @@
 import test from 'ava'
-import { properties, asString, asVar, asDeclaration } from './style-properties'
+import {
+	properties,
+	asString,
+	asVar,
+	asDeclaration,
+	CSSCustomPropertiesKey
+} from './style-properties'
 
 test('`asString` returns string as a format of CSS custom properties key', t => {
 	const regex = /^--([a-z]|-)+$/
@@ -28,33 +34,39 @@ test('`asDeclaration` returns string as a format of declaring CSS custom propert
 
 test('`asDeclaration` returns string as a format of declaring CSS custom properties for the dark theme when `dark` is passed', t => {
 	const hasDarkKeys = Object.keys(properties).filter(
-		x => properties[x].length > 1
+		x => properties[x as CSSCustomPropertiesKey].length > 1
 	)
 	asDeclaration('dark')
 		.split(';')
 		.filter(x => /\w/.test(x))
 		.map(x => x.replace(/^.*:(.*)/, '$1').trim())
-		.map((x, i) => t.is(properties[hasDarkKeys[i]][1], x as any))
+		.map((x, i) =>
+			t.is(properties[hasDarkKeys[i] as CSSCustomPropertiesKey][1], x as any)
+		)
 })
 
 test('`asDeclaration` returns string as a format of declaring CSS custom properties for the light theme when `light` is passed', t => {
 	const hasLightKeys = Object.keys(properties).filter(
-		x => properties[x].length > 0
+		x => properties[x as CSSCustomPropertiesKey].length > 0
 	)
 	asDeclaration('light')
 		.split(';')
 		.filter(x => /\w/.test(x))
 		.map(x => x.replace(/^.*:(.*)/, '$1').trim())
-		.map((x, i) => t.is(properties[hasLightKeys[i]][0], x as any))
+		.map((x, i) =>
+			t.is(properties[hasLightKeys[i] as CSSCustomPropertiesKey][0], x as any)
+		)
 })
 
 test('`asDeclaration` returns string as a format of declaring CSS custom properties for the light theme by default', t => {
 	const hasLightKeys = Object.keys(properties).filter(
-		x => properties[x].length > 0
+		x => properties[x as CSSCustomPropertiesKey].length > 0
 	)
 	asDeclaration()
 		.split(';')
 		.filter(x => /\w/.test(x))
 		.map(x => x.replace(/^.*:(.*)/, '$1').trim())
-		.map((x, i) => t.is(properties[hasLightKeys[i]][0], x as any))
+		.map((x, i) =>
+			t.is(properties[hasLightKeys[i] as CSSCustomPropertiesKey][0], x as any)
+		)
 })
