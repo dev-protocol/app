@@ -36,3 +36,25 @@ test('`asDeclaration` returns string as a format of declaring CSS custom propert
 		.map(x => x.replace(/^.*:(.*)/, '$1').trim())
 		.map((x, i) => t.is(properties[hasDarkKeys[i]][1], x as any))
 })
+
+test('`asDeclaration` returns string as a format of declaring CSS custom properties for the light theme when `light` is passed', t => {
+	const hasLightKeys = Object.keys(properties).filter(
+		x => properties[x].length > 0
+	)
+	asDeclaration('light')
+		.split(';')
+		.filter(x => /\w/.test(x))
+		.map(x => x.replace(/^.*:(.*)/, '$1').trim())
+		.map((x, i) => t.is(properties[hasLightKeys[i]][0], x as any))
+})
+
+test('`asDeclaration` returns string as a format of declaring CSS custom properties for the light theme by default', t => {
+	const hasLightKeys = Object.keys(properties).filter(
+		x => properties[x].length > 0
+	)
+	asDeclaration()
+		.split(';')
+		.filter(x => /\w/.test(x))
+		.map(x => x.replace(/^.*:(.*)/, '$1').trim())
+		.map((x, i) => t.is(properties[hasLightKeys[i]][0], x as any))
+})
