@@ -1,4 +1,4 @@
-import { buttonRounded } from '../view/button-rounded'
+import { buttonRounded } from '../presentational/button-rounded'
 import { html, TemplateResult } from 'lit-html'
 import { subscribe } from '@aggre/ullr/directive'
 import { hasEthereum } from '../../store/has-ethereum'
