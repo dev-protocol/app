@@ -1,7 +1,7 @@
 import { html, TemplateResult } from 'lit-html'
-import { globalNav } from '../presentational/global-nav'
+import { globalNav } from '../presentation/global-nav'
 import { connectButton } from './connect-button'
-import { container } from '../presentational/container'
+import { container } from '../presentation/container'
 
 interface Props {
 	ethereum: Window['ethereum']
