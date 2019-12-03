@@ -3,8 +3,8 @@ import { render } from 'lit-html'
 import { template } from './connect-button'
 import { hasEthereum } from '../../store/has-ethereum'
 import { removeExtraString } from '../../lib/test/remove-extra-string'
-import { Eth } from 'web3x/eth'
-import { web3 } from '../../store/web3'
+import { devKit } from '../../store/dev-kit'
+import { contractFactory } from '@dev-protocol/dev-kit-js/esm'
 const { document } = window
 
 test.beforeEach(() => {
@@ -27,7 +27,7 @@ test('Show disabled button when not found ethereum', t => {
 
 test('Show disabled button until fetch ethereum lib', t => {
 	hasEthereum.next(true)
-	web3.next(undefined)
+	devKit.next(undefined)
 	render(
 		template({
 			ethereum: {
@@ -40,9 +40,9 @@ test('Show disabled button until fetch ethereum lib', t => {
 	t.is(el.hasAttribute('disabled'), true)
 })
 
-test('Subscribe `hasEthereum` and `web3`, then show the already connected button when has ethereum and already connected it', t => {
+test('Subscribe `hasEthereum` and `devKit`, then show the already connected button when has ethereum and already connected it', t => {
 	hasEthereum.next(true)
-	web3.next(Eth)
+	devKit.next(contractFactory)
 	render(
 		template({
 			ethereum: {
@@ -55,9 +55,9 @@ test('Subscribe `hasEthereum` and `web3`, then show the already connected button
 	t.is(removeExtraString(el.innerHTML), 'connected')
 })
 
-test('Subscribe `hasEthereum` and `web3`, then show to the connect button when has ethereum and not connected it', t => {
+test('Subscribe `hasEthereum` and `devKit`, then show to the connect button when has ethereum and not connected it', t => {
 	hasEthereum.next(true)
-	web3.next(Eth)
+	devKit.next(contractFactory)
 	render(
 		template({
 			ethereum: {

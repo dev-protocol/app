@@ -1,9 +1,9 @@
 import { route } from './store/route'
 import { hasEthereum } from './store/has-ethereum'
-import { web3 } from './store/web3'
 import { render } from 'lit-html'
 import { head } from './component/context/head'
 import { contextByRoutes } from './lib/context-by-routes'
+import { devKit } from './store/dev-kit'
 const { document } = window
 
 interface Props {
@@ -21,6 +21,6 @@ export const init = async ({ history }: Props): Promise<void> => {
 		hasEthereum.next(true)
 	}
 
-	const { Eth } = await import('web3x/eth')
-	web3.next(Eth)
+	const { contractFactory } = await import('@dev-protocol/dev-kit-js/esm')
+	devKit.next(contractFactory)
 }

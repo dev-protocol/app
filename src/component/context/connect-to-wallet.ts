@@ -1,21 +1,22 @@
 import { TemplateResult } from 'lit-html'
 import { button } from '../pure/button'
-import { EthereumClass } from '../../store/web3'
-import { web3Instantiated } from '../../store/web3-instantiated'
+import { ContractFactory } from '@dev-protocol/dev-kit-js/esm/client'
+import { devKitContract } from '../../store/dev-kit-contract'
+import { provider } from 'web3-core'
 
 interface Props {
 	content?: string
-	lib: EthereumClass
+	lib: ContractFactory
 	ethereum: any
 }
 
 const handler = (
-	Lib: Props['lib'],
+	lib: Props['lib'],
 	ethereum: Window['ethereum']
 ) => async () => {
-	const web3 = new Lib(ethereum)
+	const dev = lib((ethereum as unknown) as provider)
 	await ethereum.enable().catch()
-	web3Instantiated.next(web3)
+	devKitContract.next(dev)
 }
 
 export const connectToWallet = ({

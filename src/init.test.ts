@@ -3,9 +3,9 @@ import { init } from './init'
 import { route } from './store/route'
 import { hasEthereum } from './store/has-ethereum'
 import { filter } from 'rxjs/operators'
-import { web3 } from './store/web3'
 import { removeExtraString } from './lib/test/remove-extra-string'
 import { contextByRoutes } from './lib/context-by-routes'
+import { devKit } from './store/dev-kit'
 const { document } = window
 
 const pushState = (cb?: (_: any, __: string, url: string) => void) => (
@@ -64,9 +64,11 @@ test('When includes ethereum in the window, then emit true with `hasEthereum`', 
 		})
 	}).then(() => t.pass()))
 
-test('Dynamic import Eth from `web3x/eth`, then emit Eth with `web3`', async t =>
+test('Dynamic import Eth from Dev Kit, then emit Eth with `devKit`', async t =>
 	new Promise(resolve => {
-		web3.pipe(filter(x => typeof x !== 'undefined')).subscribe(() => resolve())
+		devKit
+			.pipe(filter(x => typeof x !== 'undefined'))
+			.subscribe(() => resolve())
 		init({
 			history: {
 				pushState: pushState()
