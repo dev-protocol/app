@@ -1,6 +1,6 @@
-import { EthereumProvider } from 'web3x/providers/ethereum-provider'
+import { HttpProvider } from 'web3-core'
 
-export interface Ethereum extends EthereumProvider {
+export interface Ethereum extends HttpProvider {
 	enable: () => Promise<void>
 	selectedAddress: string | null
 	isConnected: () => boolean
