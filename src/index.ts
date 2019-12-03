@@ -1,7 +1,7 @@
 import { xApp } from './element/x-app'
 import { init } from './init'
-const { history } = window
+const { history, ethereum } = window
 
-init({ history })
+init({ history, ethereum })
 
 window.customElements.define('x-app', xApp)
