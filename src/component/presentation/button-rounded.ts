@@ -22,10 +22,10 @@ export const buttonRounded = (
 			${buttonWithNoBorder}
 			${buttonWithPadding({ size: 'medium' })}
 			button {
-				border-radius: 999px;
+				border-radius: 3px;
 				border: 0;
-				background: ${asVar(scehme === 'primary' ? 'primaryColor' : 'secondaryColor')}
-				color: ${asVar(scehme === 'primary' ? 'onPrimaryColor' : 'onSecondaryColor')}
+				background: ${asVar(scehme === 'primary' ? 'primaryColor' : 'secondaryColor')};
+				color: ${asVar(scehme === 'primary' ? 'onPrimaryColor' : 'onSecondaryColor')};
 			}
 		`}
 		${template()}

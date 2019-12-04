@@ -33,7 +33,7 @@ export const buttonWithPadding = (
 
 export const a = `
 	a {
-		color: ${asVar('secondaryColor')}
+		color: ${asVar('secondaryColor')};
 		text-decoration: none;
 	}
 `
@@ -42,6 +42,6 @@ export const container = (selector: string): string => `
 	${selector} {
 		max-width: 798px;
 		margin: auto;
-		padding: 1.8rem;
+		padding: 2.8rem;
 	}
 `

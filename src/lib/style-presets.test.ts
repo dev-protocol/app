@@ -19,7 +19,7 @@ test('container; Returns style for a container block', async t => {
 		.test {
 			max-width: 798px;
 			margin: auto;
-			padding: 1.8rem;
+			padding: 2.8rem;
 		}
 	`
 	t.is(result, expected)

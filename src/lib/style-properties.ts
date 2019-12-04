@@ -1,5 +1,5 @@
 export const properties = {
-	baseColor: ['#fff', '#000'],
+	baseColor: ['#fff', '#3a3a3a'],
 	primaryColor: ['#e91e63'],
 	primaryVariantColor: ['#ec407a'],
 	secondaryColor: ['#ff9800'],
@@ -8,10 +8,15 @@ export const properties = {
 	onPrimaryVariantColor: ['#fff'],
 	onSecondaryColor: ['#fff'],
 	onSecondaryVariantColor: ['#fff'],
+	surfaceColor: ['#000', '#fff'],
+	onSurfaceColor: ['#fff', '#464646'],
+	weakColor: ['#ccc', '#505050'],
+	onSurfaceWeakColor: ['#ccc', '#ccc'],
 	fontColor: ['#000', '#fff'],
 	fontSize: ['1rem'],
 	fontFamily: ["'Noto Sans', sans-serif"],
-	containerWidth: ['798px']
+	containerWidth: ['798px'],
+	borderRadius: ['3px']
 }
 
 export type CSSCustomPropertiesKey<T = typeof properties> = keyof T
@@ -22,7 +27,7 @@ export const asString = (name: CSSCustomPropertiesKey): string =>
 		.toLowerCase()}`
 
 export const asVar = (name: CSSCustomPropertiesKey): string =>
-	`var(${asString(name)});`
+	`var(${asString(name)})`
 
 type PrefersColorScheme = 'light' | 'dark'
 const declaration = (

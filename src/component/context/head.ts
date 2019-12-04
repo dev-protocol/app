@@ -14,13 +14,13 @@ const rootStyle = style`
 	}
 	body {
 		margin: 0;
-		background: ${asVar('baseColor')}
-		font-size: ${asVar('fontSize')}
-		font-family: ${asVar('fontFamily')}
-		color: ${asVar('fontColor')}
+		background: ${asVar('baseColor')};
+		font-size: ${asVar('fontSize')};
+		font-family: ${asVar('fontFamily')};
+		color: ${asVar('fontColor')};
 	}
 	a {
-		color: ${asVar('secondaryColor')}
+		color: ${asVar('secondaryColor')};
 	}
 	`
 

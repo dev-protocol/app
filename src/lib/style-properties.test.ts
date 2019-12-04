@@ -15,9 +15,9 @@ test('`asString` returns string as a format of CSS custom properties key', t => 
 })
 
 test('`asVar` returns string as a format of calling CSS custom properties', t => {
-	const regex = /^var\(--([a-z]|-)+\);$/
+	const regex = /^var\(--([a-z]|-)+\)$/
 	// E.g, following formula, is correct.
-	t.regex('var(--font-color);', regex)
+	t.regex('var(--font-color)', regex)
 	Object.keys(properties).map(key => t.regex(asVar(key as any), regex))
 })
 
