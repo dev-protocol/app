@@ -66,22 +66,6 @@ const list = <T>({ subject, handler }: Props<T>): DirectiveFunction =>
 			`)(x)
 	)
 
-export const template = <T>(props: Props<T>): DirectiveFunction =>
-	(state =>
-		subscribe(
-			state,
-			opened => html`
-				<div role="listbox" ?opened=${opened} @click=${toggle(state)}>
-					<div class="selected">
-						${selected(props.subject)}
-					</div>
-					<div class="list">
-						${list(props)}
-					</div>
-				</div>
-			`
-		))(new BehaviorSubject(false))
-
 export const selectBox = <T>(props: Props<T>): DirectiveFunction =>
 	component(html`
 		${style`
@@ -123,5 +107,18 @@ export const selectBox = <T>(props: Props<T>): DirectiveFunction =>
 				color: ${asVar('onSurfaceColor')};
 			}
 		`}
-		${template(props)}
+		${(state =>
+			subscribe(
+				state,
+				opened => html`
+					<div role="listbox" ?opened=${opened} @click=${toggle(state)}>
+						<div class="selected">
+							${selected(props.subject)}
+						</div>
+						<div class="list">
+							${list(props)}
+						</div>
+					</div>
+				`
+			))(new BehaviorSubject(false))}
 	`)

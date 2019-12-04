@@ -1,6 +1,6 @@
 import test from 'ava'
 import { render, html } from 'lit-html'
-import { template, SelectBoxItemsSubject } from './select-box'
+import { SelectBoxItemsSubject, selectBox } from './select-box'
 import { BehaviorSubject } from 'rxjs'
 import { removeExtraString } from '../../lib/test/remove-extra-string'
 const { document } = window
@@ -29,7 +29,12 @@ const subject = (select = ''): SelectBoxItemsSubject<string> =>
 
 test('Subscribe a BehaviorSubject, and render to the selected-element as a currently selected item', t => {
 	const handler = () => () => {}
-	render(template({ subject: subject('Cake'), handler }), document.body)
+	render(
+		html`
+			${selectBox({ subject: subject('Cake'), handler })}
+		`,
+		document.body
+	)
 	const el = document.body.querySelector(
 		'[role=listbox] [role=option][aria-selected=true]'
 	) as HTMLElement
@@ -39,7 +44,12 @@ test('Subscribe a BehaviorSubject, and render to the selected-element as a curre
 
 test('Subscribe a BehaviorSubject, and request to select when no item selected', t => {
 	const handler = () => () => {}
-	render(template({ subject: subject(), handler }), document.body)
+	render(
+		html`
+			${selectBox({ subject: subject(), handler })}
+		`,
+		document.body
+	)
 	const el = document.body.querySelector(
 		'[role=listbox] .item:not([role=option])'
 	) as HTMLElement
@@ -48,7 +58,12 @@ test('Subscribe a BehaviorSubject, and request to select when no item selected',
 
 test('Subscribe a BehaviorSubject, and render to the listed-element as a no selected item', t => {
 	const handler = () => () => {}
-	render(template({ subject: subject('Cake'), handler }), document.body)
+	render(
+		html`
+			${selectBox({ subject: subject('Cake'), handler })}
+		`,
+		document.body
+	)
 	const el = document.body.querySelector(
 		'[role=listbox] [role=option]:not([aria-selected])'
 	) as HTMLElement
@@ -60,7 +75,12 @@ test('Calling handler function when the items click', t => {
 		t.pass()
 	}
 
-	render(template({ subject: subject(), handler }), document.body)
+	render(
+		html`
+			${selectBox({ subject: subject(), handler })}
+		`,
+		document.body
+	)
 	const el = document.body.querySelector(
 		'[role=listbox] [role=option]:not([aria-selected])'
 	) as HTMLElement
@@ -70,7 +90,12 @@ test('Calling handler function when the items click', t => {
 test('Subscribe a BehaviorSubject, and re-render items.', t => {
 	const handler = () => () => {}
 	const data = subject('Cake')
-	render(template({ subject: data, handler }), document.body)
+	render(
+		html`
+			${selectBox({ subject: data, handler })}
+		`,
+		document.body
+	)
 	const selected = (): HTMLElement =>
 		document.body.querySelector(
 			'[role=listbox] [role=option][aria-selected=true]'
@@ -106,7 +131,12 @@ test('Subscribe a BehaviorSubject, and re-render items.', t => {
 
 test('Toggle the element by the click', t => {
 	const handler = () => () => {}
-	render(template({ subject: subject(), handler }), document.body)
+	render(
+		html`
+			${selectBox({ subject: subject(), handler })}
+		`,
+		document.body
+	)
 	const listbox = document.body.querySelector('[role=listbox]') as HTMLElement
 
 	t.false(listbox.hasAttribute('opened'))

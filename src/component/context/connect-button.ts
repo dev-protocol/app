@@ -1,6 +1,6 @@
 import { buttonRounded } from '../presentation/button-rounded'
 import { html, TemplateResult } from 'lit-html'
-import { subscribe } from '@aggre/ullr/directive'
+import { subscribe, DirectiveFunction } from '@aggre/ullr/directive'
 import { hasEthereum } from '../../store/has-ethereum'
 import { button } from '../pure/button'
 import { connectToWallet } from './connect-to-wallet'
@@ -11,7 +11,7 @@ interface Props {
 	ethereum: Window['ethereum']
 }
 
-export const template = ({ ethereum }: Props): TemplateResult => html`
+const template = ({ ethereum }: Props): TemplateResult => html`
 	${subscribe(merge(hasEthereum, devKit), () =>
 		hasEthereum.value && devKit.value
 			? ethereum.isConnected()
@@ -28,5 +28,5 @@ export const template = ({ ethereum }: Props): TemplateResult => html`
 	)}
 `
 
-export const connectButton = (props: Props): TemplateResult =>
+export const connectButton = (props: Props): DirectiveFunction =>
 	buttonRounded(() => template(props))('primary')

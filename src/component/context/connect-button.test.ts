@@ -1,6 +1,6 @@
 import test from 'ava'
-import { render } from 'lit-html'
-import { template } from './connect-button'
+import { render, html } from 'lit-html'
+import { connectButton } from './connect-button'
 import { hasEthereum } from '../../store/has-ethereum'
 import { removeExtraString } from '../../lib/test/remove-extra-string'
 import { devKit } from '../../store/dev-kit'
@@ -14,11 +14,13 @@ test.beforeEach(() => {
 test('Show disabled button when not found ethereum', t => {
 	hasEthereum.next(false)
 	render(
-		template({
-			ethereum: {
-				isConnected: () => false
-			} as any
-		}),
+		html`
+			${connectButton({
+				ethereum: {
+					isConnected: () => false
+				} as any
+			})}
+		`,
 		document.body
 	)
 	const el = document.querySelector('button') as HTMLButtonElement
@@ -29,11 +31,13 @@ test('Show disabled button until fetch ethereum lib', t => {
 	hasEthereum.next(true)
 	devKit.next(undefined)
 	render(
-		template({
-			ethereum: {
-				isConnected: () => false
-			} as any
-		}),
+		html`
+			${connectButton({
+				ethereum: {
+					isConnected: () => false
+				} as any
+			})}
+		`,
 		document.body
 	)
 	const el = document.querySelector('button') as HTMLButtonElement
@@ -44,11 +48,13 @@ test('Subscribe `hasEthereum` and `devKit`, then show the already connected butt
 	hasEthereum.next(true)
 	devKit.next(contractFactory)
 	render(
-		template({
-			ethereum: {
-				isConnected: () => true
-			} as any
-		}),
+		html`
+			${connectButton({
+				ethereum: {
+					isConnected: () => true
+				} as any
+			})}
+		`,
 		document.body
 	)
 	const el = document.querySelector('button') as HTMLButtonElement
@@ -59,11 +65,13 @@ test('Subscribe `hasEthereum` and `devKit`, then show to the connect button when
 	hasEthereum.next(true)
 	devKit.next(contractFactory)
 	render(
-		template({
-			ethereum: {
-				isConnected: () => false
-			} as any
-		}),
+		html`
+			${connectButton({
+				ethereum: {
+					isConnected: () => false
+				} as any
+			})}
+		`,
 		document.body
 	)
 	const el = document.querySelector('button') as HTMLButtonElement

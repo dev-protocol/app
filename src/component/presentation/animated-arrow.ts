@@ -1,9 +1,9 @@
-import { component } from '@aggre/ullr/directive'
-import { TemplateResult, html } from 'lit-html'
+import { component, DirectiveFunction } from '@aggre/ullr/directive'
+import { html } from 'lit-html'
 import { style } from '../../lib/style'
 
-export const animatedArrow = (): TemplateResult => html`
-	${component(html`
+export const animatedArrow = (): DirectiveFunction =>
+	component(html`
 		${style`
 			span {
 				display: inline-block;
@@ -16,5 +16,4 @@ export const animatedArrow = (): TemplateResult => html`
 			}
 		`}
 		<span>➜</span>
-	`)}
-`
+	`)

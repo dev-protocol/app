@@ -1,5 +1,5 @@
-import { component } from '@aggre/ullr/directive'
-import { TemplateResult, html } from 'lit-html'
+import { component, DirectiveFunction } from '@aggre/ullr/directive'
+import { html } from 'lit-html'
 import { ViewTemplate } from '../../d/app'
 import { style } from '../../lib/style'
 import {
@@ -13,10 +13,10 @@ type Scheme = 'primary' | 'secondary'
 
 export const buttonRounded = (
 	template: ViewTemplate
-): ((scehme: Scheme) => TemplateResult) => (
+): ((scehme: Scheme) => DirectiveFunction) => (
 	scehme: Scheme
-): TemplateResult => html`
-	${component(html`
+): DirectiveFunction =>
+	component(html`
 		${style`
 			${button}
 			${buttonWithNoBorder}
@@ -29,5 +29,4 @@ export const buttonRounded = (
 			}
 		`}
 		${template()}
-	`)}
-`
+	`)

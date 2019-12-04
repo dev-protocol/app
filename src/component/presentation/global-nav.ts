@@ -1,5 +1,5 @@
-import { component } from '@aggre/ullr/directive'
-import { TemplateResult, html } from 'lit-html'
+import { component, DirectiveFunction } from '@aggre/ullr/directive'
+import { html } from 'lit-html'
 import { style } from '../../lib/style'
 import { nav } from '../pure/nav'
 import { ViewTemplate } from '../../d/app'
@@ -7,8 +7,8 @@ import { ViewTemplate } from '../../d/app'
 export const globalNav = (
 	leftSide: ViewTemplate,
 	rightSide: ViewTemplate
-): TemplateResult => html`
-	${component(html`
+): DirectiveFunction =>
+	component(html`
 		${style`
 			nav {
 				display: grid;
@@ -36,5 +36,4 @@ export const globalNav = (
 				</div>
 			`
 		)}
-	`)}
-`
+	`)
