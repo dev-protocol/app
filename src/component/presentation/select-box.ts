@@ -21,13 +21,68 @@ export type SelectBoxItemsSubject<T = {}> = BehaviorSubject<SelectBoxItems<T>>
 
 export type SelectBoxHandler<T> = (item: SelectBoxItem<T>) => (e: Event) => void
 
+export interface Props<T> {
+	subject: SelectBoxItemsSubject<T>
+	handler: SelectBoxHandler<T>
+}
+
 const toggle = (state: BehaviorSubject<boolean>) => (): void =>
 	state.next(!state.value)
 
-export const selectBox = <T>(
-	subject: SelectBoxItemsSubject<T>,
-	handler: SelectBoxHandler<T>
-): DirectiveFunction =>
+const selected = <T>(subject: SelectBoxItemsSubject<T>): DirectiveFunction =>
+	subscribe(subject.pipe(filter(x => x !== undefined)), x =>
+		(item =>
+			item
+				? html`
+						<div role="option" aria-selected="true" class="item">
+							${item.template}
+						</div>
+				  `
+				: html`
+						<div class="item">
+							(select one)
+						</div>
+				  `)(x.find(x => x.selected))
+	)
+
+const list = <T>({ subject, handler }: Props<T>): DirectiveFunction =>
+	subscribe(subject.pipe(filter(x => x !== undefined)), x =>
+		(items =>
+			html`
+				${repeat(
+					items,
+					x =>
+						html`
+							<div
+								role="option"
+								?aria-selected=${x.selected}
+								class="item"
+								@click=${handler(x)}
+							>
+								${x.template}
+							</div>
+						`
+				)}
+			`)(x)
+	)
+
+export const template = <T>(props: Props<T>): DirectiveFunction =>
+	(state =>
+		subscribe(
+			state,
+			opened => html`
+				<div role="listbox" ?opened=${opened} @click=${toggle(state)}>
+					<div class="selected">
+						${selected(props.subject)}
+					</div>
+					<div class="list">
+						${list(props)}
+					</div>
+				</div>
+			`
+		))(new BehaviorSubject(false))
+
+export const selectBox = <T>(props: Props<T>): DirectiveFunction =>
 	component(html`
 		${style`
 			.selected {
@@ -68,37 +123,5 @@ export const selectBox = <T>(
 				color: ${asVar('onSurfaceColor')};
 			}
 		`}
-		${(state =>
-			subscribe(
-				state,
-				opened => html`
-					<div role="listbox" ?opened=${opened} @click=${toggle(state)}>
-						<div class="selected">
-							${subscribe(subject.pipe(filter(x => x !== undefined)), x =>
-								(({ template }) => html`
-									<div role="option" aria-selected="true" class="item">
-										${template}
-									</div>
-								`)(x.find(x => x.selected) ?? x[0])
-							)}
-						</div>
-						<div class="list">
-							${subscribe(subject.pipe(filter(x => x !== undefined)), x =>
-								(items =>
-									html`
-										${repeat(
-											items,
-											x =>
-												html`
-													<div role="option" class="item" @click=${handler(x)}>
-														${x.template}
-													</div>
-												`
-										)}
-									`)(x)
-							)}
-						</div>
-					</div>
-				`
-			))(new BehaviorSubject(false))}
+		${template(props)}
 	`)
