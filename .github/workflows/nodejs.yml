@@ -22,4 +22,3 @@ jobs:
           npm test
         env:
           CI: true
-          NODE_AUTH_TOKEN: ${{ secrets.GPR_TOKEN }}
