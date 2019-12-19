@@ -1,5 +1,5 @@
 export const properties = {
-	baseColor: ['#fff', '#3a3a3a'],
+	baseColor: ['#fff', '#000'],
 	primaryColor: ['#e91e63'],
 	primaryVariantColor: ['#ec407a'],
 	secondaryColor: ['#ff9800'],
@@ -14,7 +14,8 @@ export const properties = {
 	onSurfaceWeakColor: ['#ccc', '#ccc'],
 	fontColor: ['#000', '#fff'],
 	fontSize: ['1rem'],
-	fontFamily: ["'Noto Sans', sans-serif"],
+	fontFamilyHeading: ["'Montserrat', sans-serif"],
+	fontFamilyBody: ["'Nanum Gothic', sans-serif"],
 	containerWidth: ['798px'],
 	borderRadius: ['3px']
 }

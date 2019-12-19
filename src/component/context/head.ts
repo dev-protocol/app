@@ -16,7 +16,7 @@ const rootStyle = style`
 		margin: 0;
 		background: ${asVar('baseColor')};
 		font-size: ${asVar('fontSize')};
-		font-family: ${asVar('fontFamily')};
+		font-family: ${asVar('fontFamilyBody')};
 		color: ${asVar('fontColor')};
 	}
 	a {
@@ -30,7 +30,7 @@ export const head = (context: Context): TemplateResult => html`
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<title>${context.documentTitle}</title>
 	<link
-		href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap"
+		href="https://fonts.googleapis.com/css?family=Montserrat|Nanum+Gothic&display=swap"
 		rel="stylesheet"
 	/>
 	${rootStyle}

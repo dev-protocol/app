@@ -40,8 +40,17 @@ export const a = `
 
 export const container = (selector: string): string => `
 	${selector} {
-		max-width: 798px;
+		display: block;
+		max-width: 76em;
 		margin: auto;
 		padding: 2.8rem;
+		box-sizing: border-box;
+	}
+`
+
+export const heading = (): string => `
+	h1, h2, h3 {
+		font-family: ${asVar('fontFamilyHeading')};
+		font-weight: normal;
 	}
 `

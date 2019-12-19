@@ -17,9 +17,11 @@ test('container; Returns style for a container block', async t => {
 	const result = await processor`${container('.test')}`
 	const expected = await processor`
 		.test {
+			display: block;
 			max-width: 798px;
 			margin: auto;
 			padding: 2.8rem;
+			box-sizing: border-box;
 		}
 	`
 	t.is(result, expected)
