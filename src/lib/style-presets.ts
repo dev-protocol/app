@@ -51,6 +51,6 @@ export const container = (selector: string): string => `
 export const heading = (): string => `
 	h1, h2, h3 {
 		font-family: ${asVar('fontFamilyHeading')};
-		font-weight: normal;
+		font-weight: 500;
 	}
 `

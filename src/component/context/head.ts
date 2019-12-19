@@ -30,7 +30,7 @@ export const head = (context: Context): TemplateResult => html`
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<title>${context.documentTitle}</title>
 	<link
-		href="https://fonts.googleapis.com/css?family=Montserrat|Nanum+Gothic&display=swap"
+		href="https://fonts.googleapis.com/css?family=Montserrat:500|Poppins:500&display=swap"
 		rel="stylesheet"
 	/>
 	${rootStyle}

@@ -11,7 +11,7 @@ export const hero = (): DirectiveFunction =>
 	component(html`
 		${style`
 			header {
-				height: 90vh;
+				height: 100vh;
 			}
 		`}
 		<header>

@@ -13,9 +13,9 @@ export const properties = {
 	weakColor: ['#ccc', '#505050'],
 	onSurfaceWeakColor: ['#ccc', '#ccc'],
 	fontColor: ['#000', '#fff'],
-	fontSize: ['1rem'],
+	fontSize: ['18px'],
 	fontFamilyHeading: ["'Montserrat', sans-serif"],
-	fontFamilyBody: ["'Nanum Gothic', sans-serif"],
+	fontFamilyBody: ["'Poppins', sans-serif"],
 	containerWidth: ['798px'],
 	borderRadius: ['3px']
 }
