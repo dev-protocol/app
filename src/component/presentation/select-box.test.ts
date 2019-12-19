@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import test from 'ava'
 import { render, html } from 'lit-html'
 import { SelectBoxItemsSubject, selectBox } from './select-box'
