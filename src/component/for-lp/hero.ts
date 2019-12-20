@@ -32,28 +32,28 @@ export const hero = (): DirectiveFunction =>
 									align-content: stretch;
 								}
 								h1 {
-									font-size: 2rem;
+									font-size: 2em;
 								}
 								p {
-									font-size: 1.6rem;
+									font-size: 1.6em;
 								}
 								a {
 									display: inline-block;
 									height: 2rem;
-								}
-								a svg {
-									height: 100%;
-									width: auto;
+									& svg {
+										height: 100%;
+										width: auto;
+									}
 								}
 								.content {
 									display: grid;
 								}
 								.desc {
 									max-width: 580px;
-								}
-								.desc h1,
-								.desc p {
-									display: inline;
+									& h1,
+									& p {
+										display: inline;
+									}
 								}
 								.hide {
 									display: none;

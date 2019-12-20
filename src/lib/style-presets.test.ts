@@ -1,5 +1,5 @@
 import test from 'ava'
-import { buttonWithPadding, container } from './style-presets'
+import { buttonWithPadding, container, large } from './style-presets'
 import { processor } from './style'
 
 test('buttonWithPadding; Returns small size preset', async t => {
@@ -18,11 +18,22 @@ test('container; Returns style for a container block', async t => {
 	const expected = await processor`
 		.test {
 			display: block;
-			max-width: 798px;
+			max-width: 76em;
 			margin: auto;
 			padding: 2.8rem;
 			box-sizing: border-box;
 		}
+	`
+	t.is(result, expected)
+})
+
+test('large; Returns styles wrapped with media query for mobile', async t => {
+	const result = await processor`${large(`body {color: red}`)}`
+	const expected = await processor`
+	media only screen
+	and (min-device-width : 414px) {
+		body {color: red}
+	}
 	`
 	t.is(result, expected)
 })

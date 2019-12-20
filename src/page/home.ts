@@ -7,6 +7,8 @@ import { timer } from 'rxjs'
 import { map, repeat } from 'rxjs/operators'
 import { style } from '../lib/style'
 import { asVar } from '../lib/style-properties'
+import { large } from '../lib/style-presets'
+import { milestones } from '../component/for-lp/milestones'
 
 const assets = ['oss', 'game', 'art', 'music', 'photo']
 const assetsObs = timer(0, 1300).pipe(
@@ -85,12 +87,55 @@ export const home = (): TemplateResult => html`
 								p {
 									max-width: 500px;
 								}
+								.col {
+									display: grid;
+									grid-gap: 3rem;
+									${large(`
+										grid-auto-flow: column;
+									`)}
+									& div {
+										display: grid;
+										align-content: space-between;
+									}
+								}
+								a {
+									color: ${asVar('primaryColor')};
+								}
 							`}
 							<p>
 								Dev Protocol is neutral. Various rules that basis of the
 								protocol can be changed by open governance.
 							</p>
+							<div class="col">
+								<div>
+									<p>Propose a new asset type and it's valuation method.</p>
+									<p>
+										<a
+											href="//github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md"
+											rel="noopener"
+											>Read whitepaper ➝</a
+										>
+									</p>
+								</div>
+								<div>
+									<p>Propose a new policy related Inflation/deflation rate.</p>
+									<p>
+										<a
+											href="//github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md"
+											rel="noopener"
+											>Read whitepaper ➝</a
+										>
+									</p>
+								</div>
+							</div>
 						`
+					})}
+					${section({
+						title: 'Milestones',
+						content: () =>
+							html`
+								${milestones()}
+							`
 					})}
 				</article>
 			`

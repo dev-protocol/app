@@ -20,7 +20,7 @@ export const buttonWithPadding = (
 	}
 ): string => `
 	button {
-		font-size: ${`${size === 'medium' ? 1 : size === 'small' ? 0.8 : 1.4}rem`};
+		font-size: ${`${size === 'medium' ? 1 : size === 'small' ? 0.8 : 1.4}em`};
 		padding: ${
 			size === 'medium'
 				? '0.5rem 1.1rem'
@@ -52,5 +52,11 @@ export const heading = (): string => `
 	h1, h2, h3 {
 		font-family: ${asVar('fontFamilyHeading')};
 		font-weight: 500;
+	}
+`
+
+export const large = (style: string): string => `
+	@media only screen and (min-width: 414px) {
+		${style}
 	}
 `
