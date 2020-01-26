@@ -17,7 +17,9 @@ export interface SelectBoxItem<T> extends Item {
 
 export type SelectBoxItems<T> = Array<SelectBoxItem<T>>
 
-export type SelectBoxItemsSubject<T = {}> = BehaviorSubject<SelectBoxItems<T>>
+export type SelectBoxItemsSubject<
+	T = Record<string, unknown>
+> = BehaviorSubject<SelectBoxItems<T>>
 
 export type SelectBoxHandler<T> = (item: SelectBoxItem<T>) => (e: Event) => void
 
