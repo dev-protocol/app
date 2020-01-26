@@ -6,7 +6,7 @@ test('buttonWithPadding; Returns small size preset', async t => {
 	const result = await processor`${buttonWithPadding({ size: 'small' })}`
 	const expected = await processor`
 		button {
-			font-size: 0.8rem;
+			font-size: 0.8em;
 			padding: 0.3rem 0.8rem
 		}
 	`
@@ -30,8 +30,7 @@ test('container; Returns style for a container block', async t => {
 test('large; Returns styles wrapped with media query for mobile', async t => {
 	const result = await processor`${large(`body {color: red}`)}`
 	const expected = await processor`
-	media only screen
-	and (min-device-width : 414px) {
+	@media only screen and (min-width: 414px) {
 		body {color: red}
 	}
 	`
