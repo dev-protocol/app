@@ -39,7 +39,7 @@ export const xTry = customElements(
 							items,
 							item =>
 								html`
-									<div class="card" $click=${handler(item.address)}>
+									<div class="card" @click=${handler(item.address)}>
 										${card(item)}
 									</div>
 								`
