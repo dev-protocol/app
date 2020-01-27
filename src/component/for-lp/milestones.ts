@@ -50,11 +50,51 @@ const data: Milestones = [
 		injectAfter: () => html`
 			${component(html`
 				${style`
-					p {
+					${heading()}
+					h2, p {
 						text-align: center;
 					}
+					p {
+						color: ${asVar('weakColor')};
+					}
+					ul {
+						display: grid;
+						justify-items: center;
+						grid-gap: 1rem;
+						margin: 0;
+						padding: 0;
+						list-style: none;
+						counter-reset: section;
+						@media only screen and (min-width: 720px) {
+							grid-auto-flow: column;
+						}
+						& li {
+							width:200px;
+							text-align: center;
+							font-size: 0.8rem;
+							&::before {
+								content: counter(section);
+								counter-increment: section;
+							}
+						}
+					}
 				`}
-				<p>Coming soon stay tuned!</p>
+				<h2>Try out</h2>
+				<p>Let's stake to open the secret messages!</p>
+				<ul>
+					<li>
+						<h3>Choose OSS</h3>
+					</li>
+					<li>
+						<h3>Stake your 1 DEV</h3>
+						<p>You automatically get 1 DEV, don't worry.</p>
+					</li>
+					<li>
+						<h3>Open the message</h3>
+						<p>You can withdraw the DEV after one month.</p>
+					</li>
+				</ul>
+				<x-try></x-try>
 			`)}
 		`
 	},
