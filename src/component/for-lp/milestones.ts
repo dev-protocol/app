@@ -55,13 +55,14 @@ const data: Milestones = [
 						text-align: center;
 					}
 					p {
+						margin: 0;
 						color: ${asVar('weakColor')};
 					}
 					ul {
 						display: grid;
 						justify-items: center;
 						grid-gap: 1rem;
-						margin: 0;
+						margin: 3rem 0;
 						padding: 0;
 						list-style: none;
 						counter-reset: section;
