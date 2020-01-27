@@ -5,21 +5,12 @@ import { DevProperty } from '../../store/properties'
 import { asVar } from '../../lib/style-properties'
 import { until } from 'lit-html/directives/until'
 import { devKitContract } from '../../store/dev-kit-contract'
-import { DevkitContract } from '@dev-protocol/dev-kit-js/esm/client'
 import { toNaturalNumber } from '../../lib/to-natural-number'
 import BigNumber from 'bignumber.js'
+import { promisify } from '../../lib/promisify'
 
 const totalStaking = async (address: string): Promise<BigNumber> => {
-	const dev = await new Promise<DevkitContract>(resolve => {
-		const sbsc = devKitContract.subscribe(x => {
-			if (x === undefined) {
-				return
-			}
-
-			sbsc.unsubscribe()
-			resolve(x)
-		})
-	})
+	const dev = await promisify(devKitContract)
 	return dev
 		.lockup()
 		.getValue(address, address)

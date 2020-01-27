@@ -6,6 +6,13 @@ import { properties } from '../store/properties'
 import { repeat } from 'lit-html/directives/repeat'
 import { card } from '../component/for-lp/card'
 import { asVar } from '../lib/style-properties'
+import { promisify } from '../lib/promisify'
+import { devKitContract } from '../store/dev-kit-contract'
+
+const handler = (address: string) => async () => {
+	const dev = await promisify(devKitContract)
+	console.log(address, dev)
+}
 
 export const xTry = customElements(
 	() => html`
@@ -32,7 +39,7 @@ export const xTry = customElements(
 							items,
 							item =>
 								html`
-									<div class="card">
+									<div class="card" $click=${handler(item.address)}>
 										${card(item)}
 									</div>
 								`
