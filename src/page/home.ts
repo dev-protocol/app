@@ -2,19 +2,10 @@ import { TemplateResult, html } from 'lit-html'
 import { container } from '../component/presentation/container'
 import { hero } from '../component/for-lp/hero'
 import { section } from '../component/for-lp/section'
-import { subscribe } from '@aggre/ullr/directive'
-import { timer } from 'rxjs'
-import { map, repeat } from 'rxjs/operators'
 import { style } from '../lib/style'
 import { asVar } from '../lib/style-properties'
 import { large } from '../lib/style-presets'
 import { milestones } from '../component/for-lp/milestones'
-
-const assets = ['oss', 'game', 'art', 'music', 'photo']
-const assetsObs = timer(0, 1300).pipe(
-	map(i => assets[i % assets.length]),
-	repeat()
-)
 
 export const home = (): TemplateResult => html`
 	${hero()}
@@ -23,36 +14,7 @@ export const home = (): TemplateResult => html`
 			html`
 				<article id="article">
 					${section({
-						title: 'Not payment, lockup',
-						content: () => html`
-							${style`
-								span {
-									color: ${asVar('primaryColor')};
-								}
-								p {
-									max-width: 500px;
-								}
-							`}
-							${subscribe(
-								assetsObs,
-								x =>
-									html`
-										<p>
-											You can support an open-assets like an open-source by
-											lockup, not payment. Asset authors can mine more DEV
-											tokens with more lockup.
-										</p>
-										<p>
-											DEV tokens is reward as a proof-of-<span>${x}</span> to
-											the asset author.
-										</p>
-										<p>Supporters can increase more value with more lockup.</p>
-									`
-							)}
-						`
-					})}
-					${section({
-						title: 'Shareable',
+						title: 'For OSS Sustainability',
 						content: () => html`
 							${style`
 								p {
@@ -60,13 +22,13 @@ export const home = (): TemplateResult => html`
 								}
 							`}
 							<p>
-								It's not losing your money, so you can freely change support
-								destination of full amount.
+								After the previous material economy, Dev is a new crypto-economy
+								based on “open assets".
 							</p>
 						`
 					})}
 					${section({
-						title: 'Grow up your money',
+						title: 'Staking and grow your money',
 						content: () => html`
 							${style`
 								p {
@@ -74,14 +36,14 @@ export const home = (): TemplateResult => html`
 								}
 							`}
 							<p>
-								The more you lock up, the higher the DEV's scarcity value and
-								the reduce total mining volume. You can earning interest,
-								increase money while supporting open-assets.
+								Staking is a new way of spending money. Share money, reuse,
+								never lose. When staking Dev to OSS, asset owners increase their
+								mining power, and supporters raise the rarity of Dev.
 							</p>
 						`
 					})}
 					${section({
-						title: 'Open governance',
+						title: 'How designed for OSS?',
 						content: () => html`
 							${style`
 								p {
@@ -95,36 +57,33 @@ export const home = (): TemplateResult => html`
 									`)}
 									& div {
 										display: grid;
-										align-content: space-between;
+										align-content: flex-start;
 									}
 								}
 								a {
 									color: ${asVar('primaryColor')};
 								}
 							`}
-							<p>
-								Dev Protocol is neutral. Various rules that basis of the
-								protocol can be changed by open governance.
-							</p>
 							<div class="col">
 								<div>
-									<p>Propose a new asset type and it's valuation method.</p>
+									<h3>Mining</h3>
 									<p>
-										<a
-											href="//github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md"
-											rel="noopener"
-											>Read whitepaper ➝</a
-										>
+										Dev is mined with your OSS power. Open assets are now
+										economically valued and rewarded for activity.
 									</p>
 								</div>
 								<div>
-									<p>Propose a new policy related Inflation/deflation rate.</p>
+									<h3>Staking</h3>
 									<p>
-										<a
-											href="//github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md"
-											rel="noopener"
-											>Read whitepaper ➝</a
-										>
+										Staking rewards for both asset owners and payers. Locking
+										Dev to an asset allows you to conduct economic transactions.
+									</p>
+								</div>
+								<div>
+									<h3>Governance</h3>
+									<p>
+										The ecosystem is autonomously enhanced by users, such as
+										opening new asset markets and proposing policies.
 									</p>
 								</div>
 							</div>

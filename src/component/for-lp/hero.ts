@@ -35,7 +35,7 @@ export const hero = (): DirectiveFunction =>
 									font-size: 2em;
 								}
 								p {
-									font-size: 1.6em;
+									margin-top: 5rem;
 								}
 								a {
 									display: inline-block;
@@ -50,13 +50,6 @@ export const hero = (): DirectiveFunction =>
 								}
 								.desc {
 									max-width: 580px;
-									& h1,
-									& p {
-										display: inline;
-									}
-								}
-								.hide {
-									display: none;
 								}
 								.link {
 									display: grid;
@@ -69,11 +62,8 @@ export const hero = (): DirectiveFunction =>
 							<div class="content">
 								<div class="desc">
 									<h1>Dev Protocol</h1>
-									<p>
-										<span class="hide">Dev Protocol</span> monetizes any
-										open-assets. The new money for the openable and shareable
-										era.
-									</p>
+									<h2>A money designed for OSS</h2>
+									<p>Supporting OSS, you earn investment income</p>
 								</div>
 								<div class="link">
 									${buttonRounded(() => button({ content: 'Read more' }))(
