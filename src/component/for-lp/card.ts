@@ -15,6 +15,7 @@ const totalStaking = async (address: string): Promise<BigNumber> => {
 			if (x === undefined) {
 				return
 			}
+
 			sbsc.unsubscribe()
 			resolve(x)
 		})
