@@ -8,14 +8,15 @@ export const properties = {
 	onPrimaryVariantColor: ['#fff'],
 	onSecondaryColor: ['#fff'],
 	onSecondaryVariantColor: ['#fff'],
-	surfaceColor: ['#000', '#fff'],
-	onSurfaceColor: ['#fff', '#464646'],
+	surfaceColor: ['#f5f5f5', '#dcdcdc'],
+	onSurfaceColor: ['#000'],
 	weakColor: ['#ccc', '#505050'],
-	onSurfaceWeakColor: ['#ccc', '#ccc'],
+	onSurfaceWeakColor: ['#a0a0a0'],
 	fontColor: ['#000', '#fff'],
 	fontSize: ['18px'],
 	fontFamilyHeading: ["'Montserrat', sans-serif"],
 	fontFamilyBody: ["'Poppins', sans-serif"],
+	fontFamilyUI: ["'Ubuntu', sans-serif"],
 	containerWidth: ['798px'],
 	borderRadius: ['3px']
 }
