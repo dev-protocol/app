@@ -25,11 +25,9 @@ jobs:
         env:
           CI: true
       - name: deploy
-        run: |
-          npm install -g now
-          npm run build
-          now --public --token $NOW_TOKEN
-      - name: publish
         if: github.ref == 'master'
         run: |
-          now alias --token $NOW_TOKEN
+          npm install now
+          npm run build
+          npx now --public --token $NOW_TOKEN
+          npx now --prod --token $NOW_TOKEN
