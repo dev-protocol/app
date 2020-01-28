@@ -6,6 +6,7 @@ import { style } from '../lib/style'
 import { asVar } from '../lib/style-properties'
 import { exLarge } from '../lib/style-presets'
 import { milestones } from '../component/for-lp/milestones'
+import { footer } from '../component/for-lp/footer'
 
 export const home = (): TemplateResult => html`
 	${hero()}
@@ -99,6 +100,7 @@ export const home = (): TemplateResult => html`
 								${milestones()}
 							`
 					})}
+					${footer()}
 				</article>
 			`
 	)}
