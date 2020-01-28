@@ -1,5 +1,5 @@
 import test from 'ava'
-import { buttonWithPadding, container, large } from './style-presets'
+import { buttonWithPadding, container, large, exLarge } from './style-presets'
 import { processor } from './style'
 
 test('buttonWithPadding; Returns small size preset', async t => {
@@ -38,7 +38,7 @@ test('large; Returns styles wrapped with a media query for large screen', async 
 })
 
 test('exLarge; Returns styles wrapped with a media query for extra-large screen', async t => {
-	const result = await processor`${large(`body {color: red}`)}`
+	const result = await processor`${exLarge(`body {color: red}`)}`
 	const expected = await processor`
 	@media only screen and (min-width: 768px) {
 		body {color: red}
