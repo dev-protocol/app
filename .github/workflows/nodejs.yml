@@ -24,3 +24,10 @@ jobs:
           npm test
         env:
           CI: true
+      - name: deploy
+        if: github.ref == 'master'
+        run: |
+          npm install -g now
+          npm run build
+          now --public --token $NOW_TOKEN
+          now alias --token $NOW_TOKEN
