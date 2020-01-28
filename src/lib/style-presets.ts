@@ -60,3 +60,9 @@ export const large = (style: string): string => `
 		${style}
 	}
 `
+
+export const exLarge = (style: string): string => `
+	@media only screen and (min-width: 768px) {
+		${style}
+	}
+`

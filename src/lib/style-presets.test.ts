@@ -27,10 +27,20 @@ test('container; Returns style for a container block', async t => {
 	t.is(result, expected)
 })
 
-test('large; Returns styles wrapped with media query for mobile', async t => {
+test('large; Returns styles wrapped with a media query for large screen', async t => {
 	const result = await processor`${large(`body {color: red}`)}`
 	const expected = await processor`
 	@media only screen and (min-width: 414px) {
+		body {color: red}
+	}
+	`
+	t.is(result, expected)
+})
+
+test('exLarge; Returns styles wrapped with a media query for extra-large screen', async t => {
+	const result = await processor`${large(`body {color: red}`)}`
+	const expected = await processor`
+	@media only screen and (min-width: 768px) {
 		body {color: red}
 	}
 	`

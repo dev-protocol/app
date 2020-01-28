@@ -4,7 +4,7 @@ import { hero } from '../component/for-lp/hero'
 import { section } from '../component/for-lp/section'
 import { style } from '../lib/style'
 import { asVar } from '../lib/style-properties'
-import { large } from '../lib/style-presets'
+import { exLarge } from '../lib/style-presets'
 import { milestones } from '../component/for-lp/milestones'
 
 export const home = (): TemplateResult => html`
@@ -52,7 +52,7 @@ export const home = (): TemplateResult => html`
 								.col {
 									display: grid;
 									grid-gap: 3rem;
-									${large(`
+									${exLarge(`
 										grid-auto-flow: column;
 									`)}
 									& div {
@@ -71,6 +71,7 @@ export const home = (): TemplateResult => html`
 										Dev is mined with your OSS power. Open assets are now
 										economically valued and rewarded for activity.
 									</p>
+									<p><a href=https://github.com/dev-protocol/protocol/blob/master/docs/POLICY.md#rewards target="_blank" ref="noopener">➝ More detail for mining</a></p>
 								</div>
 								<div>
 									<h3>Staking</h3>
@@ -78,6 +79,7 @@ export const home = (): TemplateResult => html`
 										Staking rewards for both asset owners and payers. Locking
 										Dev to an asset allows you to conduct economic transactions.
 									</p>
+									<p><a href=https://github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md#staking target="_blank" ref="noopener">➝ More detail for staking</a></p>
 								</div>
 								<div>
 									<h3>Governance</h3>
@@ -85,6 +87,7 @@ export const home = (): TemplateResult => html`
 										The ecosystem is autonomously enhanced by users, such as
 										opening new asset markets and proposing policies.
 									</p>
+									<p><a href=https://github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md#governance target="_blank" ref="noopener">➝ More detail for governance</a></p>
 								</div>
 							</div>
 						`
