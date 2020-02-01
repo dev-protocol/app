@@ -86,6 +86,7 @@ export const xTry = customElements(
 			}
 			.card {
 				display: block;
+				cursor: pointer;
 				background: ${asVar('surfaceColor')};
 				color:${asVar('onSurfaceColor')};
 				padding: 1rem;
