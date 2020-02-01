@@ -6,7 +6,7 @@ import { asVar } from '../../lib/style-properties'
 import { devKitContract } from '../../store/dev-kit-contract'
 import { toNaturalNumber } from '../../lib/to-natural-number'
 import { promisify } from '../../lib/promisify'
-import { BehaviorSubject, merge } from 'rxjs'
+import { BehaviorSubject } from 'rxjs'
 import { notification } from '../../store/notification'
 import { one18 } from '../../lib/numbers'
 import { txPromisify } from '../../lib/ethereum'
@@ -14,9 +14,10 @@ import { web3TryOut } from '../../store/web3-try-out'
 import { web3Dev } from '../../store/web3-dev'
 import BigNumber from 'bignumber.js'
 
-type Store = BehaviorSubject<BigNumber | undefined>
+type Amounts = { total?: BigNumber; account?: BigNumber }
+type Store = BehaviorSubject<Amounts | undefined>
 
-const handler = (address: string, [my, total]: Store[]) => async () => {
+const handler = (address: string, store: Store) => async () => {
 	const [tryOut, dev] = await Promise.all([
 		promisify(web3TryOut),
 		promisify(web3Dev)
@@ -58,11 +59,10 @@ const handler = (address: string, [my, total]: Store[]) => async () => {
 			one18.toFixed()
 		).toString()} DEV staking!`
 	})
-	myStaking(address).then(i => my.next(i))
-	totalStaking(address).then(i => total.next(i))
+	updateStore(store, address)
 }
 
-const totalStaking = async (address: string): Promise<BigNumber> => {
+const getPropertyValue = async (address: string): Promise<BigNumber> => {
 	const dev = await promisify(devKitContract)
 	return dev
 		.lockup(process.env.ADDRESSES_LOCKUP)
@@ -70,7 +70,7 @@ const totalStaking = async (address: string): Promise<BigNumber> => {
 		.then(toNaturalNumber)
 }
 
-const myStaking = async (address: string): Promise<BigNumber> => {
+const getValue = async (address: string): Promise<BigNumber> => {
 	const dev = await promisify(devKitContract)
 	return dev
 		.lockup(process.env.ADDRESSES_LOCKUP)
@@ -78,19 +78,27 @@ const myStaking = async (address: string): Promise<BigNumber> => {
 		.then(toNaturalNumber)
 }
 
-const createTotalStakedStore = (address: string): Store => {
-	const store = new BehaviorSubject<BigNumber | undefined>(undefined)
-	totalStaking(address).then(i => store.next(i))
+const reducer = (prev: Amounts, data: Amounts): Amounts => ({
+	...prev,
+	...data
+})
+
+const createStore = (address: string): Store => {
+	const store = new BehaviorSubject<Amounts | undefined>(undefined)
+	return updateStore(store, address)
+}
+
+const updateStore = (store: Store, address: string): Store => {
+	getPropertyValue(address).then(total =>
+		store.next(reducer(store.value ?? {}, { total }))
+	)
+	getValue(address).then(account =>
+		store.next(reducer(store.value ?? {}, { account }))
+	)
 	return store
 }
 
-const createStakedStore = (address: string): Store => {
-	const store = new BehaviorSubject<BigNumber | undefined>(undefined)
-	myStaking(address).then(i => store.next(i))
-	return store
-}
-
-const button = html`
+const stakeButton = html`
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		fill="none"
@@ -108,10 +116,10 @@ export const card = ({
 	name,
 	authorName
 }: DevProperty): DirectiveFunction =>
-	(([myValue, totalValue]) =>
+	(store =>
 		subscribe(
-			merge(myValue, totalValue),
-			() =>
+			store,
+			amounts =>
 				html`
 					${component(html`
 						${style`
@@ -175,7 +183,7 @@ export const card = ({
 								}
 							}
 						`}
-						<div @click=${handler(address, [myValue, totalValue])}>
+						<div @click=${handler(address, store)}>
 							<div class="content">
 								<h1>${name}</h1>
 								<p>by <strong>${authorName}</strong></p>
@@ -183,25 +191,25 @@ export const card = ({
 								<dl class="locked">
 									<dt class="total">Total</dt>
 									<dd class="total">
-										${totalValue.value
-											? `${totalValue.value.dp(3).toString()} DEV`
+										${amounts?.total
+											? `${amounts.total.dp(3).toString()} DEV`
 											: '...'}
 									</dd>
 									<dt class="my">Your</dt>
 									<dd class="my">
-										${myValue.value
-											? `${myValue.value.dp(3).toString()} DEV`
+										${amounts?.account
+											? `${amounts.account.dp(3).toString()} DEV`
 											: '...'}
 									</dd>
 								</dl>
 							</div>
 							<div class="button">
 								<div>
-									${button}
+									${stakeButton}
 									<p>Stake</p>
 								</div>
 							</div>
 						</div>
 					`)}
 				`
-		))([createStakedStore(address), createTotalStakedStore(address)])
+		))(createStore(address))
