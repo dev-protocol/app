@@ -28,16 +28,16 @@ const handler = (address: string) => async () => {
 	])
 	const from = window.ethereum.selectedAddress
 
-	const [approveError] = await txPromisify(
+	const approved = await txPromisify(
 		dev.methods.approve(tryOut.options.address, one18.toFixed()).send({ from }),
 		() =>
 			notification.next({
 				type: 'info',
 				message: 'Staking transactions started...(please wait a minutes)'
 			})
-	).catch((err: Error) => [err])
-	if (approveError) {
-		return notification.next({ type: 'failed', message: approveError.message })
+	).catch((err: Error) => err)
+	if (approved instanceof Error) {
+		return notification.next({ type: 'failed', message: approved.message })
 	}
 
 	notification.next({
@@ -45,16 +45,16 @@ const handler = (address: string) => async () => {
 		message: `DEVs transfer approval is completed. Then, let's staking! (Please confirm a dialog)`
 	})
 
-	const [depositError] = await txPromisify(
+	const deposited = await txPromisify(
 		tryOut.methods.deposit(address, one18.toFixed()).send({ from }),
 		() =>
 			notification.next({
 				type: 'info',
 				message: `Now transacting...(please wait a minutes)`
 			})
-	).catch((err: Error) => [err])
-	if (depositError) {
-		return notification.next({ type: 'failed', message: depositError.message })
+	).catch((err: Error) => err)
+	if (deposited instanceof Error) {
+		return notification.next({ type: 'failed', message: deposited.message })
 	}
 
 	notification.next({
@@ -93,6 +93,8 @@ export const xTry = customElements(
 				border-radius: 5px;
 			}
 			.notice {
+				position: sticky;
+				top: 1rem;
 				margin-bottom: 1rem;
 				padding: 1rem;
 				border-radius: 5px;

@@ -26,7 +26,7 @@ export interface Tx {
 export const txPromisify = async (
 	tx: Tx,
 	onTransactionHash?: (hash: string) => void
-): Promise<[Error | null, any]> =>
+): Promise<Error | null | TxReceipt> =>
 	new Promise((resolve, reject) => {
 		tx.on('transactionHash', hash => {
 			if (onTransactionHash) {
@@ -34,10 +34,14 @@ export const txPromisify = async (
 			}
 		})
 			.on('confirmation', (status, receipt) => {
-				console.log(status, receipt)
 				if (receipt.status) {
-					return resolve([null, receipt])
+					return resolve(receipt)
 				}
+				reject(
+					new Error(
+						'There was a problem with the transaction. Please check your balance, or make sure you are not applying for staking cancellation.'
+					)
+				)
 			})
 			.on('error', (err: Error) => {
 				reject(err)
