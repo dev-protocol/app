@@ -37,6 +37,7 @@ export const txPromisify = async (
 				if (receipt.status) {
 					return resolve(receipt)
 				}
+
 				reject(
 					new Error(
 						'There was a problem with the transaction. Please check your balance, or make sure you are not applying for staking cancellation.'
