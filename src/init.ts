@@ -5,13 +5,11 @@ import { head } from './component/context/head'
 import { contextByRoutes } from './lib/context-by-routes'
 import { web3 } from './store/web3'
 import { tryOut } from './abi/try-out'
-import Web3 from 'web3'
 import { filter } from 'rxjs/operators'
 import { Ethereum } from './d/window'
 import { web3TryOut } from './store/web3-try-out'
 import { dev } from './abi/dev'
 import { web3Dev } from './store/web3-dev'
-import { contractFactory } from '@dev-protocol/dev-kit-js/esm/client'
 import { devKitContract } from './store/dev-kit-contract'
 const { document } = window
 
@@ -29,6 +27,7 @@ export const init = async ({ history, ethereum }: Props): Promise<void> => {
 
 	hasEthereum.next(ethereum !== undefined)
 
+	const { Web3, contractFactory } = await import('./lib/clients')
 	hasEthereum.pipe(filter(x => x)).subscribe(() => {
 		const libWeb3 = new Web3(ethereum)
 		const libDevKit = contractFactory(ethereum)
