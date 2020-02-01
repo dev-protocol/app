@@ -12,9 +12,11 @@ import { toNaturalNumber } from '../lib/to-natural-number'
 import { web3TryOut } from '../store/web3-try-out'
 import { web3Dev } from '../store/web3-dev'
 import { one18 } from '../lib/numbers'
+import { hasEthereum } from '../store/has-ethereum'
+import { txPromisify } from '../lib/ethereum'
 
 type Notification = {
-	type: 'failed' | 'succeeded'
+	type: 'info' | 'failed' | 'succeeded'
 	message: string
 }
 const notification = new BehaviorSubject<Notification | undefined>(undefined)
@@ -25,15 +27,34 @@ const handler = (address: string) => async () => {
 		promisify(web3Dev)
 	])
 	const from = window.ethereum.selectedAddress
-	await dev.methods
-		.approve(tryOut.options.address, one18.toFixed())
-		.send({ from })
-	const deposit = await tryOut.methods
-		.deposit(address, one18.toFixed())
-		.send({ from })
-		.catch((err: Error) => err)
-	if (deposit instanceof Error) {
-		return notification.next({ type: 'failed', message: deposit.message })
+
+	const [approveError] = await txPromisify(
+		dev.methods.approve(tryOut.options.address, one18.toFixed()).send({ from }),
+		() =>
+			notification.next({
+				type: 'info',
+				message: 'Staking transactions started...(please wait a minutes)'
+			})
+	).catch((err: Error) => [err])
+	if (approveError) {
+		return notification.next({ type: 'failed', message: approveError.message })
+	}
+
+	notification.next({
+		type: 'info',
+		message: `DEVs transfer approval is completed. Then, let's staking! (Please confirm a dialog)`
+	})
+
+	const [depositError] = await txPromisify(
+		tryOut.methods.deposit(address, one18.toFixed()).send({ from }),
+		() =>
+			notification.next({
+				type: 'info',
+				message: `Now transacting...(please wait a minutes)`
+			})
+	).catch((err: Error) => [err])
+	if (depositError) {
+		return notification.next({ type: 'failed', message: depositError.message })
 	}
 
 	notification.next({
@@ -42,7 +63,18 @@ const handler = (address: string) => async () => {
 			one18.toFixed()
 		).toString()} DEV staking!`
 	})
+	properties.next(properties.value)
 }
+
+hasEthereum.subscribe(x => {
+	const next: Notification | undefined = x
+		? undefined
+		: {
+				type: 'failed',
+				message: 'Cannot find the Ethereum wallet in your browser.'
+		  }
+	notification.next(next)
+})
 
 export const xTry = customElements(
 	() => html`
@@ -64,6 +96,9 @@ export const xTry = customElements(
 				padding: 1rem;
 				border-radius: 5px;
 				color: white;
+				&.info {
+					background: #2196f3;
+				}
 				&.failed {
 					background: #ff5722;
 				}
@@ -85,7 +120,7 @@ export const xTry = customElements(
 				html`
 					<div class="cards">
 						${repeat(
-							items,
+							items[process.env.ETHEREUM_NETWORK_ID ?? '1'],
 							item =>
 								html`
 									<div class="card" @click=${handler(item.address)}>

@@ -13,6 +13,14 @@ const totalStaking = async (address: string): Promise<BigNumber> => {
 	const dev = await promisify(devKitContract)
 	return dev
 		.lockup(process.env.ADDRESSES_LOCKUP)
+		.getPropertyValue(address)
+		.then(toNaturalNumber)
+}
+
+const myStaking = async (address: string): Promise<BigNumber> => {
+	const dev = await promisify(devKitContract)
+	return dev
+		.lockup(process.env.ADDRESSES_LOCKUP)
 		.getValue(address, window.ethereum.selectedAddress ?? '')
 		.then(toNaturalNumber)
 }
@@ -25,7 +33,7 @@ const button = html`
 		width="100%"
 		height="100%"
 	>
-		<circle fill="#0047ff" cx="12" cy="12" r="12" />
+		<circle fill="${asVar('secondaryColor')}" cx="12" cy="12" r="12" />
 		<path stroke="white" stroke-linecap="round" d="M 9 6 L 15 12 L 9 18" />
 	</svg>
 `
@@ -56,7 +64,29 @@ export const card = ({
 				font-size: 0.8rem;
 			}
 			.locked {
-				margin-top: 1rem;
+				display: grid;
+				grid-template-areas:
+					'total-title my-title'
+					'total-value my-value'
+			}
+			dt {
+				font-size: 0.9rem;
+				color: ${asVar('onSurfaceWeakColor')};
+				&.total {
+					grid-area: total-title;
+				}
+				&.my {
+					grid-area: my-title;
+				}
+			}
+			dd {
+				margin: 0;
+				&.total {
+					grid-area: total-value;
+				}
+				&.my {
+					grid-area: my-value;
+				}
 			}
 			.content {
 				display: grid;
@@ -74,17 +104,33 @@ export const card = ({
 		<div class="content">
 			<h1>${name}</h1>
 			<p>by <strong>${authorName}</strong></p>
-			<p class="locked">
-				${until(
-					totalStaking(address).then(
-						x =>
-							html`
-								${x.dp(3)} DEV
-							`
-					),
-					'0 DEV'
-				)}
-			</p>
+
+			<dl class="locked">
+				<dt class="total">Total</dt>
+				<dd class="total">
+					${until(
+						totalStaking(address).then(
+							x =>
+								html`
+									${x.dp(3)} DEV
+								`
+						),
+						'...'
+					)}
+				</dd>
+				<dt class="my">Your</dt>
+				<dd class="my">
+					${until(
+						myStaking(address).then(
+							x =>
+								html`
+									${x.dp(3)} DEV
+								`
+						),
+						'...'
+					)}
+				</dd>
+			</dl>
 		</div>
 		<div class="button">
 			<div>

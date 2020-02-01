@@ -27,9 +27,7 @@ export const init = async ({ history, ethereum }: Props): Promise<void> => {
 		render(head(contextByRoutes(x)), document.head)
 	})
 
-	if (ethereum) {
-		hasEthereum.next(true)
-	}
+	hasEthereum.next(ethereum !== undefined)
 
 	hasEthereum.pipe(filter(x => x)).subscribe(() => {
 		const libWeb3 = new Web3(ethereum)
