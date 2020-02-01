@@ -12,8 +12,8 @@ import { promisify } from '../../lib/promisify'
 const totalStaking = async (address: string): Promise<BigNumber> => {
 	const dev = await promisify(devKitContract)
 	return dev
-		.lockup()
-		.getValue(address, address)
+		.lockup(process.env.ADDRESSES_LOCKUP)
+		.getValue(address, window.ethereum.selectedAddress ?? '')
 		.then(toNaturalNumber)
 }
 

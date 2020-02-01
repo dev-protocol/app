@@ -5,21 +5,21 @@ import { hasEthereum } from '../../store/has-ethereum'
 import { button } from '../pure/button'
 import { connectToWallet } from './connect-to-wallet'
 import { merge } from 'rxjs'
-import { devKit } from '../../store/dev-kit'
+import { web3 } from '../../store/web3'
 
 interface Props {
 	ethereum: Window['ethereum']
 }
 
 const template = ({ ethereum }: Props): TemplateResult => html`
-	${subscribe(merge(hasEthereum, devKit), () =>
-		hasEthereum.value && devKit.value
+	${subscribe(merge(hasEthereum, web3), () =>
+		hasEthereum.value && web3.value
 			? ethereum.isConnected()
 				? button({
 						content: 'connected',
 						onClick: () => true
 				  })
-				: connectToWallet({ lib: devKit.value, ethereum })
+				: connectToWallet({ ethereum })
 			: button({
 					content: 'not found',
 					disabled: true,

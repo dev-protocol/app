@@ -8,12 +8,12 @@ export interface Item {
 export type Items = Item[]
 const npmProperties = [
 	{
-		address: '0x0',
+		address: '0xE124642Bd62ca316D91Ae493341211680633153e',
 		name: '@mediba/stylelint-config',
 		authorName: 'alice'
 	},
 	{
-		address: '0x0',
+		address: '0x93D327BDD1DA52BF16b5a434Cde4A6a3847A02eB',
 		name: 'npm-hello-world-by-narita',
 		authorName: 'bob'
 	},

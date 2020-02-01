@@ -7,10 +7,11 @@ import { repeat } from 'lit-html/directives/repeat'
 import { card } from '../component/for-lp/card'
 import { asVar } from '../lib/style-properties'
 import { promisify } from '../lib/promisify'
-import { devKitContract } from '../store/dev-kit-contract'
-import BigNumber from 'bignumber.js'
 import { BehaviorSubject } from 'rxjs'
 import { toNaturalNumber } from '../lib/to-natural-number'
+import { web3TryOut } from '../store/web3-try-out'
+import { web3Dev } from '../store/web3-dev'
+import { one18 } from '../lib/numbers'
 
 type Notification = {
 	type: 'failed' | 'succeeded'
@@ -19,11 +20,17 @@ type Notification = {
 const notification = new BehaviorSubject<Notification | undefined>(undefined)
 
 const handler = (address: string) => async () => {
-	const devKit = await promisify(devKitContract)
-	const amount = new BigNumber(10).pow(18)
-	const deposit = await devKit
-		.dev()
-		.deposit(address, amount.toNumber())
+	const [tryOut, dev] = await Promise.all([
+		promisify(web3TryOut),
+		promisify(web3Dev)
+	])
+	const from = window.ethereum.selectedAddress
+	await dev.methods
+		.approve(tryOut.options.address, one18.toFixed())
+		.send({ from })
+	const deposit = await tryOut.methods
+		.deposit(address, one18.toFixed())
+		.send({ from })
 		.catch((err: Error) => err)
 	if (deposit instanceof Error) {
 		return notification.next({ type: 'failed', message: deposit.message })
@@ -32,7 +39,7 @@ const handler = (address: string) => async () => {
 	notification.next({
 		type: 'succeeded',
 		message: `Completed your ${toNaturalNumber(
-			amount.toString()
+			one18.toFixed()
 		).toString()} DEV staking!`
 	})
 }
