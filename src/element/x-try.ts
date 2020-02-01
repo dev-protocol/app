@@ -8,10 +8,17 @@ import { card } from '../component/for-lp/card'
 import { asVar } from '../lib/style-properties'
 import { hasEthereum } from '../store/has-ethereum'
 import { Notification, notification } from '../store/notification'
+import { getNetwork } from '../lib/ethereum'
 
-hasEthereum.subscribe(x => {
+hasEthereum.subscribe(async x => {
+	const net = await getNetwork()
 	const next: Notification | undefined = x
-		? undefined
+		? net.type === process.env.ETHEREUM_NETWORK_TYPE
+			? undefined
+			: {
+					type: 'failed',
+					message: `Cannot use in this network: ${String(net.type)}`
+			  }
 		: {
 				type: 'failed',
 				message: 'Cannot find the Ethereum wallet in your browser.'
@@ -64,7 +71,7 @@ export const xTry = customElements(
 				html`
 					<div class="cards">
 						${repeat(
-							items[process.env.ETHEREUM_NETWORK_ID ?? '1'],
+							items[process.env.ETHEREUM_NETWORK_TYPE!],
 							item =>
 								html`
 									<div class="card">

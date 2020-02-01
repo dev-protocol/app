@@ -7,8 +7,8 @@ export interface Item {
 }
 export type Items = Item[]
 const npmProperties = {
-	'1': [],
-	'3': [
+	mainnet: [],
+	ropsten: [
 		{
 			address: '0x86786368362465Bc381185cc26EC8d543e691aBC',
 			name: '@mediba/stylelint-config',
