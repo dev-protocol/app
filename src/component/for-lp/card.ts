@@ -74,7 +74,7 @@ const openHandler = (address: string) => async () => {
 	console.log(signature)
 
 	const res = await fetch(
-		`//dev-protocol.azurewebsites.net/api/secret-message?property=${address}&network=${currentNetwork.type as string}&signature=${signature as string}`
+		`//dev-protocol.azurewebsites.net/api/secret-message?property=${address}&network=${currentNetwork.type as string}&signature=${signature}`
 	).then(async x => x.text())
 
 	console.log(res)
