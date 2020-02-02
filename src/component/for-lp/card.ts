@@ -14,6 +14,8 @@ import { web3TryOut } from '../../store/web3-try-out'
 import { web3Dev } from '../../store/web3-dev'
 import BigNumber from 'bignumber.js'
 import { web3 } from '../../store/web3'
+import { addresses } from '../../lib/addresses'
+import { currentNetwork } from '../../store/current-network'
 
 type Amounts = { total?: BigNumber; account?: BigNumber }
 type Store = BehaviorSubject<Amounts | undefined>
@@ -88,7 +90,7 @@ const openHandler = (address: string) => async () => {
 const getPropertyValue = async (address: string): Promise<BigNumber> => {
 	const dev = await promisify(devKitContract)
 	return dev
-		.lockup(process.env.ADDRESSES_LOCKUP)
+		.lockup(addresses(currentNetwork.value?.type)?.lokcup)
 		.getPropertyValue(address)
 		.then(toNaturalNumber)
 }
@@ -96,7 +98,7 @@ const getPropertyValue = async (address: string): Promise<BigNumber> => {
 const getValue = async (address: string): Promise<BigNumber> => {
 	const dev = await promisify(devKitContract)
 	return dev
-		.lockup(process.env.ADDRESSES_LOCKUP)
+		.lockup(addresses(currentNetwork.value?.type)?.lokcup)
 		.getValue(address, window.ethereum.selectedAddress ?? '')
 		.then(toNaturalNumber)
 }

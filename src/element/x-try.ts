@@ -8,16 +8,18 @@ import { card } from '../component/for-lp/card'
 import { asVar } from '../lib/style-properties'
 import { hasEthereum } from '../store/has-ethereum'
 import { Notification, notification } from '../store/notification'
-import { getNetwork } from '../lib/ethereum'
+import { currentNetwork } from '../store/current-network'
 
 hasEthereum.subscribe(async x => {
-	const net = await getNetwork()
 	const next: Notification | undefined = x
-		? net.type === process.env.ETHEREUM_NETWORK_TYPE
+		? currentNetwork.value?.type === 'mainnet' ||
+		  currentNetwork.value?.type === 'ropsten'
 			? undefined
 			: {
 					type: 'failed',
-					message: `Cannot use in this network: ${String(net.type)}`
+					message: `Cannot use in this network: ${String(
+						currentNetwork.value?.type
+					)}`
 			  }
 		: {
 				type: 'failed',
@@ -71,7 +73,7 @@ export const xTry = customElements(
 				html`
 					<div class="cards">
 						${repeat(
-							items[process.env.ETHEREUM_NETWORK_TYPE!],
+							items[currentNetwork.value?.type!],
 							item =>
 								html`
 									<div class="card">
