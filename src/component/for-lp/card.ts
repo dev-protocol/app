@@ -66,7 +66,6 @@ const stakingHandler = (address: string, store: Store) => async () => {
 }
 
 const openHandler = (address: string) => async () => {
-	console.log('***')
 	const [libWeb3, currentNetwork] = await Promise.all([
 		promisify(web3),
 		getNetwork()
@@ -77,7 +76,6 @@ const openHandler = (address: string) => async () => {
 		from,
 		''
 	)
-	console.log(signature)
 
 	notification.next({
 		type: 'info',
@@ -88,11 +86,9 @@ const openHandler = (address: string) => async () => {
 		`//dev-protocol.azurewebsites.net/api/secret-message?code=JQPiBU6aCI5fYCDEmiUPJaNUfuqjZaPlYykXTlq0eRb6qMQR1iY09A==&property=${address}&network=${currentNetwork.type as string}&signature=${signature}`
 	).then(async x => x.text())
 
-	console.log(res)
-
 	notification.next({
 		type: 'succeeded',
-		message: res
+		message: `Message ➝ ${res}`
 	})
 }
 
