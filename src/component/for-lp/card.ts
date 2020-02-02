@@ -72,8 +72,17 @@ const openHandler = (address: string) => async () => {
 		getNetwork()
 	])
 	const from = window.ethereum.selectedAddress!
-	const signature = await libWeb3.eth.personal.sign('hello', from, '')
+	const signature = await libWeb3.eth.personal.sign(
+		'Please sign to confirm your address.',
+		from,
+		''
+	)
 	console.log(signature)
+
+	notification.next({
+		type: 'info',
+		message: 'Verifying...'
+	})
 
 	const res = await fetch(
 		`//dev-protocol.azurewebsites.net/api/secret-message?code=JQPiBU6aCI5fYCDEmiUPJaNUfuqjZaPlYykXTlq0eRb6qMQR1iY09A==&property=${address}&network=${currentNetwork.type as string}&signature=${signature}`
