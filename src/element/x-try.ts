@@ -9,6 +9,8 @@ import { asVar } from '../lib/style-properties'
 import { Notification, notification } from '../store/notification'
 import { currentNetwork } from '../store/current-network'
 import { filter } from 'rxjs/operators'
+import { connectButton } from '../component/context/connect-button'
+import { hasEthereum } from '../store/has-ethereum'
 
 currentNetwork.subscribe(x => {
 	const next: Notification | undefined = x
@@ -28,6 +30,10 @@ currentNetwork.subscribe(x => {
 export const xTry = customElements(
 	() => html`
 		${style`
+			:host {
+				display: grid;
+				grid-gap: 1rem;
+			}
 			.cards {
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -57,6 +63,13 @@ export const xTry = customElements(
 				}
 			}
 		`}
+		${subscribe(hasEthereum, x =>
+			x
+				? html`
+						${connectButton({ ethereum: window.ethereum })}
+				  `
+				: html``
+		)}
 		${subscribe(notification, x =>
 			x === undefined
 				? html``
