@@ -10,7 +10,6 @@ import { Notification, notification } from '../store/notification'
 import { currentNetwork } from '../store/current-network'
 import { filter } from 'rxjs/operators'
 import { connectButton } from '../component/context/connect-button'
-import { hasEthereum } from '../store/has-ethereum'
 
 currentNetwork.subscribe(x => {
 	const next: Notification | undefined = x
@@ -63,13 +62,7 @@ export const xTry = customElements(
 				}
 			}
 		`}
-		${subscribe(hasEthereum, x =>
-			x
-				? html`
-						${connectButton({ ethereum: window.ethereum })}
-				  `
-				: html``
-		)}
+		${connectButton({ ethereum: window.ethereum })}
 		${subscribe(notification, x =>
 			x === undefined
 				? html``

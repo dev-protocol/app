@@ -1,13 +1,19 @@
 import { TemplateResult } from 'lit-html'
 import { button } from '../pure/button'
+import { walletConnected } from '../../store/wallet-connected'
 
 interface Props {
 	content?: string
 	ethereum: any
 }
 
-const handler = (ethereum: Window['ethereum']) => async () => {
-	await ethereum.enable().catch()
+const handler = (ethereum: Window['ethereum']) => () => {
+	ethereum
+		.enable()
+		.then(() => {
+			walletConnected.next(true)
+		})
+		.catch()
 }
 
 export const connectToWallet = ({

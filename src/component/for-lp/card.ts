@@ -16,6 +16,8 @@ import BigNumber from 'bignumber.js'
 import { web3 } from '../../store/web3'
 import { addresses } from '../../lib/addresses'
 import { currentNetwork } from '../../store/current-network'
+import { walletConnected } from '../../store/wallet-connected'
+import { filter, take } from 'rxjs/operators'
 
 type Amounts = { total?: BigNumber; account?: BigNumber }
 type Store = BehaviorSubject<Amounts | undefined>
@@ -125,6 +127,12 @@ const updateStore = (store: Store, address: string): Store => {
 	getValue(address).then(account =>
 		store.next(reducer(store.value ?? {}, { account }))
 	)
+	walletConnected
+		.pipe(
+			filter(x => x),
+			take(1)
+		)
+		.subscribe(() => updateStore(store, address))
 	return store
 }
 

@@ -15,6 +15,8 @@ import { currentNetwork } from '../../store/current-network'
 import BigNumber from 'bignumber.js'
 import { dev } from '../../abi/dev'
 import { toNaturalNumber } from '../../lib/to-natural-number'
+import { walletConnected } from '../../store/wallet-connected'
+import { filter, take } from 'rxjs/operators'
 
 type Balance = { legacy?: BigNumber; next?: BigNumber }
 type BalanceStore = BehaviorSubject<Balance>
@@ -110,6 +112,13 @@ const updateStore = (store: BalanceStore): BalanceStore => {
 			])
 		})
 		.then(([legacy, next]) => store.next({ legacy, next }))
+	walletConnected
+		.pipe(
+			filter(x => x),
+			take(1)
+		)
+		.subscribe(() => updateStore(store))
+
 	return store
 }
 
