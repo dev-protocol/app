@@ -9,15 +9,16 @@ import { promisify } from '../../lib/promisify'
 import { BehaviorSubject } from 'rxjs'
 import { notification } from '../../store/notification'
 import { one18 } from '../../lib/numbers'
-import { txPromisify } from '../../lib/ethereum'
+import { txPromisify, getNetwork } from '../../lib/ethereum'
 import { web3TryOut } from '../../store/web3-try-out'
 import { web3Dev } from '../../store/web3-dev'
 import BigNumber from 'bignumber.js'
+import { web3 } from '../../store/web3'
 
 type Amounts = { total?: BigNumber; account?: BigNumber }
 type Store = BehaviorSubject<Amounts | undefined>
 
-const handler = (address: string, store: Store) => async () => {
+const stakingHandler = (address: string, store: Store) => async () => {
 	const [tryOut, dev] = await Promise.all([
 		promisify(web3TryOut),
 		promisify(web3Dev)
@@ -60,6 +61,28 @@ const handler = (address: string, store: Store) => async () => {
 		).toString()} DEV staking!`
 	})
 	updateStore(store, address)
+}
+
+const openHandler = (address: string) => async () => {
+	console.log('***')
+	const [libWeb3, currentNetwork] = await Promise.all([
+		promisify(web3),
+		getNetwork()
+	])
+	const from = window.ethereum.selectedAddress!
+	const signature = await libWeb3.eth.personal.sign('hello', from, '')
+	console.log(signature)
+
+	const res = await fetch(
+		`//dev-protocol.azurewebsites.net/api/secret-message?property=${address}&network=${currentNetwork.type as string}&signature=${signature as string}`
+	).then(async x => x.text())
+
+	console.log(res)
+
+	notification.next({
+		type: 'succeeded',
+		message: res
+	})
 }
 
 const getPropertyValue = async (address: string): Promise<BigNumber> => {
@@ -200,7 +223,11 @@ export const card = ({
 								}
 							}
 						`}
-						<div @click=${handler(address, store)}>
+						<div
+							@click=${amounts?.account?.isGreaterThanOrEqualTo(1)
+								? openHandler(address)
+								: stakingHandler(address, store)}
+						>
 							<div class="content">
 								<h1>${name}</h1>
 								<p>by <strong>${authorName}</strong></p>
