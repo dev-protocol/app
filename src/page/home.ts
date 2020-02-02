@@ -7,6 +7,7 @@ import { asVar } from '../lib/style-properties'
 import { exLarge } from '../lib/style-presets'
 import { milestones } from '../component/for-lp/milestones'
 import { footer } from '../component/for-lp/footer'
+import { updagradeDev } from '../component/for-lp/upgrade-dev'
 
 export const home = (): TemplateResult => html`
 	${hero()}
@@ -98,6 +99,12 @@ export const home = (): TemplateResult => html`
 						content: () =>
 							html`
 								${milestones()}
+							`
+					})}
+					${section({
+						content: () =>
+							html`
+								${updagradeDev()}
 							`
 					})}
 					${footer()}

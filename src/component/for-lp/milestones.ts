@@ -57,6 +57,10 @@ const data: Milestones = [
 					p {
 						margin: 0;
 						color: ${asVar('weakColor')};
+						& a {
+							color: ${asVar('fontColor')};
+							font-size: 0.8rem;
+						}
 					}
 					ul {
 						display: grid;
@@ -81,7 +85,10 @@ const data: Milestones = [
 					}
 				`}
 				<h2>Try out</h2>
-				<p>Let's stake to open the secret messages!</p>
+				<p>
+					Let's stake to open the secret messages!
+					<a href="#">Are you have old DEV tokens?</a>
+				</p>
 				<ul>
 					<li>
 						<h3>Choose OSS</h3>

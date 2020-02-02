@@ -6,7 +6,7 @@ import { ViewTemplate } from '../../d/app'
 import { heading } from '../../lib/style-presets'
 
 export interface Props {
-	title: string
+	title?: string
 	content: ViewTemplate
 }
 
@@ -21,7 +21,11 @@ export const section = ({ title, content }: Props): DirectiveFunction =>
 		`}
 		${raw(
 			() => html`
-				<h2>${title}</h2>
+				${title
+					? html`
+							<h2>${title}</h2>
+					  `
+					: ''}
 				<div class="content">${content()}</div>
 			`
 		)}
