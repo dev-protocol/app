@@ -6,20 +6,17 @@ import { properties } from '../store/properties'
 import { repeat } from 'lit-html/directives/repeat'
 import { card } from '../component/for-lp/card'
 import { asVar } from '../lib/style-properties'
-import { hasEthereum } from '../store/has-ethereum'
 import { Notification, notification } from '../store/notification'
 import { currentNetwork } from '../store/current-network'
+import { filter } from 'rxjs/operators'
 
-hasEthereum.subscribe(async x => {
+currentNetwork.subscribe(x => {
 	const next: Notification | undefined = x
-		? currentNetwork.value?.type === 'mainnet' ||
-		  currentNetwork.value?.type === 'ropsten'
+		? x.type === 'mainnet' || x.type === 'ropsten'
 			? undefined
 			: {
 					type: 'failed',
-					message: `Cannot use in this network: ${String(
-						currentNetwork.value?.type
-					)}`
+					message: `Cannot use in this network: ${String(x.type)}`
 			  }
 		: {
 				type: 'failed',
@@ -71,17 +68,23 @@ export const xTry = customElements(
 			properties,
 			items =>
 				html`
-					<div class="cards">
-						${repeat(
-							items[currentNetwork.value?.type!],
-							item =>
-								html`
-									<div class="card">
-										${card(item)}
-									</div>
-								`
-						)}
-					</div>
+					${subscribe(
+						currentNetwork.pipe(filter(x => x !== undefined)),
+						net =>
+							html`
+								<div class="cards">
+									${repeat(
+										items[net?.type!],
+										item =>
+											html`
+												<div class="card">
+													${card(item)}
+												</div>
+											`
+									)}
+								</div>
+							`
+					)}
 				`
 		)}
 	`
