@@ -24,11 +24,12 @@ type AmountsStore = BehaviorSubject<Amounts | undefined>
 type MessageStore = BehaviorSubject<string | undefined>
 
 const stakingHandler = (address: string, store: AmountsStore) => async () => {
-	const [tryOut, dev] = await Promise.all([
+	const [libWeb3, tryOut, dev] = await Promise.all([
+		promisify(web3),
 		promisify(web3TryOut),
 		promisify(web3Dev)
 	])
-	const from = window.ethereum.selectedAddress
+	const [from] = await libWeb3.eth.getAccounts()
 
 	const approved = await txPromisify(
 		dev.methods.approve(tryOut.options.address, one18.toFixed()).send({ from }),
