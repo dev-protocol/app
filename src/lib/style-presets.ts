@@ -41,7 +41,7 @@ export const a = `
 export const container = (selector: string): string => `
 	${selector} {
 		display: block;
-		max-width: 76em;
+		max-width: 58em;
 		margin: auto;
 		padding: 2.8rem;
 		box-sizing: border-box;

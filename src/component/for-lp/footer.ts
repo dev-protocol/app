@@ -86,7 +86,7 @@ export const footer = (): DirectiveFunction =>
 								href="https://medium.com/devtoken"
 								target="_blank"
 								rel="noopener"
-								>Blog</a
+								>Medium</a
 							>
 						</li>
 						<li>

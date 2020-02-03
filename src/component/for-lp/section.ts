@@ -3,7 +3,7 @@ import { html } from 'lit-html'
 import { style } from '../../lib/style'
 import { section as raw } from '../pure/section'
 import { ViewTemplate } from '../../d/app'
-import { heading } from '../../lib/style-presets'
+import { heading, exLarge } from '../../lib/style-presets'
 
 export interface Props {
 	title?: string
@@ -16,7 +16,10 @@ export const section = ({ title, content }: Props): DirectiveFunction =>
 			${heading()}
 			section {
 				padding-top: 2rem;
-				padding-bottom: 10rem;
+				padding-bottom: 6rem;
+				${exLarge(`
+					padding-bottom: 10rem;
+				`)}
 			}
 		`}
 		${raw(

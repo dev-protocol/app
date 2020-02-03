@@ -13,7 +13,7 @@ export const properties = {
 	weakColor: ['#ccc', '#505050'],
 	onSurfaceWeakColor: ['#a0a0a0'],
 	fontColor: ['#000', '#fff'],
-	fontSize: ['18px'],
+	fontSize: ['21px'],
 	fontFamilyHeading: ["'Montserrat', sans-serif"],
 	fontFamilyBody: ["'Poppins', sans-serif"],
 	fontFamilyUI: ["'Ubuntu', sans-serif"],

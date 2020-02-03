@@ -1,7 +1,7 @@
 import { DirectiveFunction, component, subscribe } from '@aggre/ullr/directive'
 import { html, TemplateResult } from 'lit-html'
 import { style } from '../../lib/style'
-import { heading, exLarge } from '../../lib/style-presets'
+import { exLarge } from '../../lib/style-presets'
 import { BehaviorSubject } from 'rxjs'
 import { buttonRounded } from '../presentation/button-rounded'
 import { button } from '../pure/button'
@@ -152,7 +152,11 @@ export const updagradeDev = (): DirectiveFunction =>
 				:host {
 					display: grid;
 					grid-gap: 2rem;
-					justify-items: center;
+					grid-template-columns: repeat(auto-fit,minmax(340px,0.4fr));
+				}
+				.console {
+					display: grid;
+					grid-gap: 1rem;
 				}
 				p, dl, dd, pre {
 					margin: 0;
@@ -190,52 +194,57 @@ export const updagradeDev = (): DirectiveFunction =>
 						grid-area: new-address;
 					}
 				}
-				${heading()}
 			`}
-			<h2>Upgrade DEV</h2>
-			<p>
-				If you have old (published before Jan. 2020) DEV tokens, you can upgrade
-				to the new DEV tokens.
-			</p>
-			${buttonRounded(() =>
-				button({ content: 'Upgrade', onClick: handler(balance, notification) })
-			)('primary')}
-			${subscribe(notification, x => x)}
-			${subscribe(
-				currentNetwork,
-				network => html`
-					<dl>
-						<dt class="legacy">Legacy DEV</dt>
-						<dd class="legacy">
-							<pre>${addresses(network?.type)?.devLegacy}</pre>
-							<p>
-								You:
-								${subscribe(
-									balance,
-									x =>
-										html`
-											${toNaturalNumber(x.legacy!)}
-										`
-								)}
-								DEV
-							</p>
-						</dd>
-						<dt class="new">New DEV</dt>
-						<dd class="new">
-							<pre>${addresses(network?.type)?.dev}</pre>
-							<p>
-								You:
-								${subscribe(
-									balance,
-									x =>
-										html`
-											${toNaturalNumber(x.next!)}
-										`
-								)}
-								DEV
-							</p>
-						</dd>
-					</dl>
-				`
-			)}
+			<div>
+				<p>
+					If you have old (published before Jan. 2020) DEV tokens, you can
+					upgrade to the new DEV tokens.
+				</p>
+			</div>
+			<div class="console">
+				${buttonRounded(() =>
+					button({
+						content: 'Upgrade',
+						onClick: handler(balance, notification)
+					})
+				)('primary')}
+				${subscribe(notification, x => x)}
+				${subscribe(
+					currentNetwork,
+					network => html`
+						<dl>
+							<dt class="legacy">Legacy DEV</dt>
+							<dd class="legacy">
+								<pre>${addresses(network?.type)?.devLegacy}</pre>
+								<p>
+									You:
+									${subscribe(
+										balance,
+										x =>
+											html`
+												${toNaturalNumber(x.legacy!)}
+											`
+									)}
+									DEV
+								</p>
+							</dd>
+							<dt class="new">New DEV</dt>
+							<dd class="new">
+								<pre>${addresses(network?.type)?.dev}</pre>
+								<p>
+									You:
+									${subscribe(
+										balance,
+										x =>
+											html`
+												${toNaturalNumber(x.next!)}
+											`
+									)}
+									DEV
+								</p>
+							</dd>
+						</dl>
+					`
+				)}
+			</div>
 		`))(createStore())

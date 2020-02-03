@@ -18,7 +18,7 @@ test('container; Returns style for a container block', async t => {
 	const expected = await processor`
 		.test {
 			display: block;
-			max-width: 76em;
+			max-width: 58em;
 			margin: auto;
 			padding: 2.8rem;
 			box-sizing: border-box;
