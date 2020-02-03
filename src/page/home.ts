@@ -106,7 +106,7 @@ export const home = (): TemplateResult => html`
 								<div>
 									<h3>Staking</h3>
 									<p>
-									Staking rewards for both asset owners and payers. Locking Dev to an asset allows you to conduct economic transactions.
+									By staking as supporters, you can earn staking rewards, and the mining power of developers can be enhanced. Locking Dev to an asset allows you to conduct economic transactions.
 									</p>
 									<p><a href=https://github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md#staking target="_blank" ref="noopener">More detail for staking</a></p>
 								</div>
