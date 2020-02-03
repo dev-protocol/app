@@ -135,7 +135,6 @@ export const home = (): TemplateResult => html`
 											color: ${asVar('weakColor')};
 											& a {
 												color: ${asVar('fontColor')};
-												font-size: 0.8rem;
 											}
 										}
 										ul {
@@ -164,7 +163,7 @@ export const home = (): TemplateResult => html`
 									<p>
 										Let's stake to open the secret messages!
 										<a href="#" @click=${toUpgrade}
-											>Are you have old DEV tokens?</a
+											>Are you have old DEV tokens? Upgrade now!</a
 										>
 									</p>
 									<ul>
