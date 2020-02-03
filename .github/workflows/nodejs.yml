@@ -25,7 +25,7 @@ jobs:
         env:
           CI: true
       - name: deploy
-        if: github.ref == 'master'
+        if: contains(github.ref, 'master')
         run: |
           npm install now
           npm run build
