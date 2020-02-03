@@ -9,7 +9,7 @@ import { promisify } from '../../lib/promisify'
 import { BehaviorSubject } from 'rxjs'
 import { notification } from '../../store/notification'
 import { one18 } from '../../lib/numbers'
-import { txPromisify } from '../../lib/ethereum'
+import { txPromisify, getAccount } from '../../lib/ethereum'
 import { web3TryOut } from '../../store/web3-try-out'
 import { web3Dev } from '../../store/web3-dev'
 import BigNumber from 'bignumber.js'
@@ -24,12 +24,19 @@ type AmountsStore = BehaviorSubject<Amounts | undefined>
 type MessageStore = BehaviorSubject<string | undefined>
 
 const stakingHandler = (address: string, store: AmountsStore) => async () => {
-	const [libWeb3, tryOut, dev] = await Promise.all([
-		promisify(web3),
+	if (walletConnected.value === false) {
+		notification.next({
+			type: 'failed',
+			message: 'Please connect to your wallet and try again.'
+		})
+		return
+	}
+
+	const [from, tryOut, dev] = await Promise.all([
+		getAccount(),
 		promisify(web3TryOut),
 		promisify(web3Dev)
 	])
-	const [from] = await libWeb3.eth.getAccounts()
 
 	const approved = await txPromisify(
 		dev.methods.approve(tryOut.options.address, one18.toFixed()).send({ from }),
@@ -39,6 +46,7 @@ const stakingHandler = (address: string, store: AmountsStore) => async () => {
 				message: 'Staking transactions started...(please wait a minutes)'
 			})
 	).catch((err: Error) => err)
+	console.log(approved)
 	if (approved instanceof Error) {
 		return notification.next({ type: 'failed', message: approved.message })
 	}
@@ -70,11 +78,19 @@ const stakingHandler = (address: string, store: AmountsStore) => async () => {
 }
 
 const openHandler = (address: string, store: MessageStore) => async () => {
+	if (walletConnected.value === false) {
+		notification.next({
+			type: 'failed',
+			message: 'Please connect to your wallet and try again.'
+		})
+		return
+	}
+
 	const [libWeb3, net] = await Promise.all([
 		promisify(web3),
 		promisify(currentNetwork)
 	])
-	const from = window.ethereum.selectedAddress!
+	const [from] = await libWeb3.eth.getAccounts()
 	const signature = await libWeb3.eth.personal.sign(
 		'Please sign to confirm your address.',
 		from,
@@ -108,10 +124,13 @@ const getPropertyValue = async (address: string): Promise<BigNumber> => {
 }
 
 const getValue = async (address: string): Promise<BigNumber> => {
-	const dev = await promisify(devKitContract)
+	const [from, dev] = await Promise.all([
+		getAccount(),
+		promisify(devKitContract)
+	])
 	return dev
 		.lockup(addresses(currentNetwork.value?.type)?.lokcup)
-		.getValue(address, window.ethereum.selectedAddress ?? '')
+		.getValue(address, from)
 		.then(toNaturalNumber)
 }
 
@@ -126,6 +145,13 @@ const createStore = (address: string): [AmountsStore, MessageStore] => {
 		address
 	)
 	const message = new BehaviorSubject<string | undefined>(undefined)
+	walletConnected
+		.pipe(
+			filter(x => x),
+			take(1)
+		)
+		.subscribe(() => updateStore(amounts, address))
+
 	return [amounts, message]
 }
 
@@ -136,12 +162,6 @@ const updateStore = (store: AmountsStore, address: string): AmountsStore => {
 	getValue(address).then(account =>
 		store.next(reducer(store.value ?? {}, { account }))
 	)
-	walletConnected
-		.pipe(
-			filter(x => x),
-			take(1)
-		)
-		.subscribe(() => updateStore(store, address))
 	return store
 }
 

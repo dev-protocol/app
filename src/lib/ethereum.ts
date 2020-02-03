@@ -1,5 +1,7 @@
 import web3DetectNetwork from 'web3-detect-network'
 import { provider } from 'web3-core'
+import { promisify } from './promisify'
+import { web3 } from '../store/web3'
 
 export interface TxReceipt {
 	blockHash: string
@@ -48,9 +50,14 @@ export const txPromisify = async (
 				)
 			})
 			.on('error', (err: Error) => {
-				reject(err)
+				reject(new Error(err.message))
 			})
 	})
 
 export const getNetwork = async (prov: provider): Promise<DetectedNetwork> =>
 	web3DetectNetwork(prov)
+
+export const getAccount = async (): Promise<string> =>
+	promisify(web3)
+		.then(async libWeb3 => libWeb3.eth.getAccounts())
+		.then(([account]) => account)

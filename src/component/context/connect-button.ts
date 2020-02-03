@@ -5,16 +5,16 @@ import { hasEthereum } from '../../store/has-ethereum'
 import { button } from '../pure/button'
 import { connectToWallet } from './connect-to-wallet'
 import { merge } from 'rxjs'
-import { web3 } from '../../store/web3'
+import { walletConnected } from '../../store/wallet-connected'
 
 interface Props {
 	ethereum: Window['ethereum']
 }
 
 const template = ({ ethereum }: Props): TemplateResult => html`
-	${subscribe(merge(hasEthereum, web3), () =>
-		hasEthereum.value && web3.value
-			? ethereum.isConnected()
+	${subscribe(merge(hasEthereum, walletConnected), () =>
+		hasEthereum.value
+			? walletConnected.value
 				? button({
 						content: 'connected',
 						onClick: () => true

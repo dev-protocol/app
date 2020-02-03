@@ -44,9 +44,12 @@ export const xTry = customElements(
 				color:${asVar('onSurfaceColor')};
 				border-radius: 5px;
 			}
-			.notice {
+			.notice-content {
 				position: sticky;
 				top: 1rem;
+				z-index: 1;
+			}
+			.notice {
 				padding: 1rem;
 				border-radius: 5px;
 				color: white;
@@ -62,13 +65,15 @@ export const xTry = customElements(
 			}
 		`}
 		${connectButton({ ethereum: window.ethereum })}
-		${subscribe(notification, x =>
-			x === undefined
-				? html``
-				: html`
-						<div class="notice ${x.type}">${x.message}</div>
-				  `
-		)}
+		<div class="notice-content">
+			${subscribe(notification, x =>
+				x === undefined
+					? html``
+					: html`
+							<div class="notice ${x.type}">${x.message}</div>
+					  `
+			)}
+		</div>
 		${subscribe(
 			properties,
 			items =>

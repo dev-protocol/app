@@ -8,7 +8,7 @@ import { button } from '../pure/button'
 import { promisify } from '../../lib/promisify'
 import { web3 } from '../../store/web3'
 import { devMigrationAbi } from '../../abi/dev-migration-abi'
-import { txPromisify } from '../../lib/ethereum'
+import { txPromisify, getAccount } from '../../lib/ethereum'
 import { asVar } from '../../lib/style-properties'
 import { addresses } from '../../lib/addresses'
 import { currentNetwork } from '../../store/current-network'
@@ -26,17 +26,28 @@ const handler = (
 	balanceStore: BalanceStore,
 	notificationStore: NotificationStore
 ) => async () => {
-	await promisify(currentNetwork)
-	const from = window.ethereum.selectedAddress
+	if (walletConnected.value === false) {
+		notificationStore.next(
+			html`
+				Please connect to your wallet and try again.
+			`
+		)
+		return
+	}
+
+	const [from, net] = await Promise.all([
+		getAccount(),
+		promisify(currentNetwork)
+	])
 	const approvalAmount = balanceStore.value.legacy
 	const libWeb3 = await promisify(web3)
 	const devLegacy = new libWeb3.eth.Contract(
 		dev,
-		addresses(currentNetwork.value?.type)?.devLegacy
+		addresses(net.type)?.devLegacy
 	)
 	const devMigration = new libWeb3.eth.Contract(
 		devMigrationAbi,
-		addresses(currentNetwork.value?.type)?.migration
+		addresses(net.type)?.migration
 	)
 
 	const approved = await txPromisify(
@@ -54,7 +65,7 @@ const handler = (
 	if (approved instanceof Error) {
 		return notificationStore.next(
 			html`
-				Failed to approval.
+				${approved.message}
 			`
 		)
 	}
@@ -74,12 +85,11 @@ const handler = (
 				`
 			)
 	).catch((err: Error) => err)
-	console.log(upgraded)
 
 	if (upgraded instanceof Error) {
 		return notificationStore.next(
 			html`
-				Failed to upgrade
+				${upgraded.message}
 			`
 		)
 	}
@@ -97,27 +107,21 @@ const updateStore = (store: BalanceStore): BalanceStore => {
 	promisify(currentNetwork)
 		.then(async () => promisify(web3))
 		.then(async libWeb3 => {
-			const from = window.ethereum.selectedAddress
+			const [from, net] = await Promise.all([
+				getAccount(),
+				promisify(currentNetwork)
+			])
 			const devLegacy = new libWeb3.eth.Contract(
 				dev,
-				addresses(currentNetwork.value?.type)?.devLegacy
+				addresses(net.type)?.devLegacy
 			)
-			const devNext = new libWeb3.eth.Contract(
-				dev,
-				addresses(currentNetwork.value?.type)?.dev
-			)
+			const devNext = new libWeb3.eth.Contract(dev, addresses(net.type)?.dev)
 			return Promise.all([
 				devLegacy.methods.balanceOf(from).call(),
 				devNext.methods.balanceOf(from).call()
 			])
 		})
 		.then(([legacy, next]) => store.next({ legacy, next }))
-	walletConnected
-		.pipe(
-			filter(x => x),
-			take(1)
-		)
-		.subscribe(() => updateStore(store))
 
 	return store
 }
@@ -125,10 +129,21 @@ const updateStore = (store: BalanceStore): BalanceStore => {
 const createStore = (): {
 	balance: BalanceStore
 	notification: NotificationStore
-} => ({
-	balance: updateStore(new BehaviorSubject<Balance>({})),
-	notification: new BehaviorSubject<TemplateResult>(html``)
-})
+} => {
+	const balance = updateStore(new BehaviorSubject<Balance>({}))
+	const notification = new BehaviorSubject<TemplateResult>(html``)
+	walletConnected
+		.pipe(
+			filter(x => x),
+			take(1)
+		)
+		.subscribe(() => updateStore(balance))
+
+	return {
+		balance,
+		notification
+	}
+}
 
 export const updagradeDev = (): DirectiveFunction =>
 	(({ balance, notification }) =>
