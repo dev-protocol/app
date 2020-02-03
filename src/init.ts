@@ -21,16 +21,19 @@ interface Props {
 	ethereum: Ethereum
 }
 
+const createElementWhenUndefined = (name: string): HTMLElement =>
+	document.head.querySelector(name) ??
+	(t => document.head.appendChild(t))(document.createElement(name))
+
 export const init = async ({ history, ethereum }: Props): Promise<void> => {
-	render(rootStyle, document.head.querySelector('style')!)
+	render(rootStyle, createElementWhenUndefined('style'))
 
 	route.subscribe(x => history.pushState(undefined, '', x))
 
 	route.subscribe(x => {
 		render(
 			contextByRoutes(x).documentTitle,
-			document.head.querySelector('title') ??
-				(t => document.head.appendChild(t))(document.createElement('title'))
+			createElementWhenUndefined('title')
 		)
 	})
 
