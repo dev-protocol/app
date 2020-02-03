@@ -14,9 +14,9 @@ import { figureNetwork } from '../component/for-lp/figure-network'
 const toUpgrade = (e: Event): void => {
 	e.preventDefault()
 	document
-		.querySelector('x-app')
-		?.shadowRoot?.querySelector('ullr-shdw:nth-child(2)')
-		?.shadowRoot?.querySelector('#article > ullr-shdw:nth-child(6)')
+		.querySelector('body > x-app')
+		?.shadowRoot?.querySelector('ullr-sbsc > ullr-shdw:nth-child(2)')
+		?.shadowRoot?.querySelector('#article > ullr-shdw:nth-child(8)')
 		?.shadowRoot?.querySelector('section')
 		?.scrollIntoView()
 }
