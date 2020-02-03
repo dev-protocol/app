@@ -1,7 +1,6 @@
 import { route } from './store/route'
 import { hasEthereum } from './store/has-ethereum'
 import { render } from 'lit-html'
-import { head } from './component/context/head'
 import { contextByRoutes } from './lib/context-by-routes'
 import { web3 } from './store/web3'
 import { tryOut } from './abi/try-out'
@@ -14,6 +13,7 @@ import { devKitContract } from './store/dev-kit-contract'
 import { currentNetwork } from './store/current-network'
 import { getNetwork } from './lib/ethereum'
 import { addresses } from './lib/addresses'
+import { rootStyle } from './lib/style-presets'
 const { document } = window
 
 interface Props {
@@ -22,10 +22,15 @@ interface Props {
 }
 
 export const init = async ({ history, ethereum }: Props): Promise<void> => {
+	render(rootStyle, document.head.querySelector('style')!)
+
 	route.subscribe(x => history.pushState(undefined, '', x))
 
 	route.subscribe(x => {
-		render(head(contextByRoutes(x)), document.head)
+		render(
+			contextByRoutes(x).documentTitle,
+			document.head.querySelector('title')!
+		)
 	})
 
 	hasEthereum.next(ethereum !== undefined)

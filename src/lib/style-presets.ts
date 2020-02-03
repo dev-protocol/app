@@ -1,4 +1,4 @@
-import { asVar } from './style-properties'
+import { asVar, asDeclaration } from './style-properties'
 
 interface ButtonWithPaddingProps {
 	size: 'small' | 'medium' | 'large'
@@ -64,5 +64,26 @@ export const large = (style: string): string => `
 export const exLarge = (style: string): string => `
 	@media only screen and (min-width: 768px) {
 		${style}
+	}
+`
+
+export const rootStyle = `
+	:root {
+		${asDeclaration()}
+	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			${asDeclaration('dark')}
+		}
+	}
+	body {
+		margin: 0;
+		background: ${asVar('baseColor')};
+		font-size: ${asVar('fontSize')};
+		font-family: ${asVar('fontFamilyBody')};
+		color: ${asVar('fontColor')};
+	}
+	a {
+		color: ${asVar('secondaryColor')};
 	}
 `

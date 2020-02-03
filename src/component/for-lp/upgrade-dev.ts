@@ -17,6 +17,7 @@ import { dev } from '../../abi/dev'
 import { toNaturalNumber } from '../../lib/to-natural-number'
 import { walletConnected } from '../../store/wallet-connected'
 import { filter, take } from 'rxjs/operators'
+import { connectButton } from '../context/connect-button'
 
 type Balance = { legacy?: BigNumber; next?: BigNumber }
 type BalanceStore = BehaviorSubject<Balance>
@@ -202,12 +203,20 @@ export const updagradeDev = (): DirectiveFunction =>
 				</p>
 			</div>
 			<div class="console">
-				${buttonRounded(() =>
-					button({
-						content: 'Upgrade',
-						onClick: handler(balance, notification)
-					})
-				)('primary')}
+				${subscribe(
+					walletConnected,
+					x =>
+						html`
+							${x
+								? buttonRounded(() =>
+										button({
+											content: 'Upgrade',
+											onClick: handler(balance, notification)
+										})
+								  )('primary')
+								: connectButton({ ethereum: window.ethereum })}
+						`
+				)}
 				${subscribe(notification, x => x)}
 				${subscribe(
 					currentNetwork,
@@ -218,12 +227,14 @@ export const updagradeDev = (): DirectiveFunction =>
 								<pre>${addresses(network?.type)?.devLegacy}</pre>
 								<p>
 									You:
-									${subscribe(
-										balance,
-										x =>
-											html`
-												${toNaturalNumber(x.legacy!)}
-											`
+									${subscribe(balance, x =>
+										x.legacy
+											? html`
+													${toNaturalNumber(x.legacy)}
+											  `
+											: html`
+													-
+											  `
 									)}
 									DEV
 								</p>
@@ -233,12 +244,14 @@ export const updagradeDev = (): DirectiveFunction =>
 								<pre>${addresses(network?.type)?.dev}</pre>
 								<p>
 									You:
-									${subscribe(
-										balance,
-										x =>
-											html`
-												${toNaturalNumber(x.next!)}
-											`
+									${subscribe(balance, x =>
+										x.next
+											? html`
+													${toNaturalNumber(x.next)}
+											  `
+											: html`
+													-
+											  `
 									)}
 									DEV
 								</p>

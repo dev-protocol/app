@@ -2,6 +2,7 @@ import web3DetectNetwork from 'web3-detect-network'
 import { provider } from 'web3-core'
 import { promisify } from './promisify'
 import { web3 } from '../store/web3'
+import { walletConnected } from '../store/wallet-connected'
 
 export interface TxReceipt {
 	blockHash: string
@@ -61,3 +62,13 @@ export const getAccount = async (): Promise<string> =>
 	promisify(web3)
 		.then(async libWeb3 => libWeb3.eth.getAccounts())
 		.then(([account]) => account)
+
+export const connect = async (ethereum: Window['ethereum']): Promise<void> =>
+	ethereum
+		.enable()
+		.then(() => {
+			walletConnected.next(true)
+		})
+		.catch(() => {
+			walletConnected.next(false)
+		})
