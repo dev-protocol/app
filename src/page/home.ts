@@ -235,7 +235,7 @@ export const home = (): TemplateResult => html`
 								</p>
 								<p>
 									<a
-										href="https://twitter.com/devtoken_rocks"
+										href="https://twitter.com/devprtcl"
 										target="_blank"
 										rel="noopener"
 										>Twitter</a

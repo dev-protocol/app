@@ -91,7 +91,7 @@ export const footer = (): DirectiveFunction =>
 						</li>
 						<li>
 							<a
-								href="https://twitter.com/devtoken_rocks"
+								href="https://twitter.com/devprtcl"
 								target="_blank"
 								rel="noopener"
 								>Twitter</a
