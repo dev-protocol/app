@@ -1,0 +1,14 @@
+{
+	"version": 2,
+	"alias": "devprtcl.com",
+	"builds": [{ "src": "dist/**", "use": "@now/static" }],
+	"routes": [
+		{
+			"src": "/(.*)",
+			"headers": {
+				"cache-control": "public, s-maxage=31536000"
+			},
+			"dest": "/dist/$1"
+		}
+	]
+}

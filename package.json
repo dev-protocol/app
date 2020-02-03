@@ -9,36 +9,43 @@
 		"lint": "npm run lint:eslint && npm run lint:format",
 		"lint:eslint": "eslint . --ext .ts,.js --fix --ignore-pattern node_modules/ --ignore-pattern dist/",
 		"lint:format": "prettier --write '**/*.{html,js,json,md,yml}'",
-		"build": "parcel build public/index.html --no-source-maps"
+		"build": "parcel build public/index.html --no-source-maps",
+		"prebuild": "rimraf ./dist"
 	},
 	"license": "MPL-2.0",
 	"dependencies": {
-		"@aggre/ullr": "^0.14.4",
-		"@dev-protocol/dev-kit-js": "0.0.3",
+		"@aggre/ullr": "^0.14.5",
+		"@dev-protocol/dev-kit-js": "^0.2.1",
+		"bignumber.js": "^9.0.0",
 		"cssnano": "^4.1.10",
+		"date-fns": "^2.9.0",
 		"lit-html": "^1.1.2",
 		"lit-style": "^1.1.2",
-		"rxjs": "^6.5.3",
-		"web3": "^1.2.4"
+		"postcss-nesting": "^7.0.1",
+		"rxjs": "^6.5.4",
+		"web3": "^1.2.4",
+		"web3-detect-network": "0.0.18"
 	},
 	"devDependencies": {
 		"@types/dotenv": "^8.2.0",
-		"@typescript-eslint/eslint-plugin": "^2.12.0",
-		"@typescript-eslint/parser": "^2.12.0",
-		"ava": "^2.4.0",
+		"@types/node": "^13.7.0",
+		"@typescript-eslint/eslint-plugin": "^2.17.0",
+		"@typescript-eslint/parser": "^2.17.0",
+		"ava": "^3.0.0",
 		"browser-env": "^3.3.0",
 		"dotenv": "^8.2.0",
-		"eslint": "^6.7.2",
-		"eslint-config-prettier": "^6.7.0",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.9.0",
 		"eslint-config-xo": "^0.27.2",
-		"eslint-config-xo-typescript": "^0.23.0",
+		"eslint-config-xo-typescript": "^0.24.1",
 		"eslint-plugin-prettier": "^3.1.2",
 		"esm": "^3.2.25",
-		"husky": "^3.1.0",
+		"husky": "^4.2.1",
 		"parcel": "^1.12.4",
 		"prettier": "^1.19.1",
 		"puppeteer": "^2.0.0",
-		"typescript": "^3.7.3"
+		"rimraf": "^3.0.1",
+		"typescript": "^3.7.5"
 	},
 	"browserslist": [
 		"last 2 chrome versions"

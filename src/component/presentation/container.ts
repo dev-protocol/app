@@ -7,9 +7,7 @@ import { container as containerStyle } from '../../lib/style-presets'
 export const container = (template: ViewTemplate): DirectiveFunction =>
 	component(html`
 		${style`
-			${containerStyle('div')}
+			${containerStyle(':host')}
 		`}
-		<div>
-			${template()}
-		</div>
+		${template()}
 	`)

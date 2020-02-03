@@ -20,7 +20,7 @@ export const buttonWithPadding = (
 	}
 ): string => `
 	button {
-		font-size: ${`${size === 'medium' ? 1 : size === 'small' ? 0.8 : 1.4}rem`};
+		font-size: ${`${size === 'medium' ? 1 : size === 'small' ? 0.8 : 1.4}em`};
 		padding: ${
 			size === 'medium'
 				? '0.5rem 1.1rem'
@@ -40,8 +40,29 @@ export const a = `
 
 export const container = (selector: string): string => `
 	${selector} {
-		max-width: 798px;
+		display: block;
+		max-width: 58em;
 		margin: auto;
 		padding: 2.8rem;
+		box-sizing: border-box;
+	}
+`
+
+export const heading = (): string => `
+	h1, h2, h3 {
+		font-family: ${asVar('fontFamilyHeading')};
+		font-weight: 500;
+	}
+`
+
+export const large = (style: string): string => `
+	@media only screen and (min-width: 414px) {
+		${style}
+	}
+`
+
+export const exLarge = (style: string): string => `
+	@media only screen and (min-width: 768px) {
+		${style}
 	}
 `
