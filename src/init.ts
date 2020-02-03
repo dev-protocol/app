@@ -29,7 +29,8 @@ export const init = async ({ history, ethereum }: Props): Promise<void> => {
 	route.subscribe(x => {
 		render(
 			contextByRoutes(x).documentTitle,
-			document.head.querySelector('title')!
+			document.head.querySelector('title') ??
+				(t => document.head.appendChild(t))(document.createElement('title'))
 		)
 	})
 

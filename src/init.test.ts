@@ -47,7 +47,7 @@ test('Subscribe the `route` and rewrite history', t => {
 	route.next('/test')
 })
 
-test('Subscribe `route` and re-writes <head>', t => {
+test('Subscribe `route` and re-writes <title>', t => {
 	route.next('/')
 	init({
 		history: {
