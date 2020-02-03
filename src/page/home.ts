@@ -4,10 +4,21 @@ import { hero } from '../component/for-lp/hero'
 import { section } from '../component/for-lp/section'
 import { style } from '../lib/style'
 import { asVar } from '../lib/style-properties'
-import { exLarge } from '../lib/style-presets'
+import { exLarge, heading } from '../lib/style-presets'
 import { milestones } from '../component/for-lp/milestones'
 import { footer } from '../component/for-lp/footer'
 import { updagradeDev } from '../component/for-lp/upgrade-dev'
+import { component } from '@aggre/ullr/directive'
+
+const toUpgrade = (e: Event): void => {
+	e.preventDefault()
+	document
+		.querySelector('x-app')
+		?.shadowRoot?.querySelector('ullr-shdw:nth-child(2)')
+		?.shadowRoot?.querySelector('#article > ullr-shdw:nth-child(6)')
+		?.shadowRoot?.querySelector('section')
+		?.scrollIntoView()
+}
 
 export const home = (): TemplateResult => html`
 	${hero()}
@@ -93,6 +104,69 @@ export const home = (): TemplateResult => html`
 								</div>
 							</div>
 						`
+					})}
+					${section({
+						content: () =>
+							html`
+								${component(html`
+									${style`
+								${heading()}
+								h2, p {
+									text-align: center;
+								}
+								p {
+									margin: 0;
+									color: ${asVar('weakColor')};
+									& a {
+										color: ${asVar('fontColor')};
+										font-size: 0.8rem;
+									}
+								}
+								ul {
+									display: grid;
+									justify-items: center;
+									grid-gap: 1rem;
+									margin: 3rem 0;
+									padding: 0;
+									list-style: none;
+									counter-reset: section;
+									@media only screen and (min-width: 720px) {
+										grid-auto-flow: column;
+									}
+									& li {
+										width:200px;
+										text-align: center;
+										font-size: 0.8rem;
+										&::before {
+											content: counter(section);
+											counter-increment: section;
+										}
+									}
+								}
+							`}
+									<h2>Try out</h2>
+									<p>
+										Let's stake to open the secret messages!
+										<a href="#" @click=${toUpgrade}
+											>Are you have old DEV tokens?</a
+										>
+									</p>
+									<ul>
+										<li>
+											<h3>Choose OSS</h3>
+										</li>
+										<li>
+											<h3>Stake your 1 DEV</h3>
+											<p>You automatically get 1 DEV, don't worry.</p>
+										</li>
+										<li>
+											<h3>Open the message</h3>
+											<p>You can withdraw the DEV after one month.</p>
+										</li>
+									</ul>
+									<x-try></x-try>
+								`)}
+							`
 					})}
 					${section({
 						title: 'Milestones',

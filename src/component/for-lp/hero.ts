@@ -7,6 +7,22 @@ import { button } from '../pure/button'
 import { heading } from '../../lib/style-presets'
 import { logo } from '../presentation/logo'
 
+const toArticle = (): void => {
+	document
+		.querySelector('x-app')
+		?.shadowRoot?.querySelector('ullr-sbsc > ullr-shdw:nth-child(2)')
+		?.scrollIntoView()
+}
+
+const toTryOut = (): void => {
+	document
+		.querySelector('x-app')
+		?.shadowRoot?.querySelector('ullr-sbsc > ullr-shdw:nth-child(2)')
+		?.shadowRoot?.querySelector('#article > ullr-shdw:nth-child(4)')
+		?.shadowRoot?.querySelector('section')
+		?.scrollIntoView()
+}
+
 export const hero = (): DirectiveFunction =>
 	component(html`
 		${style`
@@ -66,12 +82,15 @@ export const hero = (): DirectiveFunction =>
 									<p>Supporting OSS, you earn investment income</p>
 								</div>
 								<div class="link">
-									${buttonRounded(() => button({ content: 'Read more' }))(
-										'primary'
-									)}
-									${buttonRounded(() => button({ content: 'Try out' }))(
-										'primary'
-									)}
+									${buttonRounded(() =>
+										button({
+											content: 'Read more',
+											onClick: toArticle
+										})
+									)('primary')}
+									${buttonRounded(() =>
+										button({ content: 'Try out', onClick: toTryOut })
+									)('primary')}
 								</div>
 							</div>
 						`)}

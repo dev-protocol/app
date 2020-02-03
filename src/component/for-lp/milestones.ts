@@ -46,64 +46,6 @@ const data: Milestones = [
 				Deploy to mainnet and publish the npm market for OSS registored by MVP.
 				And release the prototype.
 			</p>
-		`,
-		injectAfter: () => html`
-			${component(html`
-				${style`
-					${heading()}
-					h2, p {
-						text-align: center;
-					}
-					p {
-						margin: 0;
-						color: ${asVar('weakColor')};
-						& a {
-							color: ${asVar('fontColor')};
-							font-size: 0.8rem;
-						}
-					}
-					ul {
-						display: grid;
-						justify-items: center;
-						grid-gap: 1rem;
-						margin: 3rem 0;
-						padding: 0;
-						list-style: none;
-						counter-reset: section;
-						@media only screen and (min-width: 720px) {
-							grid-auto-flow: column;
-						}
-						& li {
-							width:200px;
-							text-align: center;
-							font-size: 0.8rem;
-							&::before {
-								content: counter(section);
-								counter-increment: section;
-							}
-						}
-					}
-				`}
-				<h2>Try out</h2>
-				<p>
-					Let's stake to open the secret messages!
-					<a href="#">Are you have old DEV tokens?</a>
-				</p>
-				<ul>
-					<li>
-						<h3>Choose OSS</h3>
-					</li>
-					<li>
-						<h3>Stake your 1 DEV</h3>
-						<p>You automatically get 1 DEV, don't worry.</p>
-					</li>
-					<li>
-						<h3>Open the message</h3>
-						<p>You can withdraw the DEV after one month.</p>
-					</li>
-				</ul>
-				<x-try></x-try>
-			`)}
 		`
 	},
 	{

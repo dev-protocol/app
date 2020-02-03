@@ -47,7 +47,6 @@ export const xTry = customElements(
 			.notice {
 				position: sticky;
 				top: 1rem;
-				margin-bottom: 1rem;
 				padding: 1rem;
 				border-radius: 5px;
 				color: white;

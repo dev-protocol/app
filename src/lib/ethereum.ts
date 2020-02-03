@@ -1,4 +1,5 @@
 import web3DetectNetwork from 'web3-detect-network'
+import { provider } from 'web3-core'
 
 export interface TxReceipt {
 	blockHash: string
@@ -51,5 +52,5 @@ export const txPromisify = async (
 			})
 	})
 
-export const getNetwork = async (): Promise<DetectedNetwork> =>
-	web3DetectNetwork(window.ethereum)
+export const getNetwork = async (prov: provider): Promise<DetectedNetwork> =>
+	web3DetectNetwork(prov)

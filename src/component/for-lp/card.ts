@@ -9,7 +9,7 @@ import { promisify } from '../../lib/promisify'
 import { BehaviorSubject } from 'rxjs'
 import { notification } from '../../store/notification'
 import { one18 } from '../../lib/numbers'
-import { txPromisify, getNetwork } from '../../lib/ethereum'
+import { txPromisify } from '../../lib/ethereum'
 import { web3TryOut } from '../../store/web3-try-out'
 import { web3Dev } from '../../store/web3-dev'
 import BigNumber from 'bignumber.js'
@@ -20,9 +20,10 @@ import { walletConnected } from '../../store/wallet-connected'
 import { filter, take } from 'rxjs/operators'
 
 type Amounts = { total?: BigNumber; account?: BigNumber }
-type Store = BehaviorSubject<Amounts | undefined>
+type AmountsStore = BehaviorSubject<Amounts | undefined>
+type MessageStore = BehaviorSubject<string | undefined>
 
-const stakingHandler = (address: string, store: Store) => async () => {
+const stakingHandler = (address: string, store: AmountsStore) => async () => {
 	const [tryOut, dev] = await Promise.all([
 		promisify(web3TryOut),
 		promisify(web3Dev)
@@ -67,10 +68,10 @@ const stakingHandler = (address: string, store: Store) => async () => {
 	updateStore(store, address)
 }
 
-const openHandler = (address: string) => async () => {
-	const [libWeb3, currentNetwork] = await Promise.all([
+const openHandler = (address: string, store: MessageStore) => async () => {
+	const [libWeb3, net] = await Promise.all([
 		promisify(web3),
-		getNetwork()
+		promisify(currentNetwork)
 	])
 	const from = window.ethereum.selectedAddress!
 	const signature = await libWeb3.eth.personal.sign(
@@ -85,14 +86,17 @@ const openHandler = (address: string) => async () => {
 	})
 
 	const res = await fetch(
-		`//dev-protocol.azurewebsites.net/api/secret-message?code=JQPiBU6aCI5fYCDEmiUPJaNUfuqjZaPlYykXTlq0eRb6qMQR1iY09A==&property=${address}&network=${currentNetwork.type as string}&signature=${signature}`
+		`//dev-protocol.azurewebsites.net/api/secret-message?code=JQPiBU6aCI5fYCDEmiUPJaNUfuqjZaPlYykXTlq0eRb6qMQR1iY09A==&property=${address}&network=${net.type as string}&signature=${signature}`
 	).then(async x => x.text())
 
 	notification.next({
 		type: 'succeeded',
-		message: `Message ➝ ${res}`
+		message: 'Open the message!'
 	})
+	store.next(res)
 }
+
+const closeHandler = (store: MessageStore) => () => store.next(undefined)
 
 const getPropertyValue = async (address: string): Promise<BigNumber> => {
 	const dev = await promisify(devKitContract)
@@ -115,12 +119,16 @@ const reducer = (prev: Amounts, data: Amounts): Amounts => ({
 	...data
 })
 
-const createStore = (address: string): Store => {
-	const store = new BehaviorSubject<Amounts | undefined>(undefined)
-	return updateStore(store, address)
+const createStore = (address: string): [AmountsStore, MessageStore] => {
+	const amounts = updateStore(
+		new BehaviorSubject<Amounts | undefined>(undefined),
+		address
+	)
+	const message = new BehaviorSubject<string | undefined>(undefined)
+	return [amounts, message]
 }
 
-const updateStore = (store: Store, address: string): Store => {
+const updateStore = (store: AmountsStore, address: string): AmountsStore => {
 	getPropertyValue(address).then(total =>
 		store.next(reducer(store.value ?? {}, { total }))
 	)
@@ -171,13 +179,46 @@ export const card = ({
 	name,
 	authorName
 }: DevProperty): DirectiveFunction =>
-	(store =>
-		subscribe(
-			store,
-			amounts =>
-				html`
-					${component(html`
-						${style`
+	(([amountsStore, messageStore]) =>
+		component(html`
+			${style`
+				:host {
+					position: relative;
+					display: block;
+				}
+				blockquote {
+					display: grid;
+					position: absolute;
+					padding: 1rem;
+					top: 0;
+					left: 0%;
+					margin: 0;
+					width: 100%;
+					height: 100%;
+					justify-content: center;
+					overflow-x: auto;
+					align-content: center;
+					background: #4caf50;
+					border-radius: 5px;
+					box-sizing: border-box;
+					cursor: pointer;
+					animation: appear 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+				}
+				@keyframes appear {
+					0% {
+						transform: translate(-100%, 0) rotate(-15deg);
+					}
+					100% {
+						transform: translate(0, 0) rotate(0);
+					}
+				}
+			`}
+			${subscribe(
+				amountsStore,
+				amounts =>
+					html`
+						${component(html`
+							${style`
 							:host {
 								& > div {
 									display: grid;
@@ -238,46 +279,56 @@ export const card = ({
 								}
 							}
 						`}
-						<div
-							@click=${amounts?.account?.isGreaterThanOrEqualTo(1)
-								? openHandler(address)
-								: stakingHandler(address, store)}
-						>
-							<div class="content">
-								<h1>${name}</h1>
-								<p>by <strong>${authorName}</strong></p>
+							<div
+								@click=${amounts?.account?.isGreaterThanOrEqualTo(1)
+									? openHandler(address, messageStore)
+									: stakingHandler(address, amountsStore)}
+							>
+								<div class="content">
+									<h1>${name}</h1>
+									<p>by <strong>${authorName}</strong></p>
 
-								<dl class="locked">
-									<dt class="total">Total</dt>
-									<dd class="total">
-										${amounts?.total
-											? `${amounts.total.dp(3).toString()} DEV`
-											: '...'}
-									</dd>
-									<dt class="my">Your</dt>
-									<dd class="my">
-										${amounts?.account
-											? `${amounts.account.dp(3).toString()} DEV`
-											: '...'}
-									</dd>
-								</dl>
+									<dl class="locked">
+										<dt class="total">Total</dt>
+										<dd class="total">
+											${amounts?.total
+												? `${amounts.total.dp(3).toString()} DEV`
+												: '...'}
+										</dd>
+										<dt class="my">Your</dt>
+										<dd class="my">
+											${amounts?.account
+												? `${amounts.account.dp(3).toString()} DEV`
+												: '...'}
+										</dd>
+									</dl>
+								</div>
+								<div class="button">
+									${amounts?.account?.isGreaterThanOrEqualTo(1)
+										? html`
+												<div>
+													${openButton}
+													<p>Open</p>
+												</div>
+										  `
+										: html`
+												<div>
+													${stakeButton}
+													<p>Stake</p>
+												</div>
+										  `}
+								</div>
 							</div>
-							<div class="button">
-								${amounts?.account?.isGreaterThanOrEqualTo(1)
-									? html`
-											<div>
-												${openButton}
-												<p>Open</p>
-											</div>
-									  `
-									: html`
-											<div>
-												${stakeButton}
-												<p>Stake</p>
-											</div>
-									  `}
-							</div>
-						</div>
-					`)}
-				`
-		))(createStore(address))
+						`)}
+					`
+			)}
+			${subscribe(messageStore, message =>
+				message === undefined
+					? html``
+					: html`
+							<blockquote @click=${closeHandler(messageStore)}>
+								<div>${message}</div>
+							</blockquote>
+					  `
+			)}
+		`))(createStore(address))
