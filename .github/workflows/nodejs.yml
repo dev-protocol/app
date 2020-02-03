@@ -29,5 +29,5 @@ jobs:
         run: |
           npm install now
           npm run build
-          npx now --public --token $NOW_TOKEN
-          npx now --prod --token $NOW_TOKEN
+          npx now --public --token ${{ secrets.NOW_TOKEN }}
+          npx now --prod --token ${{ secrets.NOW_TOKEN }}
