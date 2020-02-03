@@ -66,11 +66,10 @@ export const home = (): TemplateResult => html`
 								}
 							`}
 							<p>
-								By staking in the OSS as supporters, you can earn staking
-								rewards, and the mining power of developers can be enhanced.
-								Staked DEV returns to you after a lockup period. The more stake,
-								the more rewards you receive. That's why we believe that staking
-								is an effective way to sustain monetary support for open assets.
+								Staking is a new way of spending money. Staked DEV returns to
+								you after a lockup period. The more stake, the more rewards you
+								receive. That's why we believe that staking is an effective way
+								to sustain monetary support for open assets.
 							</p>
 						`
 					})}
