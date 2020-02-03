@@ -198,8 +198,7 @@ export const updagradeDev = (): DirectiveFunction =>
 			`}
 			<div>
 				<p>
-					If you have old (published before Jan. 2020) DEV tokens, you can
-					upgrade to the new DEV tokens.
+					If you have old DEV tokens, you can upgrade to the new DEV tokens.
 				</p>
 			</div>
 			<div class="console">

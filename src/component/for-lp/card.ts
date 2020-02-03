@@ -316,7 +316,7 @@ export const card = ({
 												? `${amounts.total.dp(3).toString()} DEV`
 												: '...'}
 										</dd>
-										<dt class="my">Your</dt>
+										<dt class="my">You</dt>
 										<dd class="my">
 											${amounts?.account
 												? `${amounts.account.dp(3).toString()} DEV`
