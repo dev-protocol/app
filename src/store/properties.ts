@@ -7,7 +7,63 @@ export interface Item {
 }
 export type Items = Item[]
 const npmProperties = {
-	mainnet: [],
+	mainnet: [
+		{
+			address: '0xC4e4382062B7a2595994faE32cC0d572215abEC5',
+			name: '@mediba/stylelint-config',
+			authorName: 'uknmr'
+		},
+		{
+			address: '0xC87bF5A50997D732352F9Ca30648d98eBF3B22b3',
+			name: 'npm-hello-world-by-narita',
+			authorName: 'narita1980'
+		},
+		{
+			address: '0x90f625C2D81Cc271270Bd52beA6C53eb8A0F3bD2',
+			name: 'frontmatter-markdown-loader',
+			authorName: 'hmsk'
+		},
+		{
+			address: '0xFd7619849f2EeF9041adcC6dCC6D8A2d47fEF271',
+			name: 'jest-matcher-vue-test-utils',
+			authorName: 'hmsk'
+		},
+		{
+			address: '0xcEBD1BF31DF3E3697Ea26e2F94F9E3644C809F46',
+			name: 'vue-i18n',
+			authorName: 'kazupon'
+		},
+		{
+			address: '0xB26F9b4bA5F64A5d787eCb16894EF6A720FcEb23',
+			name: 'vue-i18n-extensions',
+			authorName: 'kazupon'
+		},
+		{
+			address: '0x50e310dcd668A49d610d0f8a0a7D42B27e3be010',
+			name: '@kazupon/vue-i18n-loader',
+			authorName: 'kazupon'
+		},
+		{
+			address: '0x33D36A508e8624409c79C089Dd363fE8cAdea32a',
+			name: 'vue-cli-plugin-i18n',
+			authorName: 'kazupon'
+		},
+		{
+			address: '0xFcA9b9b3fdC7C809FcF9f6620Bb39D19abC8BA8f',
+			name: '@lacolaco/reactive-store',
+			authorName: 'lacolaco'
+		},
+		{
+			address: '0x68c824db5A1634940BB838468Ff2aee2bDa5794B',
+			name: 'dtsgenerator',
+			authorName: 'horiuchi'
+		},
+		{
+			address: '0x9dcAa594E1e81c9BD005bC6FdEB9E1fc085C7cf6',
+			name: 'gulp-riot',
+			authorName: 'jigsaw'
+		}
+	],
 	ropsten: [
 		{
 			address: '0x86786368362465Bc381185cc26EC8d543e691aBC',
