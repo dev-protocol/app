@@ -10,7 +10,7 @@ export const addresses = (network: string | undefined): Addresses | undefined =>
 	network === 'mainnet'
 		? {
 				dev: '0x5cAf454Ba92e6F2c929DF14667Ee360eD9fD5b26',
-				tryOut: '',
+				tryOut: '0x7Eb78cAa271A2e8Fc25e75CA23574E9D9299310C',
 				lokcup: '0x71A25Bb05C68037B867E165c229D0c30e73f07Ad',
 				migration: '0xA75453c61AdEA4db0a52AEDa47880f055bD3aF12',
 				devLegacy: '0x98626E2C9231f03504273d55f397409deFD4a093'
