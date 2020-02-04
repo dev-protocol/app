@@ -40,6 +40,7 @@ const handler = (
 		getAccount(),
 		promisify(currentNetwork)
 	])
+
 	const approvalAmount = balanceStore.value.legacy
 	const libWeb3 = await promisify(web3)
 	const devLegacy = new libWeb3.eth.Contract(
@@ -112,6 +113,10 @@ const updateStore = (store: BalanceStore): BalanceStore => {
 				getAccount(),
 				promisify(currentNetwork)
 			])
+			if (from === undefined) {
+				return [undefined, undefined]
+			}
+
 			const devLegacy = new libWeb3.eth.Contract(
 				dev,
 				addresses(net.type)?.devLegacy

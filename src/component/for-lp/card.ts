@@ -46,7 +46,7 @@ const stakingHandler = (address: string, store: AmountsStore) => async () => {
 				message: 'Staking transactions started...(please wait a minutes)'
 			})
 	).catch((err: Error) => err)
-	console.log(approved)
+
 	if (approved instanceof Error) {
 		return notification.next({ type: 'failed', message: approved.message })
 	}
@@ -123,11 +123,15 @@ const getPropertyValue = async (address: string): Promise<BigNumber> => {
 		.then(toNaturalNumber)
 }
 
-const getValue = async (address: string): Promise<BigNumber> => {
+const getValue = async (address: string): Promise<BigNumber | undefined> => {
 	const [from, dev] = await Promise.all([
 		getAccount(),
 		promisify(devKitContract)
 	])
+	if (from === undefined) {
+		return
+	}
+
 	return dev
 		.lockup(addresses(currentNetwork.value?.type)?.lokcup)
 		.getValue(address, from)
