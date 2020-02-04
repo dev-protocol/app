@@ -39,7 +39,7 @@ export const home = (): TemplateResult => html`
 									grid-gap: 2rem;
 									${exLarge(`
 										grid-auto-flow: column;
-										grid-template-columns: auto 1fr;
+										grid-template-columns: 1fr 1fr;
 									`)}
 								}
 								figure {
