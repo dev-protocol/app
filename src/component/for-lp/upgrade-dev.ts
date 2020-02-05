@@ -152,7 +152,9 @@ export const updagradeDev = (): DirectiveFunction =>
 				:host {
 					display: grid;
 					grid-gap: 2rem;
-					grid-template-columns: repeat(auto-fit,minmax(340px,0.4fr));
+					${exLarge(`
+						grid-template-columns: repeat(auto-fit,minmax(340px,0.4fr));
+					`)}
 				}
 				.console {
 					display: grid;
