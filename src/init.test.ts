@@ -5,6 +5,7 @@ import { hasEthereum } from './store/has-ethereum'
 import { filter } from 'rxjs/operators'
 import { removeExtraString } from './lib/test/remove-extra-string'
 import { contextByRoutes } from './lib/context-by-routes'
+import Web3 from 'web3'
 const { document } = window
 
 const pushState = (cb?: (_: any, __: string, url: string) => void) => (
@@ -17,17 +18,9 @@ const pushState = (cb?: (_: any, __: string, url: string) => void) => (
 	}
 }
 
-const ethereum = <T extends () => void>(
-	func?: T
-): {
-	enable: () => Promise<void>
-} => ({
-	enable: async () => {
-		if (func) {
-			func()
-		}
-	}
-})
+const ethereum = new Web3.providers.HttpProvider(
+	`https://ropsten.infura.io/v3/9ca60bd34e2a42f0ae9fe6fbd652d754`
+)
 
 test.afterEach(() => {
 	hasEthereum.next(false)
@@ -43,7 +36,7 @@ test('Subscribe the `route` and rewrite history', t => {
 		})
 	}
 
-	init({ history: stub as any, ethereum: ethereum() as any })
+	init({ history: stub as any, ethereum: ethereum as any })
 	route.next('/test')
 })
 
@@ -53,7 +46,7 @@ test('Subscribe `route` and re-writes <title>', t => {
 		history: {
 			pushState: pushState()
 		} as any,
-		ethereum: ethereum() as any
+		ethereum: ethereum as any
 	})
 	const el = document.head.querySelector('title') as HTMLTitleElement
 	t.is(removeExtraString(el.innerHTML), contextByRoutes('/').documentTitle)
@@ -70,7 +63,7 @@ test('When includes ethereum in the window, then emit true with `hasEthereum`', 
 			history: {
 				pushState: pushState()
 			} as any,
-			ethereum: ethereum() as any
+			ethereum: ethereum as any
 		})
 	}).then(() => t.pass()))
 
