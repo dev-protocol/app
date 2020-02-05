@@ -103,7 +103,7 @@ const openHandler = (address: string, store: MessageStore) => async () => {
 	})
 
 	const res = await fetch(
-		`//dev-protocol.azurewebsites.net/api/secret-message?code=JQPiBU6aCI5fYCDEmiUPJaNUfuqjZaPlYykXTlq0eRb6qMQR1iY09A==&property=${address}&network=${net.type as string}&signature=${signature}`
+		`//dev-protocol.azurewebsites.net/api/secret-message?code=JQPiBU6aCI5fYCDEmiUPJaNUfuqjZaPlYykXTlq0eRb6qMQR1iY09A==&property=${address}&network=${net}&signature=${signature}`
 	).then(async x => x.text())
 
 	notification.next({
