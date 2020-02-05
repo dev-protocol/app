@@ -43,15 +43,15 @@ export const init = async ({ history, ethereum }: Props): Promise<void> => {
 	hasEthereum.pipe(filter(x => x)).subscribe(async () => {
 		const libWeb3 = new Web3(ethereum)
 		const libDevKit = contractFactory(ethereum)
-		const net = await getNetwork(libWeb3.currentProvider)
+		const net = await getNetwork(libWeb3)
 		web3.next(libWeb3)
 		devKitContract.next(libDevKit)
 
 		const tryOutClient = new libWeb3.eth.Contract(
 			tryOut,
-			addresses(net.type)?.tryOut
+			addresses(net)?.tryOut
 		)
-		const devClient = new libWeb3.eth.Contract(dev, addresses(net.type)?.dev)
+		const devClient = new libWeb3.eth.Contract(dev, addresses(net)?.dev)
 		web3TryOut.next(tryOutClient)
 		web3Dev.next(devClient)
 		currentNetwork.next(net)

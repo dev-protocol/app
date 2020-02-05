@@ -23,8 +23,7 @@
 		"lit-style": "^1.1.2",
 		"postcss-nesting": "^7.0.1",
 		"rxjs": "^6.5.4",
-		"web3": "^1.2.4",
-		"web3-detect-network": "0.0.18"
+		"web3": "^1.2.4"
 	},
 	"devDependencies": {
 		"@types/dotenv": "^8.2.0",

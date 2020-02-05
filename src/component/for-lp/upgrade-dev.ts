@@ -43,18 +43,15 @@ const handler = (
 
 	const approvalAmount = balanceStore.value.legacy
 	const libWeb3 = await promisify(web3)
-	const devLegacy = new libWeb3.eth.Contract(
-		dev,
-		addresses(net.type)?.devLegacy
-	)
+	const devLegacy = new libWeb3.eth.Contract(dev, addresses(net)?.devLegacy)
 	const devMigration = new libWeb3.eth.Contract(
 		devMigrationAbi,
-		addresses(net.type)?.migration
+		addresses(net)?.migration
 	)
 
 	const approved = await txPromisify(
 		devLegacy.methods
-			.approve(addresses(currentNetwork.value?.type)?.migration, approvalAmount)
+			.approve(addresses(currentNetwork.value)?.migration, approvalAmount)
 			.send({ from }),
 		() =>
 			notificationStore.next(
@@ -117,11 +114,8 @@ const updateStore = (store: BalanceStore): BalanceStore => {
 				return [undefined, undefined]
 			}
 
-			const devLegacy = new libWeb3.eth.Contract(
-				dev,
-				addresses(net.type)?.devLegacy
-			)
-			const devNext = new libWeb3.eth.Contract(dev, addresses(net.type)?.dev)
+			const devLegacy = new libWeb3.eth.Contract(dev, addresses(net)?.devLegacy)
+			const devNext = new libWeb3.eth.Contract(dev, addresses(net)?.dev)
 			return Promise.all([
 				devLegacy.methods.balanceOf(from).call(),
 				devNext.methods.balanceOf(from).call()
@@ -228,7 +222,7 @@ export const updagradeDev = (): DirectiveFunction =>
 						<dl>
 							<dt class="legacy">Legacy DEV</dt>
 							<dd class="legacy">
-								<pre>${addresses(network?.type)?.devLegacy}</pre>
+								<pre>${addresses(network)?.devLegacy}</pre>
 								<p>
 									You:
 									${subscribe(balance, x =>
@@ -245,7 +239,7 @@ export const updagradeDev = (): DirectiveFunction =>
 							</dd>
 							<dt class="new">New DEV</dt>
 							<dd class="new">
-								<pre>${addresses(network?.type)?.dev}</pre>
+								<pre>${addresses(network)?.dev}</pre>
 								<p>
 									You:
 									${subscribe(balance, x =>

@@ -1,8 +1,7 @@
-import web3DetectNetwork from 'web3-detect-network'
-import { provider } from 'web3-core'
 import { promisify } from './promisify'
 import { web3 } from '../store/web3'
 import { walletConnected } from '../store/wallet-connected'
+import Web3 from 'web3'
 
 export interface TxReceipt {
 	blockHash: string
@@ -55,8 +54,8 @@ export const txPromisify = async (
 			})
 	})
 
-export const getNetwork = async (prov: provider): Promise<DetectedNetwork> =>
-	web3DetectNetwork(prov)
+export const getNetwork = async (libWeb3: Web3): Promise<string> =>
+	libWeb3.eth.net.getNetworkType()
 
 export const getAccount = async (): Promise<string> =>
 	promisify(web3)

@@ -7,7 +7,7 @@ export interface Item {
 }
 export type Items = Item[]
 const npmProperties = {
-	mainnet: [
+	main: [
 		{
 			address: '0xC4e4382062B7a2595994faE32cC0d572215abEC5',
 			name: '@mediba/stylelint-config',

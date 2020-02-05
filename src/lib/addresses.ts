@@ -7,7 +7,7 @@ interface Addresses {
 }
 
 export const addresses = (network: string | undefined): Addresses | undefined =>
-	network === 'mainnet'
+	network === 'main'
 		? {
 				dev: '0x5cAf454Ba92e6F2c929DF14667Ee360eD9fD5b26',
 				tryOut: '0x7Eb78cAa271A2e8Fc25e75CA23574E9D9299310C',

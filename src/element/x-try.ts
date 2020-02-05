@@ -13,11 +13,11 @@ import { connectButton } from '../component/context/connect-button'
 
 currentNetwork.subscribe(x => {
 	const next: Notification | undefined = x
-		? x.type === 'mainnet' || x.type === 'ropsten'
+		? x === 'main' || x === 'ropsten'
 			? undefined
 			: {
 					type: 'failed',
-					message: `Cannot use in this network: ${String(x.type)}`
+					message: `Cannot use in this network: ${String(x)}`
 			  }
 		: {
 				type: 'failed',
@@ -84,7 +84,7 @@ export const xTry = customElements(
 							html`
 								<div class="cards">
 									${repeat(
-										items[net?.type!],
+										items[net!],
 										item =>
 											html`
 												<div class="card">

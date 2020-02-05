@@ -118,7 +118,7 @@ const closeHandler = (store: MessageStore) => () => store.next(undefined)
 const getPropertyValue = async (address: string): Promise<BigNumber> => {
 	const dev = await promisify(devKitContract)
 	return dev
-		.lockup(addresses(currentNetwork.value?.type)?.lokcup)
+		.lockup(addresses(currentNetwork.value)?.lokcup)
 		.getPropertyValue(address)
 		.then(toNaturalNumber)
 }
@@ -133,7 +133,7 @@ const getValue = async (address: string): Promise<BigNumber | undefined> => {
 	}
 
 	return dev
-		.lockup(addresses(currentNetwork.value?.type)?.lokcup)
+		.lockup(addresses(currentNetwork.value)?.lokcup)
 		.getValue(address, from)
 		.then(toNaturalNumber)
 }
