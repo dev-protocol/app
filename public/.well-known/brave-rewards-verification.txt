@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: devprtcl.com
+Token: b4cfe1ddc5de3a93d450c3fd2a901030f5292026321538c6832e5bfde156a374
