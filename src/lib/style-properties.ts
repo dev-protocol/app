@@ -10,6 +10,8 @@ export const properties = {
 	onSecondaryVariantColor: ['#fff'],
 	surfaceColor: ['#f5f5f5', '#333'],
 	onSurfaceColor: ['#000', '#fff'],
+	surfaceVariantColor: ['#eaeaea', '#252525'],
+	onSurfaceVariantColor: ['#929292', '#b7b7b7'],
 	weakColor: ['#ccc', '#505050'],
 	onSurfaceWeakColor: ['#a0a0a0'],
 	fontColor: ['#000', '#fff'],

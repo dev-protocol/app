@@ -10,6 +10,7 @@ import { Notification, notification } from '../store/notification'
 import { currentNetwork } from '../store/current-network'
 import { filter } from 'rxjs/operators'
 import { connectButton } from '../component/context/connect-button'
+import { a } from '../component/pure/a'
 
 currentNetwork.subscribe(x => {
 	const next: Notification | undefined = x
@@ -43,6 +44,23 @@ export const xTry = customElements(
 				background: ${asVar('surfaceColor')};
 				color:${asVar('onSurfaceColor')};
 				border-radius: 5px;
+			}
+			.etherscan {
+				padding: 0.2rem 1rem;
+				margin: 0 0.6rem;
+				background: ${asVar('surfaceVariantColor')};
+				border-radius: 0 0 5px 5px;
+				height: 1.6rem;
+				& a {
+					color: ${asVar('onSurfaceVariantColor')};
+					text-decoration: none;
+					font-size: 0.8rem;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					width: 100%;
+					display: inline-block;
+					overflow: hidden;
+				}
 			}
 			.notice-content {
 				position: sticky;
@@ -87,8 +105,19 @@ export const xTry = customElements(
 										items[net!],
 										item =>
 											html`
-												<div class="card">
-													${card(item)}
+												<div>
+													<div class="card">
+														${card(item)}
+													</div>
+													<div class="etherscan">
+														${a({
+															href: `//${
+																net === 'main' || !net ? '' : `${net}.`
+															}etherscan.io/address/${item.address}`,
+															content: item.address,
+															target: '_blank'
+														})}
+													</div>
 												</div>
 											`
 									)}
