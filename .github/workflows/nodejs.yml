@@ -27,6 +27,8 @@ jobs:
       - name: deploy
         if: contains(github.ref, 'master')
         run: |
+          mkdir .now
+          echo '{"projectId":"${{ secrets.NOW_PROJECT }}", "orgId": "${{ secrets.NOW_ORG }}"}' >> ./.now/project.json
           npm install now
           npm run build
           npx now --public --token ${{ secrets.NOW_TOKEN }}
