@@ -41,10 +41,14 @@
 		"esm": "^3.2.25",
 		"husky": "^4.2.1",
 		"parcel": "^1.12.4",
+		"parcel-plugin-static-files-copy": "^2.3.1",
 		"prettier": "^1.19.1",
 		"puppeteer": "^2.0.0",
 		"rimraf": "^3.0.1",
 		"typescript": "^3.7.5"
+	},
+	"staticFiles": {
+		"staticPath": "public"
 	},
 	"browserslist": [
 		"last 2 chrome versions"
