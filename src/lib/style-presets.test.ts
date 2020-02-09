@@ -2,6 +2,8 @@ import test from 'ava'
 import { buttonWithPadding, container, large, exLarge } from './style-presets'
 import { processor } from './style'
 
+const rmTab = (content: string): string => content.replace(/[\t|\n]/gm, '')
+
 test('buttonWithPadding; Returns small size preset', async t => {
 	const result = await processor`${buttonWithPadding({ size: 'small' })}`
 	const expected = await processor`
@@ -10,7 +12,7 @@ test('buttonWithPadding; Returns small size preset', async t => {
 			padding: 0.3rem 0.8rem
 		}
 	`
-	t.is(result, expected)
+	t.is(rmTab(result), rmTab(expected))
 })
 
 test('container; Returns style for a container block', async t => {
@@ -24,7 +26,7 @@ test('container; Returns style for a container block', async t => {
 			box-sizing: border-box;
 		}
 	`
-	t.is(result, expected)
+	t.is(rmTab(result), rmTab(expected))
 })
 
 test('large; Returns styles wrapped with a media query for large screen', async t => {
@@ -34,7 +36,7 @@ test('large; Returns styles wrapped with a media query for large screen', async 
 		body {color: red}
 	}
 	`
-	t.is(result, expected)
+	t.is(rmTab(result), rmTab(expected))
 })
 
 test('exLarge; Returns styles wrapped with a media query for extra-large screen', async t => {
@@ -44,5 +46,5 @@ test('exLarge; Returns styles wrapped with a media query for extra-large screen'
 		body {color: red}
 	}
 	`
-	t.is(result, expected)
+	t.is(rmTab(result), rmTab(expected))
 })
