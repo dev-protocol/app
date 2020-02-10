@@ -10,6 +10,7 @@ import { footer } from '../component/for-lp/footer'
 import { updagradeDev } from '../component/for-lp/upgrade-dev'
 import { component } from '@aggre/ullr/directive'
 import { figureNetwork } from '../component/for-lp/figure-network'
+import { sponsors } from '../component/for-lp/sponsors'
 
 const toUpgrade = (e: Event): void => {
 	e.preventDefault()
@@ -189,14 +190,11 @@ export const home = (): TemplateResult => html`
 							`
 					})}
 					${section({
-						title: 'Milestones',
-						content: () =>
-							html`
-								${milestones()}
-							`
+						title: 'Sponsors',
+						content: () => sponsors()
 					})}
 					${section({
-						title: 'Sponser',
+						title: 'Become a sponsor',
 						content: () =>
 							html`
 								${style`
@@ -215,6 +213,13 @@ export const home = (): TemplateResult => html`
 									Please contact us for details.
 									<a href="mainto:hi@devprtcl.com">hi@devprtcl.com</a>
 								</p>
+							`
+					})}
+					${section({
+						title: 'Milestones',
+						content: () =>
+							html`
+								${milestones()}
 							`
 					})}
 					${section({

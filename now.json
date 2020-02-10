@@ -2,14 +2,9 @@
 	"version": 2,
 	"alias": "devprtcl.com",
 	"builds": [
-		{ "src": "dist/**", "use": "@now/static" },
-		{ "src": "public/.well-known/**", "use": "@now/static" }
+		{ "src": "dist/**", "use": "@now/static" }
 	],
 	"routes": [
-		{
-			"src": "/.well-known/(.*)",
-			"dest": "/public/.well-known/$1"
-		},
 		{
 			"src": "/(.*)",
 			"headers": {
