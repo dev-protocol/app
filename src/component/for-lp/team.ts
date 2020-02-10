@@ -3,7 +3,6 @@ import { html } from 'lit-html'
 import { style } from '../../lib/style'
 import { repeat } from 'lit-html/directives/repeat'
 import { a } from '../pure/a'
-import { large } from '../../lib/style-presets'
 
 interface Item {
 	name: string
@@ -16,7 +15,7 @@ const items: Items = [
 	{
 		name: 'MIRAISE',
 		image: '/image/partner/miraise.png',
-		url: '//miraise.vc'
+		url: 'http://miraise.vc'
 	},
 	{
 		name: 'HashHub',
@@ -36,10 +35,7 @@ export const partners = (): DirectiveFunction =>
 				grid-gap: 2rem;
 				align-items: center;
 				justify-content: center;
-				grid-template-columns: repeat(2, 0.5fr);
-				${large(`
-					grid-template-columns: repeat(4, 0.5fr);
-				`)}
+				grid-template-columns: repeat(auto-fill, minmax(240px, 0.25fr));
 			}
 			img {
 				width: 100%;
