@@ -6,21 +6,14 @@ import { buttonRounded } from '../presentation/button-rounded'
 import { button } from '../pure/button'
 import { heading } from '../../lib/style-presets'
 import { logo } from '../presentation/logo'
+import { querySelectorDeep } from 'query-selector-shadow-dom'
 
 const toArticle = (): void => {
-	document
-		.querySelector('x-app')
-		?.shadowRoot?.querySelector('ullr-sbsc > ullr-shdw:nth-child(2)')
-		?.scrollIntoView()
+	querySelectorDeep('article')?.scrollIntoView()
 }
 
 const toTryOut = (): void => {
-	document
-		.querySelector('x-app')
-		?.shadowRoot?.querySelector('ullr-sbsc > ullr-shdw:nth-child(2)')
-		?.shadowRoot?.querySelector('#article > ullr-shdw:nth-child(4)')
-		?.shadowRoot?.querySelector('section')
-		?.scrollIntoView()
+	querySelectorDeep('#tryout')?.scrollIntoView()
 }
 
 export const hero = (): DirectiveFunction =>

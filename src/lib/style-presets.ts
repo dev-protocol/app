@@ -55,17 +55,17 @@ export const heading = (): string => `
 	}
 `
 
-export const large = (style: string): string => `
-	@media only screen and (min-width: 414px) {
+export const onlyMinWidth = (px: number): ((style: string) => string) => (
+	style: string
+): string => `
+	@media only screen and (min-width: ${px}px) {
 		${style}
 	}
 `
 
-export const exLarge = (style: string): string => `
-	@media only screen and (min-width: 768px) {
-		${style}
-	}
-`
+export const large = (style: string): string => onlyMinWidth(414)(style)
+
+export const exLarge = (style: string): string => onlyMinWidth(768)(style)
 
 export const rootStyle = `
 	:root {

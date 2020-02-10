@@ -153,7 +153,7 @@ export const updagradeDev = (): DirectiveFunction =>
 					display: grid;
 					grid-gap: 2rem;
 					${exLarge(`
-						grid-template-columns: repeat(auto-fit,minmax(340px,0.4fr));
+						grid-template-columns: repeat(auto-fit, minmax(460px, 0.4fr));
 					`)}
 				}
 				.console {

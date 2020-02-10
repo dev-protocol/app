@@ -21,6 +21,7 @@
 		"lit-html": "^1.1.2",
 		"lit-style": "^1.1.2",
 		"postcss-nesting": "^7.0.1",
+		"query-selector-shadow-dom": "^0.3.4",
 		"rxjs": "^6.5.4",
 		"web3": "^1.2.4"
 	},

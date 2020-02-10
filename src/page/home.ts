@@ -4,22 +4,18 @@ import { hero } from '../component/for-lp/hero'
 import { section } from '../component/for-lp/section'
 import { style } from '../lib/style'
 import { asVar } from '../lib/style-properties'
-import { exLarge, heading } from '../lib/style-presets'
+import { exLarge, heading, onlyMinWidth } from '../lib/style-presets'
 import { milestones } from '../component/for-lp/milestones'
 import { footer } from '../component/for-lp/footer'
 import { updagradeDev } from '../component/for-lp/upgrade-dev'
 import { component } from '@aggre/ullr/directive'
 import { figureNetwork } from '../component/for-lp/figure-network'
 import { sponsors } from '../component/for-lp/sponsors'
+import { querySelectorDeep } from 'query-selector-shadow-dom'
 
 const toUpgrade = (e: Event): void => {
 	e.preventDefault()
-	document
-		.querySelector('body > x-app')
-		?.shadowRoot?.querySelector('ullr-sbsc > ullr-shdw:nth-child(2)')
-		?.shadowRoot?.querySelector('#article > ullr-shdw:nth-child(8)')
-		?.shadowRoot?.querySelector('section')
-		?.scrollIntoView()
+	querySelectorDeep('#upgrade')?.scrollIntoView()
 }
 
 export const home = (): TemplateResult => html`
@@ -75,6 +71,76 @@ export const home = (): TemplateResult => html`
 						`
 					})}
 					${section({
+						content: () => html`
+							${style`
+								.content {
+									display: grid;
+									grid-gap: 4rem;
+								}
+								h2, h3, p {
+									margin: 0;
+								}
+								h2 {
+									text-align: center;
+								}
+								h3 {
+									font-size: 1rem;
+								}
+								.col {
+									display: grid;
+									grid-gap: 2rem;
+									text-align: center;
+									${exLarge(`
+										grid-auto-flow: column;
+									`)}
+									& div {
+										display: grid;
+										align-content: flex-start;
+									}
+									& p {
+										font-size: 3rem;
+										${onlyMinWidth(768)(`
+											font-size: 3.3rem;
+										`)}
+										${onlyMinWidth(1024)(`
+											font-size: 4.6rem;
+										`)}
+										${onlyMinWidth(1280)(`
+											font-size: 5rem;
+										`)}
+									}
+								}
+								.desc {
+									margin: auto 0;
+									font-size: 0.9rem;
+									max-width: 500px;
+									justify-self: center;
+								}
+							`}
+							<h2>Dev Protocol by the numbers</h2>
+							<div class="col">
+								<div>
+									<p>1,500+</p>
+									<h3>of OSS projects</h3>
+								</div>
+								<div>
+									<p>8.4+ billion</p>
+									<h3>of monthly downloads</h3>
+								</div>
+								<div>
+									<p>$70K+</p>
+									<h3>of rewards</h3>
+								</div>
+							</div>
+							<p class="desc">
+								To date, more than 1,500 OSS projects have makes 8.4 billion
+								downloads per month, OSS developers have mined 1,583,327 DEV by
+								the Dev Protocol. It means that the market cap of 71,571 USD
+								distributed to OSS developers and keeps sustainability.
+							</p>
+						`
+					})}
+					${section({
 						title: 'How designed for OSS?',
 						content: () => html`
 							${style`
@@ -122,6 +188,7 @@ export const home = (): TemplateResult => html`
 						`
 					})}
 					${section({
+						id: 'tryout',
 						content: () =>
 							html`
 								${component(html`
@@ -270,6 +337,7 @@ export const home = (): TemplateResult => html`
 							`
 					})}
 					${section({
+						id: 'upgrade',
 						title: 'Upgrade DEV',
 						content: () =>
 							html`

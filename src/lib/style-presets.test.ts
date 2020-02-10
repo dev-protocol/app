@@ -1,5 +1,11 @@
 import test from 'ava'
-import { buttonWithPadding, container, large, exLarge } from './style-presets'
+import {
+	buttonWithPadding,
+	container,
+	large,
+	exLarge,
+	onlyMinWidth
+} from './style-presets'
 import { processor } from './style'
 
 const rmTab = (content: string): string => content.replace(/[\t|\n]/gm, '')
@@ -25,6 +31,16 @@ test('container; Returns style for a container block', async t => {
 			padding: 2.8rem;
 			box-sizing: border-box;
 		}
+	`
+	t.is(rmTab(result), rmTab(expected))
+})
+
+test('onlyMinWidth; Returns styles wrapped with a media query for specific width screen', async t => {
+	const result = await processor`${onlyMinWidth(123)(`body {color: red}`)}`
+	const expected = await processor`
+	@media only screen and (min-width: 123px) {
+		body {color: red}
+	}
 	`
 	t.is(rmTab(result), rmTab(expected))
 })
