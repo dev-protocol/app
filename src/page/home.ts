@@ -22,13 +22,12 @@ const toUpgrade = (e: Event): void => {
 export const home = (): TemplateResult => html`
 	${hero()}
 	${container(
-		() =>
-			html`
-				<article id="article">
-					${section({
-						title: 'For OSS Sustainability',
-						content: () => html`
-							${style`
+		() => html`
+			<article id="article">
+				${section({
+					title: 'For OSS Sustainability',
+					content: () => html`
+						${style`
 								p {
 									max-width: 500px;
 								}
@@ -47,33 +46,33 @@ export const home = (): TemplateResult => html`
 									`)}
 								}
 							`}
-							<p>
-								After the traditional material economy, Dev is a new crypto
-								economy based on "open assets" that enhances individual
-								activities and revitalizes the economy.
-							</p>
-							<figure>${figureNetwork()}</figure>
-						`
-					})}
-					${section({
-						title: 'Support starts as staking, not as payment',
-						content: () => html`
-							${style`
+						<p>
+							After the traditional material economy, Dev is a new crypto
+							economy based on "open assets" that enhances individual activities
+							and revitalizes the economy.
+						</p>
+						<figure>${figureNetwork()}</figure>
+					`
+				})}
+				${section({
+					title: 'Support starts as staking, not as payment',
+					content: () => html`
+						${style`
 								p {
 									max-width: 500px;
 								}
 							`}
-							<p>
-								Staking is a new way of spending money. Staked DEV returns to
-								you after a lockup period. The more stake, the more rewards you
-								receive. That's why we believe that staking is an effective way
-								to sustain monetary support for open assets.
-							</p>
-						`
-					})}
-					${section({
-						content: () => html`
-							${style`
+						<p>
+							Staking is a new way of spending money. Staked DEV returns to you
+							after a lockup period. The more stake, the more rewards you
+							receive. That's why we believe that staking is an effective way to
+							sustain monetary support for open assets.
+						</p>
+					`
+				})}
+				${section({
+					content: () => html`
+						${style`
 								.content {
 									display: grid;
 									grid-gap: 4rem;
@@ -118,32 +117,32 @@ export const home = (): TemplateResult => html`
 									justify-self: center;
 								}
 							`}
-							<h2>Dev Protocol by the numbers</h2>
-							<div class="col">
-								<div>
-									<p>1,500+</p>
-									<h3>of OSS projects</h3>
-								</div>
-								<div>
-									<p>8.4+ billion</p>
-									<h3>of monthly downloads</h3>
-								</div>
-								<div>
-									<p>$70K+</p>
-									<h3>of rewards</h3>
-								</div>
+						<h2>Dev Protocol by the numbers</h2>
+						<div class="col">
+							<div>
+								<p>1,500+</p>
+								<h3>of OSS projects</h3>
 							</div>
-							<p class="desc">
-								To date, more than 1,500 OSS projects have makes 8.4 billion
-								downloads per month, OSS developers have mined 1,583,327 DEV by
-								the Dev Protocol. It means that the market cap of 71,571 USD
-								distributed to OSS developers and keeps sustainability.
-							</p>
-						`
-					})}
-					${section({
-						title: 'How designed for OSS?',
-						content: () => html`
+							<div>
+								<p>8.4+ billion</p>
+								<h3>of monthly downloads</h3>
+							</div>
+							<div>
+								<p>$70K+</p>
+								<h3>of rewards</h3>
+							</div>
+						</div>
+						<p class="desc">
+							To date, more than 1,500 OSS projects have makes 8.4 billion
+							downloads per month, OSS developers have mined 1,583,327 DEV by
+							the Dev Protocol. It means that the market cap of 71,571 USD
+							distributed to OSS developers and keeps sustainability.
+						</p>
+					`
+				})}
+				${section({
+					title: 'How designed for OSS?',
+					content: () => html`
 							${style`
 								p {
 									max-width: 500px;
@@ -187,13 +186,13 @@ export const home = (): TemplateResult => html`
 								</div>
 							</div>
 						`
-					})}
-					${section({
-						id: 'tryout',
-						content: () =>
-							html`
-								${component(html`
-									${style`
+				})}
+				${section({
+					id: 'tryout',
+					content: () =>
+						html`
+							${component(html`
+								${style`
 										${heading()}
 										h2, p {
 											text-align: center;
@@ -227,45 +226,44 @@ export const home = (): TemplateResult => html`
 											}
 										}
 									`}
-									<h2>Try out</h2>
-									<p>
-										Let's stake to open the secret messages!
-										<a href="#" @click=${toUpgrade}
-											>Are you have old DEV tokens? Upgrade now!</a
-										>
-									</p>
-									<ul>
-										<li>
-											<h3>Choose OSS</h3>
-										</li>
-										<li>
-											<h3>Stake your 1 DEV</h3>
-											<p>
-												You automatically get 1 DEV when the first staking,
-												don't worry.
-											</p>
-										</li>
-										<li>
-											<h3>Open the message</h3>
-											<p>
-												You can withdraw 1 DEV by running the release of
-												staking.
-											</p>
-										</li>
-									</ul>
-									<x-try></x-try>
-								`)}
-							`
-					})}
-					${section({
-						title: 'Sponsors',
-						content: () => sponsors()
-					})}
-					${section({
-						title: 'Become a sponsor',
-						content: () =>
-							html`
-								${style`
+								<h2>Try out</h2>
+								<p>
+									Let's stake to open the secret messages!
+									<a href="#" @click=${toUpgrade}
+										>Are you have old DEV tokens? Upgrade now!</a
+									>
+								</p>
+								<ul>
+									<li>
+										<h3>Choose OSS</h3>
+									</li>
+									<li>
+										<h3>Stake your 1 DEV</h3>
+										<p>
+											You automatically get 1 DEV when the first staking, don't
+											worry.
+										</p>
+									</li>
+									<li>
+										<h3>Open the message</h3>
+										<p>
+											You can withdraw 1 DEV by running the release of staking.
+										</p>
+									</li>
+								</ul>
+								<x-try></x-try>
+							`)}
+						`
+				})}
+				${section({
+					title: 'Sponsors',
+					content: () => sponsors()
+				})}
+				${section({
+					title: 'Become a sponsor',
+					content: () =>
+						html`
+							${style`
 									span {
 										border-bottom: 1px solid;
 									}
@@ -273,23 +271,50 @@ export const home = (): TemplateResult => html`
 										color: ${asVar('fontColor')};
 									}
 								`}
-								<p>
-									Become a sponsor if you stake for more than
-									<span>100 DEV</span>.
-								</p>
-								<p>
-									Please contact us for details.
-									<a href="mainto:hi@devprtcl.com">hi@devprtcl.com</a>
-								</p>
-							`
-					})}
-					${section({
-						title: 'Milestones',
-						content: () =>
-							html`
-								${milestones()}
-							`
-					})}
+							<p>
+								Become a sponsor if you stake for more than
+								<span>100 DEV</span>.
+							</p>
+							<p>
+								Please contact us for details.
+								<a href="mainto:hi@devprtcl.com">hi@devprtcl.com</a>
+							</p>
+						`
+				})}
+				${section({
+					title: 'Milestones',
+					content: () =>
+						html`
+							${milestones()}
+						`
+				})}
+			</article>
+		`
+	)}
+	${component(html`
+		${style`
+			:host {
+				display: block;
+				padding: 3rem 0;
+				background: white;
+				color: black;
+				text-align: center;
+				display: grid;
+				grid-gap: 3rem;
+			}
+			h2 {
+				margin: 0;
+			}
+			${heading()}
+		`}
+		<h2>Team</h2>
+		${team()}
+		<h2>We're backed by</h2>
+		${partners()}
+	`)}
+	${container(
+		() =>
+			html`
 					${section({
 						title: 'Community',
 						content: () =>
@@ -348,26 +373,5 @@ export const home = (): TemplateResult => html`
 				</article>
 			`
 	)}
-	${component(html`
-		${style`
-			:host {
-				display: block;
-				padding: 3rem 0;
-				background: white;
-				color: black;
-				text-align: center;
-				display: grid;
-				grid-gap: 3rem;
-			}
-			h2 {
-				margin: 0;
-			}
-			${heading()}
-		`}
-		<h2>Team</h2>
-		${team()}
-		<h2>We're backed by</h2>
-		${partners()}
-	`)}
 	${footer()}
 `
