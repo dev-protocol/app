@@ -33,6 +33,12 @@ const teamItems: Member[] = [
 		image: '/image/team/mariko.jpg',
 		job: 'COO',
 		url: '//www.wantedly.com/users/34890039'
+	},
+	{
+		name: 'Akira T.',
+		image: '/image/team/akira.jpg',
+		job: 'Blockchain Developer',
+		url: '//www.linkedin.com/in/akirataniguchi1'
 	}
 ]
 const partnerItems: Items = [
@@ -86,6 +92,7 @@ export const team = (): DirectiveFunction =>
 			figcaption {
 				font-size: 0.8rem;
 				& span {
+					display: block;
 					color: gray;
 				}
 			}
