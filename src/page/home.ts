@@ -315,11 +315,11 @@ export const home = (): TemplateResult => html`
 	${container(
 		() =>
 			html`
-					${section({
-						title: 'Community',
-						content: () =>
-							html`
-								${style`
+				${section({
+					title: 'Community',
+					content: () =>
+						html`
+							${style`
 									span {
 										border-bottom: 1px solid;
 									}
@@ -327,50 +327,49 @@ export const home = (): TemplateResult => html`
 										color: ${asVar('fontColor')};
 									}
 								`}
-								<p>
-									To learn more about Dev, join the community. Receive
-									notifications of the latest updates.
-								</p>
-								<p>
-									<a
-										href="https://twitter.com/devprtcl"
-										target="_blank"
-										rel="noopener"
-										>Twitter</a
-									>
-									/
-									<a
-										href="https://discord.gg/VwJp4KM"
-										target="_blank"
-										rel="noopener"
-										>Discord</a
-									>
-									/
-									<a
-										href="https://spectrum.chat/devtoken"
-										target="_blank"
-										rel="noopener"
-										>Spectrum</a
-									>
-									/
-									<a
-										href="https://medium.com/devtoken"
-										target="_blank"
-										rel="noopener"
-										>Blog</a
-									>
-								</p>
-							`
-					})}
-					${section({
-						id: 'upgrade',
-						title: 'Upgrade DEV',
-						content: () =>
-							html`
-								${updagradeDev()}
-							`
-					})}
-				</article>
+							<p>
+								To learn more about Dev, join the community. Receive
+								notifications of the latest updates.
+							</p>
+							<p>
+								<a
+									href="https://twitter.com/devprtcl"
+									target="_blank"
+									rel="noopener"
+									>Twitter</a
+								>
+								/
+								<a
+									href="https://discord.gg/VwJp4KM"
+									target="_blank"
+									rel="noopener"
+									>Discord</a
+								>
+								/
+								<a
+									href="https://spectrum.chat/devtoken"
+									target="_blank"
+									rel="noopener"
+									>Spectrum</a
+								>
+								/
+								<a
+									href="https://medium.com/devtoken"
+									target="_blank"
+									rel="noopener"
+									>Blog</a
+								>
+							</p>
+						`
+				})}
+				${section({
+					id: 'upgrade',
+					title: 'Upgrade DEV',
+					content: () =>
+						html`
+							${updagradeDev()}
+						`
+				})}
 			`
 	)}
 	${footer()}
