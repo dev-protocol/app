@@ -1,7 +1,7 @@
 import { DirectiveFunction, component, subscribe } from '@aggre/ullr/directive'
 import { html, TemplateResult } from 'lit-html'
 import { style } from '../../lib/style'
-import { exLarge } from '../../lib/style-presets'
+import { exLarge, onlyMinWidth } from '../../lib/style-presets'
 import { BehaviorSubject } from 'rxjs'
 import { buttonRounded } from '../presentation/button-rounded'
 import { button } from '../pure/button'
@@ -172,7 +172,7 @@ export const updagradeDev = (): DirectiveFunction =>
 						'legacy-address'
 						'new-title'
 						'new-address';
-					${exLarge(`
+					${onlyMinWidth(964)(`
 						grid-template-areas:
 							'legacy-title new-title'
 							'legacy-address new-address';

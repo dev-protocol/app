@@ -12,7 +12,7 @@ import { component } from '@aggre/ullr/directive'
 import { figureNetwork } from '../component/for-lp/figure-network'
 import { sponsors } from '../component/for-lp/sponsors'
 import { querySelectorDeep } from 'query-selector-shadow-dom'
-import { partners } from '../component/for-lp/team'
+import { partners, team } from '../component/for-lp/team'
 
 const toUpgrade = (e: Event): void => {
 	e.preventDefault()
@@ -345,15 +345,29 @@ export const home = (): TemplateResult => html`
 								${updagradeDev()}
 							`
 					})}
-					${section({
-						title: `We're backed by`,
-						content: () =>
-							html`
-								${partners()}
-							`
-					})}
-					${footer()}
 				</article>
 			`
 	)}
+	${component(html`
+		${style`
+			:host {
+				display: block;
+				padding: 3rem 0;
+				background: white;
+				color: black;
+				text-align: center;
+				display: grid;
+				grid-gap: 3rem;
+			}
+			h2 {
+				margin: 0;
+			}
+			${heading()}
+		`}
+		<h2>Team</h2>
+		${team()}
+		<h2>We're backed by</h2>
+		${partners()}
+	`)}
+	${footer()}
 `
