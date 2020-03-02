@@ -24,7 +24,7 @@ type AmountsStore = BehaviorSubject<Amounts | undefined>
 type MessageStore = BehaviorSubject<string | undefined>
 
 const stakingHandler = (address: string, store: AmountsStore) => async () => {
-	if (walletConnected.value === false) {
+	if (!walletConnected.value) {
 		notification.next({
 			type: 'failed',
 			message: 'Please connect to your wallet and try again.'
@@ -78,7 +78,7 @@ const stakingHandler = (address: string, store: AmountsStore) => async () => {
 }
 
 const openHandler = (address: string, store: MessageStore) => async () => {
-	if (walletConnected.value === false) {
+	if (!walletConnected.value) {
 		notification.next({
 			type: 'failed',
 			message: 'Please connect to your wallet and try again.'

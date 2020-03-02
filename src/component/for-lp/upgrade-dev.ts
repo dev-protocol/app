@@ -27,7 +27,7 @@ const handler = (
 	balanceStore: BalanceStore,
 	notificationStore: NotificationStore
 ) => async () => {
-	if (walletConnected.value === false) {
+	if (!walletConnected.value) {
 		notificationStore.next(
 			html`
 				Please connect to your wallet and try again.
