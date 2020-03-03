@@ -2,6 +2,9 @@ interface Addresses {
 	dev: string
 	tryOut: string
 	lokcup: string
+	allocator: string
+	withdraw: string
+	propertyFactory: string
 	migration: string
 	devLegacy: string
 }
@@ -12,6 +15,9 @@ export const addresses = (network: string | undefined): Addresses | undefined =>
 				dev: '0x5cAf454Ba92e6F2c929DF14667Ee360eD9fD5b26',
 				tryOut: '0x7Eb78cAa271A2e8Fc25e75CA23574E9D9299310C',
 				lokcup: '0x3d40fab11ee30E3aa1900cCfAFD190F0851a6157',
+				allocator: '0xfeb69B0a5a0216611C2e0aCffc7a91D77b44d3ca',
+				withdraw: '0x76fd43840c3944bFaa9DA24125d76d7A85CF5269',
+				propertyFactory: '0xcB90FC08D405B75f5242cfE8f8D0397dE19D149c',
 				migration: '0xA75453c61AdEA4db0a52AEDa47880f055bD3aF12',
 				devLegacy: '0x98626E2C9231f03504273d55f397409deFD4a093'
 		  }
@@ -20,6 +26,9 @@ export const addresses = (network: string | undefined): Addresses | undefined =>
 				dev: '0xEBDD63816B63f5c1Cc10A965372e542F41e8Adf1',
 				tryOut: '0x1978a46c0B5B6e789023489fB173Df880e6A175F',
 				lokcup: '0x8BCA5A841aFAD83b78c850de130dc046F3424736',
+				allocator: '',
+				withdraw: '',
+				propertyFactory: '',
 				migration: '0x507376A2DE4bE8d4e5dD5fA9135f262566FF66B7',
 				devLegacy: '0xD8Cf9F7b14D206C0E1f9c7375AFa791da6185295'
 		  }
