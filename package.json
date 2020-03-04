@@ -23,7 +23,6 @@
 		"postcss-nesting": "^7.0.1",
 		"query-selector-shadow-dom": "^0.4.2",
 		"rxjs": "^6.5.4",
-		"ts-clipboard": "^1.0.17",
 		"web3": "^1.2.6"
 	},
 	"devDependencies": {

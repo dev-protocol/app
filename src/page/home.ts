@@ -283,10 +283,21 @@ export const home = (): TemplateResult => html`
 						`
 				})}
 				${section({
-					title: 'Address',
+					title: 'Contracts',
 					content: () =>
 						html`
+							<p>
+								Main contracts and their addresses are as follows:
+							</p>
 							${addresses()}
+							<p>
+								<small
+									><i
+										>* All contract addresses that configures Dev Protocol is
+										listed by "AddressConfig."</i
+									></small
+								>
+							</p>
 						`
 				})}
 				${section({
