@@ -17,8 +17,7 @@ const subject = new BehaviorSubject(
 const handler = (select: SelectBoxItem<DevMarket>) => () => {
 	subject.next(
 		subject.value.map(({ selected, template, data }) => ({
-			selected:
-				selected === true ? false : data.address === select.data.address,
+			selected: selected ? false : data.address === select.data.address,
 			template,
 			data
 		}))

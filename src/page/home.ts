@@ -13,6 +13,7 @@ import { figureNetwork } from '../component/for-lp/figure-network'
 import { sponsors } from '../component/for-lp/sponsors'
 import { querySelectorDeep } from 'query-selector-shadow-dom'
 import { partners, team } from '../component/for-lp/team'
+import { addresses } from '../component/for-lp/addresses'
 
 const toUpgrade = (e: Event): void => {
 	e.preventDefault()
@@ -278,6 +279,24 @@ export const home = (): TemplateResult => html`
 							<p>
 								Please contact us for details.
 								<a href="mainto:hi@devprtcl.com">hi@devprtcl.com</a>
+							</p>
+						`
+				})}
+				${section({
+					title: 'Contracts',
+					content: () =>
+						html`
+							<p>
+								Main contracts and their addresses are as follows:
+							</p>
+							${addresses()}
+							<p>
+								<small
+									><i
+										>* All contract addresses that configures Dev Protocol is
+										listed by "AddressConfig."</i
+									></small
+								>
 							</p>
 						`
 				})}
