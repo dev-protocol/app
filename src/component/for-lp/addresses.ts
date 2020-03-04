@@ -18,7 +18,7 @@ const address = (network: string) => (
 					network === 'main' ? '' : `${network}.`
 				}etherscan.io/address/${contractAddress}`,
 				target: '_blank',
-				content: contractAddress
+				content: `${contractAddress} ↗`
 			})}
 		</div>
 	`
@@ -56,6 +56,7 @@ export const addresses = (): DirectiveFunction =>
 				a {
 					display: inline-block;
 					font-family: monospace;
+					font-size: 0.9em;
 					color: ${asVar('onSurfaceVariantColor')};
 					background: ${asVar('surfaceVariantColor')};
 					word-break: break-all;
