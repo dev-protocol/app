@@ -66,7 +66,9 @@ export const addresses = (): DirectiveFunction =>
 				}
 			`}
 			${subscribe(currentNetwork, net =>
-				net === 'main' ? adf(address(net), _addresses(net)!) : html``
+				net === 'main' || net === 'ropsten'
+					? adf(address(net), _addresses(net)!)
+					: html``
 			)}
 		`
 	)
