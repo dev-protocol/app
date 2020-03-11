@@ -14,7 +14,7 @@
 	},
 	"license": "MPL-2.0",
 	"dependencies": {
-		"@aggre/ullr": "^0.14.5",
+		"@aggre/ullr": "^0.15.0",
 		"@dev-protocol/dev-kit-js": "^0.2.1",
 		"bignumber.js": "^9.0.0",
 		"date-fns": "^2.10.0",
