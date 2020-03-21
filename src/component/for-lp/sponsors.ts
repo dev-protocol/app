@@ -23,6 +23,11 @@ const data: Sponsors = [
 		name: 'theMistletoe',
 		image: '/image/themistletoe.png',
 		url: 'https://github.com/theMistletoe'
+	},
+	{
+		name: 'kazupon',
+		image: '/image/kazupon.jfif',
+		url: 'https://github.com/kazupon/vue-i18n'
 	}
 ]
 
