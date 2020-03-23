@@ -28,6 +28,11 @@ const data: Sponsors = [
 		name: 'kazupon',
 		image: '/image/kazupon.jfif',
 		url: 'https://github.com/kazupon/vue-i18n'
+	},
+	{
+		name: 'Warashibe',
+		image: '/image/warashibe.png',
+		url: 'https://warashibe.market'
 	}
 ]
 
