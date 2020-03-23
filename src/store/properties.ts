@@ -62,6 +62,21 @@ const npmProperties = {
 			address: '0x9dcAa594E1e81c9BD005bC6FdEB9E1fc085C7cf6',
 			name: 'gulp-riot',
 			authorName: 'jigsaw'
+		},
+		{
+			address: '0x55f31498d9de5e738e52CCbC393196FA9e16e62D',
+			name: 'alis',
+			authorName: 'ocrybit'
+		},
+		{
+			address: '0x5D251F81E3810FA894b3EBee772CD76a52fD89fb',
+			name: 'firestore-sweet',
+			authorName: 'ocrybit'
+		},
+		{
+			address: '0xB568630d96ca52Ea08dF5d3b1f8A65881F2dB320',
+			name: 'ramdam',
+			authorName: 'ocrybit'
 		}
 	],
 	ropsten: [
