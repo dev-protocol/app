@@ -21,7 +21,7 @@ export const addresses = (network: string | undefined): Addresses | undefined =>
 				lokcup: '0x3d40fab11ee30E3aa1900cCfAFD190F0851a6157',
 				allocator: '0xF743b637425EA171018980cF086082C474d7974F',
 				withdraw: '0x76fd43840c3944bFaa9DA24125d76d7A85CF5269',
-				propertyFactory: '0xcB90FC08D405B75f5242cfE8f8D0397dE19D149c',
+				propertyFactory: '0xCAB309FF43534e7c33a63b1ef5ec6Db9E8Bc2680',
 				marketFactory: '0x6fbB138Ac2e9F780826ed10cC05211D9506d8ad9',
 				policyFactory: '0xca0f09564b1d0182b907352c631734d65c457d77',
 				policy: '0x70251c6f2db87a33a3dfe05a6d093744b7d713ba',
