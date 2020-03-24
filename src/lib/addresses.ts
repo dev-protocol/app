@@ -22,7 +22,7 @@ export const addresses = (network: string | undefined): Addresses | undefined =>
 				allocator: '0xF743b637425EA171018980cF086082C474d7974F',
 				withdraw: '0x76fd43840c3944bFaa9DA24125d76d7A85CF5269',
 				propertyFactory: '0xCAB309FF43534e7c33a63b1ef5ec6Db9E8Bc2680',
-				marketFactory: '0x6fbB138Ac2e9F780826ed10cC05211D9506d8ad9',
+				marketFactory: '0x1C98ad0777973F879EB0Ca89fdD7c90Fc762bA5a',
 				policyFactory: '0xca0f09564b1d0182b907352c631734d65c457d77',
 				policy: '0x70251c6f2db87a33a3dfe05a6d093744b7d713ba',
 				migration: '0xA75453c61AdEA4db0a52AEDa47880f055bD3aF12',
