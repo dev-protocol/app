@@ -226,6 +226,13 @@ export const home = (): TemplateResult => html`
 												}
 											}
 										}
+										x-try {
+											margin-bottom: 4rem;
+										}
+										iframe {
+											width: 100%;
+											height: 450px;
+										}
 									`}
 								<h2>Try out</h2>
 								<p>
@@ -253,6 +260,11 @@ export const home = (): TemplateResult => html`
 									</li>
 								</ul>
 								<x-try></x-try>
+								<h3>Snapshot Reports of Staking and Reward Rates</h3>
+								<iframe
+									src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRsKlxlt7PQLx4ioZAOJGdkkuJ1Wr8A_kAnpWK80M_2MPegmIVnZF3VqyCjyErrDoYYlOS6hikWupoV/pubhtml?gid=0&single=true&widget=true&headers=false"
+									frameborder="no"
+								></iframe>
 							`)}
 						`
 				})}
