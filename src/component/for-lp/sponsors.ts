@@ -33,6 +33,11 @@ const data: Sponsors = [
 		name: 'Warashibe',
 		image: '/image/warashibe.png',
 		url: 'https://warashibe.market'
+	},
+	{
+		name: 'narita1980',
+		image: '/image/narita.jpg',
+		url: 'https://github.com/narita1980'
 	}
 ]
 
