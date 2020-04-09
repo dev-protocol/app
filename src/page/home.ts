@@ -53,7 +53,7 @@ export const home = (): TemplateResult => html`
 							and revitalizes the economy.
 						</p>
 						<figure>${figureNetwork()}</figure>
-					`
+					`,
 				})}
 				${section({
 					title: 'Support starts as staking, not as payment',
@@ -69,7 +69,7 @@ export const home = (): TemplateResult => html`
 							receive. That's why we believe that staking is an effective way to
 							sustain monetary support for open assets.
 						</p>
-					`
+					`,
 				})}
 				${section({
 					content: () => html`
@@ -139,7 +139,7 @@ export const home = (): TemplateResult => html`
 							the Dev Protocol. It means that the market cap of 71,571 USD
 							distributed to OSS developers and keeps sustainability.
 						</p>
-					`
+					`,
 				})}
 				${section({
 					title: 'How designed for OSS?',
@@ -186,7 +186,7 @@ export const home = (): TemplateResult => html`
 									<p><a href=https://github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md#governance target="_blank" ref="noopener">More detail for governance</a></p>
 								</div>
 							</div>
-						`
+						`,
 				})}
 				${section({
 					id: 'tryout',
@@ -266,11 +266,11 @@ export const home = (): TemplateResult => html`
 									frameborder="no"
 								></iframe>
 							`)}
-						`
+						`,
 				})}
 				${section({
 					title: 'Sponsors',
-					content: () => sponsors()
+					content: () => sponsors(),
 				})}
 				${section({
 					title: 'Become a sponsor',
@@ -292,7 +292,7 @@ export const home = (): TemplateResult => html`
 								Please contact us for details.
 								<a href="mainto:hi@devprtcl.com">hi@devprtcl.com</a>
 							</p>
-						`
+						`,
 				})}
 				${section({
 					title: 'Contracts',
@@ -310,14 +310,11 @@ export const home = (): TemplateResult => html`
 									></small
 								>
 							</p>
-						`
+						`,
 				})}
 				${section({
 					title: 'Milestones',
-					content: () =>
-						html`
-							${milestones()}
-						`
+					content: () => html` ${milestones()} `,
 				})}
 			</article>
 		`
@@ -391,15 +388,12 @@ export const home = (): TemplateResult => html`
 									>Blog</a
 								>
 							</p>
-						`
+						`,
 				})}
 				${section({
 					id: 'upgrade',
 					title: 'Upgrade DEV',
-					content: () =>
-						html`
-							${updagradeDev()}
-						`
+					content: () => html` ${updagradeDev()} `,
 				})}
 			`
 	)}

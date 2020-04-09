@@ -14,7 +14,7 @@ export const a = ({
 	content = '',
 	class: cls = '',
 	target,
-	onClick
+	onClick,
 }: Props): TemplateResult =>
 	onClick === undefined
 		? html`

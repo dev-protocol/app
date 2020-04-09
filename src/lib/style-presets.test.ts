@@ -4,13 +4,13 @@ import {
 	container,
 	large,
 	exLarge,
-	onlyMinWidth
+	onlyMinWidth,
 } from './style-presets'
 import { processor } from './style'
 
 const rmTab = (content: string): string => content.replace(/[\t|\n]/gm, '')
 
-test('buttonWithPadding; Returns small size preset', async t => {
+test('buttonWithPadding; Returns small size preset', async (t) => {
 	const result = await processor`${buttonWithPadding({ size: 'small' })}`
 	const expected = await processor`
 		button {
@@ -21,7 +21,7 @@ test('buttonWithPadding; Returns small size preset', async t => {
 	t.is(rmTab(result), rmTab(expected))
 })
 
-test('container; Returns style for a container block', async t => {
+test('container; Returns style for a container block', async (t) => {
 	const result = await processor`${container('.test')}`
 	const expected = await processor`
 		.test {
@@ -35,7 +35,7 @@ test('container; Returns style for a container block', async t => {
 	t.is(rmTab(result), rmTab(expected))
 })
 
-test('onlyMinWidth; Returns styles wrapped with a media query for specific width screen', async t => {
+test('onlyMinWidth; Returns styles wrapped with a media query for specific width screen', async (t) => {
 	const result = await processor`${onlyMinWidth(123)(`body {color: red}`)}`
 	const expected = await processor`
 	@media only screen and (min-width: 123px) {
@@ -45,7 +45,7 @@ test('onlyMinWidth; Returns styles wrapped with a media query for specific width
 	t.is(rmTab(result), rmTab(expected))
 })
 
-test('large; Returns styles wrapped with a media query for large screen', async t => {
+test('large; Returns styles wrapped with a media query for large screen', async (t) => {
 	const result = await processor`${large(`body {color: red}`)}`
 	const expected = await processor`
 	@media only screen and (min-width: 414px) {
@@ -55,7 +55,7 @@ test('large; Returns styles wrapped with a media query for large screen', async 
 	t.is(rmTab(result), rmTab(expected))
 })
 
-test('exLarge; Returns styles wrapped with a media query for extra-large screen', async t => {
+test('exLarge; Returns styles wrapped with a media query for extra-large screen', async (t) => {
 	const result = await processor`${exLarge(`body {color: red}`)}`
 	const expected = await processor`
 	@media only screen and (min-width: 768px) {

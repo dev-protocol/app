@@ -5,11 +5,5 @@ import { selectMarket } from '../component/context/select-market'
 const { ethereum } = window
 
 export const list = (): TemplateResult => html`
-	${globalHeader({ ethereum })}
-	${container(
-		() =>
-			html`
-				${selectMarket()}
-			`
-	)}
+	${globalHeader({ ethereum })} ${container(() => html` ${selectMarket()} `)}
 `

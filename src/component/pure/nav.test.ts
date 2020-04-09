@@ -8,14 +8,9 @@ test.beforeEach(() => {
 	document.body.innerHTML = ''
 })
 
-test('Returns template for <nav> element', t => {
+test('Returns template for <nav> element', (t) => {
 	render(
-		nav(
-			() =>
-				html`
-					Test
-				`
-		),
+		nav(() => html` Test `),
 		document.body
 	)
 	const el = document.body.querySelector('nav') as HTMLElement

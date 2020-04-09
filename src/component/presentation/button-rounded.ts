@@ -5,7 +5,7 @@ import { style } from '../../lib/style'
 import {
 	buttonWithPadding,
 	button,
-	buttonWithNoBorder
+	buttonWithNoBorder,
 } from '../../lib/style-presets'
 import { asVar } from '../../lib/style-properties'
 

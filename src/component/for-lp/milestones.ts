@@ -27,7 +27,7 @@ const data: Milestones = [
 				downloads as an valuation method, 1500+ OSSs have been registered and
 				achievement more than 8.4 billion downloads per month.
 			</p>
-		`
+		`,
 	},
 	{
 		date: month(2019, 9),
@@ -36,7 +36,7 @@ const data: Milestones = [
 			<p>
 				We released the new scheme and its whitepaper.
 			</p>
-		`
+		`,
 	},
 	{
 		date: month(2020, 1),
@@ -46,7 +46,7 @@ const data: Milestones = [
 				Deploy to mainnet and publish the npm market for OSS registored by MVP.
 				And release the prototype.
 			</p>
-		`
+		`,
 	},
 	{
 		date: month(2020, 3),
@@ -55,8 +55,8 @@ const data: Milestones = [
 			<p>
 				Planning to do release the new market that gaming platform Steam.
 			</p>
-		`
-	}
+		`,
+	},
 ]
 
 export const milestones = (): DirectiveFunction =>

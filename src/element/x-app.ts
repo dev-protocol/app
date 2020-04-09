@@ -6,7 +6,5 @@ import { notFound } from '../page/notFound'
 import { home } from '../page/home'
 
 export const xApp = customElements(
-	() => html`
-		${subscribe(route, x => (x === '/' ? home() : notFound()))}
-	`
+	() => html` ${subscribe(route, (x) => (x === '/' ? home() : notFound()))} `
 )

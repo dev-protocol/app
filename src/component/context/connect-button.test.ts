@@ -10,15 +10,15 @@ test.beforeEach(() => {
 	document.body.innerHTML = ''
 })
 
-test('Show disabled button when not found ethereum', t => {
+test('Show disabled button when not found ethereum', (t) => {
 	hasEthereum.next(false)
 	walletConnected.next(false)
 	render(
 		html`
 			${connectButton({
 				ethereum: {
-					isConnected: () => false
-				} as any
+					isConnected: () => false,
+				} as any,
 			})}
 		`,
 		document.body
@@ -27,15 +27,15 @@ test('Show disabled button when not found ethereum', t => {
 	t.is(el.hasAttribute('disabled'), true)
 })
 
-test('Subscribe `hasEthereum` and `walletConnected`, then show the already connected button when has ethereum and already connected it', t => {
+test('Subscribe `hasEthereum` and `walletConnected`, then show the already connected button when has ethereum and already connected it', (t) => {
 	hasEthereum.next(true)
 	walletConnected.next(true)
 	render(
 		html`
 			${connectButton({
 				ethereum: {
-					isConnected: () => true
-				} as any
+					isConnected: () => true,
+				} as any,
 			})}
 		`,
 		document.body
@@ -44,15 +44,15 @@ test('Subscribe `hasEthereum` and `walletConnected`, then show the already conne
 	t.is(removeExtraString(el.innerHTML), 'connected')
 })
 
-test('Subscribe `hasEthereum` and `walletConnected`, then show to the connect button when has ethereum and not connected it', t => {
+test('Subscribe `hasEthereum` and `walletConnected`, then show to the connect button when has ethereum and not connected it', (t) => {
 	hasEthereum.next(true)
 	walletConnected.next(false)
 	render(
 		html`
 			${connectButton({
 				ethereum: {
-					isConnected: () => false
-				} as any
+					isConnected: () => false,
+				} as any,
 			})}
 		`,
 		document.body

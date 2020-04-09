@@ -6,12 +6,12 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: '_config',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'constructor'
+		type: 'constructor',
 	},
 	{
 		anonymous: false,
@@ -20,23 +20,23 @@ export const dev = ([
 				indexed: true,
 				internalType: 'address',
 				name: 'owner',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				indexed: true,
 				internalType: 'address',
 				name: 'spender',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				indexed: false,
 				internalType: 'uint256',
 				name: 'value',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'Approval',
-		type: 'event'
+		type: 'event',
 	},
 	{
 		anonymous: false,
@@ -45,11 +45,11 @@ export const dev = ([
 				indexed: true,
 				internalType: 'address',
 				name: 'account',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		name: 'MinterAdded',
-		type: 'event'
+		type: 'event',
 	},
 	{
 		anonymous: false,
@@ -58,11 +58,11 @@ export const dev = ([
 				indexed: true,
 				internalType: 'address',
 				name: 'account',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		name: 'MinterRemoved',
-		type: 'event'
+		type: 'event',
 	},
 	{
 		anonymous: false,
@@ -71,23 +71,23 @@ export const dev = ([
 				indexed: true,
 				internalType: 'address',
 				name: 'from',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				indexed: true,
 				internalType: 'address',
 				name: 'to',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				indexed: false,
 				internalType: 'uint256',
 				name: 'value',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'Transfer',
-		type: 'event'
+		type: 'event',
 	},
 	{
 		constant: false,
@@ -95,14 +95,14 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: 'account',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		name: 'addMinter',
 		outputs: [],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: true,
@@ -110,25 +110,25 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: 'owner',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'address',
 				name: 'spender',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		name: 'allowance',
 		outputs: [
 			{
 				internalType: 'uint256',
 				name: '',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -136,25 +136,25 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: 'spender',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'uint256',
 				name: 'amount',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'approve',
 		outputs: [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: true,
@@ -162,20 +162,20 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: 'account',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		name: 'balanceOf',
 		outputs: [
 			{
 				internalType: 'uint256',
 				name: '',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -183,14 +183,14 @@ export const dev = ([
 			{
 				internalType: 'uint256',
 				name: 'amount',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'burn',
 		outputs: [],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -198,19 +198,19 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: 'account',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'uint256',
 				name: 'amount',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'burnFrom',
 		outputs: [],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: true,
@@ -220,12 +220,12 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: '',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: true,
@@ -235,12 +235,12 @@ export const dev = ([
 			{
 				internalType: 'uint8',
 				name: '',
-				type: 'uint8'
-			}
+				type: 'uint8',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -248,25 +248,25 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: 'spender',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'uint256',
 				name: 'subtractedValue',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'decreaseAllowance',
 		outputs: [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -274,25 +274,25 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: 'spender',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'uint256',
 				name: 'addedValue',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'increaseAllowance',
 		outputs: [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: true,
@@ -300,20 +300,20 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: 'account',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		name: 'isMinter',
 		outputs: [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -321,25 +321,25 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: 'account',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'uint256',
 				name: 'amount',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'mint',
 		outputs: [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: true,
@@ -349,12 +349,12 @@ export const dev = ([
 			{
 				internalType: 'string',
 				name: '',
-				type: 'string'
-			}
+				type: 'string',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -363,7 +363,7 @@ export const dev = ([
 		outputs: [],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: true,
@@ -373,12 +373,12 @@ export const dev = ([
 			{
 				internalType: 'string',
 				name: '',
-				type: 'string'
-			}
+				type: 'string',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: true,
@@ -388,12 +388,12 @@ export const dev = ([
 			{
 				internalType: 'uint256',
 				name: '',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -401,25 +401,25 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: 'recipient',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'uint256',
 				name: 'amount',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'transfer',
 		outputs: [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -427,30 +427,30 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: 'sender',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'address',
 				name: 'recipient',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'uint256',
 				name: 'amount',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'transferFrom',
 		outputs: [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -458,25 +458,25 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: '_to',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'uint256',
 				name: '_amount',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'deposit',
 		outputs: [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -484,30 +484,30 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: '_from',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'address',
 				name: '_to',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'uint256',
 				name: '_amount',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'depositFrom',
 		outputs: [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -515,24 +515,24 @@ export const dev = ([
 			{
 				internalType: 'address',
 				name: '_from',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'uint256',
 				name: '_amount',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'fee',
 		outputs: [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
-	}
+		type: 'function',
+	},
 ] as unknown) as AbiItem[]

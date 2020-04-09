@@ -28,9 +28,7 @@ export const notFound = (): TemplateResult => html`
 			<p>
 				${link({
 					href: '/',
-					content: html`
-						Back ${animatedArrow()}
-					`
+					content: html` Back ${animatedArrow()} `,
 				})}
 			</p>
 		</main>

@@ -10,9 +10,7 @@ interface Props {
 
 export const left = (): TemplateResult => html``
 export const right = (props: Props): TemplateResult =>
-	html`
-		${connectButton(props)}
-	`
+	html` ${connectButton(props)} `
 
 export const globalHeader = (props: Props): DirectiveFunction =>
 	container(

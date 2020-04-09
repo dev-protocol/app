@@ -4,12 +4,13 @@ import { html } from 'lit-html'
 import nesting from 'postcss-nesting'
 
 export const processor = process({
-	plugins: [nesting()]
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+	plugins: [nesting()],
 })
 
 export const style = directive(
 	processor,
-	css =>
+	(css) =>
 		html`
 			<style>
 				${until(css)}

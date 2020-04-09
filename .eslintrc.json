@@ -13,7 +13,9 @@
 		"prettier/@typescript-eslint"
 	],
 	"rules": {
-		"prettier/prettier": "error"
+		"prettier/prettier": "error",
+		"@typescript-eslint/no-base-to-string": "off",
+		"@typescript-eslint/prefer-readonly-parameter-types": "off"
 	},
 	"globals": {
 		"window": true

@@ -20,48 +20,48 @@ const teamItems: Member[] = [
 		name: 'Mayumi H.',
 		image: '/image/team/mayumi.jpg',
 		job: 'CEO',
-		url: '//www.linkedin.com/in/hara-mayumi-58799b37'
+		url: '//www.linkedin.com/in/hara-mayumi-58799b37',
 	},
 	{
 		name: 'aggre',
 		image: '/image/team/aggre.jpg',
 		job: 'CTO',
-		url: '//www.linkedin.com/in/aggre'
+		url: '//www.linkedin.com/in/aggre',
 	},
 	{
 		name: 'Mariko M.',
 		image: '/image/team/mariko.jpg',
 		job: 'COO',
-		url: '//www.wantedly.com/users/34890039'
+		url: '//www.wantedly.com/users/34890039',
 	},
 	{
 		name: 'Akira T.',
 		image: '/image/team/akira.jpg',
 		job: 'Blockchain Developer',
-		url: '//www.linkedin.com/in/akirataniguchi1'
-	}
+		url: '//www.linkedin.com/in/akirataniguchi1',
+	},
 ]
 const partnerItems: Items = [
 	{
 		name: 'MIRAISE',
 		image: '/image/partner/miraise.png',
-		url: 'http://miraise.vc'
+		url: 'http://miraise.vc',
 	},
 	{
 		name: 'SIOS Technology, Inc.',
 		image: '/image/partner/sios.png',
-		url: '//sios.jp'
+		url: '//sios.jp',
 	},
 	{
 		name: 'HashHub',
 		image: '/image/partner/hashhub.png',
-		url: '//hashhub.tokyo'
+		url: '//hashhub.tokyo',
 	},
 	{
 		name: 'Microsoft for Startups',
 		image: '/image/partner/ms-for-startups.png',
-		url: '//www.microsoft.com/ja-jp/biz/startups/default.aspx'
-	}
+		url: '//www.microsoft.com/ja-jp/biz/startups/default.aspx',
+	},
 ]
 
 export const team = (): DirectiveFunction =>
@@ -115,7 +115,7 @@ export const team = (): DirectiveFunction =>
 									<img src="${image}" alt="${name}" />
 									<figcaption>${name} <span>${job}</span></figcaption>
 								</figure>
-							`
+							`,
 						})}
 					</li>
 				`
@@ -152,9 +152,7 @@ export const partners = (): DirectiveFunction =>
 						${a({
 							href: url,
 							target: '_blank',
-							content: html`
-								<img src="${image}" alt="${name}" />
-							`
+							content: html` <img src="${image}" alt="${name}" /> `,
 						})}
 					</li>
 				`

@@ -9,25 +9,25 @@ test.beforeEach(() => {
 	document.body.innerHTML = ''
 })
 
-test('Will call next route when a click event', t => {
+test('Will call next route when a click event', (t) => {
 	render(link({ href: '/test' }), document.body)
 	const el = document.body.querySelector('a') as HTMLAnchorElement
 	t.plan(1)
-	route.pipe(filter(x => x === '/test')).subscribe(() => t.pass())
+	route.pipe(filter((x) => x === '/test')).subscribe(() => t.pass())
 	el.click()
 })
 
-test('No handling a click event when the href starts with //', t => {
+test('No handling a click event when the href starts with //', (t) => {
 	render(link({ href: '//test.com' }), document.body)
 	const el = document.body.querySelector('a') as HTMLAnchorElement
 	t.plan(1)
-	route.subscribe(x => t.is(x, '/test'))
+	route.subscribe((x) => t.is(x, '/test'))
 	el.click()
 	render(link({ href: '/test' }), document.body)
 	el.click()
 })
 
-test('Passing the classname option', t => {
+test('Passing the classname option', (t) => {
 	render(link({ href: '/test', class: 'test' }), document.body)
 	const el = document.body.querySelector('a') as HTMLAnchorElement
 	t.is(el.className, 'test')

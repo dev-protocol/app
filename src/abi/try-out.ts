@@ -6,12 +6,12 @@ export const tryOut = [
 			{
 				internalType: 'address',
 				name: '_token',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'constructor'
+		type: 'constructor',
 	},
 	{
 		anonymous: false,
@@ -20,17 +20,17 @@ export const tryOut = [
 				indexed: true,
 				internalType: 'address',
 				name: 'previousOwner',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				indexed: true,
 				internalType: 'address',
 				name: 'newOwner',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		name: 'OwnershipTransferred',
-		type: 'event'
+		type: 'event',
 	},
 	{
 		constant: true,
@@ -40,12 +40,12 @@ export const tryOut = [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: true,
@@ -55,12 +55,12 @@ export const tryOut = [
 			{
 				internalType: 'address',
 				name: '',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -69,7 +69,7 @@ export const tryOut = [
 		outputs: [],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -77,14 +77,14 @@ export const tryOut = [
 			{
 				internalType: 'address',
 				name: 'newOwner',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		name: 'transferOwnership',
 		outputs: [],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -92,19 +92,19 @@ export const tryOut = [
 			{
 				internalType: 'address',
 				name: '_property',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'uint256',
 				name: '_amount',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'deposit',
 		outputs: [],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -112,14 +112,14 @@ export const tryOut = [
 			{
 				internalType: 'uint256',
 				name: '_amount',
-				type: 'uint256'
-			}
+				type: 'uint256',
+			},
 		],
 		name: 'charge',
 		outputs: [],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -128,6 +128,6 @@ export const tryOut = [
 		outputs: [],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
-	}
+		type: 'function',
+	},
 ] as AbiItem[]

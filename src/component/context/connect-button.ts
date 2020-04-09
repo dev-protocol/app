@@ -17,13 +17,13 @@ const template = ({ ethereum }: Props): TemplateResult => html`
 			? walletConnected.value
 				? button({
 						content: 'connected',
-						onClick: () => true
+						onClick: () => true,
 				  })
 				: connectToWallet({ ethereum })
 			: button({
 					content: 'not found',
 					disabled: true,
-					onClick: () => true
+					onClick: () => true,
 			  })
 	)}
 `

@@ -5,12 +5,10 @@ import { markets, DevMarket } from '../../store/markets'
 import { DirectiveFunction } from '@aggre/ullr/directive'
 
 const subject = new BehaviorSubject(
-	markets.value.map(x => ({
+	markets.value.map((x) => ({
 		selected: true,
-		template: html`
-			${x.name}
-		`,
-		data: x
+		template: html` ${x.name} `,
+		data: x,
 	}))
 )
 
@@ -19,7 +17,7 @@ const handler = (select: SelectBoxItem<DevMarket>) => () => {
 		subject.value.map(({ selected, template, data }) => ({
 			selected: selected ? false : data.address === select.data.address,
 			template,
-			data
+			data,
 		}))
 	)
 }

@@ -23,14 +23,14 @@ interface Props {
 
 const createElementWhenUndefined = (name: string): HTMLElement =>
 	document.head.querySelector(name) ??
-	(t => document.head.appendChild(t))(document.createElement(name))
+	((t) => document.head.appendChild(t))(document.createElement(name))
 
 export const init = async ({ history, ethereum }: Props): Promise<void> => {
 	render(rootStyle, createElementWhenUndefined('style'))
 
-	route.subscribe(x => history.pushState(undefined, '', x))
+	route.subscribe((x) => history.pushState(undefined, '', x))
 
-	route.subscribe(x => {
+	route.subscribe((x) => {
 		render(
 			contextByRoutes(x).documentTitle,
 			createElementWhenUndefined('title')
@@ -40,7 +40,7 @@ export const init = async ({ history, ethereum }: Props): Promise<void> => {
 	hasEthereum.next(ethereum !== undefined)
 
 	const { Web3, contractFactory } = await import('./lib/clients')
-	hasEthereum.pipe(filter(x => x)).subscribe(async () => {
+	hasEthereum.pipe(filter((x) => x)).subscribe(async () => {
 		const libWeb3 = new Web3(ethereum)
 		const libDevKit = contractFactory(ethereum)
 		const net = await getNetwork(libWeb3)

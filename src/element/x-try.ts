@@ -12,17 +12,17 @@ import { filter } from 'rxjs/operators'
 import { connectButton } from '../component/context/connect-button'
 import { a } from '../component/pure/a'
 
-currentNetwork.subscribe(x => {
+currentNetwork.subscribe((x) => {
 	const next: Notification | undefined = x
 		? x === 'main' || x === 'ropsten'
 			? undefined
 			: {
 					type: 'failed',
-					message: `Cannot use in this network: ${String(x)}`
+					message: `Cannot use in this network: ${String(x)}`,
 			  }
 		: {
 				type: 'failed',
-				message: 'Cannot find the Ethereum wallet in your browser.'
+				message: 'Cannot find the Ethereum wallet in your browser.',
 		  }
 	notification.next(next)
 })
@@ -84,26 +84,24 @@ export const xTry = customElements(
 		`}
 		${connectButton({ ethereum: window.ethereum })}
 		<div class="notice-content">
-			${subscribe(notification, x =>
+			${subscribe(notification, (x) =>
 				x === undefined
 					? html``
-					: html`
-							<div class="notice ${x.type}">${x.message}</div>
-					  `
+					: html` <div class="notice ${x.type}">${x.message}</div> `
 			)}
 		</div>
 		${subscribe(
 			properties,
-			items =>
+			(items) =>
 				html`
 					${subscribe(
-						currentNetwork.pipe(filter(x => x !== undefined)),
-						net =>
+						currentNetwork.pipe(filter((x) => x !== undefined)),
+						(net) =>
 							html`
 								<div class="cards">
 									${repeat(
 										items[net!],
-										item =>
+										(item) =>
 											html`
 												<div>
 													<div class="card">
@@ -115,7 +113,7 @@ export const xTry = customElements(
 																net === 'main' || !net ? '' : `${net}.`
 															}etherscan.io/address/${item.address}`,
 															content: item.address,
-															target: '_blank'
+															target: '_blank',
 														})}
 													</div>
 												</div>

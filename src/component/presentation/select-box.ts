@@ -32,8 +32,8 @@ const toggle = (state: BehaviorSubject<boolean>) => (): void =>
 	state.next(!state.value)
 
 const selected = <T>(subject: SelectBoxItemsSubject<T>): DirectiveFunction =>
-	subscribe(subject.pipe(filter(x => x !== undefined)), x =>
-		(item =>
+	subscribe(subject.pipe(filter((x) => x !== undefined)), (x) =>
+		((item) =>
 			item
 				? html`
 						<div role="option" aria-selected="true" class="item">
@@ -44,16 +44,16 @@ const selected = <T>(subject: SelectBoxItemsSubject<T>): DirectiveFunction =>
 						<div class="item">
 							(select one)
 						</div>
-				  `)(x.find(x => x.selected))
+				  `)(x.find((x) => x.selected))
 	)
 
 const list = <T>({ subject, handler }: Props<T>): DirectiveFunction =>
-	subscribe(subject.pipe(filter(x => x !== undefined)), x =>
-		(items =>
+	subscribe(subject.pipe(filter((x) => x !== undefined)), (x) =>
+		((items) =>
 			html`
 				${repeat(
 					items,
-					x =>
+					(x) =>
 						html`
 							<div
 								role="option"
@@ -109,10 +109,10 @@ export const selectBox = <T>(props: Props<T>): DirectiveFunction =>
 				color: ${asVar('onSurfaceColor')};
 			}
 		`}
-		${(state =>
+		${((state) =>
 			subscribe(
 				state,
-				opened => html`
+				(opened) => html`
 					<div role="listbox" ?opened=${opened} @click=${toggle(state)}>
 						<div class="selected">
 							${selected(props.subject)}

@@ -28,17 +28,13 @@ const handler = (
 	notificationStore: NotificationStore
 ) => async () => {
 	if (!walletConnected.value) {
-		notificationStore.next(
-			html`
-				Please connect to your wallet and try again.
-			`
-		)
+		notificationStore.next(html` Please connect to your wallet and try again. `)
 		return
 	}
 
 	const [from, net] = await Promise.all([
 		getAccount(),
-		promisify(currentNetwork)
+		promisify(currentNetwork),
 	])
 
 	const approvalAmount = balanceStore.value.legacy
@@ -50,54 +46,33 @@ const handler = (
 	)
 
 	const approved = await txPromisify(
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 		devLegacy.methods
 			.approve(addresses(currentNetwork.value)?.migration, approvalAmount)
 			.send({ from }),
 		() =>
-			notificationStore.next(
-				html`
-					Upgrade starting...(please wait a minute)
-				`
-			)
+			notificationStore.next(html` Upgrade starting...(please wait a minute) `)
 	).catch((err: Error) => err)
 
 	if (approved instanceof Error) {
-		return notificationStore.next(
-			html`
-				${approved.message}
-			`
-		)
+		return notificationStore.next(html` ${approved.message} `)
 	}
 
 	notificationStore.next(
-		html`
-			DEVs transfer approval is completed. Then, let's upgrading!
-		`
+		html` DEVs transfer approval is completed. Then, let's upgrading! `
 	)
 
 	const upgraded = await txPromisify(
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 		devMigration.methods.migrate().send({ from }),
-		() =>
-			notificationStore.next(
-				html`
-					Now upgrading...
-				`
-			)
+		() => notificationStore.next(html` Now upgrading... `)
 	).catch((err: Error) => err)
 
 	if (upgraded instanceof Error) {
-		return notificationStore.next(
-			html`
-				${upgraded.message}
-			`
-		)
+		return notificationStore.next(html` ${upgraded.message} `)
 	}
 
-	notificationStore.next(
-		html`
-			Upgrade your DEV tokens is done!
-		`
-	)
+	notificationStore.next(html` Upgrade your DEV tokens is done! `)
 
 	updateStore(balanceStore)
 }
@@ -105,10 +80,10 @@ const handler = (
 const updateStore = (store: BalanceStore): BalanceStore => {
 	promisify(currentNetwork)
 		.then(async () => promisify(web3))
-		.then(async libWeb3 => {
+		.then(async (libWeb3) => {
 			const [from, net] = await Promise.all([
 				getAccount(),
-				promisify(currentNetwork)
+				promisify(currentNetwork),
 			])
 			if (from === undefined) {
 				return [undefined, undefined]
@@ -117,8 +92,10 @@ const updateStore = (store: BalanceStore): BalanceStore => {
 			const devLegacy = new libWeb3.eth.Contract(dev, addresses(net)?.devLegacy)
 			const devNext = new libWeb3.eth.Contract(dev, addresses(net)?.dev)
 			return Promise.all([
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 				devLegacy.methods.balanceOf(from).call(),
-				devNext.methods.balanceOf(from).call()
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+				devNext.methods.balanceOf(from).call(),
 			])
 		})
 		.then(([legacy, next]) => store.next({ legacy, next }))
@@ -134,14 +111,14 @@ const createStore = (): {
 	const notification = new BehaviorSubject<TemplateResult>(html``)
 	walletConnected
 		.pipe(
-			filter(x => x),
+			filter((x) => x),
 			take(1)
 		)
 		.subscribe(() => updateStore(balance))
 
 	return {
 		balance,
-		notification
+		notification,
 	}
 }
 
@@ -205,36 +182,30 @@ export const updagradeDev = (): DirectiveFunction =>
 			<div class="console">
 				${subscribe(
 					walletConnected,
-					x =>
+					(x) =>
 						html`
 							${x
 								? buttonRounded(() =>
 										button({
 											content: 'Upgrade',
-											onClick: handler(balance, notification)
+											onClick: handler(balance, notification),
 										})
 								  )('primary')
 								: connectButton({ ethereum: window.ethereum })}
 						`
 				)}
-				${subscribe(notification, x => x)}
+				${subscribe(notification, (x) => x)}
 				${subscribe(
 					currentNetwork,
-					network => html`
+					(network) => html`
 						<dl>
 							<dt class="legacy">Legacy DEV</dt>
 							<dd class="legacy">
 								<pre>${addresses(network)?.devLegacy}</pre>
 								<p>
 									You:
-									${subscribe(balance, x =>
-										x.legacy
-											? html`
-													${toNaturalNumber(x.legacy)}
-											  `
-											: html`
-													-
-											  `
+									${subscribe(balance, (x) =>
+										x.legacy ? html` ${toNaturalNumber(x.legacy)} ` : html` - `
 									)}
 									DEV
 								</p>
@@ -244,14 +215,8 @@ export const updagradeDev = (): DirectiveFunction =>
 								<pre>${addresses(network)?.dev}</pre>
 								<p>
 									You:
-									${subscribe(balance, x =>
-										x.next
-											? html`
-													${toNaturalNumber(x.next)}
-											  `
-											: html`
-													-
-											  `
+									${subscribe(balance, (x) =>
+										x.next ? html` ${toNaturalNumber(x.next)} ` : html` - `
 									)}
 									DEV
 								</p>

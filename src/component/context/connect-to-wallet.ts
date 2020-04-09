@@ -12,5 +12,5 @@ const handler = (ethereum: Window['ethereum']) => async (): Promise<void> =>
 
 export const connectToWallet = ({
 	ethereum,
-	content = 'connect to wallet'
+	content = 'connect to wallet',
 }: Props): TemplateResult => button({ content, onClick: handler(ethereum) })

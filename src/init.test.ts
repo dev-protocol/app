@@ -26,27 +26,27 @@ test.afterEach(() => {
 	hasEthereum.next(false)
 })
 
-test('Subscribe the `route` and rewrite history', t => {
+test('Subscribe the `route` and rewrite history', (t) => {
 	t.plan(1)
 	const stub = {
 		pushState: pushState((_: any, __: string, url: string): void => {
 			if (url === '/test') {
 				t.is(url, '/test')
 			}
-		})
+		}),
 	}
 
 	init({ history: stub as any, ethereum: ethereum as any })
 	route.next('/test')
 })
 
-test('Subscribe `route` and re-writes <title>', t => {
+test('Subscribe `route` and re-writes <title>', (t) => {
 	route.next('/')
 	init({
 		history: {
-			pushState: pushState()
+			pushState: pushState(),
 		} as any,
-		ethereum: ethereum as any
+		ethereum: ethereum as any,
 	})
 	const el = document.head.querySelector('title') as HTMLTitleElement
 	t.is(removeExtraString(el.innerHTML), contextByRoutes('/').documentTitle)
@@ -54,16 +54,16 @@ test('Subscribe `route` and re-writes <title>', t => {
 	t.is(removeExtraString(el.innerHTML), contextByRoutes('/xxx').documentTitle)
 })
 
-test('When includes ethereum in the window, then emit true with `hasEthereum`', async t =>
-	new Promise(resolve => {
-		hasEthereum.pipe(filter(x => x)).subscribe(() => {
+test('When includes ethereum in the window, then emit true with `hasEthereum`', async (t) =>
+	new Promise((resolve) => {
+		hasEthereum.pipe(filter((x) => x)).subscribe(() => {
 			resolve()
 		})
 		init({
 			history: {
-				pushState: pushState()
+				pushState: pushState(),
 			} as any,
-			ethereum: ethereum as any
+			ethereum: ethereum as any,
 		})
 	}).then(() => t.pass()))
 

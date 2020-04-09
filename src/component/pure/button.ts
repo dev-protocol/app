@@ -9,12 +9,10 @@ export interface Props {
 export const button = ({
 	content = '',
 	disabled = false,
-	onClick
+	onClick,
 }: Props): TemplateResult =>
 	onClick === undefined
-		? html`
-				<button type="button" ?disabled=${disabled}>${content}</button>
-		  `
+		? html` <button type="button" ?disabled=${disabled}>${content}</button> `
 		: html`
 				<button type="button" ?disabled=${disabled} @click=${onClick}>
 					${content}

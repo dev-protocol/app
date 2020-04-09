@@ -18,7 +18,7 @@ const address = (network: string) => (
 					network === 'main' ? '' : `${network}.`
 				}etherscan.io/address/${contractAddress}`,
 				target: '_blank',
-				content: `${contractAddress} ↗`
+				content: `${contractAddress} ↗`,
 			})}
 		</div>
 	`
@@ -65,7 +65,7 @@ export const addresses = (): DirectiveFunction =>
 					text-decoration: none;
 				}
 			`}
-			${subscribe(currentNetwork, net =>
+			${subscribe(currentNetwork, (net) =>
 				net === 'main' || net === 'ropsten'
 					? adf(address(net), _addresses(net)!)
 					: html``

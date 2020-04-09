@@ -33,7 +33,7 @@ export const txPromisify = async (
 	onTransactionHash?: (hash: string) => void
 ): Promise<Error | null | TxReceipt> =>
 	new Promise((resolve, reject) => {
-		tx.on('transactionHash', hash => {
+		tx.on('transactionHash', (hash) => {
 			if (onTransactionHash) {
 				onTransactionHash(hash)
 			}
@@ -59,7 +59,7 @@ export const getNetwork = async (libWeb3: Web3): Promise<string> =>
 
 export const getAccount = async (): Promise<string> =>
 	promisify(web3)
-		.then(async libWeb3 => libWeb3.eth.getAccounts())
+		.then(async (libWeb3) => libWeb3.eth.getAccounts())
 		.then(([account]) => account)
 
 export const connect = async (ethereum: Window['ethereum']): Promise<void> =>

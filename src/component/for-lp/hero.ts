@@ -78,7 +78,7 @@ export const hero = (): DirectiveFunction =>
 									${buttonRounded(() =>
 										button({
 											content: 'Read more',
-											onClick: toArticle
+											onClick: toArticle,
 										})
 									)('primary')}
 									${buttonRounded(() =>

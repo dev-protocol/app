@@ -25,11 +25,7 @@ export const section = ({ id, title, content }: Props): DirectiveFunction =>
 		`}
 		${raw(
 			() => html`
-				${title
-					? html`
-							<h2>${title}</h2>
-					  `
-					: ''}
+				${title ? html` <h2>${title}</h2> ` : ''}
 				<div class="content">${content()}</div>
 			`,
 			id

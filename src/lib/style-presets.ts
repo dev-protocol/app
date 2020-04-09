@@ -16,7 +16,7 @@ export const buttonWithNoBorder = `
 `
 export const buttonWithPadding = (
 	{ size }: ButtonWithPaddingProps = {
-		size: 'medium'
+		size: 'medium',
 	}
 ): string => `
 	button {

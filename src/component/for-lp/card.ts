@@ -27,7 +27,7 @@ const stakingHandler = (address: string, store: AmountsStore) => async () => {
 	if (!walletConnected.value) {
 		notification.next({
 			type: 'failed',
-			message: 'Please connect to your wallet and try again.'
+			message: 'Please connect to your wallet and try again.',
 		})
 		return
 	}
@@ -35,15 +35,16 @@ const stakingHandler = (address: string, store: AmountsStore) => async () => {
 	const [from, tryOut, dev] = await Promise.all([
 		getAccount(),
 		promisify(web3TryOut),
-		promisify(web3Dev)
+		promisify(web3Dev),
 	])
 
 	const approved = await txPromisify(
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 		dev.methods.approve(tryOut.options.address, one18.toFixed()).send({ from }),
 		() =>
 			notification.next({
 				type: 'info',
-				message: 'Staking transactions started...(please wait a minutes)'
+				message: 'Staking transactions started...(please wait a minutes)',
 			})
 	).catch((err: Error) => err)
 
@@ -53,15 +54,16 @@ const stakingHandler = (address: string, store: AmountsStore) => async () => {
 
 	notification.next({
 		type: 'info',
-		message: `DEVs transfer approval is completed. Then, let's staking! (Please confirm a dialog)`
+		message: `DEVs transfer approval is completed. Then, let's staking! (Please confirm a dialog)`,
 	})
 
 	const deposited = await txPromisify(
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 		tryOut.methods.deposit(address, one18.toFixed()).send({ from }),
 		() =>
 			notification.next({
 				type: 'info',
-				message: `Now transacting...(please wait a minutes)`
+				message: `Now transacting...(please wait a minutes)`,
 			})
 	).catch((err: Error) => err)
 	if (deposited instanceof Error) {
@@ -72,7 +74,7 @@ const stakingHandler = (address: string, store: AmountsStore) => async () => {
 		type: 'succeeded',
 		message: `Completed your ${toNaturalNumber(
 			one18.toFixed()
-		).toString()} DEV staking!`
+		).toString()} DEV staking!`,
 	})
 	updateStore(store, address)
 }
@@ -81,14 +83,14 @@ const openHandler = (address: string, store: MessageStore) => async () => {
 	if (!walletConnected.value) {
 		notification.next({
 			type: 'failed',
-			message: 'Please connect to your wallet and try again.'
+			message: 'Please connect to your wallet and try again.',
 		})
 		return
 	}
 
 	const [libWeb3, net] = await Promise.all([
 		promisify(web3),
-		promisify(currentNetwork)
+		promisify(currentNetwork),
 	])
 	const [from] = await libWeb3.eth.getAccounts()
 	const signature = await libWeb3.eth.personal.sign(
@@ -99,16 +101,16 @@ const openHandler = (address: string, store: MessageStore) => async () => {
 
 	notification.next({
 		type: 'info',
-		message: 'Verifying...'
+		message: 'Verifying...',
 	})
 
 	const res = await fetch(
 		`//dev-protocol.azurewebsites.net/api/secret-message?code=JQPiBU6aCI5fYCDEmiUPJaNUfuqjZaPlYykXTlq0eRb6qMQR1iY09A==&property=${address}&network=${net}&signature=${signature}`
-	).then(async x => x.text())
+	).then(async (x) => x.text())
 
 	notification.next({
 		type: 'succeeded',
-		message: 'Open the message!'
+		message: 'Open the message!',
 	})
 	store.next(res)
 }
@@ -126,7 +128,7 @@ const getPropertyValue = async (address: string): Promise<BigNumber> => {
 const getValue = async (address: string): Promise<BigNumber | undefined> => {
 	const [from, dev] = await Promise.all([
 		getAccount(),
-		promisify(devKitContract)
+		promisify(devKitContract),
 	])
 	if (from === undefined) {
 		return
@@ -140,7 +142,7 @@ const getValue = async (address: string): Promise<BigNumber | undefined> => {
 
 const reducer = (prev: Amounts, data: Amounts): Amounts => ({
 	...prev,
-	...data
+	...data,
 })
 
 const createStore = (address: string): [AmountsStore, MessageStore] => {
@@ -151,7 +153,7 @@ const createStore = (address: string): [AmountsStore, MessageStore] => {
 	const message = new BehaviorSubject<string | undefined>(undefined)
 	walletConnected
 		.pipe(
-			filter(x => x),
+			filter((x) => x),
 			take(1)
 		)
 		.subscribe(() => updateStore(amounts, address))
@@ -160,10 +162,10 @@ const createStore = (address: string): [AmountsStore, MessageStore] => {
 }
 
 const updateStore = (store: AmountsStore, address: string): AmountsStore => {
-	getPropertyValue(address).then(total =>
+	getPropertyValue(address).then((total) =>
 		store.next(reducer(store.value ?? {}, { total }))
 	)
-	getValue(address).then(account =>
+	getValue(address).then((account) =>
 		store.next(reducer(store.value ?? {}, { account }))
 	)
 	return store
@@ -202,7 +204,7 @@ const openButton = svg`
 export const card = ({
 	address,
 	name,
-	authorName
+	authorName,
 }: DevProperty): DirectiveFunction =>
 	(([amountsStore, messageStore]) =>
 		component(html`
@@ -240,7 +242,7 @@ export const card = ({
 			`}
 			${subscribe(
 				amountsStore,
-				amounts =>
+				(amounts) =>
 					html`
 						${component(html`
 							${style`
@@ -347,7 +349,7 @@ export const card = ({
 						`)}
 					`
 			)}
-			${subscribe(messageStore, message =>
+			${subscribe(messageStore, (message) =>
 				message === undefined
 					? html``
 					: html`

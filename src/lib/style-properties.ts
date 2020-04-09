@@ -20,7 +20,7 @@ export const properties = {
 	fontFamilyBody: ["'Poppins', sans-serif"],
 	fontFamilyUI: ["'Ubuntu', sans-serif"],
 	containerWidth: ['798px'],
-	borderRadius: ['3px']
+	borderRadius: ['3px'],
 }
 
 export type CSSCustomPropertiesKey<T = typeof properties> = keyof T
@@ -46,8 +46,8 @@ export const asDeclaration = (sceme: PrefersColorScheme = 'light'): string => {
 
 	return keys.reduce(
 		(prev, name, i) =>
-			(hasDark =>
-				(declare => `${i === 0 ? '' : `${prev} `}${declare}`)(
+			((hasDark) =>
+				((declare) => `${i === 0 ? '' : `${prev} `}${declare}`)(
 					useDark && hasDark
 						? declaration(name as CSSCustomPropertiesKey, 'dark')
 						: useDark

@@ -17,28 +17,28 @@ const data: Sponsors = [
 	{
 		name: 'tecHub',
 		image: '/image/techub.jpg',
-		url: 'https://twitter.com/techub_jp'
+		url: 'https://twitter.com/techub_jp',
 	},
 	{
 		name: 'theMistletoe',
 		image: '/image/themistletoe.png',
-		url: 'https://github.com/theMistletoe'
+		url: 'https://github.com/theMistletoe',
 	},
 	{
 		name: 'kazupon',
 		image: '/image/kazupon.jfif',
-		url: 'https://github.com/kazupon/vue-i18n'
+		url: 'https://github.com/kazupon/vue-i18n',
 	},
 	{
 		name: 'Warashibe',
 		image: '/image/warashibe.png',
-		url: 'https://warashibe.market'
+		url: 'https://warashibe.market',
 	},
 	{
 		name: 'narita1980',
 		image: '/image/narita.jpg',
-		url: 'https://github.com/narita1980'
-	}
+		url: 'https://github.com/narita1980',
+	},
 ]
 
 export const sponsors = (): DirectiveFunction =>
@@ -91,7 +91,7 @@ export const sponsors = (): DirectiveFunction =>
 							content: html`
 								<div><img src="${image}" alt="${name}" /></div>
 								<p>${name}</p>
-							`
+							`,
 						})}
 					</li>
 				`

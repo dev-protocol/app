@@ -6,17 +6,17 @@ export const devMigrationAbi = [
 			{
 				internalType: 'address',
 				name: '_legacy',
-				type: 'address'
+				type: 'address',
 			},
 			{
 				internalType: 'address',
 				name: '_next',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'constructor'
+		type: 'constructor',
 	},
 	{
 		constant: true,
@@ -26,12 +26,12 @@ export const devMigrationAbi = [
 			{
 				internalType: 'address',
 				name: '',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: true,
@@ -41,12 +41,12 @@ export const devMigrationAbi = [
 			{
 				internalType: 'address',
 				name: '',
-				type: 'address'
-			}
+				type: 'address',
+			},
 		],
 		payable: false,
 		stateMutability: 'view',
-		type: 'function'
+		type: 'function',
 	},
 	{
 		constant: false,
@@ -56,11 +56,11 @@ export const devMigrationAbi = [
 			{
 				internalType: 'bool',
 				name: '',
-				type: 'bool'
-			}
+				type: 'bool',
+			},
 		],
 		payable: false,
 		stateMutability: 'nonpayable',
-		type: 'function'
-	}
+		type: 'function',
+	},
 ] as AbiItem[]

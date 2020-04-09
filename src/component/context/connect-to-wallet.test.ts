@@ -10,16 +10,16 @@ test.beforeEach(() => {
 	document.body.innerHTML = ''
 })
 
-test('Click to enabling the wallet', async t => {
-	new Promise(resolve => {
+test('Click to enabling the wallet', async (t) => {
+	new Promise((resolve) => {
 		const ethereum = {
 			enable: async () => {
 				resolve()
-			}
+			},
 		}
 
 		devKitContract
-			.pipe(filter(x => typeof x !== 'undefined' && 'dummy' in x))
+			.pipe(filter((x) => typeof x !== 'undefined' && 'dummy' in x))
 			.subscribe(() => resolve())
 		render(connectToWallet({ ethereum }), document.body)
 		const el = document.body.querySelector('button') as HTMLButtonElement
@@ -27,17 +27,17 @@ test('Click to enabling the wallet', async t => {
 	}).then(() => t.pass())
 })
 
-test('Content is "connect to wallet" by default', t => {
+test('Content is "connect to wallet" by default', (t) => {
 	render(connectToWallet({ ethereum: undefined }), document.body)
 	const el = document.body.querySelector('button') as HTMLButtonElement
 	t.is(removeExtraString(el.innerHTML), 'connect to wallet')
 })
 
-test('Set content when content is passed', t => {
+test('Set content when content is passed', (t) => {
 	render(
 		connectToWallet({
 			content: 'Test',
-			ethereum: undefined
+			ethereum: undefined,
 		}),
 		document.body
 	)
