@@ -17,7 +17,7 @@
 		"@aggre/ullr": "^0.15.0",
 		"@dev-protocol/dev-kit-js": "^0.4.0",
 		"bignumber.js": "9.0.0",
-		"date-fns": "2.11.1",
+		"date-fns": "2.12.0",
 		"lit-html": "1.2.1",
 		"lit-style": "1.1.2",
 		"postcss-nesting": "7.0.1",
