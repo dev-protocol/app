@@ -1,7 +1,7 @@
 import { DirectiveFunction, component } from '@aggre/ullr/directive'
 import { html, TemplateResult } from 'lit-html'
 import { style } from '../../lib/style'
-import { heading, large } from '../../lib/style-presets'
+import { heading, exLarge } from '../../lib/style-presets'
 import { ViewTemplate } from '../../d/app'
 import { repeat } from 'lit-html/directives/repeat'
 import { format } from 'date-fns'
@@ -59,7 +59,7 @@ const data: Milestones = [
 	},
 	{
 		date: month(2020, 6),
-		title: 'Khaos',
+		title: 'Khaos and GitHub Market',
 		description: () => html`
 			<p>We will build an oracle solution named Khaos.</p>
 			<p>
@@ -83,7 +83,7 @@ const data: Milestones = [
 	},
 	{
 		date: 'Autumn 2020',
-		title: html`Private ICO<br />and Upvote`,
+		title: 'Private ICO and Upvote',
 		description: () =>
 			html`
 				<p>We are planning a private ICO to build a further ecosystem.</p>
@@ -118,7 +118,7 @@ const data: Milestones = [
 	},
 	{
 		date: 'Summer 2021',
-		title: 'DevRel',
+		title: 'Documentation',
 		description: () => html`
 			<p>We will be releasing full documentation for developers.</p>
 
@@ -157,7 +157,7 @@ const data: Milestones = [
 	},
 	{
 		date: 'Autumn 2022',
-		title: html`Major Update<br />and Servant`,
+		title: 'Major Update and Servant',
 		description: () =>
 			html`<p>
 					Migrate ownership of Dev Protocol to a fully distributed model. At the
@@ -199,9 +199,9 @@ export const milestones = (): DirectiveFunction =>
 					'description description';
 				grid-template-columns: 0.5fr 1fr;
 				grid-gap: 1rem;
-				${large(`
+				${exLarge(`
 					grid-template-areas: 'date title description';
-					grid-template-columns: 0.2fr 0.5fr 1fr;
+					grid-template-columns: 90px 0.5fr 1fr;
 				`)}
 				& time {
 					grid-area: date;
@@ -232,7 +232,7 @@ export const milestones = (): DirectiveFunction =>
 								? format(date, 'yyyy-MM-dd')
 								: date}"
 							>${typeof date === 'object'
-								? format(date, 'yyyy.MM')
+								? format(date, 'MM.yyyy')
 								: date}</time
 						>
 						<h3>${title}</h3>
