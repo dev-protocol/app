@@ -61,13 +61,13 @@ const data: Milestones = [
 		date: month(2020, 6),
 		title: 'Khaos and GitHub Market',
 		description: () => html`
-			<p>We will build an oracle solution named Khaos.</p>
+			<p>We'll build an oracle solution named Khaos.</p>
 			<p>
-				Also, we will be building a new Market to tokenize GitHub using Khaos.
-				The Market makes value your contribution on GitHub.
+				Also, we'll be building a new Market to tokenize GitHub using Khaos. The
+				Market makes value your contribution on GitHub.
 			</p>
 			<p>
-				We will also be adding asset authentication by GUI as Stakes.social v2.
+				We'll also be adding asset authentication by GUI as Stakes.social v2.
 			</p>
 		`,
 	},
@@ -86,11 +86,11 @@ const data: Milestones = [
 		title: 'Private ICO and Upvote',
 		description: () =>
 			html`
-				<p>We are planning a private ICO to build a further ecosystem.</p>
+				<p>We're planning a private ICO to build a further ecosystem.</p>
 				<p>
-					At the same time, we build a Dev Protocol version of the Like button,
-					named Upvote. Upvote will help develop a market for an activity for
-					which there is no clear indicator.
+					At the same time, we'll build a Dev Protocol version of the Like
+					button, named Upvote. Upvote will help develop a market for an
+					activity for which there is no clear indicator.
 				</p>
 			`,
 	},
@@ -107,7 +107,7 @@ const data: Milestones = [
 		date: 'Spring 2021',
 		title: 'Dash',
 		description: () => html` <p>
-				We will be building an app called "Dash" that stakes out the best
+				We'll be building an app called "Dash" that stakes out the best
 				properties in just one transaction.
 			</p>
 
@@ -120,10 +120,9 @@ const data: Milestones = [
 		date: 'Summer 2021',
 		title: 'Documentation',
 		description: () => html`
-			<p>We will be releasing full documentation for developers.</p>
-
+			<p>We'll release full documentation for developers.</p>
 			<p>
-				Dev Protocol believes that collaboration with developers is important.
+				Dev Protocol believes that collaboration with developers is essential.
 			</p>
 		`,
 	},
@@ -164,8 +163,8 @@ const data: Milestones = [
 					same time, we'll be planing a reduction in Gas fees.
 				</p>
 				<p>
-					We will also be unveiling a project called Servant, which will allow
-					you to pay for Gas fees with your DEV.
+					We'll also release a project called Servant, which will allow you to
+					pay for Gas fees with your DEV.
 				</p>`,
 	},
 	{
