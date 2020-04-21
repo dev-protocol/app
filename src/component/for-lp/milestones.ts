@@ -1,5 +1,5 @@
 import { DirectiveFunction, component } from '@aggre/ullr/directive'
-import { html } from 'lit-html'
+import { html, TemplateResult } from 'lit-html'
 import { style } from '../../lib/style'
 import { heading, large } from '../../lib/style-presets'
 import { ViewTemplate } from '../../d/app'
@@ -8,8 +8,8 @@ import { format } from 'date-fns'
 import { asVar } from '../../lib/style-properties'
 
 interface Milestone {
-	date: Date
-	title: string
+	date: Date | string
+	title: TemplateResult | string
 	description: ViewTemplate
 	injectAfter?: ViewTemplate
 }
@@ -49,13 +49,133 @@ const data: Milestones = [
 		`,
 	},
 	{
-		date: month(2020, 3),
-		title: 'Steam market',
+		date: month(2020, 4),
+		title: 'Stakes.social',
 		description: () => html`
 			<p>
-				Planning to do release the new market that gaming platform Steam.
+				Build a generic UI that can smoothly perform staking using Dev Protocol.
 			</p>
 		`,
+	},
+	{
+		date: month(2020, 6),
+		title: 'Khaos',
+		description: () => html`
+			<p>We will build an oracle solution named Khaos.</p>
+			<p>
+				Also, we will be building a new Market to tokenize GitHub using Khaos.
+				The Market makes value your contribution on GitHub.
+			</p>
+			<p>
+				We will also be adding asset authentication by GUI as Stakes.social v2.
+			</p>
+		`,
+	},
+	{
+		date: 'Summer 2020',
+		title: 'Dev Kit',
+		description: () => html`
+			<p>
+				Release of a stable version of the JavaScript(TypeScript) SDK that makes
+				it easy to build Dev Protocol web applications.
+			</p>
+		`,
+	},
+	{
+		date: 'Autumn 2020',
+		title: html`Private ICO<br />and Upvote`,
+		description: () =>
+			html`
+				<p>We are planning a private ICO to build a further ecosystem.</p>
+				<p>
+					At the same time, we build a Dev Protocol version of the Like button,
+					named Upvote. Upvote will help develop a market for an activity for
+					which there is no clear indicator.
+				</p>
+			`,
+	},
+	{
+		date: 'Winter 2020',
+		title: 'Stakes.social v3',
+		description: () =>
+			html`<p>
+				As Stakes.social v3, we plan to add a GUI that allows you to edit
+				Property and Assets combinations freely.
+			</p>`,
+	},
+	{
+		date: 'Spring 2021',
+		title: 'Dash',
+		description: () => html` <p>
+				We will be building an app called "Dash" that stakes out the best
+				properties in just one transaction.
+			</p>
+
+			<p>
+				Dash works like an automated fund, helping users who can't choose where
+				to stake.
+			</p>`,
+	},
+	{
+		date: 'Summer 2021',
+		title: 'DevRel',
+		description: () => html`
+			<p>We will be releasing full documentation for developers.</p>
+
+			<p>
+				Dev Protocol believes that collaboration with developers is important.
+			</p>
+		`,
+	},
+	{
+		date: 'Autumn 2021',
+		title: 'Stakes.social v4',
+		description: () =>
+			html`<p>
+				As Stakes.social v4, we plan to release enhanced collaboration with
+				third party application layers and asset management capabilities for
+				third party operators.
+			</p>`,
+	},
+	{
+		date: 'Winter 2021',
+		title: 'First IEO',
+		description: () =>
+			html`<p>
+				To makes liquidity in the global market and accelerate the growth of the
+				ecosystem, we will be conducting our first IEO.
+			</p>`,
+	},
+	{
+		date: 'Spring 2022',
+		title: 'Khaos v2',
+		description: () => html`<p>
+				Make Khaos open and available for protocols other than Dev Protocol.
+			</p>
+
+			<p>Anyone can use Khaos by staking the DEV on Dev Protocol.</p>`,
+	},
+	{
+		date: 'Autumn 2022',
+		title: html`Major Update<br />and Servant`,
+		description: () =>
+			html`<p>
+					Migrate ownership of Dev Protocol to a fully distributed model. At the
+					same time, we'll be planing a reduction in Gas fees.
+				</p>
+				<p>
+					We will also be unveiling a project called Servant, which will allow
+					you to pay for Gas fees with your DEV.
+				</p>`,
+	},
+	{
+		date: '202X',
+		title: 'Integration with the World',
+		description: () =>
+			html`<p>
+				Dev Protocol builds an ecosystem with other protocols and platforms that
+				support creators.
+			</p>`,
 	},
 ]
 
@@ -107,8 +227,13 @@ export const milestones = (): DirectiveFunction =>
 				data,
 				({ date, title, description, injectAfter }) => html`
 					<li>
-						<time datetime="${format(date, 'yyyy-MM-dd')}"
-							>${format(date, 'yyyy.MM')}</time
+						<time
+							datetime="${typeof date === 'object'
+								? format(date, 'yyyy-MM-dd')
+								: date}"
+							>${typeof date === 'object'
+								? format(date, 'yyyy.MM')
+								: date}</time
 						>
 						<h3>${title}</h3>
 						<div>${description()}</div>
