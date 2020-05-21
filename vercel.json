@@ -1,6 +1,5 @@
 {
 	"version": 2,
-	"alias": "devprtcl.com",
 	"builds": [
 		{ "src": "dist/**", "use": "@now/static" },
 		{ "src": "dist/.well-known/**", "use": "@now/static" }

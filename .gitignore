@@ -106,4 +106,4 @@ dist
 # Parcel cache
 .parcel-cache
 
-.now
+.vercel
