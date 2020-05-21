@@ -2,7 +2,7 @@ import { html } from 'lit-html'
 import { selectBox, SelectBoxItem } from '../presentation/select-box'
 import { BehaviorSubject } from 'rxjs'
 import { markets, DevMarket } from '../../store/markets'
-import { DirectiveFunction } from '@aggre/ullr/directive'
+import { DirectiveFunction } from 'ullr/directive'
 
 const subject = new BehaviorSubject(
 	markets.value.map((x) => ({

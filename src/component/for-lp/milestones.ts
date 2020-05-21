@@ -1,4 +1,4 @@
-import { DirectiveFunction, component } from '@aggre/ullr/directive'
+import { DirectiveFunction, component } from 'ullr/directive'
 import { html, TemplateResult } from 'lit-html'
 import { style } from '../../lib/style'
 import { heading, exLarge } from '../../lib/style-presets'

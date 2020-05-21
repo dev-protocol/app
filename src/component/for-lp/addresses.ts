@@ -1,4 +1,4 @@
-import { DirectiveFunction, component, subscribe } from '@aggre/ullr/directive'
+import { DirectiveFunction, component, subscribe } from 'ullr/directive'
 import { html, TemplateResult } from 'lit-html'
 import { style } from '../../lib/style'
 import { addresses as _addresses, Addresses } from '../../lib/addresses'

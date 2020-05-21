@@ -1,6 +1,6 @@
 import { buttonRounded } from '../presentation/button-rounded'
 import { html, TemplateResult } from 'lit-html'
-import { subscribe, DirectiveFunction } from '@aggre/ullr/directive'
+import { subscribe, DirectiveFunction } from 'ullr/directive'
 import { hasEthereum } from '../../store/has-ethereum'
 import { button } from '../pure/button'
 import { connectToWallet } from './connect-to-wallet'

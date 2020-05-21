@@ -68,7 +68,7 @@ test('When includes ethereum in the window, then emit true with `hasEthereum`', 
 	}).then(() => t.pass()))
 
 // Specs in the future:
-// test('Dynamic import Dev Kit from @dev-protocol/dev-kit-js, then emit Eth with `devKit`', async t =>
+// test('Dynamic import Dev Kit from @devprtcl/dev-kit-js, then emit Eth with `devKit`', async t =>
 // 	new Promise(resolve => {
 // 		devKit
 // 			.pipe(filter(x => typeof x !== 'undefined'))

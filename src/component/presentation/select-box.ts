@@ -1,4 +1,4 @@
-import { component, subscribe, DirectiveFunction } from '@aggre/ullr/directive'
+import { component, subscribe, DirectiveFunction } from 'ullr/directive'
 import { TemplateResult, html } from 'lit-html'
 import { repeat } from 'lit-html/directives/repeat'
 import { style } from '../../lib/style'

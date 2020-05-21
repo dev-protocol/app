@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html'
 import { globalNav } from '../presentation/global-nav'
 import { connectButton } from './connect-button'
 import { container } from '../presentation/container'
-import { DirectiveFunction } from '@aggre/ullr/directive'
+import { DirectiveFunction } from 'ullr/directive'
 
 interface Props {
 	ethereum: Window['ethereum']

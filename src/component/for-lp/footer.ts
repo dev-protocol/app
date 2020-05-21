@@ -1,4 +1,4 @@
-import { DirectiveFunction } from '@aggre/ullr/directive'
+import { DirectiveFunction } from 'ullr/directive'
 import { html } from 'lit-html'
 import { style } from '../../lib/style'
 import { logo } from '../presentation/logo'

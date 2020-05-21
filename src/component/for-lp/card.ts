@@ -1,4 +1,4 @@
-import { DirectiveFunction, component, subscribe } from '@aggre/ullr/directive'
+import { DirectiveFunction, component, subscribe } from 'ullr/directive'
 import { html, svg } from 'lit-html'
 import { style } from '../../lib/style'
 import { DevProperty } from '../../store/properties'
