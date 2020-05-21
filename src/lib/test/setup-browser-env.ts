@@ -1,6 +1,5 @@
 import browserEnv from 'browser-env'
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 browserEnv()
 
 const customElementsMap: Map<string, HTMLElement> = new Map()

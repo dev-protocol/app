@@ -46,7 +46,6 @@ const handler = (
 	)
 
 	const approved = await txPromisify(
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 		devLegacy.methods
 			.approve(addresses(currentNetwork.value)?.migration, approvalAmount)
 			.send({ from }),
@@ -63,7 +62,6 @@ const handler = (
 	)
 
 	const upgraded = await txPromisify(
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 		devMigration.methods.migrate().send({ from }),
 		() => notificationStore.next(html` Now upgrading... `)
 	).catch((err: Error) => err)
@@ -92,9 +90,7 @@ const updateStore = (store: BalanceStore): BalanceStore => {
 			const devLegacy = new libWeb3.eth.Contract(dev, addresses(net)?.devLegacy)
 			const devNext = new libWeb3.eth.Contract(dev, addresses(net)?.dev)
 			return Promise.all([
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 				devLegacy.methods.balanceOf(from).call(),
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 				devNext.methods.balanceOf(from).call(),
 			])
 		})
