@@ -1,23 +1,14 @@
 {
 	"version": 2,
-	"builds": [
-		{ "src": "dist/**", "use": "@now/static" },
-		{ "src": "dist/.well-known/**", "use": "@now/static" }
-	],
-	"routes": [
+	"headers": [
 		{
-			"src": "/",
-			"headers": {
-				"cache-control": "public, s-maxage=31536000"
-			},
-			"dest": "/dist/"
-		},
-		{
-			"src": "/(.*)",
-			"headers": {
-				"cache-control": "public, max-age=31536000"
-			},
-			"dest": "/dist/$1"
+			"source": "/(.*)",
+			"headers": [
+				{
+					"key": "cache-control",
+					"value": "public, s-maxage=31536000"
+				}
+			]
 		}
 	]
 }
