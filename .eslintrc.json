@@ -17,6 +17,14 @@
 		"@typescript-eslint/no-base-to-string": "off",
 		"@typescript-eslint/prefer-readonly-parameter-types": "off"
 	},
+	"overrides": [
+		{
+			"files": ["**/*.test.ts"],
+			"rules": {
+				"@typescript-eslint/no-floating-promises": "off"
+			}
+		}
+	],
 	"globals": {
 		"window": true
 	}

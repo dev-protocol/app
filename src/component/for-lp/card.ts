@@ -162,12 +162,12 @@ const createStore = (address: string): [AmountsStore, MessageStore] => {
 }
 
 const updateStore = (store: AmountsStore, address: string): AmountsStore => {
-	getPropertyValue(address).then((total) =>
-		store.next(reducer(store.value ?? {}, { total }))
-	)
-	getValue(address).then((account) =>
-		store.next(reducer(store.value ?? {}, { account }))
-	)
+	getPropertyValue(address)
+		.then((total) => store.next(reducer(store.value ?? {}, { total })))
+		.catch((err) => err)
+	getValue(address)
+		.then((account) => store.next(reducer(store.value ?? {}, { account })))
+		.catch((err) => err)
 	return store
 }
 

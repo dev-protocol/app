@@ -99,6 +99,7 @@ const updateStore = (store: BalanceStore): BalanceStore => {
 			])
 		})
 		.then(([legacy, next]) => store.next({ legacy, next }))
+		.catch((err) => err)
 
 	return store
 }
