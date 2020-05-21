@@ -7,6 +7,9 @@ import { button } from '../pure/button'
 import { heading } from '../../lib/style-presets'
 import { logo } from '../presentation/logo'
 import { querySelectorDeep } from 'query-selector-shadow-dom'
+import { globalNav } from '../presentation/global-nav'
+import { a } from '../pure/a'
+import { asVar } from '../../lib/style-properties'
 
 const toArticle = (): void => {
 	querySelectorDeep('article')?.scrollIntoView()
@@ -46,14 +49,6 @@ export const hero = (): DirectiveFunction =>
 								p {
 									margin-top: 5rem;
 								}
-								a {
-									display: inline-block;
-									height: 2rem;
-									& svg {
-										height: 100%;
-										width: auto;
-									}
-								}
 								.content {
 									display: grid;
 								}
@@ -67,7 +62,35 @@ export const hero = (): DirectiveFunction =>
 									grid-gap: 1rem;
 								}
 							`}
-							<a href="/">${logo()}</a>
+							${globalNav(
+								() =>
+									component(html`
+										${style`
+											a {
+												display: inline-block;
+												height: 2rem;
+												& svg {
+													height: 100%;
+													width: auto;
+												}
+											}
+										`}
+										${a({ href: '/', content: logo() })}
+									`),
+								() =>
+									component(html`
+										${style`
+											a {
+												color: ${asVar('fontColor')};
+											}
+										`}
+										${a({
+											href: '//bit.ly/dev-protocol-deck-sum',
+											target: '_blank',
+											content: 'About',
+										})}
+									`)
+							)}
 							<div class="content">
 								<div class="desc">
 									<h1>Dev Protocol</h1>

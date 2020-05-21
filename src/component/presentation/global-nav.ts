@@ -5,34 +5,32 @@ import { nav } from '../pure/nav'
 import { ViewTemplate } from '../../d/app'
 
 export const globalNav = (
-	leftSide: ViewTemplate,
-	rightSide: ViewTemplate
+	leftSide?: ViewTemplate,
+	rightSide?: ViewTemplate
 ): DirectiveFunction =>
 	component(html`
 		${style`
 			nav {
 				display: grid;
 				grid-auto-flow: column;
-				grid-template-columns: 0.5fr 1fr 0.5fr;
+				grid-template-columns: 0.5fr 0.5fr;
 			}
 			.left {
 				place-self: start;
-			}
-			.center {
-				place-self: center;
+				align-self: center;
 			}
 			.right {
 				place-self: self-end;
+				align-self: center;
 			}
 		`}
 		${nav(
 			() => html`
 				<div class="left">
-					${leftSide()}
+					${leftSide?.()}
 				</div>
-				<div class="center">App Name Here</div>
 				<div class="right">
-					${rightSide()}
+					${rightSide?.()}
 				</div>
 			`
 		)}
