@@ -24,7 +24,7 @@ export const addresses = (network: string | undefined): Addresses | undefined =>
 				propertyFactory: '0xCAB309FF43534e7c33a63b1ef5ec6Db9E8Bc2680',
 				marketFactory: '0x1C98ad0777973F879EB0Ca89fdD7c90Fc762bA5a',
 				policyFactory: '0xca0f09564b1d0182b907352c631734d65c457d77',
-				policy: '0x70251c6f2db87a33a3dfe05a6d093744b7d713ba',
+				policy: '0xD7Dee844940D1284f8CB9385644e4e1B79863258',
 				migration: '0xA75453c61AdEA4db0a52AEDa47880f055bD3aF12',
 				devLegacy: '0x98626E2C9231f03504273d55f397409deFD4a093',
 				config: '0x1D415aa39D647834786EB9B5a333A50e9935b796',
