@@ -18,9 +18,9 @@ export const addresses = (network: string | undefined): Addresses | undefined =>
 		? {
 				dev: '0x5cAf454Ba92e6F2c929DF14667Ee360eD9fD5b26',
 				tryOut: '0x7Eb78cAa271A2e8Fc25e75CA23574E9D9299310C',
-				lokcup: '0x3d40fab11ee30E3aa1900cCfAFD190F0851a6157',
-				allocator: '0xF743b637425EA171018980cF086082C474d7974F',
-				withdraw: '0x76fd43840c3944bFaa9DA24125d76d7A85CF5269',
+				lokcup: '0xaa223512F7482f4e893bbE80E1a597c90aa204De',
+				allocator: '0xb5a5f220a1A09040641E62aB67ae6997e497f0F2',
+				withdraw: '0xc86F49bFA6f7c9aebaece655651B915dC124a3d6',
 				propertyFactory: '0xCAB309FF43534e7c33a63b1ef5ec6Db9E8Bc2680',
 				marketFactory: '0x1C98ad0777973F879EB0Ca89fdD7c90Fc762bA5a',
 				policyFactory: '0xca0f09564b1d0182b907352c631734d65c457d77',
