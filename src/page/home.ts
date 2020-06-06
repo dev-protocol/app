@@ -361,17 +361,21 @@ export const home = (): TemplateResult => html`
 							</p>
 							<p>
 								<a
-									href="https://twitter.com/devprtcl"
-									target="_blank"
-									rel="noopener"
-									>Twitter</a
-								>
-								/
-								<a
 									href="https://discord.gg/VwJp4KM"
 									target="_blank"
 									rel="noopener"
 									>Discord</a
+								>
+								/
+								<a href="https://t.me/devprtcl" target="_blank" rel="noopener"
+									>Telegram</a
+								>
+								/
+								<a
+									href="https://medium.com/devtoken"
+									target="_blank"
+									rel="noopener"
+									>Medium</a
 								>
 								/
 								<a
@@ -382,10 +386,10 @@ export const home = (): TemplateResult => html`
 								>
 								/
 								<a
-									href="https://medium.com/devtoken"
+									href="https://twitter.com/devprtcl"
 									target="_blank"
 									rel="noopener"
-									>Blog</a
+									>Twitter</a
 								>
 							</p>
 						`,
