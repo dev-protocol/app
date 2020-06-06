@@ -74,11 +74,8 @@ export const footer = (): DirectiveFunction =>
 							>
 						</li>
 						<li>
-							<a
-								href="https://spectrum.chat/devtoken"
-								target="_blank"
-								rel="noopener"
-								>Spectrum</a
+							<a href="https://t.me/devprtcl" target="_blank" rel="noopener"
+								>Telegram</a
 							>
 						</li>
 						<li>
@@ -87,6 +84,14 @@ export const footer = (): DirectiveFunction =>
 								target="_blank"
 								rel="noopener"
 								>Medium</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://spectrum.chat/devtoken"
+								target="_blank"
+								rel="noopener"
+								>Spectrum</a
 							>
 						</li>
 						<li>
