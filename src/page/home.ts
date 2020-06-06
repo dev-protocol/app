@@ -290,7 +290,7 @@ export const home = (): TemplateResult => html`
 							</p>
 							<p>
 								Please contact us for details.
-								<a href="mainto:hi@devprtcl.com">hi@devprtcl.com</a>
+								<a href="mailto:hi@devprtcl.com">hi@devprtcl.com</a>
 							</p>
 						`,
 				})}
