@@ -23,7 +23,7 @@
 		"query-selector-shadow-dom": "0.4.6",
 		"rxjs": "6.5.5",
 		"ullr": "0.15.2",
-		"web3": "1.2.8"
+		"web3": "1.2.9"
 	},
 	"devDependencies": {
 		"@types/dotenv": "8.2.0",
