@@ -41,7 +41,7 @@
 		"esm": "3.2.25",
 		"husky": "4.2.5",
 		"parcel": "1.12.4",
-		"parcel-plugin-static-files-copy": "2.3.1",
+		"parcel-plugin-static-files-copy": "2.4.3",
 		"prettier": "2.0.5",
 		"puppeteer": "3.1.0",
 		"rimraf": "3.0.2",
