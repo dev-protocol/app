@@ -15,6 +15,7 @@ import { querySelectorDeep } from 'query-selector-shadow-dom'
 import { partners, team } from '../component/for-lp/team'
 import { addresses } from '../component/for-lp/addresses'
 import { token } from '../component/for-lp/token'
+import { a } from '../component/pure/a'
 
 const toUpgrade = (e: Event): void => {
 	e.preventDefault()
@@ -297,7 +298,25 @@ export const home = (): TemplateResult => html`
 				})}
 				${section({
 					title: 'Token Overview',
-					content: () => html`${token()}`,
+					content: () =>
+						html` ${style`
+								a {
+									color: ${asVar('fontColor')};
+								}
+							`}
+							${token()}
+							<p>
+								Token distribution is now planning. To be the first to know,
+								join the
+								${a({
+									href: '#',
+									content: 'community',
+									onClick: (e) => {
+										e.preventDefault()
+										querySelectorDeep('#community')?.scrollIntoView()
+									},
+								})}.
+							</p>`,
 				})}
 				${section({
 					title: 'Contracts',
@@ -349,6 +368,7 @@ export const home = (): TemplateResult => html`
 		() =>
 			html`
 				${section({
+					id: 'community',
 					title: 'Community',
 					content: () =>
 						html`
