@@ -14,6 +14,7 @@ import { sponsors } from '../component/for-lp/sponsors'
 import { querySelectorDeep } from 'query-selector-shadow-dom'
 import { partners, team } from '../component/for-lp/team'
 import { addresses } from '../component/for-lp/addresses'
+import { token } from '../component/for-lp/token'
 
 const toUpgrade = (e: Event): void => {
 	e.preventDefault()
@@ -293,6 +294,10 @@ export const home = (): TemplateResult => html`
 								<a href="mailto:hi@devprtcl.com">hi@devprtcl.com</a>
 							</p>
 						`,
+				})}
+				${section({
+					title: 'Token Overview',
+					content: () => html`${token()}`,
 				})}
 				${section({
 					title: 'Contracts',
