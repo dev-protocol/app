@@ -240,7 +240,7 @@ export const home = (): TemplateResult => html`
 								<p>
 									Let's stake to open the secret messages!
 									<a href="#" @click=${toUpgrade}
-										>Are you have old DEV tokens? Upgrade now!</a
+										>Do you have old DEV tokens? Upgrade now!</a
 									>
 								</p>
 								<ul>
