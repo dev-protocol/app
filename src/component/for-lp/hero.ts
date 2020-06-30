@@ -15,10 +15,6 @@ const toArticle = (): void => {
 	querySelectorDeep('article')?.scrollIntoView()
 }
 
-const toTryOut = (): void => {
-	querySelectorDeep('#tryout')?.scrollIntoView()
-}
-
 export const hero = (): DirectiveFunction =>
 	component(html`
 		${style`
@@ -108,9 +104,6 @@ export const hero = (): DirectiveFunction =>
 											content: 'Read more',
 											onClick: toArticle,
 										})
-									)('primary')}
-									${buttonRounded(() =>
-										button({ content: 'Try out', onClick: toTryOut })
 									)('primary')}
 									<a href="https://stakes.social/" target="_blank">
 										${buttonRounded(() =>
