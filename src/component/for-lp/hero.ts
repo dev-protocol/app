@@ -4,7 +4,7 @@ import { style } from '../../lib/style'
 import { container } from '../presentation/container'
 import { buttonRounded } from '../presentation/button-rounded'
 import { button } from '../pure/button'
-import { heading } from '../../lib/style-presets'
+import { heading, exLarge } from '../../lib/style-presets'
 import { logo } from '../presentation/logo'
 import { querySelectorDeep } from 'query-selector-shadow-dom'
 import { globalNav } from '../presentation/global-nav'
@@ -53,10 +53,9 @@ export const hero = (): DirectiveFunction =>
 								}
 								.link {
 									display: grid;
-									grid-auto-flow: column;
 									justify-content: flex-start;
 									grid-gap: 1rem;
-								}
+									grid-template-columns: repeat(auto-fit, 180px);								}
 							`}
 							${globalNav(
 								() =>
@@ -76,8 +75,19 @@ export const hero = (): DirectiveFunction =>
 								() =>
 									component(html`
 										${style`
+											:host {
+												display: grid;
+												grid-gap: 1rem;
+												grid-auto-flow: column;
+											}
 											a {
 												color: ${asVar('fontColor')};
+												&.stakes-social {
+													display: none;
+													${exLarge(`
+														display: inherit;
+													`)}
+												}
 											}
 										`}
 										${a({
@@ -86,6 +96,7 @@ export const hero = (): DirectiveFunction =>
 											content: 'About',
 										})}
 										${a({
+											class: 'stakes-social',
 											href: 'https://stakes.social/',
 											target: '_blank',
 											content: 'Stakes.social',

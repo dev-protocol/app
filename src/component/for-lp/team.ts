@@ -135,13 +135,16 @@ export const partners = (): DirectiveFunction =>
 		${style`
 			ul {
 				display: grid;
-				margin: 0;
+				margin: 2rem 0;
 				padding: 0;
 				list-style: none;
 				grid-gap: 1rem;
 				align-items: center;
 				justify-content: center;
 				grid-template-columns: repeat(auto-fit, minmax(240px, 0.16fr));
+				&:first-of-type {
+					margin-top: 0;
+				}
 				${exLarge(`
 					grid-gap: 2rem;
 				`)}

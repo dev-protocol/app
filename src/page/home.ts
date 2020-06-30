@@ -132,11 +132,11 @@ export const home = (): TemplateResult => html`
 						<p class="desc">
 							We launched Dev Protocol's MVP in July 2018. These numbers show
 							the results of the MVP before Dev Protocol went live on the
-							mainnet in January 2020.</br>
-							During the MVP phase, more than 1,500 OSS projects have makes
-							8.4 billion downloads per month, OSS developers have mined
-							1,583,327 DEV by the Dev Protocol. It means that the market
-							cap of 71,571 USD distributed to OSS developers and keeps sustainability.
+							mainnet in January 2020. <br />
+							During the MVP phase, more than 1,500 OSS projects have makes 8.4
+							billion downloads per month, OSS developers have mined 1,583,327
+							DEV by the Dev Protocol. It means that the market cap of 71,571
+							USD distributed to OSS developers and keeps sustainability.
 						</p>
 					`,
 				})}
@@ -187,31 +187,62 @@ export const home = (): TemplateResult => html`
 							</div>
 						`,
 				})}
+			</article>
+		`
+	)}
+	${component(html`
+		${style`
+			:host {
+				display: block;
+				padding: 3rem 0;
+				background: white;
+				color: black;
+			}
+		`}
+		${container(
+			() => html`
 				${section({
 					title: 'As seen on',
-					content: () => html`${mediaCoverage()}`,
+					content: () => html` ${style`
+						section {
+							padding-top: 0;
+							padding-bottom: 0;
+						}
+						h2 {
+							margin-top: 0;
+						}
+					`}
+					${mediaCoverage()}`,
 				})}
+			`
+		)}
+	`)}
+	${component(html`
+		${container(
+			() => html`
 				${section({
 					title: 'Token Overview',
-					content: () =>
-						html` ${style`
-								a {
-									color: ${asVar('fontColor')};
-								}
-							`}
-							<img
-								src="https://miro.medium.com/max/1400/1*mwy7e4hxNJvTY7HjXhJZyg.png"
-							/>
-							${token()}
-							<p>
-								Here is more about the allocation on our
-								${a({
-									href:
-										'https://medium.com/devprtcl/dev-token-allocation-update-e1d7dd424087',
-									content: 'Medium',
-								})}
-								.
-							</p>`,
+					content: () => html` ${style`
+							img {
+								display: block;
+								max-width: 750px;
+								margin: 4rem auto;
+							}
+							a {
+								color: ${asVar('fontColor')};
+							}
+						`}
+						<img src="/image/token-distribution.svg" />
+						${token()}
+						<p>
+							Here is more about the allocation on our
+							${a({
+								href:
+									'https://medium.com/devprtcl/dev-token-allocation-update-e1d7dd424087',
+								content: 'Medium',
+							})}
+							.
+						</p>`,
 				})}
 				${section({
 					title: 'Contracts',
@@ -235,9 +266,9 @@ export const home = (): TemplateResult => html`
 					title: 'Milestones',
 					content: () => html` ${milestones()} `,
 				})}
-			</article>
-		`
-	)}
+			`
+		)}
+	`)}
 	${component(html`
 		${style`
 			:host {
