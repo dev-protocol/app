@@ -10,7 +10,6 @@ import { footer } from '../component/for-lp/footer'
 import { updagradeDev } from '../component/for-lp/upgrade-dev'
 import { component } from 'ullr/directive'
 import { figureNetwork } from '../component/for-lp/figure-network'
-import { querySelectorDeep } from 'query-selector-shadow-dom'
 import { partners, team } from '../component/for-lp/team'
 import { addresses } from '../component/for-lp/addresses'
 import { token } from '../component/for-lp/token'
@@ -195,18 +194,18 @@ export const home = (): TemplateResult => html`
 									color: ${asVar('fontColor')};
 								}
 							`}
+							<img
+								src="https://miro.medium.com/max/1400/1*mwy7e4hxNJvTY7HjXhJZyg.png"
+							/>
 							${token()}
 							<p>
-								Token distribution is now planning. To be the first to know,
-								join the
+								Here is more about the allocation on our
 								${a({
-									href: '#',
-									content: 'community',
-									onClick: (e) => {
-										e.preventDefault()
-										querySelectorDeep('#community')?.scrollIntoView()
-									},
-								})}.
+									href:
+										'https://medium.com/devprtcl/dev-token-allocation-update-e1d7dd424087',
+									content: 'Medium',
+								})}
+								.
 							</p>`,
 				})}
 				${section({
