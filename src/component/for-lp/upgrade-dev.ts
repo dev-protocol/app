@@ -134,6 +134,10 @@ export const updagradeDev = (): DirectiveFunction =>
 					display: grid;
 					grid-gap: 1rem;
 				}
+				.token-info {
+					font-size: 0.9rem;
+					margin-top: 1rem;
+				}
 				p, dl, dd, pre {
 					margin: 0;
 				}
@@ -221,5 +225,15 @@ export const updagradeDev = (): DirectiveFunction =>
 						</dl>
 					`
 				)}
+				<div class="token-info">
+					<p>
+						There are two Dev tokens, the current DEV, and the Legacy DEV.
+					</p>
+					<p>
+						Early OSS developers owned Legacy Dev and it was distributed at MVP
+						before the mainnet started. It needs to be migrated to current DEV
+						by the developer and legacy DEV will not be minted anymore.
+					</p>
+				</div>
 			</div>
 		`))(createStore())

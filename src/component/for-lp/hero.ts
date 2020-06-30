@@ -4,7 +4,7 @@ import { style } from '../../lib/style'
 import { container } from '../presentation/container'
 import { buttonRounded } from '../presentation/button-rounded'
 import { button } from '../pure/button'
-import { heading } from '../../lib/style-presets'
+import { heading, exLarge } from '../../lib/style-presets'
 import { logo } from '../presentation/logo'
 import { querySelectorDeep } from 'query-selector-shadow-dom'
 import { globalNav } from '../presentation/global-nav'
@@ -13,10 +13,6 @@ import { asVar } from '../../lib/style-properties'
 
 const toArticle = (): void => {
 	querySelectorDeep('article')?.scrollIntoView()
-}
-
-const toTryOut = (): void => {
-	querySelectorDeep('#tryout')?.scrollIntoView()
 }
 
 export const hero = (): DirectiveFunction =>
@@ -57,10 +53,9 @@ export const hero = (): DirectiveFunction =>
 								}
 								.link {
 									display: grid;
-									grid-auto-flow: column;
 									justify-content: flex-start;
 									grid-gap: 1rem;
-								}
+									grid-template-columns: repeat(auto-fit, 180px);								}
 							`}
 							${globalNav(
 								() =>
@@ -80,14 +75,31 @@ export const hero = (): DirectiveFunction =>
 								() =>
 									component(html`
 										${style`
+											:host {
+												display: grid;
+												grid-gap: 1rem;
+												grid-auto-flow: column;
+											}
 											a {
 												color: ${asVar('fontColor')};
+												&.stakes-social {
+													display: none;
+													${exLarge(`
+														display: inherit;
+													`)}
+												}
 											}
 										`}
 										${a({
 											href: '//bit.ly/dev-protocol-deck-sum',
 											target: '_blank',
 											content: 'About',
+										})}
+										${a({
+											class: 'stakes-social',
+											href: 'https://stakes.social/',
+											target: '_blank',
+											content: 'Stakes.social',
 										})}
 									`)
 							)}
@@ -104,9 +116,23 @@ export const hero = (): DirectiveFunction =>
 											onClick: toArticle,
 										})
 									)('primary')}
-									${buttonRounded(() =>
-										button({ content: 'Try out', onClick: toTryOut })
-									)('primary')}
+									<a
+										href="https://github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md"
+										target="_blank"
+									>
+										${buttonRounded(() =>
+											button({
+												content: 'Whitepaper',
+											})
+										)('primary')}
+									</a>
+									<a href="https://stakes.social/" target="_blank">
+										${buttonRounded(() =>
+											button({
+												content: 'Stakes.social',
+											})
+										)('primary')}
+									</a>
 								</div>
 							</div>
 						`)}
