@@ -10,17 +10,11 @@ import { footer } from '../component/for-lp/footer'
 import { updagradeDev } from '../component/for-lp/upgrade-dev'
 import { component } from 'ullr/directive'
 import { figureNetwork } from '../component/for-lp/figure-network'
-import { sponsors } from '../component/for-lp/sponsors'
 import { querySelectorDeep } from 'query-selector-shadow-dom'
 import { partners, team } from '../component/for-lp/team'
 import { addresses } from '../component/for-lp/addresses'
 import { token } from '../component/for-lp/token'
 import { a } from '../component/pure/a'
-
-const toUpgrade = (e: Event): void => {
-	e.preventDefault()
-	querySelectorDeep('#upgrade')?.scrollIntoView()
-}
 
 export const home = (): TemplateResult => html`
 	${hero()}
@@ -268,32 +262,6 @@ export const home = (): TemplateResult => html`
 									frameborder="no"
 								></iframe>
 							`)}
-						`,
-				})}
-				${section({
-					title: 'Sponsors',
-					content: () => sponsors(),
-				})}
-				${section({
-					title: 'Become a sponsor',
-					content: () =>
-						html`
-							${style`
-									span {
-										border-bottom: 1px solid;
-									}
-									a {
-										color: ${asVar('fontColor')};
-									}
-								`}
-							<p>
-								Become a sponsor if you stake for more than
-								<span>100 DEV</span>.
-							</p>
-							<p>
-								Please contact us for details.
-								<a href="mailto:hi@devprtcl.com">hi@devprtcl.com</a>
-							</p>
 						`,
 				})}
 				${section({
