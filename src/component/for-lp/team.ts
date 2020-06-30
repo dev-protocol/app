@@ -41,7 +41,12 @@ const teamItems: Member[] = [
 		url: '//www.linkedin.com/in/akirataniguchi1',
 	},
 ]
-const partnerItems: Items = [
+const partnerItems1: Items = [
+	{
+		name: 'MONEX Ventures',
+		image: '/image/partner/monex-ventures.png',
+		url: 'http://www.monexventures.com',
+	},
 	{
 		name: 'MIRAISE',
 		image: '/image/partner/miraise.png',
@@ -52,6 +57,8 @@ const partnerItems: Items = [
 		image: '/image/partner/sios.png',
 		url: '//sios.jp',
 	},
+]
+const partnerItems2: Items = [
 	{
 		name: 'HashHub',
 		image: '/image/partner/hashhub.png',
@@ -146,7 +153,21 @@ export const partners = (): DirectiveFunction =>
 		`}
 		<ul>
 			${repeat(
-				partnerItems,
+				partnerItems1,
+				({ name, image, url }) => html`
+					<li>
+						${a({
+							href: url,
+							target: '_blank',
+							content: html` <img src="${image}" alt="${name}" /> `,
+						})}
+					</li>
+				`
+			)}
+		</ul>
+		<ul>
+			${repeat(
+				partnerItems2,
 				({ name, image, url }) => html`
 					<li>
 						${a({
