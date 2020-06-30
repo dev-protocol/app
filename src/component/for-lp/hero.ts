@@ -89,6 +89,11 @@ export const hero = (): DirectiveFunction =>
 											target: '_blank',
 											content: 'About',
 										})}
+										${a({
+											href: 'https://stakes.social/',
+											target: '_blank',
+											content: 'Stakes.social',
+										})}
 									`)
 							)}
 							<div class="content">
@@ -107,6 +112,13 @@ export const hero = (): DirectiveFunction =>
 									${buttonRounded(() =>
 										button({ content: 'Try out', onClick: toTryOut })
 									)('primary')}
+									<a href="https://stakes.social/">
+										${buttonRounded(() =>
+											button({
+												content: 'Stakes.social',
+											})
+										)('primary')}
+									</a>
 								</div>
 							</div>
 						`)}
