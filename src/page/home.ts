@@ -11,6 +11,7 @@ import { updagradeDev } from '../component/for-lp/upgrade-dev'
 import { component } from 'ullr/directive'
 import { figureNetwork } from '../component/for-lp/figure-network'
 import { partners, team } from '../component/for-lp/team'
+import { mediaCoverage } from '../component/for-lp/media'
 import { addresses } from '../component/for-lp/addresses'
 import { token } from '../component/for-lp/token'
 import { a } from '../component/pure/a'
@@ -185,6 +186,10 @@ export const home = (): TemplateResult => html`
 								</div>
 							</div>
 						`,
+				})}
+				${section({
+					title: 'As seen on',
+					content: () => html`${mediaCoverage()}`,
 				})}
 				${section({
 					title: 'Token Overview',
