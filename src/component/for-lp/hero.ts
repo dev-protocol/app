@@ -105,6 +105,16 @@ export const hero = (): DirectiveFunction =>
 											onClick: toArticle,
 										})
 									)('primary')}
+									<a
+										href="https://github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md"
+										target="_blank"
+									>
+										${buttonRounded(() =>
+											button({
+												content: 'Whitepaper',
+											})
+										)('primary')}
+									</a>
 									<a href="https://stakes.social/" target="_blank">
 										${buttonRounded(() =>
 											button({
