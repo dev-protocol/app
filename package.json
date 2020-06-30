@@ -26,6 +26,7 @@
 		"web3": "1.2.9"
 	},
 	"devDependencies": {
+		"@babel/helper-compilation-targets": "^7.10.2",
 		"@types/dotenv": "8.2.0",
 		"@types/node": "14.0.13",
 		"@typescript-eslint/eslint-plugin": "3.2.0",
