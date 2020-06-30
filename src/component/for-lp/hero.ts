@@ -112,7 +112,7 @@ export const hero = (): DirectiveFunction =>
 									${buttonRounded(() =>
 										button({ content: 'Try out', onClick: toTryOut })
 									)('primary')}
-									<a href="https://stakes.social/">
+									<a href="https://stakes.social/" target="_blank">
 										${buttonRounded(() =>
 											button({
 												content: 'Stakes.social',
