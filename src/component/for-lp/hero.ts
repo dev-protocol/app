@@ -37,7 +37,6 @@ export const hero = (): DirectiveFunction =>
 								:host {
 									display: grid;
 									height: 100%;
-									align-content: stretch;
 								}
 								h1 {
 									font-size: 2em;
@@ -55,7 +54,8 @@ export const hero = (): DirectiveFunction =>
 									display: grid;
 									justify-content: flex-start;
 									grid-gap: 1rem;
-									grid-template-columns: repeat(auto-fit, 180px);								}
+									grid-template-columns: repeat(auto-fit, 180px);
+								}
 							`}
 							${globalNav(
 								() =>
@@ -104,35 +104,37 @@ export const hero = (): DirectiveFunction =>
 									`)
 							)}
 							<div class="content">
-								<div class="desc">
-									<h1>Dev Protocol</h1>
-									<h2>A money designed for OSS</h2>
-									<p>Earn staking rewards by supporting OSS</p>
-								</div>
-								<div class="link">
-									${buttonRounded(() =>
-										button({
-											content: 'Read more',
-											onClick: toArticle,
-										})
-									)('primary')}
-									<a
-										href="https://github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md"
-										target="_blank"
-									>
+								<div>
+									<div class="desc">
+										<h1>Dev Protocol</h1>
+										<h2>A money designed for OSS</h2>
+										<p>Makes open activities sustainable with staking</p>
+									</div>
+									<div class="link">
 										${buttonRounded(() =>
 											button({
-												content: 'Whitepaper',
+												content: 'Read more',
+												onClick: toArticle,
 											})
 										)('primary')}
-									</a>
-									<a href="https://stakes.social/" target="_blank">
-										${buttonRounded(() =>
-											button({
-												content: 'Stakes.social',
-											})
-										)('primary')}
-									</a>
+										<a
+											href="https://github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md"
+											target="_blank"
+										>
+											${buttonRounded(() =>
+												button({
+													content: 'Whitepaper',
+												})
+											)('primary')}
+										</a>
+										<a href="https://stakes.social/" target="_blank">
+											${buttonRounded(() =>
+												button({
+													content: 'Stakes.social',
+												})
+											)('primary')}
+										</a>
+									</div>
 								</div>
 							</div>
 						`)}

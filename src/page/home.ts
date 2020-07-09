@@ -10,7 +10,7 @@ import { footer } from '../component/for-lp/footer'
 import { updagradeDev } from '../component/for-lp/upgrade-dev'
 import { component } from 'ullr/directive'
 import { figureNetwork } from '../component/for-lp/figure-network'
-import { partners, team } from '../component/for-lp/team'
+import { partners, team, mentors } from '../component/for-lp/team'
 import { mediaCoverage } from '../component/for-lp/media'
 import { addresses } from '../component/for-lp/addresses'
 import { token } from '../component/for-lp/token'
@@ -22,7 +22,7 @@ export const home = (): TemplateResult => html`
 		() => html`
 			<article id="article">
 				${section({
-					title: 'For OSS Sustainability',
+					title: 'For Sustainable Development',
 					content: () => html`
 						${style`
 								p {
@@ -287,6 +287,8 @@ export const home = (): TemplateResult => html`
 		`}
 		<h2>Team</h2>
 		${team()}
+		<h2>Mentors</h2>
+		${mentors()}
 		<h2>We're backed by</h2>
 		${partners()}
 	`)}
