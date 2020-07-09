@@ -80,7 +80,7 @@ export const footer = (): DirectiveFunction =>
 						</li>
 						<li>
 							<a
-								href="https://medium.com/devtoken"
+								href="https://medium.com/devprtcl"
 								target="_blank"
 								rel="noopener"
 								>Medium</a

@@ -336,7 +336,7 @@ export const home = (): TemplateResult => html`
 								>
 								/
 								<a
-									href="https://medium.com/devtoken"
+									href="https://medium.com/devprtcl"
 									target="_blank"
 									rel="noopener"
 									>Medium</a
