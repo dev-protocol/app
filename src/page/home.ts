@@ -13,6 +13,7 @@ import { figureNetwork } from '../component/for-lp/figure-network'
 import { partners, team, mentors } from '../component/for-lp/team'
 import { mediaCoverage } from '../component/for-lp/media'
 import { addresses } from '../component/for-lp/addresses'
+import { addresses as _addresses } from '@devprtcl/dev-kit-js'
 import { token } from '../component/for-lp/token'
 import { a } from '../component/pure/a'
 
@@ -248,6 +249,11 @@ export const home = (): TemplateResult => html`
 					title: 'Contracts',
 					content: () =>
 						html`
+							${style`
+								a {
+									color: ${asVar('fontColor')};
+								}
+							`}
 							<p>
 								Main contracts and their addresses are as follows:
 							</p>
@@ -256,7 +262,12 @@ export const home = (): TemplateResult => html`
 								<small
 									><i
 										>* All contract addresses that configures Dev Protocol is
-										listed by "AddressConfig."</i
+										listed by
+										${a({
+											href: `//etherscan.io/address/${_addresses.eth.main.registry}`,
+											content: 'this contract',
+											target: '_blank',
+										})}.</i
 									></small
 								>
 							</p>

@@ -1,39 +1,42 @@
 import { DirectiveFunction, component, subscribe } from 'ullr/directive'
-import { html, TemplateResult } from 'lit-html'
+import { html, TemplateResult, DirectiveFn } from 'lit-html'
 import { style } from '../../lib/style'
-import { addresses as _addresses, Addresses } from '../../lib/addresses'
 import { currentNetwork } from '../../store/current-network'
 import { a } from '../pure/a'
 import { asVar } from '../../lib/style-properties'
 import { exLarge } from '../../lib/style-presets'
+import { zip } from 'rxjs'
+import { devKitContract } from '../../store/dev-kit-contract'
+import { addresses as _addresses } from '@devprtcl/dev-kit-js'
+import { until } from 'lit-html/directives/until'
+import { RegistryContract } from '@devprtcl/dev-kit-js/esm/registry'
 
-const address = (network: string) => (
-	contractName: string,
-	contractAddress: string
-): TemplateResult =>
-	html`
-		<div>
-			<span>${contractName}</span>${a({
-				href: `//${
-					network === 'main' ? '' : `${network}.`
-				}etherscan.io/address/${contractAddress}`,
-				target: '_blank',
-				content: `${contractAddress} ↗`,
-			})}
-		</div>
-	`
+const address = (network: string, registry: RegistryContract) => (
+	label: string,
+	contractName: keyof RegistryContract
+): DirectiveFn =>
+	until(
+		registry[contractName]().then(
+			(adr) => html`
+				<div>
+					<span>${label}</span>${a({
+						href: `//${
+							network === 'main' ? '' : `${network}.`
+						}etherscan.io/address/${adr}`,
+						target: '_blank',
+						content: `${adr} ↗`,
+					})}
+				</div>
+			`
+		)
+	)
 
-const adf = (
-	x: (contractName: string, contractAddress: string) => TemplateResult,
-	adr: Addresses
-): TemplateResult => html`
-	${x('DEV(ERC-20)', adr.dev)} ${x('Lockup', adr.lokcup)}
-	${x('Withdraw', adr.withdraw)} ${x('Allocator', adr.allocator)}
-	${x('PropertyFactory', adr.propertyFactory)}
-	${x('MarketFactory', adr.marketFactory)}
-	${x('PolicyFactory', adr.policyFactory)}
-	${x('Policy(Currently in force)', adr.policy)}
-	${x('AddressConfig', adr.config)}
+const adf = (x: ReturnType<typeof address>): TemplateResult => html`
+	${x('DEV(ERC-20)', 'token')} ${x('Lockup', 'lockup')}
+	${x('Withdraw', 'withdraw')} ${x('Allocator', 'allocator')}
+	${x('PropertyFactory', 'propertyFactory')}
+	${x('MarketFactory', 'marketFactory')} ${x('PolicyFactory', 'policyFactory')}
+	${x('Policy(Currently in force)', 'policy')}
 `
 
 export const addresses = (): DirectiveFunction =>
@@ -65,9 +68,9 @@ export const addresses = (): DirectiveFunction =>
 					text-decoration: none;
 				}
 			`}
-			${subscribe(currentNetwork, (net) =>
-				net === 'main' || net === 'ropsten'
-					? adf(address(net), _addresses(net)!)
+			${subscribe(zip(currentNetwork, devKitContract), ([net, devkit]) =>
+				net === 'main' && devkit
+					? adf(address(net, devkit.registry(_addresses.eth.main.registry)))
 					: html``
 			)}
 		`

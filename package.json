@@ -14,7 +14,7 @@
 	},
 	"license": "MPL-2.0",
 	"dependencies": {
-		"@devprtcl/dev-kit-js": "0.6.5",
+		"@devprtcl/dev-kit-js": "0.9.1",
 		"bignumber.js": "9.0.0",
 		"date-fns": "2.14.0",
 		"lit-html": "1.2.1",
@@ -26,7 +26,7 @@
 		"web3": "1.2.9"
 	},
 	"devDependencies": {
-		"@babel/helper-compilation-targets": "^7.10.2",
+		"@babel/helper-compilation-targets": "7.10.2",
 		"@types/dotenv": "8.2.0",
 		"@types/node": "14.0.13",
 		"@typescript-eslint/eslint-plugin": "3.2.0",

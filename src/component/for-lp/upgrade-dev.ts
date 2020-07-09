@@ -2,7 +2,7 @@ import { DirectiveFunction, component, subscribe } from 'ullr/directive'
 import { html, TemplateResult } from 'lit-html'
 import { style } from '../../lib/style'
 import { exLarge, onlyMinWidth } from '../../lib/style-presets'
-import { BehaviorSubject } from 'rxjs'
+import { BehaviorSubject, zip } from 'rxjs'
 import { buttonRounded } from '../presentation/button-rounded'
 import { button } from '../pure/button'
 import { promisify } from '../../lib/promisify'
@@ -18,6 +18,9 @@ import { toNaturalNumber } from '../../lib/to-natural-number'
 import { walletConnected } from '../../store/wallet-connected'
 import { filter, take } from 'rxjs/operators'
 import { connectButton } from '../context/connect-button'
+import { devKitContract } from '../../store/dev-kit-contract'
+import { addresses as devAddresses } from '@devprtcl/dev-kit-js'
+import { until } from 'lit-html/directives/until'
 
 type Balance = { legacy?: BigNumber; next?: BigNumber }
 type BalanceStore = BehaviorSubject<Balance>
@@ -76,22 +79,29 @@ const handler = (
 }
 
 const updateStore = (store: BalanceStore): BalanceStore => {
-	promisify(currentNetwork)
-		.then(async () => promisify(web3))
+	promisify(web3)
 		.then(async (libWeb3) => {
-			const [from, net] = await Promise.all([
+			const [from, devNext] = await Promise.all([
 				getAccount(),
-				promisify(currentNetwork),
+				promisify(devKitContract),
 			])
 			if (from === undefined) {
 				return [undefined, undefined]
 			}
 
-			const devLegacy = new libWeb3.eth.Contract(dev, addresses(net)?.devLegacy)
-			const devNext = new libWeb3.eth.Contract(dev, addresses(net)?.dev)
+			const devLegacy = new libWeb3.eth.Contract(
+				dev,
+				addresses('main')?.devLegacy
+			)
 			return Promise.all([
-				devLegacy.methods.balanceOf(from).call(),
-				devNext.methods.balanceOf(from).call(),
+				devLegacy.methods
+					.balanceOf(from)
+					.call()
+					.then((x: string) => new BigNumber(x)),
+				devNext
+					.dev(await devNext.registry(devAddresses.eth.main.registry).token())
+					.balanceOf(from)
+					.then((x) => new BigNumber(x)),
 			])
 		})
 		.then(([legacy, next]) => store.next({ legacy, next }))
@@ -196,34 +206,39 @@ export const updagradeDev = (): DirectiveFunction =>
 						`
 				)}
 				${subscribe(notification, (x) => x)}
-				${subscribe(
-					currentNetwork,
-					(network) => html`
-						<dl>
-							<dt class="legacy">Legacy DEV</dt>
-							<dd class="legacy">
-								<pre>${addresses(network)?.devLegacy}</pre>
-								<p>
-									You:
-									${subscribe(balance, (x) =>
-										x.legacy ? html` ${toNaturalNumber(x.legacy)} ` : html` - `
-									)}
-									DEV
-								</p>
-							</dd>
-							<dt class="new">New DEV</dt>
-							<dd class="new">
-								<pre>${addresses(network)?.dev}</pre>
-								<p>
-									You:
-									${subscribe(balance, (x) =>
-										x.next ? html` ${toNaturalNumber(x.next)} ` : html` - `
-									)}
-									DEV
-								</p>
-							</dd>
-						</dl>
-					`
+				${subscribe(zip(currentNetwork, devKitContract), ([network, devkit]) =>
+					network === 'main'
+						? html`
+								<dl>
+									<dt class="legacy">Legacy DEV</dt>
+									<dd class="legacy">
+										<pre>${addresses('main')?.devLegacy}</pre>
+										<p>
+											You:
+											${subscribe(balance, (x) =>
+												x.legacy
+													? html` ${toNaturalNumber(x.legacy)} `
+													: html` - `
+											)}
+											DEV
+										</p>
+									</dd>
+									<dt class="new">New DEV</dt>
+									<dd class="new">
+										<pre>
+${until(devkit?.registry(devAddresses.eth.main.registry).token(), '')}</pre
+										>
+										<p>
+											You:
+											${subscribe(balance, (x) =>
+												x.next ? html` ${toNaturalNumber(x.next)} ` : html` - `
+											)}
+											DEV
+										</p>
+									</dd>
+								</dl>
+						  `
+						: html`(Please connect to the mainnet.)`
 				)}
 				<div class="token-info">
 					<p>
