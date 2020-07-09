@@ -72,7 +72,7 @@ const mentorItems: Member[] = [
 		name: 'Junya Hirano',
 		image: '/image/team/junya.png',
 		job: 'CEO at HashHub',
-		description: `Junya is CEO at HashHub, a blockchain studio based in Tokyo, Japan. Their goal is to connect with Japan and the rest of the world’s diverse communities. They have officially partnership with ConsenSys.`,
+		description: `Junya is CEO at HashHub, a blockchain studio based in Tokyo, Japan. HashHub is a blockchain company. Consultation with Enterprise, Research Institute, and organize crypto community that Japan and the rest of the world. They have officially partnership with ConsenSys.`,
 	},
 	{
 		name: 'Tamio Nishizawa',
