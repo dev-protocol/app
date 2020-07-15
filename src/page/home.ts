@@ -169,21 +169,21 @@ export const home = (): TemplateResult => html`
 									<p>
 									Dev's characteristic is that as the "Proof of OSS Power," it uses the results of creators' activities as the mining power. Open assets are now economically valued and rewarded for activity.
 									</p>
-									<p><a href=https://github.com/dev-protocol/protocol/blob/master/docs/POLICY.md#rewards target="_blank" ref="noopener">More detail for mining</a></p>
+									<p><a href=https://github.com/dev-protocol/protocol/blob/main/docs/POLICY.md#rewards target="_blank" ref="noopener">More detail for mining</a></p>
 								</div>
 								<div>
 									<h3>Staking</h3>
 									<p>
 									By staking as supporters, you can earn staking rewards, and the mining power of developers can be enhanced. Locking Dev to an asset allows you to conduct economic transactions.
 									</p>
-									<p><a href=https://github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md#staking target="_blank" ref="noopener">More detail for staking</a></p>
+									<p><a href=https://github.com/dev-protocol/protocol/blob/main/docs/WHITEPAPER.md#staking target="_blank" ref="noopener">More detail for staking</a></p>
 								</div>
 								<div>
 									<h3>Governance</h3>
 									<p>
 									The Dev ecosystem is autonomously enhanced by users, such as opening new asset markets and proposing policies.
 									</p>
-									<p><a href=https://github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md#governance target="_blank" ref="noopener">More detail for governance</a></p>
+									<p><a href=https://github.com/dev-protocol/protocol/blob/main/docs/WHITEPAPER.md#governance target="_blank" ref="noopener">More detail for governance</a></p>
 								</div>
 							</div>
 						`,

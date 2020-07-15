@@ -118,7 +118,7 @@ export const hero = (): DirectiveFunction =>
 											})
 										)('primary')}
 										<a
-											href="https://github.com/dev-protocol/protocol/blob/master/docs/WHITEPAPER.md"
+											href="https://github.com/dev-protocol/protocol/blob/main/docs/WHITEPAPER.md"
 											target="_blank"
 										>
 											${buttonRounded(() =>
