@@ -51,7 +51,7 @@ export const token = (): DirectiveFunction =>
 											<span>Total Supply</span>${total?.dp(3).toFixed()}
 										</div>
 										<div>
-											<span>Circulation Supply</span>${circulation
+											<span>Circulating Supply</span>${circulation
 												?.dp(3)
 												.toFixed()}
 											(${circulation

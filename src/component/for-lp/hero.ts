@@ -107,8 +107,8 @@ export const hero = (): DirectiveFunction =>
 								<div>
 									<div class="desc">
 										<h1>Dev Protocol</h1>
-										<h2>A money designed for OSS</h2>
-										<p>Makes open activities sustainable with staking</p>
+										<h2>Money designed for OSS</h2>
+										<p>Making open activities sustainable with staking</p>
 									</div>
 									<div class="link">
 										${buttonRounded(() =>

@@ -23,7 +23,7 @@ const data: Milestones = [
 		title: 'First MVP',
 		description: () => html`
 			<p>
-				We released first MVP at Summer 2018. That is the market using npm
+				We released the first MVP in Summer 2018. That is the market using npm
 				downloads as an valuation method, 1500+ OSSs have been registered and
 				achievement more than 8.4 billion downloads per month.
 			</p>

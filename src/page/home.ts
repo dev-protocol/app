@@ -45,7 +45,7 @@ export const home = (): TemplateResult => html`
 								}
 							`}
 						<p>
-							After the traditional material economy, Dev is a new crypto
+							After the traditional material economy, Dev is the new crypto
 							economy based on "open assets" that enhances individual activities
 							and revitalizes the economy.
 						</p>
@@ -62,7 +62,7 @@ export const home = (): TemplateResult => html`
 							`}
 						<p>
 							Staking is a new way of spending money. Staked DEV returns to you
-							after a lockup period. The more stake, the more rewards you
+							after a lockup period. The more you stake, the more rewards you
 							receive. That's why we believe that staking is an effective way to
 							sustain monetary support for open assets.
 						</p>
@@ -134,15 +134,15 @@ export const home = (): TemplateResult => html`
 							We launched Dev Protocol's MVP in July 2018. These numbers show
 							the results of the MVP before Dev Protocol went live on the
 							mainnet in January 2020. <br />
-							During the MVP phase, more than 1,500 OSS projects have makes 8.4
+							During the MVP phase, more than 1,500 OSS projects have made 8.4
 							billion downloads per month, OSS developers have mined 1,583,327
-							DEV by the Dev Protocol. It means that the market cap of 71,571
-							USD distributed to OSS developers and keeps sustainability.
+							DEV with the Dev Protocol. It means that the market cap of 71,571
+							USD was distributed to OSS developers and keeps sustainability.
 						</p>
 					`,
 				})}
 				${section({
-					title: 'How designed for OSS?',
+					title: 'How is it designed for OSS?',
 					content: () => html`
 							${style`
 								p {
