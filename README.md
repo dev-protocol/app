@@ -9,13 +9,13 @@
 First, run the following command to install dependencies.
 
 ```bash
-npm i
+yarn
 ```
 
 Then, starting a local-server.
 
 ```bash
-npm start
+yarn start
 ```
 
 Let's develop! 🧚‍♀️
