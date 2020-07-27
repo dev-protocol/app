@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "parcel serve public/index.html --no-source-maps",
 		"test": "tsc && ava",
-		"lint": "npm run lint:eslint && npm run lint:format",
+		"lint": "yarn lint:eslint && yarn lint:format",
 		"lint:eslint": "eslint . --ext .ts,.js --fix --ignore-pattern node_modules/ --ignore-pattern dist/",
 		"lint:format": "prettier --write '**/*.{html,js,json,md,yml}'",
 		"build": "parcel build public/index.html --no-source-maps",
@@ -65,7 +65,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "npm run lint"
+			"pre-commit": "yarn lint"
 		}
 	},
 	"repository": {
