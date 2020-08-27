@@ -34,7 +34,7 @@
 		"ava": "3.12.1",
 		"browser-env": "3.3.0",
 		"dotenv": "8.2.0",
-		"eslint": "7.5.0",
+		"eslint": "7.7.0",
 		"eslint-config-prettier": "6.11.0",
 		"eslint-config-xo": "0.32.1",
 		"eslint-config-xo-typescript": "0.31.0",
