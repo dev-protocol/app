@@ -16,7 +16,7 @@
 	"dependencies": {
 		"@devprtcl/dev-kit-js": "0.9.1",
 		"bignumber.js": "9.0.0",
-		"date-fns": "2.16.0",
+		"date-fns": "2.16.1",
 		"lit-html": "1.2.1",
 		"lit-style": "1.1.4",
 		"postcss-nesting": "7.0.1",
