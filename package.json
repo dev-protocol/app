@@ -20,7 +20,7 @@
 		"lit-html": "1.2.1",
 		"lit-style": "1.1.4",
 		"postcss-nesting": "7.0.1",
-		"query-selector-shadow-dom": "0.6.2",
+		"query-selector-shadow-dom": "0.7.1",
 		"rxjs": "6.6.0",
 		"ullr": "0.15.2",
 		"web3": "1.2.11"
