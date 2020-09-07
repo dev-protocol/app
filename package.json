@@ -40,7 +40,7 @@
 		"eslint-config-xo-typescript": "0.32.0",
 		"eslint-plugin-prettier": "3.1.4",
 		"esm": "3.2.25",
-		"husky": "4.2.5",
+		"husky": "4.3.0",
 		"parcel": "1.12.4",
 		"parcel-plugin-static-files-copy": "2.5.0",
 		"prettier": "2.1.1",
