@@ -6594,10 +6594,10 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-query-selector-shadow-dom@0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/query-selector-shadow-dom/-/query-selector-shadow-dom-0.7.1.tgz#3447c8aaad4f695d11b9b41f0395f08855f0c0f5"
-  integrity sha512-7VMh867L1gtmeoarrfarvTL+uCFZjSFgv3VFvinTsGfKPKcBn/it/uG1lJDPALuqUITkgvE2G2oBHOW6gZ1w+A==
+query-selector-shadow-dom@0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/query-selector-shadow-dom/-/query-selector-shadow-dom-0.8.0.tgz#74c7509e8b9bc24114febf076f89eb0eaf8e77a7"
+  integrity sha512-dY6R/X8hfGapwcW9Xl6zSpGR1guYNdSVV7XOrO3Xb9UUyo5tEcWON2siDpNyQ+skVjAH0fH3azm3GdnTpUC/2A==
 
 query-string@^5.0.1:
   version "5.1.1"
