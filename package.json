@@ -14,7 +14,7 @@
 	},
 	"license": "MPL-2.0",
 	"dependencies": {
-		"@devprtcl/dev-kit-js": "0.10.0",
+		"@devprtcl/dev-kit-js": "1.0.2",
 		"bignumber.js": "9.0.1",
 		"date-fns": "2.16.1",
 		"lit-html": "1.2.1",
