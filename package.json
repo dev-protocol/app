@@ -28,7 +28,7 @@
 	"devDependencies": {
 		"@babel/helper-compilation-targets": "7.12.1",
 		"@types/dotenv": "8.2.0",
-		"@types/node": "14.11.10",
+		"@types/node": "14.11.11",
 		"@typescript-eslint/eslint-plugin": "3.10.1",
 		"@typescript-eslint/parser": "3.10.1",
 		"ava": "3.13.0",
