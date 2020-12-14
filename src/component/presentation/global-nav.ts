@@ -23,15 +23,10 @@ export const globalNav = (
 				place-self: self-end;
 				align-self: center;
 			}
-		`}
-		${nav(
+		`} ${nav(
 			() => html`
-				<div class="left">
-					${leftSide?.()}
-				</div>
-				<div class="right">
-					${rightSide?.()}
-				</div>
+				<div class="left">${leftSide?.()}</div>
+				<div class="right">${rightSide?.()}</div>
 			`
 		)}
 	`)

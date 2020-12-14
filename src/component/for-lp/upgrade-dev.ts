@@ -19,7 +19,7 @@ import { walletConnected } from '../../store/wallet-connected'
 import { filter, take } from 'rxjs/operators'
 import { connectButton } from '../context/connect-button'
 import { devKitContract } from '../../store/dev-kit-contract'
-import { addresses as devAddresses } from '@devprtcl/dev-kit-js'
+import { addresses as devAddresses } from '@devprotocol/dev-kit'
 import { until } from 'lit-html/directives/until'
 
 type Balance = { legacy?: BigNumber; next?: BigNumber }
@@ -241,9 +241,7 @@ ${until(devkit?.registry(devAddresses.eth.main.registry).token(), '')}</pre
 						: html`(Please connect to the mainnet.)`
 				)}
 				<div class="token-info">
-					<p>
-						There are two Dev tokens, the current DEV, and the Legacy DEV.
-					</p>
+					<p>There are two Dev tokens, the current DEV, and the Legacy DEV.</p>
 					<p>
 						Early OSS developers owned Legacy Dev and it was distributed at MVP
 						before the mainnet started. It needs to be migrated to current DEV

@@ -22,8 +22,7 @@ export const section = ({ id, title, content }: Props): DirectiveFunction =>
 					padding-bottom: 10rem;
 				`)}
 			}
-		`}
-		${raw(
+		`} ${raw(
 			() => html`
 				${title ? html` <h2>${title}</h2> ` : ''}
 				<div class="content">${content()}</div>

@@ -13,7 +13,7 @@ import { figureNetwork } from '../component/for-lp/figure-network'
 import { partners, team, mentors } from '../component/for-lp/team'
 import { mediaCoverage } from '../component/for-lp/media'
 import { addresses } from '../component/for-lp/addresses'
-import { addresses as _addresses } from '@devprtcl/dev-kit-js'
+import { addresses as _addresses } from '@devprotocol/dev-kit'
 import { token } from '../component/for-lp/token'
 import { a } from '../component/pure/a'
 
@@ -199,12 +199,12 @@ export const home = (): TemplateResult => html`
 				background: white;
 				color: black;
 			}
-		`}
-		${container(
+		`} ${container(
 			() => html`
 				${section({
 					title: 'As seen on',
-					content: () => html` ${style`
+					content: () =>
+						html` ${style`
 						section {
 							padding-top: 0;
 							padding-bottom: 0;
@@ -212,8 +212,7 @@ export const home = (): TemplateResult => html`
 						h2 {
 							margin-top: 0;
 						}
-					`}
-					${mediaCoverage()}`,
+					`} ${mediaCoverage()}`,
 				})}
 			`
 		)}
@@ -254,9 +253,7 @@ export const home = (): TemplateResult => html`
 									color: ${asVar('fontColor')};
 								}
 							`}
-							<p>
-								Main contracts and their addresses are as follows:
-							</p>
+							<p>Main contracts and their addresses are as follows:</p>
 							${addresses()}
 							<p>
 								<small

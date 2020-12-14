@@ -30,8 +30,7 @@ export const hero = (): DirectiveFunction =>
 							:host {
 								height: 100%;
 							}
-						`}
-						${component(html`
+						`} ${component(html`
 							${style`
 								${heading()}
 								:host {
@@ -56,8 +55,7 @@ export const hero = (): DirectiveFunction =>
 									grid-gap: 1rem;
 									grid-template-columns: repeat(auto-fit, 180px);
 								}
-							`}
-							${globalNav(
+							`} ${globalNav(
 								() =>
 									component(html`
 										${style`
@@ -69,8 +67,7 @@ export const hero = (): DirectiveFunction =>
 													width: auto;
 												}
 											}
-										`}
-										${a({ href: '/', content: logo() })}
+										`} ${a({ href: '/', content: logo() })}
 									`),
 								() =>
 									component(html`
@@ -89,8 +86,7 @@ export const hero = (): DirectiveFunction =>
 													`)}
 												}
 											}
-										`}
-										${a({
+										`} ${a({
 											href: '//bit.ly/dev-protocol-deck-sum',
 											target: '_blank',
 											content: 'About',

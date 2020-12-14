@@ -8,6 +8,5 @@ export const container = (template: ViewTemplate): DirectiveFunction =>
 	component(html`
 		${style`
 			${containerStyle(':host')}
-		`}
-		${template()}
+		`} ${template()}
 	`)

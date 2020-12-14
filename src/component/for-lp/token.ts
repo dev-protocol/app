@@ -8,7 +8,7 @@ import { promisify } from '../../lib/promisify'
 import { toNaturalNumber } from '../../lib/to-natural-number'
 import BigNumber from 'bignumber.js'
 import { until } from 'lit-html/directives/until'
-import { addresses } from '@devprtcl/dev-kit-js'
+import { addresses } from '@devprotocol/dev-kit'
 import { currentNetwork } from '../../store/current-network'
 
 const getSupply = async (): Promise<Array<BigNumber | undefined>> => {
@@ -40,8 +40,7 @@ export const token = (): DirectiveFunction =>
 						color: ${asVar('onSurfaceVariantColor')};
 					}
 				}
-			`}
-			${subscribe(currentNetwork, (net) =>
+			`} ${subscribe(currentNetwork, (net) =>
 				net === 'main'
 					? html`${until(
 							getSupply().then(

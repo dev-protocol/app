@@ -33,9 +33,7 @@ const data: Milestones = [
 		date: month(2019, 9),
 		title: 'Publish the new scheme',
 		description: () => html`
-			<p>
-				We released the new scheme and its whitepaper.
-			</p>
+			<p>We released the new scheme and its whitepaper.</p>
 		`,
 	},
 	{

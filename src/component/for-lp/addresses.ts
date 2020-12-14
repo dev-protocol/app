@@ -7,13 +7,14 @@ import { asVar } from '../../lib/style-properties'
 import { exLarge } from '../../lib/style-presets'
 import { zip } from 'rxjs'
 import { devKitContract } from '../../store/dev-kit-contract'
-import { addresses as _addresses } from '@devprtcl/dev-kit-js'
+import { addresses as _addresses } from '@devprotocol/dev-kit'
 import { until } from 'lit-html/directives/until'
-import { RegistryContract } from '@devprtcl/dev-kit-js/esm/registry'
+import { RegistryContract } from '@devprotocol/dev-kit/esm/registry'
+import { Except } from 'type-fest'
 
 const address = (network: string, registry: RegistryContract) => (
 	label: string,
-	contractName: keyof RegistryContract
+	contractName: keyof Except<RegistryContract, 'contract'>
 ): DirectiveFn =>
 	until(
 		registry[contractName]().then(
@@ -67,8 +68,7 @@ export const addresses = (): DirectiveFunction =>
 					border-radius: 3px;
 					text-decoration: none;
 				}
-			`}
-			${subscribe(zip(currentNetwork, devKitContract), ([net, devkit]) =>
+			`} ${subscribe(zip(currentNetwork, devKitContract), ([net, devkit]) =>
 				net === 'main' && devkit
 					? adf(address(net, devkit.registry(_addresses.eth.main.registry)))
 					: html``

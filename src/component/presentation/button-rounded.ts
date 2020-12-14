@@ -27,6 +27,5 @@ export const buttonRounded = (
 				background: ${asVar(scehme === 'primary' ? 'primaryColor' : 'secondaryColor')};
 				color: ${asVar(scehme === 'primary' ? 'onPrimaryColor' : 'onSecondaryColor')};
 			}
-		`}
-		${template()}
+		`} ${template()}
 	`)

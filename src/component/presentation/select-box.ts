@@ -40,11 +40,9 @@ const selected = <T>(subject: SelectBoxItemsSubject<T>): DirectiveFunction =>
 							${item.template}
 						</div>
 				  `
-				: html`
-						<div class="item">
-							(select one)
-						</div>
-				  `)(x.find((x) => x.selected))
+				: html` <div class="item">(select one)</div> `)(
+			x.find((x) => x.selected)
+		)
 	)
 
 const list = <T>({ subject, handler }: Props<T>): DirectiveFunction =>
@@ -108,18 +106,13 @@ export const selectBox = <T>(props: Props<T>): DirectiveFunction =>
 				background: ${asVar('surfaceColor')};
 				color: ${asVar('onSurfaceColor')};
 			}
-		`}
-		${((state) =>
+		`} ${((state) =>
 			subscribe(
 				state,
 				(opened) => html`
 					<div role="listbox" ?opened=${opened} @click=${toggle(state)}>
-						<div class="selected">
-							${selected(props.subject)}
-						</div>
-						<div class="list">
-							${list(props)}
-						</div>
+						<div class="selected">${selected(props.subject)}</div>
+						<div class="list">${list(props)}</div>
 					</div>
 				`
 			))(new BehaviorSubject(false))}
