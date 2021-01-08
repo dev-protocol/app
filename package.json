@@ -3,7 +3,7 @@
 	"private": true,
 	"description": "Main website for Dev Protocol",
 	"scripts": {
-		"build": "parcel build src/index.html -d public",
+		"start": "vercel dev",
 		"lint": "prettier --write '**/*.{html,js,ts,css,json,md,yml}'"
 	},
 	"husky": {
@@ -15,11 +15,9 @@
 		"husky": "4.3.7",
 		"prettier": "2.2.1"
 	},
-	"dependencies": {
-		"parcel-bundler": "1.12.4"
-	},
+	"dependencies": {},
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "public/index.html",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/dev-protocol/app.git"
