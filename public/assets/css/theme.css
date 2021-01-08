@@ -51,17 +51,17 @@
 
 @font-face {
 	font-family: IBMPlexMono;
-	src: url(IBMPlexMono.woff);
+	src: url("/IBMPlexMono.woff");
 }
 
 @font-face {
 	font-family: "Whyte Inktrap";
-	src: url("whyte_inktrap.woff") format("woff");
+	src: url("/whyte_inktrap.woff") format("woff");
 }
 
 @font-face {
 	font-family: "Whyte Regular";
-	src: url("whyte_regular.woff") format("woff");
+	src: url("/whyte_regular.woff") format("woff");
 }
 
 /*Custom animation */

@@ -4,6 +4,7 @@
 	"description": "Main website for Dev Protocol",
 	"scripts": {
 		"start": "vercel dev",
+		"build": "echo nothing",
 		"lint": "prettier --write '**/*.{html,js,ts,css,json,md,yml}'"
 	},
 	"husky": {
