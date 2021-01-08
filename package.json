@@ -4,7 +4,7 @@
 	"description": "Main website for Dev Protocol",
 	"scripts": {
 		"build": "parcel build src/index.html -d public",
-		"lint": "prettier --write '**/*.{json,md,yml}'"
+		"lint": "prettier --write '**/*.{html,js,ts,css,json,md,yml}'"
 	},
 	"husky": {
 		"hooks": {

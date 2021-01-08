@@ -1,0 +1,2330 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Title -->
+		<title>Dev Protocol</title>
+
+		<!-- Required Meta Tags Always Come First -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="favicon.png" />
+
+		<!-- Font -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- CSS Implementing Plugins -->
+		<link rel="stylesheet" href="assets/vendor/font-awesome/css/all.min.css" />
+		<link
+			rel="stylesheet"
+			href="assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/fancybox/dist/jquery.fancybox.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/slick-carousel/slick/slick.css"
+		/>
+		<link rel="stylesheet" href="assets/vendor/aos/dist/aos.css" />
+
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+		<!-- CSS DEV Protocol Template -->
+		<link rel="stylesheet" href="assets/css/theme.css" />
+
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<style>
+			@font-face {
+				font-family: "Whyte Inktrap";
+				src: url("whyte_inktrap.woff") format("woff");
+			}
+
+			@font-face {
+				font-family: "Whyte-Regular";
+				src: url("whyte_regular.woff") format("woff");
+			}
+
+			div.scrolling-limit {
+				overflow: hidden;
+				white-space: nowrap;
+			}
+
+			div.scrolling {
+				position: relative;
+				-webkit-animation: scroll 20s infinite linear;
+				-moz-animation: scroll 20s infinite linear;
+				-o-animation: scroll 20s infinite linear;
+				animation: scroll 20s infinite linear;
+			}
+
+			@keyframes scroll {
+				0% {
+					left: 500px;
+				}
+				100% {
+					left: -950px;
+				}
+			}
+
+			@-webkit-keyframes scroll {
+				0% {
+					left: 500px;
+				}
+				100% {
+					left: -950px;
+				}
+			}
+		</style>
+	</head>
+
+	<body id="homeSection">
+		<!-- ========== HEADER ========== -->
+		<header
+			id="header"
+			class="header header-bg-transparent-lg header-white-nav-links-lg header-abs-top-lg header-show-hide-lg"
+			data-hs-header-options='{
+         "fixMoment": 2050,
+         "fixEffect":"slide"
+        }'
+		>
+			<div class="header-section">
+				<div id="logoAndNav" class="container">
+					<!-- Nav -->
+					<nav class="js-mega-menu navbar navbar-expand-lg">
+						<!-- White Logo -->
+						<a
+							class="navbar-brand navbar-brand-default pt-4"
+							href="html/index.html"
+							aria-label="Front"
+						>
+							<img src="assets/img/devlogo.svg" alt="Logo" />
+						</a>
+						<!-- End White Logo -->
+
+						<!-- Default Logo -->
+						<a
+							class="navbar-brand navbar-brand-collapsed"
+							href="html/index.html"
+							aria-label="Front"
+						>
+							<img src="assets/img/devlogo.svg" alt="Logo" />
+						</a>
+						<!-- End Default Logo -->
+
+						<!-- On Scroll Logo -->
+						<a
+							class="navbar-brand navbar-brand-on-scroll"
+							href="html/index.html"
+							aria-label="Front"
+						>
+							<img src="assets/img/devmark.png" alt="Logo" />
+						</a>
+						<!-- End On Scroll Logo -->
+
+						<!-- Responsive Toggle Button -->
+						<button
+							type="button"
+							class="navbar-toggler btn btn-icon btn-sm"
+							aria-label="Toggle navigation"
+							aria-expanded="false"
+							aria-controls="navBar"
+							data-toggle="collapse"
+							data-target="#navBar"
+						>
+							<span class="navbar-toggler-default">
+								<svg
+									width="14"
+									height="14"
+									viewBox="0 0 18 18"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										fill="currentColor"
+										d="M17.4,6.2H0.6C0.3,6.2,0,5.9,0,5.5V4.1c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,5.9,17.7,6.2,17.4,6.2z M17.4,14.1H0.6c-0.3,0-0.6-0.3-0.6-0.7V12c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,13.7,17.7,14.1,17.4,14.1z"
+									/>
+								</svg>
+							</span>
+							<span class="navbar-toggler-toggled">
+								<svg
+									width="14"
+									height="14"
+									viewBox="0 0 18 18"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										fill="currentColor"
+										d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"
+									/>
+								</svg>
+							</span>
+						</button>
+						<!-- End Responsive Toggle Button -->
+
+						<!-- Navigation -->
+						<div id="navBar" class="collapse navbar-collapse">
+							<ul class="navbar-nav ibm">
+								<!-- Home -->
+								<li class="navbar-nav-item">
+									<a class="nav-link random" href="#product">Product</a>
+								</li>
+								<li class="navbar-nav-item">
+									<a class="nav-link random" href="#token">Token</a>
+								</li>
+								<li class="navbar-nav-item">
+									<a class="nav-link random" href="#team">Team</a>
+								</li>
+
+								<li class="navbar-nav-item">
+									<a class="nav-link random" href="#community">Community</a>
+								</li>
+
+								<!-- Button -->
+
+								<!-- End Button -->
+							</ul>
+							<div class="navbar-nav-last-item ibm">
+								<a
+									class="random"
+									href="https://stakes.social/create"
+									target="_blank"
+								>
+									App <span style="font-family: 'Inter', sans-serif">↗</span>
+								</a>
+							</div>
+						</div>
+						<!-- End Navigation -->
+					</nav>
+					<!-- End Nav -->
+				</div>
+			</div>
+		</header>
+
+		<!-- ========== END HEADER ========== -->
+
+		<!-- ========== MAIN CONTENT ========== -->
+		<main id="content" role="main">
+			<!-- Hero Section -->
+
+			<div style="background: #0a0a0a">
+				<div class="container space-top-2 space-top-lg-4 space-bottom-2">
+					<div class="row justify-content-lg-between mb-7">
+						<div class="col-lg-6">
+							<!-- Info -->
+							<div class="mb-5">
+								<h1 class="text-white mb-5">It's Time to Tokenize OSS</h1>
+								<p>
+									Dev Protocol lets Github users tokenize their OSS projects in
+									a few clicks. Creating an OSS token allows projects to access
+									sustainable funding, create underlying economic models for
+									their project, and distribute incentives at scale. For the
+									first time, OSS projects have a scalable solution to unlock
+									their value.
+								</p>
+							</div>
+
+							<div class="mb-3 space-top-1 ibm" data-aos="fade-in">
+								<a
+									class="btn btn-light btn-wide transition-3d-hover rounded-0"
+									href="https://stakes.social/invite/github"
+									target="_blank"
+									>Get Started</a
+								>
+								<a
+									class="btn text-white linkdeco"
+									href="https://stakes.social/"
+									target="_blank"
+									>Explore projects</a
+								>
+							</div>
+
+							<!-- End Info -->
+						</div>
+
+						<div class="col-lg-6 d-none d-lg-inline-block">
+							<!-- SVG Illustration -->
+							<figure class="">
+								<img
+									class="img-fluid"
+									data-aos="fade-in"
+									style="margin-top: -50px"
+									src="assets/img/illustrations/imain.svg"
+									alt=""
+								/>
+							</figure>
+							<!-- End SVG Illustration -->
+						</div>
+
+						<!-- SVG Illustration medium
+                    <div class="col-md-7  d-none d-md-inline-block d-lg-none">
+                      
+                        <figure>
+                            <img class="img-fluid" data-aos="fade-in" style="margin-top:-20px;" src="assets/img/illustrations/imain2.png" alt="">
+                        </figure>
+                        <!-- End SVG Illustration 
+                    </div>-->
+					</div>
+				</div>
+			</div>
+
+			<!-- End Hero Section -->
+
+			<!-- Clients Section -->
+			<div style="background: #eee">
+				<div class="container space-1 space-top-md-1">
+					<div>
+						<div class="row justify-content-between text-center">
+							<div class="col-6 col-md-2 mb-5 mb-lg-0">
+								<img
+									class="max-w-11rem max-w-md-13rem mx-auto"
+									src="assets/img/sios.png"
+									alt="Image Description"
+								/>
+							</div>
+							<div class="col-6 col-md-2 mb-5 mb-lg-0">
+								<img
+									class="max-w-11rem max-w-md-13rem mx-auto"
+									src="assets/img/hashhub.png"
+									alt="Image Description"
+								/>
+							</div>
+
+							<div class="col-6 col-md-2 mb-5 mb-lg-0">
+								<img
+									class="max-w-11rem max-w-md-13rem mx-auto"
+									src="assets/img/ms-for-startups.png"
+									alt="Image Description"
+								/>
+							</div>
+							<div class="col-6 col-md-2 mb-5 mb-lg-0">
+								<img
+									class="max-w-11rem max-w-md-13rem mx-auto"
+									src="assets/img/miraise.png"
+									alt="Image Description"
+								/>
+							</div>
+							<div class="col-12 col-md-2 mb-lg-0 text-center">
+								<img
+									class="max-w-11rem max-w-md-13rem mx-auto"
+									src="assets/img/monex-ventures.png"
+									alt="Image Description"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Clients Section -->
+
+			<div style="background: " id="product">
+				<div class="container space-2 space-lg-3">
+					<!-- Title -->
+					<div class="row" data-aos="fade-up">
+						<span class="col-md-6 mb-2 text-white">
+							<div class="mb-5 mb-md-9">
+								<img
+									class="img-fluid"
+									style="width: 18rem"
+									src="assets/img/Stakes.svg"
+									alt="Stakes.social"
+								/></div
+						></span>
+						<p class="col-md-6 text-left text-dark">
+							Stakes Social is Dev Protocol’s user facing application where OSS
+							projects and patrons connect. OSS projects use Stakes Social to
+							tokenize, obtain patrons, build communities, and incentive
+							stakeholders in order to grow their project. Patrons use Stakes
+							Social to stake the DEV token for OSS projects they support.
+						</p>
+					</div>
+					<!-- End Title -->
+
+					<div class="row">
+						<div
+							class="col-lg-12 order-lg-1 align-self-lg-end"
+							data-aos="fade-in"
+						>
+							<!-- Tab Content -->
+							<div class="tab-content pr-lg-4">
+								<div class="tab-pane fade show active">
+									<!-- Device Mockup -->
+									<div>
+										<img
+											class="img-fluid"
+											src="assets/img/macbook_stakes.png"
+											alt="Image Description"
+										/>
+									</div>
+									<!-- End Device Mockup -->
+								</div>
+							</div>
+							<!-- End Tab Content -->
+						</div>
+					</div>
+
+					<div
+						class="row justify-content-lg-between align-items-lg-center space-top-1"
+						data-aos="fade-in"
+					>
+						<div class="col-md-6 mb-9 mb-lg-0 px-5">
+							<div class="mb-3">
+								<h3 class="text-left">
+									Stake DEV to support an OSS project on Stakes.social
+								</h3>
+							</div>
+
+							<div class="mt-4 text-left">
+								<a
+									class="btn btn-dark btn-wide rounded-0 transition-3d-hover ibm text-center"
+									target="_blank"
+									href="https://stakes.social/"
+									>Become a Patron</a
+								>
+							</div>
+						</div>
+						<!--    <div class="col-lg-4 mb-9 mb-lg-0"> -->
+
+						<div id="rightstake" class="col-md-6 mb-9 mb-lg-0 px-5">
+							<div class="mb-3">
+								<h3 class="text-right">
+									Apply your OSS project on Stakes.social
+								</h3>
+							</div>
+
+							<div class="mt-4 text-right">
+								<a
+									class="btn btn-dark btn-wide transition-3d-hover rounded-0 ibm"
+									href="https://stakes.social/invite/github"
+									target="_blank"
+									>Become a Creator</a
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<section id="FeaturesSection" class="bg-dark">
+				<div class="container space-top-3">
+					<div class="row space-bottom-3">
+						<div class="col-lg-3 pb-10 order-2 col-md-12" data-aos="fade-up">
+							<img
+								class="pt-8 px-10 px-lg-0 img-fluid space-top-lg-2"
+								src="assets/img/illustrations//OSS%20Tokens.svg"
+								alt=""
+							/>
+						</div>
+						<div class="col-lg-4 col-md-6 mb-7 mb-lg-0 order-lg-1">
+							<p class="small text-white mb-5">OSS Token Features</p>
+							<!-- Nav -->
+							<ul class="nav nav-box space-top-md-1" role="tablist">
+								<li class="nav-item w-100 mx-0">
+									<a
+										class="nav-link active tag2"
+										id="pills-one-code-features-tab"
+										data-toggle="pill"
+										href="#pills-one-code-features"
+										role="tab"
+										aria-controls="pills-one-code-features"
+										aria-selected="true"
+									>
+										<div class="media align-items-center align-items-lg-start">
+											<figure class="w-100 max-w-6rem mt-2 mr-4">
+												<i class="fas fa-arrow-right"></i>
+											</figure>
+											<div class="media-body">
+												<h4 class="mt-2">OSS Tokens</h4>
+											</div>
+										</div>
+									</a>
+								</li>
+
+								<li class="nav-item w-100 mx-0">
+									<a
+										class="nav-link tag2"
+										id="pills-two-code-features-tab"
+										data-toggle="pill"
+										href="#pills-two-code-features"
+										role="tab"
+										aria-controls="pills-two-code-features"
+										aria-selected="false"
+									>
+										<div class="media align-items-center align-items-lg-start">
+											<figure class="w-100 max-w-6rem mt-2 mr-4">
+												<i class="fas fa-arrow-right"></i>
+											</figure>
+											<div class="media-body">
+												<h4 class="mt-2">Grant Farming</h4>
+											</div>
+										</div>
+									</a>
+								</li>
+
+								<li class="nav-item w-100 mx-0">
+									<a
+										class="nav-link tag2"
+										id="pills-three-code-features-tab"
+										data-toggle="pill"
+										href="#pills-three-code-features"
+										role="tab"
+										aria-controls="pills-three-code-features"
+										aria-selected="false"
+									>
+										<div class="media align-items-center align-items-lg-start">
+											<figure class="w-100 max-w-6rem mt-2 mr-4">
+												<i class="fas fa-arrow-right"></i>
+											</figure>
+											<div class="media-body">
+												<h4 class="mt-2">Perks</h4>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li class="nav-item w-100 mx-0">
+									<a
+										class="nav-link tag2"
+										id="pills-four-code-features-tab"
+										data-toggle="pill"
+										href="#pills-four-code-features"
+										role="tab"
+										aria-controls="pills-four-code-features"
+										aria-selected="false"
+									>
+										<div class="media align-items-center align-items-lg-start">
+											<figure class="w-100 max-w-6rem mt-2 mr-4">
+												<i class="fas fa-arrow-right"></i>
+											</figure>
+											<div class="media-body">
+												<h4 class="mt-2">Governance</h4>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li class="nav-item w-100 mx-0">
+									<a
+										class="nav-link tag2"
+										id="pills-five-code-features-tab"
+										data-toggle="pill"
+										href="#pills-five-code-features"
+										role="tab"
+										aria-controls="pills-five-code-features"
+										aria-selected="false"
+									>
+										<div class="media align-items-center align-items-lg-start">
+											<figure class="w-100 max-w-6rem mt-2 mr-4">
+												<i class="fas fa-arrow-right"></i>
+											</figure>
+											<div class="media-body">
+												<h4 class="mt-2">Commit Farming</h4>
+											</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+							<!-- End Nav -->
+						</div>
+
+						<div class="col-lg-5 col-md-6 order-lg-3">
+							<!-- Tab Content -->
+							<div class="tab-content pr-lg-4">
+								<div class="small text-white mb-5 ibm linkdeco text-right">
+									Unlock OSS' Value
+								</div>
+								<div
+									class="tab-pane fade show active"
+									id="pills-one-code-features"
+									role="tabpanel"
+									aria-labelledby="pills-one-code-features-tab"
+								>
+									<p class="text-text mt-10">
+										Create a token for your OSS project to unlock its value on
+										Stakes Social. You decide the token name, abbreviation, and
+										whom to share it with. Dev Protocol mints 10,000,000 units
+										of your token on the Ethereum blockchain. OSS tokens can
+										leverage all of Stakes Social’s features.
+									</p>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="pills-two-code-features"
+									role="tabpanel"
+									aria-labelledby="pills-two-code-features-tab"
+								>
+									<!-- Device Mockup -->
+
+									<p class="text-text mt-10">
+										Dev Protocol introduces Grant Farming as an OSS funding
+										solution. Patrons stake the DEV token for projects they
+										support which mints new DEV tokens based on the protocol’s
+										APY, for both the OSS project and patron. Project rewards
+										are programmed to be sent to the OSS token holders.
+									</p>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="pills-three-code-features"
+									role="tabpanel"
+									aria-labelledby="pills-three-code-features-tab"
+								>
+									<p class="text-text mt-10">
+										Provide your patrons with perks such as premium features,
+										support, and feature requests.
+									</p>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="pills-four-code-features"
+									role="tabpanel"
+									aria-labelledby="pills-four-code-features-tab"
+								>
+									<p class="text-text mt-10">
+										Implement Governance capabilities to your OSS token allowing
+										tokenholders to vote on crucial decisions such as
+										leadership, roadmaps, and financing.
+									</p>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="pills-five-code-features"
+									role="tabpanel"
+									aria-labelledby="pills-five-code-features-tab"
+								>
+									<p class="text-text mt-10">
+										OSS projects can now incentivize Github contributions using
+										their OSS token as a reward.
+									</p>
+								</div>
+							</div>
+							<!-- End Tab Content -->
+						</div>
+					</div>
+					<hr class="my-0" />
+				</div>
+			</section>
+			<!-- End Features Section -->
+			<section id="ProjectsSection" class="bg-dark">
+				<!-- Articles Section -->
+				<div class="container space-top-3">
+					<!-- Title -->
+					<div class="row mb-5 mb-md-9">
+						<span class="col-md-6 mb-2 text-white">
+							<p class="small text-white mb-5">
+								Projects on Dev Protocol
+							</p></span
+						>
+						<h2 class="col-md-6 text-white text-left h1" data-aos="fade-in">
+							<span class="redspan">1500+</span> OSS projects <br />
+							onboarded to Dev Protocol
+						</h2>
+					</div>
+					<!-- End Title -->
+
+					<!-- Projects Section -->
+					<div class="container space-bottom-2">
+						<div class="row" data-aos="fade-up">
+							<div class="col-md-4 mb-3 mb-lg-5">
+								<a
+									class="card card-frame h-100"
+									target="_blank"
+									href="https://stakes.social/0x44d871aebF0126Bf646753E2C976Aa7e68A66c15"
+								>
+									<div class="card-body">
+										<!-- Icon Block -->
+										<div>
+											<figure
+												style=""
+												class="w-50 w-lg-50 text-center mx-md-auto mx-sm-auto mb-sm-0 mr-sm-4"
+											>
+												<img
+													class="img-fluid"
+													src="assets/img/chalk-logo.svg"
+													alt="SVG"
+												/>
+											</figure>
+											<div class="pt-10">
+												<p class="font-size-1 text-white text-center ibm">
+													Chalk
+												</p>
+
+												<h3 class="text-white h2 text-center">
+													<span class="aquaspan">8M+</span> Github Users
+												</h3>
+											</div>
+										</div>
+										<!-- End Icon Block -->
+									</div>
+								</a>
+							</div>
+
+							<div class="col-md-4 mb-3 mb-lg-5">
+								<a
+									class="card card-frame h-100"
+									target="_blank"
+									href="https://stakes.social/0xcEBD1BF31DF3E3697Ea26e2F94F9E3644C809F46"
+								>
+									<div class="card-body">
+										<!-- Icon Block -->
+										<div>
+											<figure
+												class="w-50 w-lg-50 text-center mx-md-auto mx-sm-auto mb-2 mb-sm-0 mr-sm-4"
+											>
+												<img
+													class="img-fluid"
+													src="assets/img/vue-logo.png"
+													alt="SVG"
+												/>
+											</figure>
+											<div class="pt-10">
+												<p class="font-size-1 text-white text-center ibm">
+													Vue-i18n
+												</p>
+
+												<h3 class="text-white h2 text-center">
+													<span class="bluespan">50K+</span> Github Users
+												</h3>
+											</div>
+										</div>
+										<!-- End Icon Block -->
+									</div>
+								</a>
+							</div>
+							<div class="col-md-4 mb-3 mb-lg-5">
+								<a
+									class="card card-frame h-100"
+									target="_blank"
+									href="https://stakes.social/0x90168f9Ba07B95f629f8b77F789d46A549d6470F"
+								>
+									<div class="card-body">
+										<!-- Icon Block -->
+										<div>
+											<figure
+												class="w-50 w-lg-50 text-center mx-md-auto mx-sm-auto mb-2 mb-sm-0 mr-sm-4"
+											>
+												<img
+													class="img-fluid"
+													src="assets/img/vyper-logo.png"
+													alt="SVG"
+												/>
+											</figure>
+											<div class="pt-10">
+												<p class="font-size-1 text-white text-center ibm">
+													Vyper (software secures)
+												</p>
+
+												<h3 class="text-white h2 text-center">
+													<span class="purplespan">$1B+</span> in assets
+												</h3>
+											</div>
+										</div>
+										<!-- End Icon Block -->
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<hr class="my-0" />
+				</div>
+
+				<!-- End Projects Section -->
+			</section>
+			<!-- <hr class="my-0"> -->
+
+			<section id="token" class="bg-dark">
+				<div class="container space-3">
+					<div class="row">
+						<div class="col-lg-3 col-md-12 order-lg-2 pb-10 space-top-lg-2">
+							<img
+								src="assets/img/illustrations/Dev_token.svg"
+								data-aos="fade-up"
+								class="img-fluid px-10 px-lg-0"
+								alt=""
+							/>
+						</div>
+
+						<div
+							class="col-lg-4 col-md-6 mb-7 mb-lg-0 order-lg-1 ml-sm-5 ml-md-0"
+							style="padding-left: 0px"
+						>
+							<p class="small text-white mb-5">The DEV Token</p>
+							<!-- Nav -->
+							<ul class="nav nav-box space-top-md-2" role="tablist">
+								<li class="nav-item w-100 mx-0">
+									<a
+										class="nav-link active tag"
+										id="token-one-code-features-tab"
+										data-toggle="pill"
+										href="#token-one-code-features"
+										role="tab"
+										aria-controls="token-one-code-features"
+										aria-selected="true"
+									>
+										<div class="media align-items-center align-items-lg-start">
+											<figure class="w-100 max-w-6rem mt-2 mr-4">
+												<i class="fas fa-arrow-right"></i>
+											</figure>
+											<div class="media-body">
+												<h4 class="mt-2">DEV Token</h4>
+											</div>
+										</div>
+									</a>
+								</li>
+
+								<li class="nav-item w-100 mx-0">
+									<a
+										class="nav-link tag"
+										id="token-two-code-features-tab"
+										data-toggle="pill"
+										href="#token-two-code-features"
+										role="tab"
+										aria-controls="token-two-code-features"
+										aria-selected="false"
+									>
+										<div class="media align-items-center align-items-lg-start">
+											<figure class="w-100 max-w-6rem mt-2 mr-4">
+												<i class="fas fa-arrow-right"></i>
+											</figure>
+											<div class="media-body">
+												<h4 class="mt-2">Staking</h4>
+											</div>
+										</div>
+									</a>
+								</li>
+
+								<li class="nav-item w-100 mx-0">
+									<a
+										class="nav-link tag"
+										id="token-three-code-features-tab"
+										data-toggle="pill"
+										href="#token-three-code-features"
+										role="tab"
+										aria-controls="token-three-code-features"
+										aria-selected="false"
+									>
+										<div class="media align-items-center align-items-lg-start">
+											<figure class="w-100 max-w-6rem mt-2 mr-4">
+												<i class="fas fa-arrow-right"></i>
+											</figure>
+											<div class="media-body">
+												<h4 class="mt-2">
+													Governance<span
+														class="badge badge-warning badge-pill ibm"
+														>Upcoming</span
+													>
+												</h4>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li class="nav-item w-100 mx-0">
+									<a
+										class="nav-link tag"
+										id="token-four-code-features-tab"
+										data-toggle="pill"
+										href="#token-four-code-features"
+										role="tab"
+										aria-controls="token-four-code-features"
+										aria-selected="false"
+									>
+										<div class="media align-items-center align-items-lg-start">
+											<figure class="w-100 max-w-6rem mt-2 mr-4">
+												<i class="fas fa-arrow-right"></i>
+											</figure>
+											<div class="media-body">
+												<h4 class="mt-2">
+													Meta-Governance<span
+														class="badge badge-warning badge-pill ibm"
+														>Upcoming</span
+													>
+												</h4>
+											</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+							<!-- End Nav -->
+						</div>
+
+						<div class="col-lg-5 col-md-6 order-lg-3">
+							<div class="small text-white mb-5 ibm">
+								<a
+									class="linkdeco"
+									target="_blank"
+									href="https://info.uniswap.org/token/0x5caf454ba92e6f2c929df14667ee360ed9fd5b26"
+									>Available on Uniswap</a
+								><span class="ml-3 mr-3">|</span
+								><a
+									class="linkdeco"
+									target="_blank"
+									href="https://etherscan.io/token/0x5caf454ba92e6f2c929df14667ee360ed9fd5b26 "
+									>View on Etherscan</a
+								>
+							</div>
+							<!-- Tab Content -->
+							<div class="tab-content pr-lg-4">
+								<div
+									class="tab-pane fade show active"
+									id="token-one-code-features"
+									role="tabpanel"
+									aria-labelledby="token-one-code-features-tab"
+								>
+									<p class="text-text mt-10">
+										DEV is an inflationary token that is rewarded to patrons and
+										OSS projects for being active participants in the Dev
+										Protocol ecosystem. The Dev Protocol inflation rate for
+										minting is determined by the total amount of DEV staked
+										versus OSS projects onboarded. The result is a sustainable
+										counter-balance system.
+									</p>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="token-two-code-features"
+									role="tabpanel"
+									aria-labelledby="token-two-code-features-tab"
+								>
+									<p class="text-text mt-10">
+										Patrons stake DEV tokens for OSS projects they support which
+										mints new DEV tokens for themselves and the OSS project.
+										This is a new way of crowdsourcing knowledge for the value
+										of public goods.
+									</p>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="token-three-code-features"
+									role="tabpanel"
+									aria-labelledby="token-three-code-features-tab"
+								>
+									<p class="text-text mt-10">
+										The DEV token will become a governance token that governs
+										the Dev Protocol treasury, the inflation rate, and submitted
+										proposals.
+									</p>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="token-four-code-features"
+									role="tabpanel"
+									aria-labelledby="token-four-code-features-tab"
+								>
+									<p class="text-text mt-10">
+										Dev Protocol takes a 5% OSS token fee upon minting that is
+										then sent to the Dev Protocol Treasury which DEV token
+										holders will eventually govern. Meta-Governance capabilities
+										will allow DEV token holders to vote on the underlying
+										portfolio of OSS tokens. Think of it as the world’s first
+										OSS ETF.
+									</p>
+								</div>
+							</div>
+							<!-- End Tab Content -->
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="NewsBanner" style="background: #ff3815">
+				<div class="scrolling-limit">
+					<div
+						class="scrolling text-white h5 p-2 ibm"
+						style="margin-bottom: 0px; font-weight: 300"
+					>
+						Tokenize Open Assets | Tokenize YouTube | Tokenize Twitch | Tokenize
+						Research | Tokenize Twitter | Tokenize Open Assets
+					</div>
+				</div>
+			</section>
+
+			<section id="UseCaseSection" class="bg-dark space-top-3">
+				<!-- Use Case Section -->
+				<div class="container">
+					<!-- Title -->
+					<div>
+						<div class="row">
+							<span class="col-md-12 mb-2 text-white pl-0"
+								><p class="small text-white">Build on Dev Protocol</p></span
+							>
+
+							<h2 class="h1 text-white" data-aos="fade-in">Use Cases</h2>
+						</div>
+						<!-- End Title -->
+
+						<div class="row space-bottom-1" data-aos="fade-up">
+							<div class="col-md-4 mb-4 mb-md-5 mb-lg-0">
+								<!-- Card -->
+								<a class="card h-100 transition-3d-hover">
+									<div class="card-body pt-7" style="padding-left: 0">
+										<figure class="mx-auto mb-4">
+											<img
+												class="w-40"
+												src="assets/img/illustrations/Foundations.svg"
+												alt="Logo"
+											/>
+										</figure>
+										<h3 class="text-white h4">Foundations</h3>
+										<p class="text-text">
+											Does your company have OSS dependencies you want to fund?
+											Set up a Foundation to support the projects you rely on
+											while being rewarded.
+										</p>
+									</div>
+								</a>
+								<!-- End Card -->
+							</div>
+							<div class="col-md-4 mb-4 mb-md-5 mb-lg-0">
+								<!-- Card -->
+								<a class="card h-100 transition-3d-hover">
+									<div class="card-body pt-7" style="padding-left: 0">
+										<figure class="mx-auto mb-4">
+											<img
+												class="w-40"
+												src="assets/img/illustrations/Bounties.svg"
+												alt="Logo"
+											/>
+										</figure>
+										<h3 class="text-white h4">Bounties</h3>
+										<p class="text-text">
+											Integrate or build a Bounty platform on Dev Protocol to
+											allow OSS projects to reward their contributors with OSS
+											tokens.
+										</p>
+									</div>
+								</a>
+								<!-- End Card -->
+							</div>
+							<div class="col-md-4 mb-4 mb-md-5 mb-lg-0">
+								<!-- Card -->
+								<a class="card h-100 transition-3d-hover">
+									<div class="card-body pt-7" style="padding-left: 0">
+										<figure class="mx-auto mb-4">
+											<img
+												class="w-40"
+												src="assets/img/illustrations/Communities.svg"
+												alt="Logo"
+											/>
+										</figure>
+										<h3 class="text-white h4">Communities</h3>
+										<p class="text-text">
+											Build applications to enhance social communities on Dev
+											Protocol from incentives, private chats, or paywalled
+											content.
+										</p>
+									</div>
+								</a>
+								<!-- End Card -->
+							</div>
+						</div>
+					</div>
+					<!-- End Use Case Section -->
+				</div>
+			</section>
+
+			<!-- CTA Section -->
+			<div class="bg-dark">
+				<div class="container space-top-2">
+					<div
+						class="row justify-content-lg-between align-items-lg-center text-left space-bottom-3"
+					>
+						<div class="col-md-6 mb-8 mb-lg-0" data-aos="fade-in">
+							<h2 class="text-white mb-5 h2">Tokenizing<br />Open Assets</h2>
+							<a
+								class="btn btn-light btn-wide transition-3d-hover rounded-0 mx-1 mb-2 ibm"
+								target="_blank"
+								href="https://stakes.social/"
+								>Get Started</a
+							>
+						</div>
+
+						<div class="col-md-6 text-lg-left">
+							<p class="text-text" style="opacity: 1">
+								Dev Protocol’s mission is to provide Open Assets a sustainable
+								value capture model. Open Assets are free to consume and share
+								like Youtube videos, Spotify music, and Academic research.
+								Stakes Social will eventually will eventually support the
+								tokenization of these markets to unleash their untapped economic
+								value.
+							</p>
+						</div>
+					</div>
+					<hr class="my-0" />
+				</div>
+			</div>
+			<!-- End CTA Section -->
+			<!-- Stats Section -->
+
+			<div
+				class="position-relative overflow-hidden"
+				style="background: #0a0a0a"
+				id="stats"
+			>
+				<div class="container position-relative z-index-2 space-top-3">
+					<!-- Title -->
+					<div class="row mb-5 mb-md-9">
+						<span class="col-md-6 mb-2 text-white">
+							<p class="small text-white mb-5">Stats</p></span
+						>
+						<h2 class="col-md-6 text-white text-left h1" data-aos="fade-in">
+							Dev Protocol is <span class="text bluespan"> being</span> adopted
+						</h2>
+					</div>
+					<!-- End Title -->
+
+					<!-- Icon Blocks -->
+					<div class="space-bottom-2">
+						<div class="row">
+							<div class="col-md-4 mb-7" data-aos="fade-in">
+								<!-- Icon Block -->
+								<span class="d-block text-white font-size-2 mb-3"> </span>
+								<h4 id="marketcap" class="random text-white mb-3 h3 ibm">
+									Loading...
+								</h4>
+								<p class="text-text mb-1">DEV Market Cap</p>
+								<p class="small text-text">
+									The total value of all DEV circulating.
+								</p>
+								<!-- End Icon Block -->
+							</div>
+
+							<div
+								class="d-none d-md-block col-6 col-md-4 mb-7 text-center"
+								data-aos="fade-in"
+							>
+								<!-- Icon Block -->
+								<span class="d-block text-white font-size-2 mb-3"> </span>
+								<h4 id="devprice" class="text-white mb-3 h3 ibm random">
+									Loading...
+								</h4>
+								<p class="text-text mb-1">DEV Price</p>
+								<p class="small text-text">The current price of DEV token.</p>
+								<!-- End Icon Block -->
+							</div>
+
+							<div
+								class="d-none d-md-block col-6 col-md-4 mb-7 text-md-right"
+								data-aos="fade-in"
+							>
+								<!-- Icon Block -->
+								<span class="d-block text-white font-size-2 mb-3"> </span>
+								<h4 id="stakingratio" class="text-white mb-3 h3 ibm">
+									Loading...
+								</h4>
+								<p class="text-text mb-1">DEV Staked Ratio</p>
+								<p class="small text-text">
+									The percentage of DEV tokens that are staked from circulating
+									supply.
+								</p>
+								<!-- End Icon Block -->
+							</div>
+
+							<div class="col-md-4 mb-7">
+								<!-- Icon Block -->
+								<span
+									class="d-block text-white font-size-2 mb-3"
+									data-aos="fade-in"
+								>
+								</span>
+								<h4 id="stakingamount" class="text-white mb-3 h3 ibm">
+									Loading...
+								</h4>
+								<p class="text-text mb-1">DEV Staked Value</p>
+								<p class="small text-text">The total value of DEV staked.</p>
+								<!-- End Icon Block -->
+							</div>
+							<div
+								class="d-none d-md-block col-6 col-md-4 mb-7 text-center"
+								data-aos="fade-in"
+							>
+								<!-- Icon Block -->
+								<span class="d-block text-white font-size-2 mb-3"> </span>
+								<h4 id="creatorapy" class="text-white mb-3 h3 ibm">
+									Loading...
+								</h4>
+								<p class="text-text mb-1">Creator APY</p>
+								<p class="small text-text">The current yield for creators.</p>
+								<!-- End Icon Block -->
+							</div>
+
+							<div
+								class="d-none d-md-block col-6 col-md-4 mb-7 text-right"
+								data-aos="fade-in"
+							>
+								<!-- Icon Block -->
+								<span class="d-block text-white font-size-2 mb-3"> </span>
+								<h4 id="stakerapy" class="text-white mb-3 h3 ibm">
+									Loading...
+								</h4>
+								<p class="text-text mb-1">Staker APY</p>
+								<p class="small text-text">The current yield for stakers.</p>
+								<!-- End Icon Block -->
+							</div>
+							<div class="col-md-4 mb-7" data-aos="fade-in">
+								<!-- Icon Block -->
+								<span class="d-block text-white font-size-2 mb-3"> </span>
+								<h4 id="supplygrowth" class="text-white mb-3 h3 ibm">
+									Loading...
+								</h4>
+								<p class="text-text mb-1">Supply Growth</p>
+								<p class="small text-text">The current supply growth of DEV.</p>
+								<!-- End Icon Block -->
+							</div>
+							<div
+								class="d-none d-md-block col-6 col-md-4 mb-7 text-center"
+								data-aos="fade-in"
+							>
+								<!-- Icon Block -->
+								<span class="d-block text-white font-size-2 mb-3"> </span>
+								<h4 id="assetsonboarded" class="text-white mb-3 h3 ibm">
+									Loading...
+								</h4>
+								<p class="text-text mb-1">OSS Projects Onboarded</p>
+								<p class="small text-text">
+									The total number of creator assets onboarded.
+								</p>
+								<!-- End Icon Block -->
+							</div>
+
+							<div
+								class="d-none d-md-block col-6 col-md-4 mb-7 text-right"
+								data-aos="fade-in"
+							>
+								<!-- Icon Block -->
+								<span class="d-block text-white font-size-2 mb-3"> </span>
+								<h4 id="creatorrewardsusd" class="text-white mb-3 h3 ibm">
+									Loading...
+								</h4>
+								<p class="text-text mb-1">Creator's Rewards USD</p>
+								<p class="small text-text">
+									The value of current creator's rewards in USD.
+								</p>
+								<!-- End Icon Block -->
+							</div>
+
+							<!--   <div class="d-none d-md-block col-6 col-md-4 mb-7 text-right">
+
+                           Icon Block 
+                            <span class="d-block text-white font-size-2 mb-3">
+              
+              </span>
+                            <h4 id="creatorrewards" class="text-white mb-3 h3 ibm">Loading...</h4>
+                            <p class="text-white mb-1">Creator's Rewards DEV</p>
+                            <p class="small text-white">The value of current creator's rewards.</p>
+                            <!-- End Icon Block 
+                        </div>
+
+
+                        <!--   <div class="d-none d-md-block col-6 col-md-4 mb-7 text-center">
+                          
+                            <span class="d-block text-white font-size-2 mb-3">
+               
+              </span>
+                            <h4 id="totalcap" class="text-white mb-3 h3 ibm">Loading...</h4>
+                            <p class="text-white mb-1">Dev Total Cap</p>
+                            <p class="small text-white">The total value of all DEV.</p>
+                            <!-- End Icon Block 
+                        </div>
+
+                        <div class=" d-none d-md-block col-6 col-md-4 mb-7 text-right">
+                            <!-- Icon Block 
+                            <span class="d-block text-white font-size-2 mb-3">
+              
+              </span>
+                            <h4 id="marketcap2" class="text-white mb-3 h3 ibm">Loading...</h4>
+                            <p class="text-white mb-1">Dev Market Cap</p>
+                            <p class="small text-white">The total value of all DEV circulating.</p>
+                            <!-- End Icon Block 
+                        </div>-->
+						</div>
+					</div>
+					<hr class="my-0" />
+				</div>
+			</div>
+			<!-- End Team Section -->
+			<section id="team" class="bg-dark">
+				<div class="container space-3">
+					<div class="row">
+						<p class="col-md-6 small text-white mb-5">People</p>
+
+						<div
+							class="col-md-6 pl-3 small text-white mb-5 nav nav-box ibm text-left text-md-right"
+							role="tablist"
+						>
+							<div class="w-100" role="tabslist"></div>
+							<a
+								class="d-inline linkdeco nav-link p-0 active"
+								id="people-one-code-features-tab"
+								data-toggle="pill"
+								href="#people-one-code-features"
+								role="tab"
+								aria-controls="people-one-code-features"
+								aria-selected="true"
+								>Dev Protocol Team</a
+							><span class="ml-3 mr-3">|</span>
+							<a
+								class="d-inline linkdeco nav-link p-0"
+								id="people-two-code-features-tab"
+								data-toggle="pill"
+								href="#people-two-code-features"
+								role="tab"
+								aria-controls="people-two-code-features"
+								aria-selected="false"
+								>Advisors</a
+							>
+						</div>
+					</div>
+					<div class="row space-top-1">
+						<div class="col-md-6 mb-7 mb-lg-0">
+							<!-- Nav -->
+							<div class="tab-content">
+								<div
+									class="tab-pane fade show active"
+									id="people-one-code-features"
+									role="tabpanel"
+									aria-labelledby="people-one-code-features-tab"
+								>
+									<ul class="nav nav-box" role="tablist">
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link active"
+												id="team-one-code-features-tab"
+												data-toggle="pill"
+												href="#team-one-code-features"
+												role="tab"
+												aria-controls="team-one-code-features"
+												aria-selected="true"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>
+															Mayumi Hara<span
+																class="badge badge-warning badge-pill ibm"
+																>CEO</span
+															>
+														</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="team-two-code-features-tab"
+												data-toggle="pill"
+												href="#team-two-code-features"
+												role="tab"
+												aria-controls="team-two-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>
+															Aggre<span
+																class="badge badge-warning badge-pill ibm"
+																>CTO</span
+															>
+														</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="team-three-code-features-tab"
+												data-toggle="pill"
+												href="#team-three-code-features"
+												role="tab"
+												aria-controls="team-three-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>
+															Mariko Miyamoto<span
+																class="badge badge-warning badge-pill ibm"
+																>COO</span
+															>
+														</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="team-four-code-features-tab"
+												data-toggle="pill"
+												href="#team-four-code-features"
+												role="tab"
+												aria-controls="team-four-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>
+															Akira Taniguchi<span
+																class="badge badge-warning badge-pill ibm"
+																>Lead Developer</span
+															>
+														</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="team-five-code-features-tab"
+												data-toggle="pill"
+												href="#team-five-code-features"
+												role="tab"
+												aria-controls="team-five-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>
+															Scott Gray<span
+																class="badge badge-warning badge-pill ibm"
+																>Head of Business Development</span
+															>
+														</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="team-six-code-features-tab"
+												data-toggle="pill"
+												href="#team-six-code-features"
+												role="tab"
+												aria-controls="team-six-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>
+															Hideo Hattori<span
+																class="badge badge-warning badge-pill ibm"
+																>Backend Developer</span
+															>
+														</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="team-seven-code-features-tab"
+												data-toggle="pill"
+												href="#team-seven-code-features"
+												role="tab"
+												aria-controls="team-seven-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>
+															Stas Leontyev<span
+																class="badge badge-warning badge-pill ibm"
+																>Design Lead</span
+															>
+														</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="team-eight-code-features-tab"
+												data-toggle="pill"
+												href="#team-eight-code-features"
+												role="tab"
+												aria-controls="team-eight-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>
+															Masako Arita<span
+																class="badge badge-warning badge-pill ibm"
+																>General Manager</span
+															>
+														</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="team-nine-code-features-tab"
+												data-toggle="pill"
+												href="#team-nine-code-features"
+												role="tab"
+												aria-controls="team-nine-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>
+															Kazuyoshi Kawakami<span
+																class="badge badge-warning badge-pill ibm"
+																>Developer Relations</span
+															>
+														</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+								<!-- End Nav -->
+								<!-- Nav -->
+								<div
+									class="tab-pane fade"
+									id="people-two-code-features"
+									role="tabpanel"
+									aria-labelledby="people-two-code-features-tab"
+								>
+									<ul class="nav nav-box" role="tablist">
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="advisor-one-code-features-tab"
+												data-toggle="pill"
+												href="#advisor-one-code-features"
+												role="tab"
+												aria-controls="advisor-one-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>Yo Nakagawa</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="advisor-two-code-features-tab"
+												data-toggle="pill"
+												href="#advisor-two-code-features"
+												role="tab"
+												aria-controls="advisor-two-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>Shin Iwata</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="advisor-three-code-features-tab"
+												data-toggle="pill"
+												href="#advisor-three-code-features"
+												role="tab"
+												aria-controls="advisor-three-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>Junya Hirano</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="nav-item w-100 mx-0">
+											<a
+												style="padding: 0.2rem 1rem"
+												class="nav-link"
+												id="advisor-four-code-features-tab"
+												data-toggle="pill"
+												href="#advisor-four-code-features"
+												role="tab"
+												aria-controls="advisor-four-code-features"
+												aria-selected="false"
+											>
+												<div
+													class="media align-items-center align-items-lg-start"
+												>
+													<figure class="w-100 max-w-6rem mr-4">
+														<i class="fas fa-arrow-right"></i>
+													</figure>
+													<div class="media-body">
+														<h4>Tamio Nishizawa</h4>
+													</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+								<!-- End Nav -->
+							</div>
+						</div>
+
+						<!--      <div class="col-lg-4">
+                        <img src="assets/img/mask.png" class="img-fluid" alt="">
+                    </div> -->
+
+						<div class="col-md-6 space-top-md-2" data-aos="fade-in">
+							<!-- Tab Content -->
+							<div class="tab-content pr-lg-4">
+								<div
+									class="tab-pane fade show active"
+									id="team-one-code-features"
+									role="tabpanel"
+									aria-labelledby="team-one-code-features-tab"
+								>
+									<h4 class="text-white mb-5">CEO</h4>
+									<p class="text-text mt-5">
+										Mayumi Hara is a serial entrepreneur that has been building
+										brands since 2011 in various industries. In 2014, she found
+										that traditional artisans dealing with national treasures
+										were undervalued, which led to her building an ecosystem in
+										which the creator’s value is fairly valued.
+									</p>
+									<div class="small text-white mt-5 linkdeco ibm text-right">
+										<a
+											target="_blank"
+											href="https://www.linkedin.com/in/hara-mayumi-58799b37/"
+											>LinkedIn Profile</a
+										>
+									</div>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="team-two-code-features"
+									role="tabpanel"
+									aria-labelledby="team-two-code-features-tab"
+								>
+									<!-- Device Mockup -->
+
+									<h4 class="text-white mb-5">CTO</h4>
+									<p class="text-text mt-5">
+										Aggre is a programmer who is committed to open internet
+										technology, constantly updating his compatibility with the
+										latest tech stacks and solving everyday challenges with
+										technical ideas. He is building Dev Protocol, believing that
+										crypto is the best way to achieve OSS sustainability while
+										maintaining decentralizability and openness.
+									</p>
+									<div class="small text-white mt-5 linkdeco ibm text-right">
+										<a target="_blank" href="https://www.linkedin.com/in/aggre/"
+											>LinkedIn Profile</a
+										>
+									</div>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="team-three-code-features"
+									role="tabpanel"
+									aria-labelledby="team-three-code-features-tab"
+								>
+									<h4 class="text-white mb-5">COO</h4>
+									<p class="text-text mt-5">
+										Mariko is a project manager with a wealth of knowledge and
+										experience in the financial industry for almost 20 years,
+										leading implementation of a wide variety of financial
+										systems for the largest securities, megabanks and regional
+										banks in japan.
+									</p>
+									<div class="small text-white mt-5 linkdeco ibm text-right">
+										<a
+											target="_blank"
+											href="https://www.linkedin.com/in/%E9%BA%BB%E5%88%A9%E5%AD%90-%E5%AE%AE%E6%9C%AC-96a907112/"
+											>LinkedIn Profile</a
+										>
+									</div>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="team-four-code-features"
+									role="tabpanel"
+									aria-labelledby="team-four-code-features-tab"
+								>
+									<h4 class="text-white mb-5">Lead Developer</h4>
+									<p class="text-text mt-5">
+										Akira is an enthusiastic blockchain developer, having deep
+										experiences on a major crypto exchange in Japan. He has
+										diverse knowledge with Ethereum, Recommendation engines, and
+										Big Data analysis. Additionally, Akira is a long time OSS
+										committer.
+									</p>
+									<div class="small text-white mt-5 linkdeco ibm text-right">
+										<a
+											target="_blank"
+											href="https://www.linkedin.com/in/akirataniguchi1/"
+											>LinkedIn Profile</a
+										>
+									</div>
+								</div>
+								<div
+									class="tab-pane fade"
+									id="team-five-code-features"
+									role="tabpanel"
+									aria-labelledby="team-five-code-features-tab"
+								>
+									<h4 class="text-white mb-5">Head of Business Development</h4>
+									<p class="text-text mt-5">
+										Scott brings a multitude of experience from traditional
+										finance to Dev Protocol. Scott has been in the blockchain
+										industry since 2015. He is currently leading business
+										development, strategy, and product.
+									</p>
+								</div>
+								<div
+									class="tab-pane fade"
+									id="team-six-code-features"
+									role="tabpanel"
+									aria-labelledby="team-six-code-features-tab"
+								>
+									<h4 class="text-white mb-5">Backend Developer</h4>
+									<p class="text-text mt-5">
+										Hattori is a full stack software engineer mainly
+										specializing in backend development. Previously, he worked
+										with a Japanese startup and crypto exchange. Hattori is an
+										avid OSS developer who has been maintaining various OSS
+										projects for a decade.
+									</p>
+								</div>
+								<div
+									class="tab-pane fade"
+									id="team-seven-code-features"
+									role="tabpanel"
+									aria-labelledby="team-seven-code-features-tab"
+								>
+									<h4 class="text-white mb-5">Design Lead</h4>
+									<p class="text-text mt-5">
+										Stas is a full-stack designer, a one man band for visual and
+										product design. He is a big fan of Web3 aesthetics and
+										crypto-community ideas. These interests led him to support
+										leading Blockchain projects.
+									</p>
+								</div>
+								<div
+									class="tab-pane fade"
+									id="team-eight-code-features"
+									role="tabpanel"
+									aria-labelledby="team-eight-code-features-tab"
+								>
+									<h4 class="text-white mb-5">General Manager</h4>
+									<p class="text-text mt-5">
+										Masako helps the team improve their productivity. She has
+										experience working in government and trade companies and
+										worked with diverse people from all over the world. She
+										always makes sure the team is focused on their work.
+									</p>
+								</div>
+								<div
+									class="tab-pane fade"
+									id="team-nine-code-features"
+									role="tabpanel"
+									aria-labelledby="team-nine-code-features-tab"
+								>
+									<h4 class="text-white mb-5">Developer Relations</h4>
+									<p class="text-text mt-5">
+										Kazuyoshi has over 15 years of development experience and
+										has created many products, from small to large scale
+										projects. In addition to that, he is involved in the
+										technical assistance of developers as an organizer of
+										multiple OSS communities.
+									</p>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="advisor-one-code-features"
+									role="tabpanel"
+									aria-labelledby="advisor-one-code-features-tab"
+								>
+									<h4 class="text-white mb-5">
+										Director, Monex Ventures, Inc.
+									</h4>
+									<p class="text-text mt-5">
+										Yo is responsible for investing in the blockchain and crypto
+										space for Monex Group, Inc., the parent company of Monex
+										Ventures. Furthermore, Yo is an advisor to Coincheck,
+										Japan's leading crypto exchange. Yo has extensive knowledge
+										and experience in both traditional financial markets as well
+										as crypto businesses.
+									</p>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="advisor-two-code-features"
+									role="tabpanel"
+									aria-labelledby="advisor-two-code-features-tab"
+								>
+									<h4 class="text-white mb-5">Partner & CEO at MIRAISE</h4>
+									<p class="text-text mt-5">
+										Shin is uniquely positioned to support engineer-founders in
+										Japan with his deep technical experience as a former
+										developer as well as his operational experience as CEO of
+										Skype Japan K.K. and as a Partner at Atomico for several
+										years. Shin received his Bachelor's degree from the Keio
+										University in physics. Kauffman Fellow from Class 20.
+									</p>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="advisor-three-code-features"
+									role="tabpanel"
+									aria-labelledby="advisor-three-code-features-tab"
+								>
+									<h4 class="text-white mb-5">CEO at HashHub</h4>
+									<p class="text-text mt-5">
+										Junya is CEO at HashHub, a blockchain studio based in Tokyo,
+										Japan. HashHub is a blockchain company. Consultation with
+										Enterprise, Research Institute, and organize crypto
+										communities within Japan and the rest of the world. They
+										have officially partnered with ConsenSys.
+									</p>
+								</div>
+
+								<div
+									class="tab-pane fade"
+									id="advisor-four-code-features"
+									role="tabpanel"
+									aria-labelledby="advisor-four-code-features-tab"
+								>
+									<h4 class="text-white mb-5">
+										Director at Open Innovation Network
+									</h4>
+									<p class="text-text mt-5">
+										Tamio worked as a venture capitalist for five years in the
+										United States and 18 years in Japan. He is currently working
+										as a program officer on venture investment for the Japan
+										Science and Technology Agency and supports many startups.
+									</p>
+								</div>
+							</div>
+							<!-- End Tab Content -->
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Medium Section -->
+
+			<section class="MediumSection space-top-3 space-bottom-1">
+				<!-- Blogs Section -->
+				<div class="container">
+					<!-- Title -->
+					<div class="row mb-5">
+						<div class="col-6">
+							<span class="text-white">
+								<p class="small text-white">Latest on Medium</p></span
+							>
+						</div>
+						<div class="col-6 text-right">
+							<a
+								class="linkdeco ibm small"
+								target="_blank"
+								href="https://medium.com/devprtcl"
+								>View all
+							</a>
+						</div>
+					</div>
+					<!-- End Title -->
+
+					<div class="row blog__slider"></div>
+				</div>
+			</section>
+
+			<!-- End Medium Section -->
+		</main>
+		<!-- ========== END MAIN CONTENT ========== -->
+
+		<!-- ========== FOOTER ========== -->
+		<!-- Stories Section -->
+		<div id="community" class="bg-dark space-1">
+			<div class="container space-top-2">
+				<div class="row justify-content-md-between mb-6">
+					<div class="col-lg-6 col-lg-5 mb-3 mb-md-0">
+						<a href="#" aria-label="Front">
+							<img class="brand" src="assets/img/devlogo.svg" alt="Logo" />
+						</a>
+
+						<!--     <img class="img-fluid space-top-1 d-none d-md-block " src="assets/img/illustrations/Footer.svg" alt=""> -->
+					</div>
+
+					<div class="col-lg-6 space-top-md-2 space-top-lg-0">
+						<!-- Form
+                    <p class=" text-white small space-top-1">Subscribe for updates</p>
+                    <form class="js-validate mb-2">
+                        <label class="sr-only" for="signupSrEmail">Email</label>
+                        <div class="input-group ibm">
+                            <input type="email " class="form-control" name="email" id="signupSrEmail" placeholder="Your email" aria-label="Your email" required>
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-block rounded-0 btn-white" style="font-weight:600;">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End Form -->
+
+						<p class="text-white small">Get in touch with us at</p>
+						<h2>
+							<a target="_blank" class="random" href="mailto:hi@devprotocol.xyz"
+								>hi@devprotocol.xyz</a
+							>
+						</h2>
+						<div class="row space-top-2">
+							<div class="col-6 col-md-4 py-3">
+								<h3>
+									<a
+										target="_blank"
+										class="random"
+										style="font-size: 1.1rem"
+										href="https://discord.gg/VwJp4KM"
+										>Discord</a
+									>
+								</h3>
+							</div>
+							<div class="col-6 col-md-4 py-3">
+								<h3 class="ml-1">
+									<a
+										class="random"
+										style="font-size: 1.1rem"
+										href="https://twitter.com/devprtcl"
+										>Twitter</a
+									>
+								</h3>
+							</div>
+							<div class="col-6 col-md-4 py-3">
+								<h3 class="ml-1">
+									<a
+										class="random"
+										style="font-size: 1.1rem"
+										target="_blank"
+										href="docs.devprotocol.xyz"
+										>Docs</a
+									>
+								</h3>
+							</div>
+
+							<div class="col-6 col-md-4 py-3">
+								<h3>
+									<a
+										target="_blank"
+										class="random"
+										style="font-size: 1.1rem"
+										href="https://github.com/dev-protocol"
+										>Github</a
+									>
+								</h3>
+							</div>
+							<div class="col-6 col-md-4 py-3">
+								<h3 class="ml-1">
+									<a
+										target="_blank"
+										class="random"
+										style="font-size: 1.1rem"
+										href="https://t.me/devprtcl"
+										>Telegram</a
+									>
+								</h3>
+							</div>
+							<div class="col-6 col-md-4 py-3">
+								<h3 class="ml-1">
+									<a
+										target="_blank"
+										class="random"
+										style="font-size: 1.1rem"
+										href="https://medium.com/devprtcl"
+										>Medium</a
+									>
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Stories Section -->
+
+		<!-- Go to Top -->
+		<a
+			class="js-go-to go-to position-fixed"
+			href="javascript:;"
+			style="visibility: hidden"
+			data-hs-go-to-options='{
+      "offsetTop": 700,
+      "position": {
+        "init": {
+          "right": 15
+         },
+        "show": {
+          "bottom": 15
+         },
+        "hide": {
+          "bottom": -15
+         }
+       }
+     }'
+		>
+			<i class="fas fa-angle-up"></i>
+		</a>
+		<!-- End Go to Top -->
+
+		<!-- JS Global Compulsory -->
+		<script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+		<script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+		<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+		<!-- JS Implementing Plugins -->
+		<script src="assets/vendor/appear.js"></script>
+		<script src="assets/vendor/circles/circles.min.js"></script>
+		<script src="assets/vendor/hs-header/dist/hs-header.min.js"></script>
+		<script src="assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
+		<script src="assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js"></script>
+		<script src="assets/vendor/hs-unfold/dist/hs-unfold.min.js"></script>
+		<script src="assets/vendor/hs-sticky-block/dist/hs-sticky-block.min.js"></script>
+		<script src="assets/vendor/hs-scroll-nav/dist/hs-scroll-nav.min.js"></script>
+		<script src="assets/vendor/hs-video-player/dist/hs-video-player.min.js"></script>
+		<script src="assets/vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+
+		<script src="assets/vendor/slick-carousel/slick/slick.js"></script>
+		<script src="assets/vendor/aos/dist/aos.js"></script>
+
+		<!-- JS DEV Protocol -->
+		<script src="assets/js/hs.core.js"></script>
+		<script src="assets/js/hs.circles.js"></script>
+		<script src="assets/js/hs.fancybox.js"></script>
+		<script src="assets/js/hs.slick-carousel.js"></script>
+
+		<script type="module">
+			import { client } from "https://unpkg.com/@devprotocol/dev-kit@3.8.2/esm/client/index.bundled.js?module";
+			client.getStats().then((value) => {
+				$("#marketcap").text(
+					"$ " + commaSeparateNumber(value.marketCap.toFixed(0))
+				);
+				$("#marketcap2").text(
+					"$ " + commaSeparateNumber(value.marketCap.toFixed(0))
+				);
+				$("#assetsonboarded").text(commaSeparateNumber(value.assetOnboarded));
+				$("#creatorapy").text((value.creatorAPY * 100).toFixed(2) + "%");
+				$("#creatorrewards").text(
+					commaSeparateNumber(value.creatorsRewardsDEV.toFixed(0))
+				);
+				$("#creatorrewardsusd").text(
+					"$ " + commaSeparateNumber(value.creatorsRewardsUSD.toFixed(0))
+				);
+				$("#devprice").text("$ " + value.devPrice.toFixed(2));
+				$("#stakerapy").text((value.stakerAPY * 100).toFixed(2) + "%");
+				$("#stakingamount").text(
+					"$ " +
+						commaSeparateNumber(
+							(value.stakingAmount * value.devPrice).toFixed(0)
+						)
+				);
+				$("#totalcap").text(
+					"$ " + commaSeparateNumber(value.totalCap.toFixed(0))
+				);
+				$("#supplygrowth").text(
+					(value.annualSupplyGrowthRatio * 100).toFixed(2) + "%"
+				);
+				$("#stakingratio").text((value.stakingRatio * 100).toFixed(2) + "%");
+			});
+			function commaSeparateNumber(val) {
+				while (/(\d+)(\d{3})/.test(val.toString())) {
+					val = val.toString().replace(/(\d+)(\d{3})/, "$1" + "," + "$2");
+				}
+				return val;
+			}
+		</script>
+
+		<!-- JS Plugins Init. -->
+		<script>
+			$(document).on("ready", function () {
+				// randomization color
+				var colors = Array("#ff3815", "#d500e6", "#5b8bf5", "#00d0fd"),
+					idx;
+				$(".random").hover(
+					function () {
+						idx = Math.floor(Math.random() * colors.length); // Pick random index
+						$(this).css("color", colors[idx]);
+					},
+					function () {
+						$(this).css("color", "#ffffff");
+					}
+				);
+
+				/* randomization color Medium
+
+            var hovers = Array("red", "blue", "aqua", "purple")
+            idx = Math.floor(Math.random() * hovers.length); // Pick random index
+            $(".nav-box .nav-link h4, .nav-box .nav-link i").addClass(hovers[idx]);
+
+            // randomization color Medium
+
+
+            idx = Math.floor(Math.random() * colors.length); // Pick random index
+            $(".MediumSection").css("background", colors[idx]); */
+
+				fetch(
+					"https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40scott_27716"
+				)
+					// fetch('https://medium.com/feed/@evejweinberg')
+					.then((res) => res.json())
+					.then((data) => {
+						// Filter for acctual posts. Comments don't have categories, therefore can filter for items with categories bigger than 0
+						const res = data.items; //This is an array with the content. No feed, no info about author etc..
+						const posts = res.filter((item) => item.categories.length > 0); // That's the main trick* !
+
+						// Functions to create a short text out of whole blog's content
+						function toText(node) {
+							let tag = document.createElement("div");
+							tag.innerHTML = node;
+							node = tag.innerText;
+							return node;
+						}
+
+						function shortenText(text, startingPoint, maxLength) {
+							return text.length > maxLength
+								? text.slice(startingPoint, maxLength)
+								: text;
+						}
+
+						// Put things in right spots of markup
+						let output = "";
+						posts.slice(0, 3).forEach((item) => {
+							output += `
+      <div class="col-md-12 col-lg-4 mb-sm-8" data-aos="fade-in">
+              
+                        <article class="card h-100">
+                            <a class="text-inherit text-white" target="_blank" href="${
+															item.link
+														}">
+                                <div class="card-img-top position-relative ">
+                                    <img class="card-img-top " src="${
+																			item.thumbnail
+																		}" >
+
+                                </div>
+
+                                <div class="card-body ">
+                                    <h3 class="text-white">${shortenText(
+																			item.title,
+																			0,
+																			50
+																		)}</h3>
+                                    <p>${
+																			shortenText(toText(item.content), 0, 95) +
+																			"..."
+																		}</p>
+                                </div>
+                            </a>
+
+                        </article>
+                       
+                    </div>`;
+						});
+						document.querySelector(".blog__slider").innerHTML = output;
+					});
+
+				// initialization of header
+				var header = new HSHeader($("#header")).init();
+
+				// initialization of mega menu
+				var megaMenu = new HSMegaMenu($(".js-mega-menu")).init();
+
+				// initialization of unfold
+				var unfold = new HSUnfold(".js-hs-unfold-invoker").init();
+
+				// initialization of scroll nav
+				var isClosed = false;
+
+				$(".js-scroll-nav").each(function () {
+					var scrollNav = new HSScrollNav($(this), {
+						beforeShow: function () {
+							if (window.innerWidth < 768) {
+								$("#navBar")
+									.collapse("hide")
+									.on("hidden.bs.collapse", function () {
+										isClosed = true;
+									});
+							} else {
+								isClosed = true;
+							}
+
+							return isClosed;
+						},
+						afterShow: function () {
+							isClosed = false;
+						},
+					}).init();
+				});
+
+				// initialization of fancybox
+				$(".js-fancybox").each(function () {
+					var fancybox = $.HSCore.components.HSFancyBox.init($(this));
+				});
+
+				// initialization of sticky blocks
+				$(".js-sticky-block").each(function () {
+					var stickyBlock = new HSStickyBlock($(this)).init();
+				});
+
+				// initialization of slick carousel
+				$(".js-slick-carousel").each(function () {
+					var slickCarousel = $.HSCore.components.HSSlickCarousel.init($(this));
+				});
+
+				// initialization of video player
+				$(".js-inline-video-player").each(function () {
+					var videoPlayer = new HSVideoPlayer($(this)).init();
+				});
+
+				// initialization of aos
+				AOS.init({
+					duration: 650,
+					once: true,
+				});
+
+				// initialization of go to
+				$(".js-go-to").each(function () {
+					var goTo = new HSGoTo($(this)).init();
+				});
+
+				// initialization of circles
+				$(".js-circle").each(function () {
+					var circle = $.HSCore.components.HSCircles.init($(this));
+				});
+			});
+		</script>
+
+		<!-- IE Support -->
+		<script>
+			if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+				document.write('<script src="assets/vendor/polifills.js"><\/script>');
+		</script>
+	</body>
+</html>
