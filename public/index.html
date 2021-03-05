@@ -2132,38 +2132,42 @@
 		<script src="assets/js/hs.slick-carousel.js"></script>
 
 		<script type="module">
-			import { client } from "https://unpkg.com/@devprotocol/dev-kit@3.8.2/esm/client/index.bundled.js?module";
-			client.getStats().then((value) => {
-				$("#marketcap").text(
-					"$ " + commaSeparateNumber(value.marketCap.toFixed(0))
-				);
-				$("#marketcap2").text(
-					"$ " + commaSeparateNumber(value.marketCap.toFixed(0))
-				);
-				$("#assetsonboarded").text(commaSeparateNumber(value.assetOnboarded));
-				$("#creatorapy").text((value.creatorAPY * 100).toFixed(2) + "%");
-				$("#creatorrewards").text(
-					commaSeparateNumber(value.creatorsRewardsDEV.toFixed(0))
-				);
-				$("#creatorrewardsusd").text(
-					"$ " + commaSeparateNumber(value.creatorsRewardsUSD.toFixed(0))
-				);
-				$("#devprice").text("$ " + value.devPrice.toFixed(2));
-				$("#stakerapy").text((value.stakerAPY * 100).toFixed(2) + "%");
-				$("#stakingamount").text(
-					"$ " +
-						commaSeparateNumber(
-							(value.stakingAmount * value.devPrice).toFixed(0)
-						)
-				);
-				$("#totalcap").text(
-					"$ " + commaSeparateNumber(value.totalCap.toFixed(0))
-				);
-				$("#supplygrowth").text(
-					(value.annualSupplyGrowthRatio * 100).toFixed(2) + "%"
-				);
-				$("#stakingratio").text((value.stakingRatio * 100).toFixed(2) + "%");
-			});
+			import { client } from "https://unpkg.com/@devprotocol/dev-kit@4.3.0/bundled/client/index.js";
+			client
+				.getStats(
+					"https://eth-mainnet.alchemyapi.io/v2/gvTiIbt2B6x4Fzb8y-BdufFI3gvY7ReA"
+				)
+				.then((value) => {
+					$("#marketcap").text(
+						"$ " + commaSeparateNumber(value.marketCap.toFixed(0))
+					);
+					$("#marketcap2").text(
+						"$ " + commaSeparateNumber(value.marketCap.toFixed(0))
+					);
+					$("#assetsonboarded").text(commaSeparateNumber(value.assetOnboarded));
+					$("#creatorapy").text((value.creatorAPY * 100).toFixed(2) + "%");
+					$("#creatorrewards").text(
+						commaSeparateNumber(value.creatorsRewardsDEV.toFixed(0))
+					);
+					$("#creatorrewardsusd").text(
+						"$ " + commaSeparateNumber(value.creatorsRewardsUSD.toFixed(0))
+					);
+					$("#devprice").text("$ " + value.devPrice.toFixed(2));
+					$("#stakerapy").text((value.stakerAPY * 100).toFixed(2) + "%");
+					$("#stakingamount").text(
+						"$ " +
+							commaSeparateNumber(
+								(value.stakingAmount * value.devPrice).toFixed(0)
+							)
+					);
+					$("#totalcap").text(
+						"$ " + commaSeparateNumber(value.totalCap.toFixed(0))
+					);
+					$("#supplygrowth").text(
+						(value.annualSupplyGrowthRatio * 100).toFixed(2) + "%"
+					);
+					$("#stakingratio").text((value.stakingRatio * 100).toFixed(2) + "%");
+				});
 			function commaSeparateNumber(val) {
 				while (/(\d+)(\d{3})/.test(val.toString())) {
 					val = val.toString().replace(/(\d+)(\d{3})/, "$1" + "," + "$2");
