@@ -1,291 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script
-		async
-		src="https://www.googletagmanager.com/gtag/js?id=UA-189612836-3"
-	></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag("js", new Date());
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=UA-189612836-3"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
 
-		gtag("config", "UA-189612836-3");
-	</script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
-	<script>
-		window.addEventListener("load",async () => {
-			window.cookieconsent.initialise({
-				"palette": {
-					"popup": {
-						"background": "#fafafa"
+			gtag("config", "UA-189612836-3");
+		</script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+			data-cfasync="false"
+		></script>
+		<script>
+			window.addEventListener("load", async () => {
+				window.cookieconsent.initialise({
+					palette: {
+						popup: {
+							background: "#fafafa",
+						},
+						button: {
+							background: "#000000",
+							text: "#ffffff",
+						},
 					},
-					"button": {
-						"background": "#000000",
-						"text": "#ffffff"
-					}
-				},
-				"showLink": false,
-				"position": "bottom-right"
+					showLink: false,
+					position: "bottom-right",
+				});
 			});
-		});
-	</script>
+		</script>
 
-	<!-- Title -->
-	<title>Code of Conduct | Dev Protocol</title>
+		<!-- Title -->
+		<title>Code of Conduct | Dev Protocol</title>
 
-	<meta property="og:title" content="Dev Protocol" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://devprotocol.xyz/" />
-	<meta
-		property="og:image"
-		content="https://devprotocol.xyz/assets/img/og.png"
-	/>
-	<meta property="og:description" content="It's Time to Tokenize OSS." />
+		<meta property="og:title" content="Dev Protocol" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://devprotocol.xyz/" />
+		<meta
+			property="og:image"
+			content="https://devprotocol.xyz/assets/img/og.png"
+		/>
+		<meta property="og:description" content="It's Time to Tokenize OSS." />
 
-	<!-- Required Meta Tags Always Come First -->
-	<meta charset="utf-8" />
-	<meta
-		name="viewport"
-		content="width=device-width, initial-scale=1, shrink-to-fit=no"
-	/>
+		<!-- Required Meta Tags Always Come First -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
 
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="favicon.png" />
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="favicon.png" />
 
-	<!-- Font -->
-	<link
-		href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap"
-		rel="stylesheet"
-	/>
+		<!-- Font -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap"
+			rel="stylesheet"
+		/>
 
-	<!-- CSS Implementing Plugins -->
-	<link rel="stylesheet" href="assets/vendor/font-awesome/css/all.min.css" />
-	<link
-		rel="stylesheet"
-		href="assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css"
-	/>
-	<link
-		rel="stylesheet"
-		href="assets/vendor/fancybox/dist/jquery.fancybox.min.css"
-	/>
-	<link
-		rel="stylesheet"
-		href="assets/vendor/slick-carousel/slick/slick.css"
-	/>
-	<link rel="stylesheet" href="assets/vendor/aos/dist/aos.css" />
+		<!-- CSS Implementing Plugins -->
+		<link rel="stylesheet" href="assets/vendor/font-awesome/css/all.min.css" />
+		<link
+			rel="stylesheet"
+			href="assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/fancybox/dist/jquery.fancybox.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/slick-carousel/slick/slick.css"
+		/>
+		<link rel="stylesheet" href="assets/vendor/aos/dist/aos.css" />
 
-	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-	<!-- CSS DEV Protocol Template -->
-	<link rel="stylesheet" href="assets/css/theme.css" />
+		<!-- CSS DEV Protocol Template -->
+		<link rel="stylesheet" href="assets/css/theme.css" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
-		rel="stylesheet"
-	/>
-	<link rel="preconnect" href="https://fonts.gstatic.com" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
-		rel="stylesheet"
-	/>
-	<link rel="preconnect" href="https://fonts.gstatic.com" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
-		rel="stylesheet"
-	/>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
-		rel="stylesheet"
-	/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+			rel="stylesheet"
+		/>
 
-	<style>
-		@font-face {
-			font-family: "Whyte Inktrap";
-			src: url("https://devstaticasset.azureedge.net/font/ABCWhyteInktrap-Bold.woff2")
-			format("woff2");
-		}
-
-		@font-face {
-			font-family: "Whyte-Regular";
-			src: url("https://devstaticasset.azureedge.net/font/ABCWhyteInktrap-Regular.woff2")
-			format("woff2");
-		}
-
-		div.scrolling-limit {
-			overflow: hidden;
-			white-space: nowrap;
-		}
-
-		div.scrolling {
-			position: relative;
-			-webkit-animation: scroll 20s infinite linear;
-			-moz-animation: scroll 20s infinite linear;
-			-o-animation: scroll 20s infinite linear;
-			animation: scroll 20s infinite linear;
-		}
-
-		@keyframes scroll {
-			0% {
-				left: 500px;
+		<style>
+			@font-face {
+				font-family: "Whyte Inktrap";
+				src: url("https://devstaticasset.azureedge.net/font/ABCWhyteInktrap-Bold.woff2")
+					format("woff2");
 			}
-			100% {
-				left: -950px;
-			}
-		}
 
-		@-webkit-keyframes scroll {
-			0% {
-				left: 500px;
+			@font-face {
+				font-family: "Whyte-Regular";
+				src: url("https://devstaticasset.azureedge.net/font/ABCWhyteInktrap-Regular.woff2")
+					format("woff2");
 			}
-			100% {
-				left: -950px;
-			}
-		}
-	</style>
-</head>
 
-<body id="homeSection">
-<!-- ========== HEADER ========== -->
-<header
-	id="header"
-	class="header header-bg-transparent-lg header-white-nav-links-lg header-abs-top-lg header-show-hide-lg"
-	data-hs-header-options='{
+			div.scrolling-limit {
+				overflow: hidden;
+				white-space: nowrap;
+			}
+
+			div.scrolling {
+				position: relative;
+				-webkit-animation: scroll 20s infinite linear;
+				-moz-animation: scroll 20s infinite linear;
+				-o-animation: scroll 20s infinite linear;
+				animation: scroll 20s infinite linear;
+			}
+
+			@keyframes scroll {
+				0% {
+					left: 500px;
+				}
+				100% {
+					left: -950px;
+				}
+			}
+
+			@-webkit-keyframes scroll {
+				0% {
+					left: 500px;
+				}
+				100% {
+					left: -950px;
+				}
+			}
+		</style>
+	</head>
+
+	<body id="homeSection">
+		<!-- ========== HEADER ========== -->
+		<header
+			id="header"
+			class="header header-bg-transparent-lg header-white-nav-links-lg header-abs-top-lg header-show-hide-lg"
+			data-hs-header-options='{
          "fixMoment": 2050,
          "fixEffect":"slide"
         }'
->
-	<div class="header-section">
-		<div id="logoAndNav" class="container">
-			<!-- Nav -->
-			<nav class="js-mega-menu navbar navbar-expand-lg">
-				<!-- White Logo -->
-				<a
-					class="navbar-brand navbar-brand-default pt-4"
-					href="/"
-					aria-label="Front"
-				>
-					<img src="assets/img/devlogo.svg" alt="Logo" />
-				</a>
-				<!-- End White Logo -->
+		>
+			<div class="header-section">
+				<div id="logoAndNav" class="container">
+					<!-- Nav -->
+					<nav class="js-mega-menu navbar navbar-expand-lg">
+						<!-- White Logo -->
+						<a
+							class="navbar-brand navbar-brand-default pt-4"
+							href="/"
+							aria-label="Front"
+						>
+							<img src="assets/img/devlogo.svg" alt="Logo" />
+						</a>
+						<!-- End White Logo -->
 
-				<!-- Default Logo -->
-				<a
-					class="navbar-brand navbar-brand-collapsed"
-					href="/"
-					aria-label="Front"
-				>
-					<img src="assets/img/devlogo.svg" alt="Logo" />
-				</a>
-				<!-- End Default Logo -->
+						<!-- Default Logo -->
+						<a
+							class="navbar-brand navbar-brand-collapsed"
+							href="/"
+							aria-label="Front"
+						>
+							<img src="assets/img/devlogo.svg" alt="Logo" />
+						</a>
+						<!-- End Default Logo -->
 
-				<!-- On Scroll Logo -->
-				<a
-					class="navbar-brand navbar-brand-on-scroll"
-					href="/"
-					aria-label="Front"
-				>
-					<img src="assets/img/devmark.png" alt="Logo" />
-				</a>
-				<!-- End On Scroll Logo -->
-			</nav>
-			<!-- End Nav -->
-		</div>
-	</div>
-</header>
-
-<!-- ========== END HEADER ========== -->
-
-<!-- ========== MAIN CONTENT ========== -->
-<main id="content" role="main">
-	<!-- Hero Section -->
-
-	<div style="background: #0a0a0a">
-		<div class="container space-top-lg-4">
-			<div class="row justify-content-lg-between">
-				<div class="col-lg-12">
-					<!-- Info -->
-					<div class="">
-						<h1 class="text-white mb-5">Code of Conduct</h1>
-						<h2 class="text-white mb-2">Our Pledge</h2>
-						<p>
-							In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
-						</p>
-						<h2 class="text-white mb-2">Our Standards</h2>
-						<p>
-							Examples of behavior that contributes to creating a positive environment include:
-						</p>
-						<ul class="text-white mb-3">
-							<li>Using welcoming and inclusive language</li>
-							<li>Being respectful of differing viewpoints and experiences</li>
-							<li>Gracefully accepting constructive criticism</li>
-							<li>Focusing on what is best for the community</li>
-							<li>Showing empathy towards other community members</li>
-						</ul>
-						<p>
-							Examples of unacceptable behavior by participants include:
-						</p>
-						<ul class="text-white">
-							<li>The use of sexualized language or imagery and unwelcome sexual attention or advances</li>
-							<li>Trolling, insulting/derogatory comments, and personal or political attacks</li>
-							<li>Public or private harassment</li>
-							<li>Publishing others' private information, such as a physical or electronic address, without explicit permission</li>
-							<li>Other conduct which could reasonably be considered inappropriate in a professional setting</li>
-						</ul>
-						<h2 class="text-white mb-2">Our Responsibilities</h2>
-						<p>
-							Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.<br>
-							<br>
-							Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
-						</p>
-						<h2 class="text-white mb-2">Scope</h2>
-						<p>
-							This Code of Conduct applies within all project spaces, and it also applies when an individual is representing the project or its community in public spaces. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
-						</p>
-						<h2 class="text-white mb-2">Enforcement</h2>
-						<p>
-							Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at hi@devtoken.rocks. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.<br>
-							<br>
-							Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
-						</p>
-						<h2 class="text-white mb-2">Attribution</h2>
-						<p class="mb-0">
-							This Code of Conduct is adapted from the <a href="https://www.contributor-covenant.org/" target="_blank">Contributor Covenant</a>, version 1.4, available at <a href="https://www.contributor-covenant.org/version/1/4/code-of-conduct.html" target="_blank">https://www.contributor-covenant.org/version/1/4/code-of-conduct.html</a><br>
-							<br>
-							For answers to common questions about this code of conduct, see <a href="https://www.contributor-covenant.org/faq" target="_blank">https://www.contributor-covenant.org/faq</a>
-						</p>
-					</div>
-					<!-- End Info -->
+						<!-- On Scroll Logo -->
+						<a
+							class="navbar-brand navbar-brand-on-scroll"
+							href="/"
+							aria-label="Front"
+						>
+							<img src="assets/img/devmark.png" alt="Logo" />
+						</a>
+						<!-- End On Scroll Logo -->
+					</nav>
+					<!-- End Nav -->
 				</div>
 			</div>
-		</div>
-	</div>
+		</header>
 
-	<!-- End Hero Section -->
-</main>
-<!-- ========== END MAIN CONTENT ========== -->
+		<!-- ========== END HEADER ========== -->
 
-<!-- ========== FOOTER ========== -->
-<!-- Stories Section -->
-<div id="community" class="bg-dark space-1">
-	<div class="container space-top-2">
-		<div class="row justify-content-md-between mb-6">
-			<div class="col-lg-6 col-lg-5 mb-3 mb-md-0">
-				<a href="#" aria-label="Front">
-					<img class="brand" src="assets/img/devlogo.svg" alt="Logo" />
-				</a>
+		<!-- ========== MAIN CONTENT ========== -->
+		<main id="content" role="main">
+			<!-- Hero Section -->
 
-				<!--     <img class="img-fluid space-top-1 d-none d-md-block " src="assets/img/illustrations/Footer.svg" alt=""> -->
+			<div style="background: #0a0a0a">
+				<div class="container space-top-lg-4">
+					<div class="row justify-content-lg-between">
+						<div class="col-lg-12">
+							<!-- Info -->
+							<div class="">
+								<h1 class="text-white mb-5">Code of Conduct</h1>
+								<h2 class="text-white mb-2">Our Pledge</h2>
+								<p>
+									In the interest of fostering an open and welcoming
+									environment, we as contributors and maintainers pledge to
+									making participation in our project and our community a
+									harassment-free experience for everyone, regardless of age,
+									body size, disability, ethnicity, sex characteristics, gender
+									identity and expression, level of experience, education,
+									socio-economic status, nationality, personal appearance, race,
+									religion, or sexual identity and orientation.
+								</p>
+								<h2 class="text-white mb-2">Our Standards</h2>
+								<p>
+									Examples of behavior that contributes to creating a positive
+									environment include:
+								</p>
+								<ul class="text-white mb-3">
+									<li>Using welcoming and inclusive language</li>
+									<li>
+										Being respectful of differing viewpoints and experiences
+									</li>
+									<li>Gracefully accepting constructive criticism</li>
+									<li>Focusing on what is best for the community</li>
+									<li>Showing empathy towards other community members</li>
+								</ul>
+								<p>
+									Examples of unacceptable behavior by participants include:
+								</p>
+								<ul class="text-white">
+									<li>
+										The use of sexualized language or imagery and unwelcome
+										sexual attention or advances
+									</li>
+									<li>
+										Trolling, insulting/derogatory comments, and personal or
+										political attacks
+									</li>
+									<li>Public or private harassment</li>
+									<li>
+										Publishing others' private information, such as a physical
+										or electronic address, without explicit permission
+									</li>
+									<li>
+										Other conduct which could reasonably be considered
+										inappropriate in a professional setting
+									</li>
+								</ul>
+								<h2 class="text-white mb-2">Our Responsibilities</h2>
+								<p>
+									Project maintainers are responsible for clarifying the
+									standards of acceptable behavior and are expected to take
+									appropriate and fair corrective action in response to any
+									instances of unacceptable behavior.<br />
+									<br />
+									Project maintainers have the right and responsibility to
+									remove, edit, or reject comments, commits, code, wiki edits,
+									issues, and other contributions that are not aligned to this
+									Code of Conduct, or to ban temporarily or permanently any
+									contributor for other behaviors that they deem inappropriate,
+									threatening, offensive, or harmful.
+								</p>
+								<h2 class="text-white mb-2">Scope</h2>
+								<p>
+									This Code of Conduct applies within all project spaces, and it
+									also applies when an individual is representing the project or
+									its community in public spaces. Examples of representing a
+									project or community include using an official project e-mail
+									address, posting via an official social media account, or
+									acting as an appointed representative at an online or offline
+									event. Representation of a project may be further defined and
+									clarified by project maintainers.
+								</p>
+								<h2 class="text-white mb-2">Enforcement</h2>
+								<p>
+									Instances of abusive, harassing, or otherwise unacceptable
+									behavior may be reported by contacting the project team at
+									hi@devtoken.rocks. All complaints will be reviewed and
+									investigated and will result in a response that is deemed
+									necessary and appropriate to the circumstances. The project
+									team is obligated to maintain confidentiality with regard to
+									the reporter of an incident. Further details of specific
+									enforcement policies may be posted separately.<br />
+									<br />
+									Project maintainers who do not follow or enforce the Code of
+									Conduct in good faith may face temporary or permanent
+									repercussions as determined by other members of the project's
+									leadership.
+								</p>
+								<h2 class="text-white mb-2">Attribution</h2>
+								<p class="mb-0">
+									This Code of Conduct is adapted from the
+									<a
+										href="https://www.contributor-covenant.org/"
+										target="_blank"
+										>Contributor Covenant</a
+									>, version 1.4, available at
+									<a
+										href="https://www.contributor-covenant.org/version/1/4/code-of-conduct.html"
+										target="_blank"
+										>https://www.contributor-covenant.org/version/1/4/code-of-conduct.html</a
+									><br />
+									<br />
+									For answers to common questions about this code of conduct,
+									see
+									<a
+										href="https://www.contributor-covenant.org/faq"
+										target="_blank"
+										>https://www.contributor-covenant.org/faq</a
+									>
+								</p>
+							</div>
+							<!-- End Info -->
+						</div>
+					</div>
+				</div>
 			</div>
 
-			<div class="col-lg-6 space-top-md-2 space-top-lg-0">
-				<!-- Form
+			<!-- End Hero Section -->
+		</main>
+		<!-- ========== END MAIN CONTENT ========== -->
+
+		<!-- ========== FOOTER ========== -->
+		<!-- Stories Section -->
+		<div id="community" class="bg-dark space-1">
+			<div class="container space-top-2">
+				<div class="row justify-content-md-between mb-6">
+					<div class="col-lg-6 col-lg-5 mb-3 mb-md-0">
+						<a href="#" aria-label="Front">
+							<img class="brand" src="assets/img/devlogo.svg" alt="Logo" />
+						</a>
+
+						<!--     <img class="img-fluid space-top-1 d-none d-md-block " src="assets/img/illustrations/Footer.svg" alt=""> -->
+					</div>
+
+					<div class="col-lg-6 space-top-md-2 space-top-lg-0">
+						<!-- Form
 								<p class=" text-white small space-top-1">Subscribe for updates</p>
 								<form class="js-validate mb-2">
 										<label class="sr-only" for="signupSrEmail">Email</label>
@@ -298,103 +368,103 @@
 								</form>
 								<!-- End Form -->
 
-				<p class="text-white small">Get in touch with us at</p>
-				<h2>
-					<a target="_blank" class="random" href="mailto:hi@devprotocol.xyz"
-					>hi@devprotocol.xyz</a
-					>
-				</h2>
-				<div class="row space-top-2">
-					<div class="col-6 col-md-3 py-3">
-						<h3>
-							<a
-								target="_blank"
-								class="random"
-								style="font-size: 1.1rem"
-								href="https://discord.gg/VwJp4KM"
-							>Discord</a
+						<p class="text-white small">Get in touch with us at</p>
+						<h2>
+							<a target="_blank" class="random" href="mailto:hi@devprotocol.xyz"
+								>hi@devprotocol.xyz</a
 							>
-						</h3>
-					</div>
-					<div class="col-6 col-md-3 py-3">
-						<h3 class="ml-1">
-							<a
-								class="random"
-								style="font-size: 1.1rem"
-								href="https://twitter.com/devprtcl"
-							>Twitter</a
-							>
-						</h3>
-					</div>
-					<div class="col-6 col-md-3 py-3">
-						<h3 class="ml-1">
-							<a
-								class="random"
-								style="font-size: 1.1rem"
-								target="_blank"
-								href="https://docs.devprotocol.xyz"
-							>Docs</a
-							>
-						</h3>
-					</div>
+						</h2>
+						<div class="row space-top-2">
+							<div class="col-6 col-md-3 py-3">
+								<h3>
+									<a
+										target="_blank"
+										class="random"
+										style="font-size: 1.1rem"
+										href="https://discord.gg/VwJp4KM"
+										>Discord</a
+									>
+								</h3>
+							</div>
+							<div class="col-6 col-md-3 py-3">
+								<h3 class="ml-1">
+									<a
+										class="random"
+										style="font-size: 1.1rem"
+										href="https://twitter.com/devprtcl"
+										>Twitter</a
+									>
+								</h3>
+							</div>
+							<div class="col-6 col-md-3 py-3">
+								<h3 class="ml-1">
+									<a
+										class="random"
+										style="font-size: 1.1rem"
+										target="_blank"
+										href="https://docs.devprotocol.xyz"
+										>Docs</a
+									>
+								</h3>
+							</div>
 
-					<div class="col-6 col-md-3 py-3">
-						<h3>
-							<a
-								target="_blank"
-								class="random"
-								style="font-size: 1.1rem"
-								href="https://github.com/dev-protocol"
-							>GitHub</a
-							>
-						</h3>
-					</div>
-					<div class="col-6 col-md-3 py-3">
-						<h3 class="ml-1">
-							<a
-								target="_blank"
-								class="random"
-								style="font-size: 1.1rem"
-								href="https://t.me/devprtcl"
-							>Telegram</a
-							>
-						</h3>
-					</div>
-					<div class="col-6 col-md-3 py-3">
-						<h3 class="ml-1">
-							<a
-								target="_blank"
-								class="random"
-								style="font-size: 1.1rem"
-								href="https://medium.com/devprtcl"
-							>Medium</a
-							>
-						</h3>
-					</div>
-					<div class="col-6 col-md-3 py-3">
-						<h3 class="ml-1">
-							<a
-								target="_blank"
-								class="random"
-								style="font-size: 1.1rem"
-								href="https://initto.devprotocol.xyz/"
-							>INITTO</a
-							>
-						</h3>
+							<div class="col-6 col-md-3 py-3">
+								<h3>
+									<a
+										target="_blank"
+										class="random"
+										style="font-size: 1.1rem"
+										href="https://github.com/dev-protocol"
+										>GitHub</a
+									>
+								</h3>
+							</div>
+							<div class="col-6 col-md-3 py-3">
+								<h3 class="ml-1">
+									<a
+										target="_blank"
+										class="random"
+										style="font-size: 1.1rem"
+										href="https://t.me/devprtcl"
+										>Telegram</a
+									>
+								</h3>
+							</div>
+							<div class="col-6 col-md-3 py-3">
+								<h3 class="ml-1">
+									<a
+										target="_blank"
+										class="random"
+										style="font-size: 1.1rem"
+										href="https://medium.com/devprtcl"
+										>Medium</a
+									>
+								</h3>
+							</div>
+							<div class="col-6 col-md-3 py-3">
+								<h3 class="ml-1">
+									<a
+										target="_blank"
+										class="random"
+										style="font-size: 1.1rem"
+										href="https://initto.devprotocol.xyz/"
+										>INITTO</a
+									>
+								</h3>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-<!-- End Stories Section -->
+		<!-- End Stories Section -->
 
-<!-- Go to Top -->
-<a
-	class="js-go-to go-to position-fixed"
-	href="javascript:;"
-	style="visibility: hidden"
-	data-hs-go-to-options='{
+		<!-- Go to Top -->
+		<a
+			class="js-go-to go-to position-fixed"
+			href="javascript:;"
+			style="visibility: hidden"
+			data-hs-go-to-options='{
       "offsetTop": 700,
       "position": {
         "init": {
@@ -408,99 +478,99 @@
          }
        }
      }'
->
-	<i class="fas fa-angle-up"></i>
-</a>
-<!-- End Go to Top -->
+		>
+			<i class="fas fa-angle-up"></i>
+		</a>
+		<!-- End Go to Top -->
 
-<!-- JS Global Compulsory -->
-<script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-<script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- JS Global Compulsory -->
+		<script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+		<script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+		<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- JS Implementing Plugins -->
-<script src="assets/vendor/appear.js"></script>
-<script src="assets/vendor/circles/circles.min.js"></script>
-<script src="assets/vendor/hs-header/dist/hs-header.min.js"></script>
-<script src="assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
-<script src="assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js"></script>
-<script src="assets/vendor/hs-unfold/dist/hs-unfold.min.js"></script>
-<script src="assets/vendor/hs-sticky-block/dist/hs-sticky-block.min.js"></script>
-<script src="assets/vendor/hs-scroll-nav/dist/hs-scroll-nav.min.js"></script>
-<script src="assets/vendor/hs-video-player/dist/hs-video-player.min.js"></script>
-<script src="assets/vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+		<!-- JS Implementing Plugins -->
+		<script src="assets/vendor/appear.js"></script>
+		<script src="assets/vendor/circles/circles.min.js"></script>
+		<script src="assets/vendor/hs-header/dist/hs-header.min.js"></script>
+		<script src="assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
+		<script src="assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js"></script>
+		<script src="assets/vendor/hs-unfold/dist/hs-unfold.min.js"></script>
+		<script src="assets/vendor/hs-sticky-block/dist/hs-sticky-block.min.js"></script>
+		<script src="assets/vendor/hs-scroll-nav/dist/hs-scroll-nav.min.js"></script>
+		<script src="assets/vendor/hs-video-player/dist/hs-video-player.min.js"></script>
+		<script src="assets/vendor/fancybox/dist/jquery.fancybox.min.js"></script>
 
-<script src="assets/vendor/slick-carousel/slick/slick.js"></script>
-<script src="assets/vendor/aos/dist/aos.js"></script>
+		<script src="assets/vendor/slick-carousel/slick/slick.js"></script>
+		<script src="assets/vendor/aos/dist/aos.js"></script>
 
-<!-- JS DEV Protocol -->
-<script src="assets/js/hs.core.js"></script>
-<script src="assets/js/hs.circles.js"></script>
-<script src="assets/js/hs.fancybox.js"></script>
-<script src="assets/js/hs.slick-carousel.js"></script>
+		<!-- JS DEV Protocol -->
+		<script src="assets/js/hs.core.js"></script>
+		<script src="assets/js/hs.circles.js"></script>
+		<script src="assets/js/hs.fancybox.js"></script>
+		<script src="assets/js/hs.slick-carousel.js"></script>
 
-<script type="module">
-	import { client } from "https://unpkg.com/@devprotocol/dev-kit@4.3.0/bundled/client/index.js";
-	client
-		.getStats(
-			"https://eth-mainnet.alchemyapi.io/v2/gvTiIbt2B6x4Fzb8y-BdufFI3gvY7ReA"
-		)
-		.then((value) => {
-			$("#marketcap").text(
-				"$ " + commaSeparateNumber(value.marketCap.toFixed(0))
-			);
-			$("#marketcap2").text(
-				"$ " + commaSeparateNumber(value.marketCap.toFixed(0))
-			);
-			$("#assetsonboarded").text(commaSeparateNumber(value.assetOnboarded));
-			$("#creatorapy").text((value.creatorAPY * 100).toFixed(2) + "%");
-			$("#creatorrewards").text(
-				commaSeparateNumber(value.creatorsRewardsDEV.toFixed(0))
-			);
-			$("#creatorrewardsusd").text(
-				"$ " + commaSeparateNumber(value.creatorsRewardsUSD.toFixed(0))
-			);
-			$("#devprice").text("$ " + value.devPrice.toFixed(2));
-			$("#stakerapy").text((value.stakerAPY * 100).toFixed(2) + "%");
-			$("#stakingamount").text(
-				"$ " +
-				commaSeparateNumber(
-					(value.stakingAmount * value.devPrice).toFixed(0)
+		<script type="module">
+			import { client } from "https://unpkg.com/@devprotocol/dev-kit@4.3.0/bundled/client/index.js";
+			client
+				.getStats(
+					"https://eth-mainnet.alchemyapi.io/v2/gvTiIbt2B6x4Fzb8y-BdufFI3gvY7ReA"
 				)
-			);
-			$("#totalcap").text(
-				"$ " + commaSeparateNumber(value.totalCap.toFixed(0))
-			);
-			$("#supplygrowth").text(
-				(value.annualSupplyGrowthRatio * 100).toFixed(2) + "%"
-			);
-			$("#stakingratio").text((value.stakingRatio * 100).toFixed(2) + "%");
-		});
-	function commaSeparateNumber(val) {
-		while (/(\d+)(\d{3})/.test(val.toString())) {
-			val = val.toString().replace(/(\d+)(\d{3})/, "$1" + "," + "$2");
-		}
-		return val;
-	}
-</script>
-
-<!-- JS Plugins Init. -->
-<script>
-	$(document).on("ready", function () {
-		// randomization color
-		var colors = Array("#ff3815", "#d500e6", "#5b8bf5", "#00d0fd"),
-			idx;
-		$(".random").hover(
-			function () {
-				idx = Math.floor(Math.random() * colors.length); // Pick random index
-				$(this).css("color", colors[idx]);
-			},
-			function () {
-				$(this).css("color", "#ffffff");
+				.then((value) => {
+					$("#marketcap").text(
+						"$ " + commaSeparateNumber(value.marketCap.toFixed(0))
+					);
+					$("#marketcap2").text(
+						"$ " + commaSeparateNumber(value.marketCap.toFixed(0))
+					);
+					$("#assetsonboarded").text(commaSeparateNumber(value.assetOnboarded));
+					$("#creatorapy").text((value.creatorAPY * 100).toFixed(2) + "%");
+					$("#creatorrewards").text(
+						commaSeparateNumber(value.creatorsRewardsDEV.toFixed(0))
+					);
+					$("#creatorrewardsusd").text(
+						"$ " + commaSeparateNumber(value.creatorsRewardsUSD.toFixed(0))
+					);
+					$("#devprice").text("$ " + value.devPrice.toFixed(2));
+					$("#stakerapy").text((value.stakerAPY * 100).toFixed(2) + "%");
+					$("#stakingamount").text(
+						"$ " +
+							commaSeparateNumber(
+								(value.stakingAmount * value.devPrice).toFixed(0)
+							)
+					);
+					$("#totalcap").text(
+						"$ " + commaSeparateNumber(value.totalCap.toFixed(0))
+					);
+					$("#supplygrowth").text(
+						(value.annualSupplyGrowthRatio * 100).toFixed(2) + "%"
+					);
+					$("#stakingratio").text((value.stakingRatio * 100).toFixed(2) + "%");
+				});
+			function commaSeparateNumber(val) {
+				while (/(\d+)(\d{3})/.test(val.toString())) {
+					val = val.toString().replace(/(\d+)(\d{3})/, "$1" + "," + "$2");
+				}
+				return val;
 			}
-		);
+		</script>
 
-		/* randomization color Medium
+		<!-- JS Plugins Init. -->
+		<script>
+			$(document).on("ready", function () {
+				// randomization color
+				var colors = Array("#ff3815", "#d500e6", "#5b8bf5", "#00d0fd"),
+					idx;
+				$(".random").hover(
+					function () {
+						idx = Math.floor(Math.random() * colors.length); // Pick random index
+						$(this).css("color", colors[idx]);
+					},
+					function () {
+						$(this).css("color", "#ffffff");
+					}
+				);
+
+				/* randomization color Medium
 
 				var hovers = Array("red", "blue", "aqua", "purple")
 				idx = Math.floor(Math.random() * hovers.length); // Pick random index
@@ -512,142 +582,142 @@
 				idx = Math.floor(Math.random() * colors.length); // Pick random index
 				$(".MediumSection").css("background", colors[idx]); */
 
-		fetch(
-			"https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40scott_27716"
-		)
-			// fetch('https://medium.com/feed/@evejweinberg')
-			.then((res) => res.json())
-			.then((data) => {
-				// Filter for acctual posts. Comments don't have categories, therefore can filter for items with categories bigger than 0
-				const res = data.items; //This is an array with the content. No feed, no info about author etc..
-				const posts = res.filter((item) => item.categories.length > 0); // That's the main trick* !
+				fetch(
+					"https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40scott_27716"
+				)
+					// fetch('https://medium.com/feed/@evejweinberg')
+					.then((res) => res.json())
+					.then((data) => {
+						// Filter for acctual posts. Comments don't have categories, therefore can filter for items with categories bigger than 0
+						const res = data.items; //This is an array with the content. No feed, no info about author etc..
+						const posts = res.filter((item) => item.categories.length > 0); // That's the main trick* !
 
-				// Functions to create a short text out of whole blog's content
-				function toText(node) {
-					let tag = document.createElement("div");
-					tag.innerHTML = node;
-					node = tag.innerText;
-					return node;
-				}
+						// Functions to create a short text out of whole blog's content
+						function toText(node) {
+							let tag = document.createElement("div");
+							tag.innerHTML = node;
+							node = tag.innerText;
+							return node;
+						}
 
-				function shortenText(text, startingPoint, maxLength) {
-					return text.length > maxLength
-						? text.slice(startingPoint, maxLength)
-						: text;
-				}
+						function shortenText(text, startingPoint, maxLength) {
+							return text.length > maxLength
+								? text.slice(startingPoint, maxLength)
+								: text;
+						}
 
-				// Put things in right spots of markup
-				let output = "";
-				posts.slice(0, 3).forEach((item) => {
-					output += `
+						// Put things in right spots of markup
+						let output = "";
+						posts.slice(0, 3).forEach((item) => {
+							output += `
       <div class="col-md-12 col-lg-4 mb-sm-8" data-aos="fade-in">
 
                         <article class="card h-100">
                             <a class="text-inherit text-white" target="_blank" href="${
-						item.link
-					}">
+															item.link
+														}">
                                 <div class="card-img-top position-relative ">
                                     <img class="card-img-top " src="${
-						item.thumbnail
-					}" >
+																			item.thumbnail
+																		}" >
 
                                 </div>
 
                                 <div class="card-body ">
                                     <h3 class="text-white">${shortenText(
-						item.title,
-						0,
-						50
-					)}</h3>
+																			item.title,
+																			0,
+																			50
+																		)}</h3>
                                     <p>${
-						shortenText(toText(item.content), 0, 95) +
-						"..."
-					}</p>
+																			shortenText(toText(item.content), 0, 95) +
+																			"..."
+																		}</p>
                                 </div>
                             </a>
 
                         </article>
 
                     </div>`;
-				});
-				document.querySelector(".blog__slider").innerHTML = output;
-			});
+						});
+						document.querySelector(".blog__slider").innerHTML = output;
+					});
 
-		// initialization of header
-		var header = new HSHeader($("#header")).init();
+				// initialization of header
+				var header = new HSHeader($("#header")).init();
 
-		// initialization of mega menu
-		var megaMenu = new HSMegaMenu($(".js-mega-menu")).init();
+				// initialization of mega menu
+				var megaMenu = new HSMegaMenu($(".js-mega-menu")).init();
 
-		// initialization of unfold
-		var unfold = new HSUnfold(".js-hs-unfold-invoker").init();
+				// initialization of unfold
+				var unfold = new HSUnfold(".js-hs-unfold-invoker").init();
 
-		// initialization of scroll nav
-		var isClosed = false;
+				// initialization of scroll nav
+				var isClosed = false;
 
-		$(".js-scroll-nav").each(function () {
-			var scrollNav = new HSScrollNav($(this), {
-				beforeShow: function () {
-					if (window.innerWidth < 768) {
-						$("#navBar")
-							.collapse("hide")
-							.on("hidden.bs.collapse", function () {
+				$(".js-scroll-nav").each(function () {
+					var scrollNav = new HSScrollNav($(this), {
+						beforeShow: function () {
+							if (window.innerWidth < 768) {
+								$("#navBar")
+									.collapse("hide")
+									.on("hidden.bs.collapse", function () {
+										isClosed = true;
+									});
+							} else {
 								isClosed = true;
-							});
-					} else {
-						isClosed = true;
-					}
+							}
 
-					return isClosed;
-				},
-				afterShow: function () {
-					isClosed = false;
-				},
-			}).init();
-		});
+							return isClosed;
+						},
+						afterShow: function () {
+							isClosed = false;
+						},
+					}).init();
+				});
 
-		// initialization of fancybox
-		$(".js-fancybox").each(function () {
-			var fancybox = $.HSCore.components.HSFancyBox.init($(this));
-		});
+				// initialization of fancybox
+				$(".js-fancybox").each(function () {
+					var fancybox = $.HSCore.components.HSFancyBox.init($(this));
+				});
 
-		// initialization of sticky blocks
-		$(".js-sticky-block").each(function () {
-			var stickyBlock = new HSStickyBlock($(this)).init();
-		});
+				// initialization of sticky blocks
+				$(".js-sticky-block").each(function () {
+					var stickyBlock = new HSStickyBlock($(this)).init();
+				});
 
-		// initialization of slick carousel
-		$(".js-slick-carousel").each(function () {
-			var slickCarousel = $.HSCore.components.HSSlickCarousel.init($(this));
-		});
+				// initialization of slick carousel
+				$(".js-slick-carousel").each(function () {
+					var slickCarousel = $.HSCore.components.HSSlickCarousel.init($(this));
+				});
 
-		// initialization of video player
-		$(".js-inline-video-player").each(function () {
-			var videoPlayer = new HSVideoPlayer($(this)).init();
-		});
+				// initialization of video player
+				$(".js-inline-video-player").each(function () {
+					var videoPlayer = new HSVideoPlayer($(this)).init();
+				});
 
-		// initialization of aos
-		AOS.init({
-			duration: 650,
-			once: true,
-		});
+				// initialization of aos
+				AOS.init({
+					duration: 650,
+					once: true,
+				});
 
-		// initialization of go to
-		$(".js-go-to").each(function () {
-			var goTo = new HSGoTo($(this)).init();
-		});
+				// initialization of go to
+				$(".js-go-to").each(function () {
+					var goTo = new HSGoTo($(this)).init();
+				});
 
-		// initialization of circles
-		$(".js-circle").each(function () {
-			var circle = $.HSCore.components.HSCircles.init($(this));
-		});
-	});
-</script>
+				// initialization of circles
+				$(".js-circle").each(function () {
+					var circle = $.HSCore.components.HSCircles.init($(this));
+				});
+			});
+		</script>
 
-<!-- IE Support -->
-<script>
-	if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
-		document.write('<script src="assets/vendor/polifills.js"><\/script>');
-</script>
-</body>
+		<!-- IE Support -->
+		<script>
+			if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+				document.write('<script src="assets/vendor/polifills.js"><\/script>');
+		</script>
+	</body>
 </html>
