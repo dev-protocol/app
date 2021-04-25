@@ -7,11 +7,6 @@
 		"build": "echo nothing",
 		"lint": "prettier --write '**/*.{html,js,ts,css,json,md,yml}'"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "yarn lint"
-		}
-	},
 	"devDependencies": {
 		"husky": "6.0.0",
 		"prettier": "2.2.1"
