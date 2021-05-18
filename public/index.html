@@ -2207,9 +2207,8 @@
             $(".MediumSection").css("background", colors[idx]); */
 
 				fetch(
-					"https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40scott_27716"
+					"https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2Fdevprtcl"
 				)
-					// fetch('https://medium.com/feed/@evejweinberg')
 					.then((res) => res.json())
 					.then((data) => {
 						// Filter for acctual posts. Comments don't have categories, therefore can filter for items with categories bigger than 0
