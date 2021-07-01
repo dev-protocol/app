@@ -8,7 +8,7 @@
 		"lint": "prettier --write '**/*.{html,js,ts,css,json,md,yml}'"
 	},
 	"devDependencies": {
-		"husky": "6.0.0",
+		"husky": "7.0.0",
 		"prettier": "2.3.2"
 	},
 	"dependencies": {},
