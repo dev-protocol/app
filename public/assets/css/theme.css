@@ -5681,9 +5681,7 @@ input[type="button"].btn-block {
 	padding: 0.275rem 0.5em;
 	font-size: 50%;
 	font-weight: 700;
-	line-height: 1;
-	text-align: center;
-	white-space: nowrap;
+	text-align: left;
 	vertical-align: baseline;
 	border-radius: 0.3125rem;
 	transition: all 0.2s ease-in-out;
